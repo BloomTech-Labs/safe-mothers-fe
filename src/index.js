@@ -9,7 +9,7 @@ import './index.css';
 import App from './App';
 
 
-const composeEnhancers = window.__REDUX__DEVTOOLS_EXTENTION_COMPOSE_ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
