@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import List from './components/List'
-import Dashboard from './components/Dashboard'
+import List from './components/List';
+import Dashboard from './components/Dashboard';
 import FormikLoginForm from './components/Login';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
