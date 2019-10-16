@@ -1,15 +1,7 @@
-const initialState = {
-  id: ' 1',
-  firstName: '',
-  lastName: '',
-  email: '',
-  username: '',
+import {combineReducers} from "redux";
 
-};
+import loginReducer from "./loginReducer";
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) {
-    default:
-      return { ...state };
-  }
-};
+export default combineReducers({
+  loginReducer
+});
