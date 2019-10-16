@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Form, Field, withFormik, Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
+import './Login.css';
 
 // const useStyles = makeStyles({
 //   card: {
@@ -27,32 +28,33 @@ import { connect } from 'react-redux';
 //   }
 // });
 const LoginForm = (props, { status }) => {
-
-console.log("history", props.history)
   return (
     <>
-      <div className="container2">
-        <div>
-          <h2>Login Page</h2>
-          <Form>
+      <div className="container">
+        <div className="imageContainer"></div>
+
+        <div className="loginCard">
+          <Form className="formContainer">
+            <h1>Safe Mothers, Safe Babies</h1>
+            <h2>Login</h2>
             <label>Username</label>
+
             <Field type="text" name="username" placeholder="username..." />
             {props.touched.username && props.errors.username && (
-              <p1 >{props.errors.username}</p1>
+              <p1 className="errormessage">{props.errors.username}</p1>
             )}
             <label>Password</label>
             <Field type="password" name="password" placeholder="password.." />
             {props.touched.password && props.errors.password && (
-              <p1 >{props.errors.password}</p1>
+              <p1 className="errormessage">{props.errors.password}</p1>
             )}
+    <div className = "buttonContainer">
+            <button type="submit">Login</button>
 
-            <button type="submit">
-              Login
-            </button>
-            <label> Register of an Account here </label>
             <button onClick={() => props.history.push('/Sign_Up')}>
               Register
-            </button>
+    </button>
+    </div>
           </Form>
         </div>
       </div>
@@ -66,11 +68,10 @@ console.log("history", props.history)
 // };
 
 const FormikLoginForm = withFormik({
-  mapPropsToValues({ username, password}) {
+  mapPropsToValues({ username, password }) {
     return {
       username: username || '',
-      password: password || '',
-
+      password: password || ''
     };
   },
 
