@@ -3,30 +3,11 @@ import axios from 'axios';
 import { Form, Field, withFormik, Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
+import { loginUser } from '../actions/loginActions';
+
 import './Login.css';
 
-// const useStyles = makeStyles({
-//   card: {
-//     maxWidth: 500,
-//     display: 'flex',
-//     justifyContent: 'center',
-//     flexDirection: 'column',
-//     flexWrap: 'wrap',
-//     marginTop: '300px',
-//     width: '400px'
-//   },
-//   media: {
-//     height: 200
-//   },
-//   btn: {
-//     marginTop: '30px',
-//     background: 'orange'
-//   },
-//   error: {
-//     color: 'red',
-//     fontSize: '.9rem'
-//   }
-// });
+
 const LoginForm = (props, { status }) => {
   return (
     <>
@@ -61,11 +42,7 @@ const LoginForm = (props, { status }) => {
     </>
   );
 };
-// const mapStateToProps = state => {
-//   return {
-//     newUser: state.newUser
-//   };
-// };
+
 
 const FormikLoginForm = withFormik({
   mapPropsToValues({ username, password }) {
@@ -79,35 +56,21 @@ const FormikLoginForm = withFormik({
     username: Yup.string().required('Please enter a username'),
     password: Yup.string().required('Enter a password')
   }),
-  handleSubmit(values, { props, setStatus }) {
-    console.log('Submit', values);
-    axios
-      .post('https://finding-planets.herokuapp.com/auth/login', values)
-      .then(res => {
-        console.log('res', res);
-        localStorage.setItem('token', res.data.token);
-
-        props.setUserId(res.data.id);
-        setStatus(res.data.id);
-        props.storeUserId(res.data.id);
-        props.isLoggedIn(true);
-      })
-      .then(res => {
-        // if (props.newUser == true) {
-        //   props.history.history.push('/createprofile');
-        // } else {
-        //   props.history.history.push('./AppPage');
-        // }
-        props.history.push('./');
-      })
-
-      .catch(err => console.log(err));
+  
+  handleSubmit(values, formikBag) {
+    formikBag.props.loginUser(values);
+    formikBag.props.history.push("/dashboard");
   }
 })(LoginForm);
 
-export default FormikLoginForm;
+// const mapStateToProps = state => {
+//   return {
+//     newUser: state.newUser
+//   };
+// };
 
-// export default connect(
-//   mapStateToProps,
-//   { storeUserId, isLoggedIn }
-// )(FormikLoginForm);
+
+export default connect(
+  null,
+  { loginUser }
+)(FormikLoginForm);

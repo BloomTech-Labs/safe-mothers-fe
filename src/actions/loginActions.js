@@ -3,10 +3,10 @@ import {types} from "./index";
 
 export const  LOGIN_START = "LOGIN_START"
 
-export const getUser = (data) => {
+export const loginUser = (data) => {
     return dispatch => {
         dispatch({type: types.LOGIN_START});
-        axiosWithAuth
+        return axiosWithAuth()
             .post("/auth/login", data)
             .then(res => {
                 dispatch({type: types.LOGIN_SUCCESS, payload:res.data })
