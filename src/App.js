@@ -3,7 +3,8 @@ import './App.css';
 import List from './components/List';
 import Dashboard from './components/Dashboard';
 import FormikLoginForm from './components/Login';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import AuthRoute from "./utilities/privateRoute";
 
 function App() {
   return (
@@ -17,20 +18,21 @@ function App() {
         return <FormikLoginForm  history={props.history}/>
         }}
     />
-    <Route
-      path="/dashboard"
-      render = {props => {
-        return <Dashboard  history={props.history}/>
-        }}
-    />
-    <Route
-      path="/list"
-      render = {props => {
-        return <List history={props.history}/>
-        }}
-    />
-    {/* <FormikLoginForm history = {props}/> */}
 
+    {/** PRIVATE ROUTE */}
+
+      <Switch>
+
+    <AuthRoute
+      exact path="/dashboard"
+      component={Dashboard}
+    />
+    <AuthRoute
+      exact path="/list"
+      component={List}
+    />
+      </Switch>
+    
     </Router>
     </div>
   );

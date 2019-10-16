@@ -8,7 +8,7 @@ import { loginUser } from '../actions/loginActions';
 import './Login.css';
 
 
-const LoginForm = (props, { status }) => {
+const LoginForm = (props) => {
   return (
     <>
       <div className="container">
@@ -22,12 +22,12 @@ const LoginForm = (props, { status }) => {
 
             <Field type="text" name="username" placeholder="username..." />
             {props.touched.username && props.errors.username && (
-              <p1 className="errormessage">{props.errors.username}</p1>
+              <p className="errormessage">{props.errors.username}</p>
             )}
             <label>Password</label>
             <Field type="password" name="password" placeholder="password.." />
             {props.touched.password && props.errors.password && (
-              <p1 className="errormessage">{props.errors.password}</p1>
+              <p className="errormessage">{props.errors.password}</p>
             )}
     <div className = "buttonContainer">
             <button type="submit">Login</button>
@@ -59,18 +59,19 @@ const FormikLoginForm = withFormik({
   
   handleSubmit(values, formikBag) {
     formikBag.props.loginUser(values);
-    formikBag.props.history.push("/dashboard");
+    formikBag.props.history.push("/dashboard");   
   }
 })(LoginForm);
 
-// const mapStateToProps = state => {
-//   return {
-//     newUser: state.newUser
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    token: state.token
+    
+  };
+};
 
 
 export default connect(
-  null,
+  mapStateToProps,
   { loginUser }
 )(FormikLoginForm);
