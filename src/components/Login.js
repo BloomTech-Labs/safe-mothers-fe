@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { Link } from "react-router-dom";
 import { Form, Field, withFormik, Formik } from 'formik';
 import * as Yup from 'yup';
 import { connect } from 'react-redux';
-import { loginUser } from '../actions/loginActions';
+import { loginUser } from '../actions/authActions';
 
 import './Login.css';
 
@@ -19,7 +19,6 @@ const LoginForm = (props) => {
             <h1>Safe Mothers, Safe Babies</h1>
             <h2>Login</h2>
             <label>Username</label>
-
             <Field type="text" name="username" placeholder="username..." />
             {props.touched.username && props.errors.username && (
               <p className="errormessage">{props.errors.username}</p>
@@ -31,10 +30,7 @@ const LoginForm = (props) => {
             )}
     <div className = "buttonContainer">
             <button type="submit">Login</button>
-
-            <button onClick={() => props.history.push('/Sign_Up')}>
-              Register
-    </button>
+            <p>First time user? <Link to="/registration">Register</Link></p>
     </div>
           </Form>
         </div>

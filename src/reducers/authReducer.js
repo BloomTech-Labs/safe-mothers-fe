@@ -9,7 +9,7 @@ const initialState = {
     errors: null,
 }
 
-const loginReducer = (state = initialState, action) => {
+ const authReducer = (state = initialState, action) => {
     const { type, payload } = action;
     switch (type) {
         case types.LOGIN_START:
@@ -36,4 +36,4 @@ const loginReducer = (state = initialState, action) => {
     }
 }
 
-export default loginReducer;
+export default authReducer;
