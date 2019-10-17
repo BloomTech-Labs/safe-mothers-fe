@@ -5,6 +5,7 @@ import Dashboard from './components/Dashboard';
 import FormikLoginForm from './components/Login';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthRoute from "./utilities/privateRoute";
+import Registration from "./components/Registration";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         return <FormikLoginForm  history={props.history}/>
         }}
     />
+
+    <Route path="/registration" component={Registration} />
+
 
     {/** PRIVATE ROUTE */}
 
