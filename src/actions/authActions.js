@@ -1,14 +1,15 @@
 import axiosWithAuth from "../utilities/axiosWithAuth";
 import { types } from "./index";
 
-export const loginUser = (data) => {
+export const loginUser = (data, history) => {
     return dispatch => {
         dispatch({ type: types.LOGIN_START });
         return axiosWithAuth()
             .post("/auth/login", data)
             .then(res => {
                 localStorage.setItem("token", res.data.token);
-                dispatch({ type: types.LOGIN_SUCCESS, payload: res.data })
+                dispatch({ type: types.LOGIN_SUCCESS, payload: res.data });
+                history.push("/dashboard");
             })
             .catch(err => {
                 dispatch({ type: types.LOGIN_FAILURE, payload: err.response })

@@ -11,12 +11,7 @@ function App() {
     return (
         <div className="App">
             <Router>
-                <Route
-                    exact path="/"
-                    render={props => {
-                        return <FormikLoginForm history={props.history}/>
-                    }}
-                />
+                <Route exact path="/" component={FormikLoginForm}/>
                 <Route path="/registration" component={Registration}/>
                 {/** PRIVATE ROUTE */}
                 <Switch>
