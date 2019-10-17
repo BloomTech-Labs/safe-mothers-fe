@@ -52,17 +52,16 @@ const FormikLoginForm = withFormik({
     username: Yup.string().required('Please enter a username'),
     password: Yup.string().required('Enter a password')
   }),
-  
-  handleSubmit(values, formikBag) {
-    formikBag.props.loginUser(values);
-    formikBag.props.history.push("/dashboard");   
+
+  handleSubmit(values, {props}) {
+    props.loginUser(values, props.history);
   }
 })(LoginForm);
 
 const mapStateToProps = state => {
   return {
     token: state.token
-    
+
   };
 };
 
