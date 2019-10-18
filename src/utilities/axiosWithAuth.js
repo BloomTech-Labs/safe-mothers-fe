@@ -4,7 +4,7 @@ const axiosWithAuth = () => {
     const token = localStorage.getItem("token");
 
     return axios.create({
-        baseURL: "https://production-be-labs17-safe.herokuapp.com",
+        baseURL: process.env.REACT_APP_API_URL,
         headers: {
             "Content-Type": "application/json",
             Authorization: token

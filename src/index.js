@@ -8,6 +8,7 @@ import combineReducers from './reducers';
 import './index.css';
 import App from './App';
 
+require('dotenv').config();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
