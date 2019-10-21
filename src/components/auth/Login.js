@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import {connect} from 'react-redux';
 import {loginUser} from '../../actions/authActions';
 import  Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
-import SVG from 'react-inlinesvg/lib/index';
+// import SVG from 'react-inlinesvg/lib/index';
 import './Login.css';
 import Map from "./Map";
 
