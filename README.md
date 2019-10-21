@@ -1,22 +1,20 @@
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
 
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be comepleted by.  Make sure to delete the numbers by the end of Labs.
+🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by.  Make sure to delete the numbers by the end of Labs.
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
-# 1️⃣ Title of project goes here
+# Safe Mothers Safe Babies
 
 1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
 
 ## 4️⃣ Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                       [Student 1](https://github.com/)                                        |                                       [Student 2](https://github.com/)                                        |                                       [Student 3](https://github.com/)                                        |                                       [Student 4](https://github.com/)                                        |                                       [Student 5](https://github.com/)                                        |
+|                                       [Aleksandra Foksman](https://github.com/AlexFox1777)                                        |                                       [Annique Nsabimana](https://github.com/AnniqueN)                                        |                                       [Blake Prouty](https://github.com/Prouty89)                                        |                                       [Chris Delfaus](https://github.com/ChrisDelf)                                        |                                       [Christian Ubani](https://github.com/chikechris)                                        |                                       [Dennis Mercado](https://github.com/denmercs)                                        |                                       [Jade E Lopez](https://github.com/jadeli1720)                                        |                                       [Jonathan Dorety](https://github.com/kyullog)                                        |
 | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
-|                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/)                       |                      [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/)                       |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
-| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                      [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777)                       |                      [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN)                       |                      [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89)                       |                      [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf)                       |                      [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)                       |                      [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs)                       |                      [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)                       |                      [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog)                       |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AlexFox1777)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnniqueN)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Prouty89)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ChrisDelf)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chikechris)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
 <br>
 <br>
@@ -33,17 +31,19 @@
 
 ## Project Overview
 
-1️⃣ [Trello Board](🚫add link to trello board here)
+[Trello Board](https://trello.com/b/SkTkGFkc/labs17-safe-mothers)
 
-1️⃣ [Product Canvas](🚫add link to product canvas here)
+[Product Canvas](https://www.notion.so/SAFE-Mothers-fa66eb370c2b4a20a10f3f3159542c74)
 
 1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
 
-🚫 Replace lorem ipsum with a description of your project
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Safe Mother, Safe Babies is concerned with transporting mothers in labour to the proper facilities quickly and safely with a list of volunteer drivers Safe Mothers has entered into the database. The app specifically consists of several parts:
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+-    Administrative Dashboard that will display mother and driver data from the database.
+-    Allow the user to perform CRUD operations on the available data
+-    Give the user the ability to upload data
+-    Interact and control the dispatch of drivers to mothers in need
 
 
 ### 4️⃣ Key Features
@@ -58,26 +58,22 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 ### Front end built using:
 
-#### _Front end framework goes here_
+React and Redux
 
-🚫 Why did you choose this framework?
+We chose these frameworks because:
 
--    point one
--    point two
--    point three
--    point four
+-    Scalability
+-    Ease of readability for the next team who builds on to this project
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
 #### Front end deployed to `🚫insert service here`
 
-#### [Back end](🚫link to back end repo here) built using:
+#### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
-#### 🚫 back end framework goes here
-
--    point one
--    point two
--    point three
+-    NodeJS
+-    ExpressJS
+-    KnexJS
 
 🚫 List the rest of the back end end features and libraries in the same format as the framework above
 
@@ -89,11 +85,6 @@ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
 
 Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
 
-## 2️⃣ Payment API here
-
-🚫Replace text below with a description of the API
-
-This is the way you take out your flustrations. Get away from those little Christmas tree things we used to make in school. Isn't it fantastic that you can change your mind and create all these happy things? Everything's not great in life, but we can still find beauty in it.
 
 ## 3️⃣ Misc API here
 
@@ -194,4 +185,4 @@ These contribution guidelines have been adapted from [this good-Contributing.md-
 
 ## Documentation
 
-See [Backend Documentation](🚫_link to your backend readme here_) for details on the backend of our project.
+See [Backend Documentation](https://github.com/Lambda-School-Labs/safe-mothers-fe) for details on the backend of our project.
