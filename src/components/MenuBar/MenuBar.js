@@ -1,6 +1,6 @@
 import React from 'react';
 import { Banner, Text, Button } from 'pcln-design-system';
-import './Dashboard.css';
+import './MenuBar.css';
 
 const  MenuBar = () => {
   return (
@@ -24,8 +24,6 @@ const  MenuBar = () => {
           </div>
         </div>
       </Banner>
-      <Mothers />
-      <Drivers />
     </>
   );
 };
