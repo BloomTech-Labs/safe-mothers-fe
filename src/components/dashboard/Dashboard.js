@@ -1,6 +1,6 @@
 import React from 'react';
-import Mothers from "./Mothers";
-import Drivers from "./Drivers";
+import Mothers from "../mothers/Mothers";
+import Drivers from "../drivers/Drivers";
 
 
 const Dashboard = () => {

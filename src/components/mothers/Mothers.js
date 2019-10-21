@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import {getMothers} from "../actions/mothersActions";
+import {getMothers} from "../../actions/mothersActions";
 
 const Mothers = (props) => {
     const {mothers} = props;
