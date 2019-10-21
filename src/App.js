@@ -1,11 +1,10 @@
 import React from 'react';
 import './App.css';
-import List from './components/List';
-import Dashboard from './components/Dashboard';
-import FormikLoginForm from './components/Login';
+import Dashboard from './components/dashboard/Dashboard';
+import FormikLoginForm from './components/auth/Login';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AuthRoute from "./utilities/privateRoute";
-import Registration from "./components/Registration";
+import Registration from "./components/auth/Registration";
 import {ThemeProvider} from 'pcln-design-system'
 import {Grommet} from 'grommet';
 
@@ -22,10 +21,6 @@ function App() {
                             <AuthRoute
                                 exact path="/dashboard"
                                 component={Dashboard}
-                            />
-                            <AuthRoute
-                                exact path="/list"
-                                component={List}
                             />
                         </Switch>
                     </Router>
