@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.19.0",
     "formik": "^1.5.8",
+    "pcln-design-system": "^2.6.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
@@ -12,6 +13,7 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^4.4.0",
     "yup": "^0.27.0"
   },
   "scripts": {
