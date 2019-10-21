@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {connect} from "react-redux";
-import {getDrivers} from "../actions/driversActions";
+import {getDrivers} from "../../actions/driversActions";
 
 const Drivers = (props) => {
     const {drivers} = props;
