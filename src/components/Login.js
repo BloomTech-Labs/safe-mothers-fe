@@ -6,13 +6,16 @@ import { connect } from 'react-redux';
 import { loginUser } from '../actions/authActions';
 
 import './Login.css';
+import Map from "./Map";
 
 
 const LoginForm = (props) => {
   return (
     <>
       <div className="container">
-        <div className="imageContainer"></div>
+        <div className="imageContainer">
+          <Map/>
+        </div>
 
         <div className="loginCard">
           <Form className="formContainer">
