@@ -5,6 +5,8 @@
   "dependencies": {
     "axios": "^0.19.0",
     "formik": "^1.5.8",
+    "grommet": "^2.7.10",
+    "grommet-icons": "^4.3.0",
     "pcln-design-system": "^2.6.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
