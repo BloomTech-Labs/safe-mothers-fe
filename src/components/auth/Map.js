@@ -15,7 +15,7 @@ position: absolute;
 const Map = () => {
 
     return (
-        <Container theme={grommet}>
+        <Container className="map-container" theme={grommet}>
             <WorldMap
                 color="#A9A9A9"
                 continents={[
