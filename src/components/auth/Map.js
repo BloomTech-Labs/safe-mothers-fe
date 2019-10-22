@@ -1,12 +1,21 @@
 import React from 'react';
 import { WorldMap } from 'grommet';
-import style from 'styled-components'
+import styled from 'styled-components'
 
+const Container = styled.div`
+position: absolute;
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+    top: 15%;
+    height: 100%;
+    width: 60%;
+`;
 
 const Map = () => {
 
     return (
-        <>
+        <Container>
             <WorldMap
                 color="black"
                 continents={[
@@ -27,7 +36,7 @@ const Map = () => {
                 ]}
                 selectColor="accent-2"
             />
-        </>
+        </Container>
     )
 };
 export default Map;
