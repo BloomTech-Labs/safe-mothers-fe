@@ -1,44 +1,90 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import {Form, Field, withFormik, Formik} from 'formik/dist/index';
+import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from 'yup';
 import {connect} from 'react-redux';
 import {loginUser} from '../../actions/authActions';
-import  Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
+import Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
 import SVG from 'react-inlinesvg/lib/index';
+import styled from 'styled-components';
 import './Login.css';
 import Map from "./Map";
+
+const Container = styled.div`
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+    background: lightgray;
+`;
+
+const ImageContainer = styled.div`
+    width: 60%;
+    height: 100%;
+`;
+
+const AuthContainer = styled.div`
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+const FormContainer = styled(Form)`
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    flex-direction: column;
+`;
+
+const Svg = styled(SVG)`
+    width: 90%;
+    height: 30%;
+`;
+
+const Error = styled.p`
+    color: red;
+    font-size: 0.7rem;
+`;
+
+const Submit = styled.button`
+    width: 122px;
+    height: 48px;
+    margin: 40px;
+    background: #F9FBFC;
+`;
 
 
 const LoginForm = (props) => {
     return (
         <>
-            <div className="container">
-                <div className="imageContainer">
+            <Container>
+                <ImageContainer>
                     <Map/>
-                </div>
-                <div className="loginCard">
-                    {/*<SVG src={Logo} />*/}
-                    <Form className="formContainer">
+                </ImageContainer>
+                <AuthContainer>
+                    <Svg src={Logo}/>
+                    <FormContainer>
                         <h1>Safe Mothers, Safe Babies</h1>
                         <h2>Login</h2>
                         <label>Username</label>
                         <Field type="text" name="username" placeholder="username..."/>
                         {props.touched.username && props.errors.username && (
-                            <p className="errormessage">{props.errors.username}</p>
+                            <Error>{props.errors.username}</Error>
                         )}
                         <label>Password</label>
                         <Field type="password" name="password" placeholder="password.."/>
                         {props.touched.password && props.errors.password && (
-                            <p className="errormessage">{props.errors.password}</p>
+                            <Error>{props.errors.password}</Error>
                         )}
                         <div className="buttonContainer">
-                            <button type="submit">Login</button>
+                            <Submit type="submit">Login</Submit>
                             <p>First time user? <Link to="/registration">Register</Link></p>
                         </div>
-                    </Form>
-                </div>
-            </div>
+                    </FormContainer>
+                </AuthContainer>
+            </Container>
         </>
     );
 };
