@@ -1,62 +1,75 @@
 import React from 'react';
-import { Banner, Text, Button as MButton } from 'pcln-design-system';
+import { Banner, Text, Button } from 'pcln-design-system';
 import './MenuBar.css';
 import styled from 'styled-components';
 import SVG from 'react-inlinesvg/lib/index';
 
-const TextBox = styled(Text)`
-  font-size: 1.5rem;
-`;
-
-const MenuButton = styled(MButton)`
+const BannerContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  .text {
+    font-size: 1.5rem;
+  }
+  .dashButton{
   border-radius: 500px;
   height: 70px;
   font-size: 1.2rem;
   margin: 10px;
-  background:white;
-  text: #282E74;
+
+  }
 `;
 
-const BannerContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
+// const TextBox = styled(Text)`
+//   font-size: 1.5rem;
+// `;
+//
+// const MenuButton = styled(MButton)`
+//   border-radius: 500px;
+//   height: 70px;
+//   font-size: 1.2rem;
+//   margin: 10px;
+//   background: white;
+//   text: #282e74;
+//
+//   &:hover {
+//     background: ${props => props.theme.primary.gray};
+//   }
+// `;
 
 const MenuBar = ({ props }) => {
-  console.log('MenuBar props', props);
   return (
     <>
       <Banner px={10} py={30} bg="#282E74" color="white" showIcon={false}>
         <BannerContainer>
-          <TextBox className="text">Hi, Jackie</TextBox>
+          <Text className="text">Hi, Jackie</Text>
           <div className="ButtonContainer">
-            <MenuButton
+            <Button
               className="dashButton"
               onClick={() => props.history.push('/mothers')}
             >
               Mom
-            </MenuButton>
+            </Button>
 
-            <MenuButton
+            <Button
               className="dashButton"
               onClick={() => props.history.push('/drivers')}
             >
               {' '}
               Driver
-            </MenuButton>
-            <MenuButton
+            </Button>
+            <Button
               className="dashButton"
               onClick={() => props.history.push('/settings')}
             >
               {' '}
               Settings
-            </MenuButton>
-            <MenuButton
+            </Button>
+            <Button
               className="dashButton"
               onClick={() => props.history.push('/')}
             >
               Log Off
-            </MenuButton>
+            </Button>
           </div>
         </BannerContainer>
       </Banner>
