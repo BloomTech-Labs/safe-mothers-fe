@@ -27,3 +27,15 @@ export const registerUser = data => dispatch => {
             dispatch({type: types.REGISTER_USER_FAILURE, payload: err});
         })
 }
+
+export const logout = () => dispatch => {
+    dispatch({type: IS_LOGGING_OUT})
+    axiosInstance().get("/user/logout")
+        .then(res=> {
+            dispatch({type: LOGOUT_SUCCESS})
+        })
+        .catch(err => {
+            dispatch({type: LOGOUT_ERROR, payload: err}) 
+        })
+
+}
