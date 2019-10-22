@@ -4,11 +4,12 @@ import styled from 'styled-components';
 import { grommet } from 'grommet/themes';
 
 const Container = styled.div`
-position: absolute;
+    position: absolute;
     justify-items: center;
     display: flex;
     justify-content: center;
-    top: 15%;
+    top: 17%;
+    padding: 100px;
     width: 60%;
 `;
 
