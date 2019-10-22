@@ -15,12 +15,11 @@ const Container = styled.div`
     justify-items: center;
     display: flex;
     justify-content: center;
-    background: lightgray;
+    background: #282E74;
 `;
 
 const ImageContainer = styled.div`
     width: 60%;
-    height: 100%;
 `;
 
 const AuthContainer = styled.div`
@@ -37,6 +36,10 @@ const FormContainer = styled(Form)`
     align-items: center;
     max-width: 300px;
     flex-direction: column;
+
+    label{
+        text-align: left;
+    }
 `;
 
 const Svg = styled(SVG)`
@@ -102,11 +105,12 @@ const LoginForm = (props) => {
                                 <Error>{props.errors.username}</Error>
                             )}
                         </label>
-                        <label>Password</label>
+                        <label>Password
                         <Input type="password" name="password" placeholder="password.."/>
                         {props.touched.password && props.errors.password && (
                             <Error>{props.errors.password}</Error>
                         )}
+                        </label>
                         <ButtonContainer>
                             <Submit color="primary" type="submit">Login</Submit>
                             <SignUp color="primary" type="submit"> <Link to="/registration">Sign up</Link></SignUp>
