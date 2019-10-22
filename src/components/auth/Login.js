@@ -1,44 +1,123 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {Link} from "react-router-dom";
-import {Form, Field, withFormik, Formik} from 'formik/dist/index';
+import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from 'yup';
 import {connect} from 'react-redux';
 import {loginUser} from '../../actions/authActions';
-import  Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
-// import SVG from 'react-inlinesvg/lib/index';
+import Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
+import SVG from 'react-inlinesvg/lib/index';
+import styled from 'styled-components';
+import {Button} from 'pcln-design-system'
 import './Login.css';
 import Map from "./Map";
 
+const Container = styled.div`
+    justify-items: center;
+    display: flex;
+    justify-content: center;
+    background: #282E74;
+`;
+
+const ImageContainer = styled.div`
+    width: 60%;
+`;
+
+const AuthContainer = styled.div`
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    align-items: center;
+    justify-content: flex-start;
+`;
+
+const FormContainer = styled(Form)`
+    display: flex;
+    align-items: center;
+    max-width: 300px;
+    flex-direction: column;
+
+    label{
+        text-align: left;
+    }
+`;
+
+const Svg = styled(SVG)`
+    width: 90%;
+    height: 30%;
+`;
+
+const Error = styled.p`
+    color: red;
+    font-size: 0.7rem;
+`;
+
+const ButtonContainer = styled.div`
+    display:flex;
+    justify-content: space-between;
+`;
+
+const Submit = styled(Button)`
+    width: 122px;
+    height: 48px;
+    margin: 40px;
+    background:  ${props => props.theme.primary.darkGray};
+    &:hover {
+       background:  ${props => props.theme.primary.gray};
+    }
+`;
+
+const SignUp = styled(Submit)`
+    background:  ${props => props.theme.primary.lightGray};
+    border: 3px solid  ${props => props.theme.primary.darkGray};
+    &:hover {
+        border: 3px solid  ${props => props.theme.primary.gray};
+        background:  ${props => props.theme.primary.darkGray};
+    }
+`;
+
+const Input = styled(Field)`
+    background:  ${props => props.theme.primary.darkGray};
+    outline: none;
+    width: 381px;
+    height: 48px;
+    border-radius: 2px;
+    border-width:0px;
+    border:none;
+    padding-left: 12px;
+`;
 
 const LoginForm = (props) => {
     return (
         <>
-            <div className="container">
-                <div className="imageContainer">
+            <Container>
+                <ImageContainer>
                     <Map/>
-                </div>
-                <div className="loginCard">
-                    {/*<SVG src={Logo} />*/}
-                    <Form className="formContainer">
+                </ImageContainer>
+                <AuthContainer>
+                    <Svg src={Logo}/>
+                    <FormContainer>
                         <h1>Safe Mothers, Safe Babies</h1>
                         <h2>Login</h2>
-                        <label>Username</label>
-                        <Field type="text" name="username" placeholder="username..."/>
-                        {props.touched.username && props.errors.username && (
-                            <p className="errormessage">{props.errors.username}</p>
-                        )}
-                        <label>Password</label>
-                        <Field type="password" name="password" placeholder="password.."/>
+                        <label>Username
+                            <Input type="text" name="username" placeholder="username..."/>
+                           {props.touched.username && props.errors.username && (
+                                <Error>{props.errors.username}</Error>
+                            )}
+                        </label>
+                        <label>Password
+                        <Input type="password" name="password" placeholder="password.."/>
                         {props.touched.password && props.errors.password && (
-                            <p className="errormessage">{props.errors.password}</p>
+                            <Error>{props.errors.password}</Error>
                         )}
-                        <div className="buttonContainer">
-                            <button type="submit">Login</button>
-                            <p>First time user? <Link to="/registration">Register</Link></p>
-                        </div>
-                    </Form>
-                </div>
-            </div>
+                        </label>
+                        <ButtonContainer>
+                            <Submit color="primary" type="submit">Login</Submit>
+                            <SignUp color="primary" type="submit"> <Link to="/registration">Sign up</Link></SignUp>
+                        </ButtonContainer>
+                    </FormContainer>
+                </AuthContainer>
+            </Container>
         </>
     );
 };
