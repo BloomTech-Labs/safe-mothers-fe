@@ -31,9 +31,32 @@ const initialState = {
                 isLoading: false,
                 errors: payload
             }
+            
+            case types.LOGOUT_START:
+                return {
+                    ...state,
+                    isLoading: true
+                };
+            case types.LOGOUT_SUCCESS:
+                return {
+                    ...state,
+                    token: payload.token,
+                    isAuth: true,
+                    isLoading: false,
+                    isSuccess: true,
+                };
+            case types.LOGOUT_FAILURE:
+                return {
+                    ...state,
+                    isLoading: false,
+                    errors: payload
+                }
+                
+            
         default:
             return state;
     }
+    
 }
 
 export default authReducer;
