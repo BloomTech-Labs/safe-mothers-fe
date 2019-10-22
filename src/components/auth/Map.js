@@ -1,6 +1,7 @@
 import React from 'react';
 import { WorldMap } from 'grommet';
-import styled from 'styled-components'
+import styled from 'styled-components';
+import { grommet } from 'grommet/themes';
 
 const Container = styled.div`
 position: absolute;
@@ -8,20 +9,21 @@ position: absolute;
     display: flex;
     justify-content: center;
     top: 15%;
-    height: 100%;
     width: 60%;
 `;
 
 const Map = () => {
 
     return (
-        <Container>
+        <Container theme={grommet}>
             <WorldMap
-                color="black"
+                color="#A9A9A9"
                 continents={[
                     {
+                        fill: true,
                         name: 'Africa',
-                        color: 'blue',
+                        color: '#F2F2F2',
+                        base: '20px',
                         onClick: (name) => {},
                     },
                 ]}
