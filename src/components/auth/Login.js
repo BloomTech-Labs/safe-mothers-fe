@@ -16,109 +16,104 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
     background: #282E74;
-`;
 
-const ImageContainer = styled.div`
-    width: 60%;
-`;
-
-const AuthContainer = styled.div`
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background: white;
-    align-items: center;
-    justify-content: flex-start;
-`;
-
-const FormContainer = styled(Form)`
-    display: flex;
-    align-items: center;
-    max-width: 300px;
-    flex-direction: column;
-
-    label{
-        text-align: left;
+    .map {
+        width: 60%; 
     }
-`;
 
-const Svg = styled(SVG)`
-    width: 90%;
-    height: 30%;
-    
-`;
-
-const Error = styled.p`
-    color: red;
-    font-size: 0.7rem;
-`;
-
-const ButtonContainer = styled.div`
-    display:flex;
-    justify-content: space-between;
-`;
-
-const Submit = styled(Button)`
-    width: 122px;
-    height: 48px;
-    margin: 40px;
-    background:  ${props => props.theme.primary.darkGray};
-    &:hover {
-       background:  ${props => props.theme.primary.gray};
+    .form-container{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background: white;
+        align-items: center;
+        justify-content: flex-start;
     }
-`;
 
-const SignUp = styled(Submit)`
-    background:  ${props => props.theme.primary.lightGray};
-    border: 3px solid  ${props => props.theme.primary.darkGray};
-    &:hover {
-        border: 3px solid  ${props => props.theme.primary.gray};
+    .svg-logo{
+        width: 90%;
+        height: 30%;
+    }
+
+    .form-contents{
+        display: flex;
+        align-items: center;
+        max-width: 300px;
+        flex-direction: column;
+
+        label{
+            text-align: left;
+            margin-bottom: 7%;
+        }
+
+    }
+
+    .error-message{
+        color: red;
+        font-size: 0.7rem;
+    }
+
+    .btn-container {
+        display:flex;
+        justify-content: space-between;
+    }
+
+    .form-inputs{
         background:  ${props => props.theme.primary.darkGray};
+        outline: none;
+        width: 381px;
+        height: 48px;
+        border-radius: 2px;
+        border-width:0px;
+        border:none;
+        padding-left: 12px;  
+    }
+
+    .login-btn{
+        color: black;
+        width: 122px;
+        height: 48px;
+        margin: 40px;
+        background:  ${props => props.theme.primary.darkGray};
+        
+        &:hover {
+            background:  ${props => props.theme.primary.gray};
+        }
     }
 `;
 
-const Input = styled(Field)`
-    background:  ${props => props.theme.primary.darkGray};
-    outline: none;
-    width: 381px;
-    height: 48px;
-    border-radius: 2px;
-    border-width:0px;
-    border:none;
-    padding-left: 12px;
-`;
+
+
 
 const LoginForm = (props) => {
     return (
         <>
-            <Container className="login-component">
-                <ImageContainer>
+            <Container className="container">
+                <div className="map">
                     <Map/>
-                </ImageContainer>
-                <AuthContainer>
-                    <Svg src={Logo}/>
-                    <FormContainer>
+                </div>
+                <div className="form-container">
+                    <SVG className="svg-logo" src={Logo}/>
+                    <Form className="form-contents">
                         <h1>Safe Mothers, Safe Babies</h1>
-                        <h2>Login</h2>
                         <label>Username
-                            <Input type="text" name="username" placeholder="username..."/>
-                           {props.touched.username && props.errors.username && (
-                                <Error>{props.errors.username}</Error>
+                            <Field className="form-inputs" type="text" name="username" placeholder="username..."/>
+                            {props.touched.username && props.errors.username && (
+                                <p className ="error-message">{props.errors.username}</p>
                             )}
                         </label>
                         <label>Password
-                        <Input type="password" name="password" placeholder="password.."/>
-                        {props.touched.password && props.errors.password && (
-                            <Error>{props.errors.password}</Error>
+                            <Field className="form-inputs" type="password" name="password" placeholder="password.."/>
+                            {props.touched.password && props.errors.password && (
+                            <p className ="error-message">{props.errors.password}</p>
                         )}
                         </label>
-                        <ButtonContainer>
-                            <Submit color="primary" type="submit">Login</Submit>
-                            <SignUp color="primary" type="submit"> <Link to="/registration">Sign up</Link></SignUp>
-                        </ButtonContainer>
-                    </FormContainer>
-                </AuthContainer>
+                        <div className="btn-container">
+                            <Button className="login-btn" color="primary" type="submit">Login</Button>
+                        </div>
+                    </Form>
+                </div>
             </Container>
         </>
     );
