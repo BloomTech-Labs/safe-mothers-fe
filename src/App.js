@@ -33,11 +33,13 @@ function App() {
                     <Router>
                         <Route exact path="/" component={FormikLoginForm}/>
                         <Route path="/registration" component={Registration}/>
+
                         {/** PRIVATE ROUTE */}
                         <Switch>
                             <AuthRoute
                                 exact path="/dashboard"
                                 component={Dashboard}
+
                             />
                         </Switch>
                     </Router>
