@@ -22,7 +22,6 @@ const RegistrationForm = props => {
                     <SVG className="svg-logo" src={Logo}/>
                     <Form className="form-contents">
                         <h1>Safe Mothers, Safe Babies</h1>
-                        <h2>Register</h2>
                         <label>First Name
                             <Field className="form-inputs" type="text" name="first_name" placeholder="First Name..."/>
                             {props.touched.first_name && props.errors.first_name && (
