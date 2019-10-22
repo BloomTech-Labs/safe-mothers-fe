@@ -7,6 +7,7 @@ import {loginUser} from '../../actions/authActions';
 import Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
 import SVG from 'react-inlinesvg/lib/index';
 import styled from 'styled-components';
+import {Button} from 'pcln-design-system'
 import './Login.css';
 import Map from "./Map";
 
@@ -48,13 +49,40 @@ const Error = styled.p`
     font-size: 0.7rem;
 `;
 
-const Submit = styled.button`
+const ButtonContainer = styled.div`
+    display:flex;
+    justify-content: space-between;
+`;
+
+const Submit = styled(Button)`
     width: 122px;
     height: 48px;
     margin: 40px;
-    background: #F9FBFC;
+    background:  ${props => props.theme.primary.darkGray};
+    &:hover {
+       background:  ${props => props.theme.primary.gray};
+    }
 `;
 
+const SignUp = styled(Submit)`
+    background:  ${props => props.theme.primary.lightGray};
+    border: 3px solid  ${props => props.theme.primary.darkGray};
+    &:hover {
+        border: 3px solid  ${props => props.theme.primary.gray};
+        background:  ${props => props.theme.primary.darkGray};
+    }
+`;
+
+const Input = styled(Field)`
+    background:  ${props => props.theme.primary.darkGray};
+    outline: none;
+    width: 381px;
+    height: 48px;
+    border-radius: 2px;
+    border-width:0px;
+    border:none;
+    padding-left: 12px;
+`;
 
 const LoginForm = (props) => {
     return (
@@ -68,20 +96,21 @@ const LoginForm = (props) => {
                     <FormContainer>
                         <h1>Safe Mothers, Safe Babies</h1>
                         <h2>Login</h2>
-                        <label>Username</label>
-                        <Field type="text" name="username" placeholder="username..."/>
-                        {props.touched.username && props.errors.username && (
-                            <Error>{props.errors.username}</Error>
-                        )}
+                        <label>Username
+                            <Input type="text" name="username" placeholder="username..."/>
+                           {props.touched.username && props.errors.username && (
+                                <Error>{props.errors.username}</Error>
+                            )}
+                        </label>
                         <label>Password</label>
-                        <Field type="password" name="password" placeholder="password.."/>
+                        <Input type="password" name="password" placeholder="password.."/>
                         {props.touched.password && props.errors.password && (
                             <Error>{props.errors.password}</Error>
                         )}
-                        <div className="buttonContainer">
-                            <Submit type="submit">Login</Submit>
-                            <p>First time user? <Link to="/registration">Register</Link></p>
-                        </div>
+                        <ButtonContainer>
+                            <Submit color="primary" type="submit">Login</Submit>
+                            <SignUp color="primary" type="submit"> <Link to="/registration">Sign up</Link></SignUp>
+                        </ButtonContainer>
                     </FormContainer>
                 </AuthContainer>
             </Container>

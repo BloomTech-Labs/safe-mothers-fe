@@ -7,15 +7,28 @@ import Registration from "./components/auth/Registration";
 import {ThemeProvider} from 'pcln-design-system'
 import {Grommet} from 'grommet';
 import styled from 'styled-components';
+import "./App.css"
 
 const Container = styled.div`
     text-align: center;
 `;
 
+const theme = {
+    primary: {
+        lightGray: "#F9FBFC",
+        darkGray: "#EEEEEF",
+        gray: "#dadada",
+    },
+    secondary: {
+        darkBlue: "#282E74",
+        blue: "#F9FBFC",
+    },
+};
+
 function App() {
     return (
         <Grommet plain>
-            <ThemeProvider>
+            <ThemeProvider theme={theme}>
                 <Container>
                     <Router>
                         <Route exact path="/" component={FormikLoginForm}/>
