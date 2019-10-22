@@ -26,6 +26,7 @@ const AuthContainer = styled.div`
     width: 40%;
     display: flex;
     flex-direction: column;
+    height: 100vh;
     background: white;
     align-items: center;
     justify-content: flex-start;
@@ -45,6 +46,7 @@ const FormContainer = styled(Form)`
 const Svg = styled(SVG)`
     width: 90%;
     height: 30%;
+    
 `;
 
 const Error = styled.p`
@@ -90,7 +92,7 @@ const Input = styled(Field)`
 const LoginForm = (props) => {
     return (
         <>
-            <Container>
+            <Container className="login-component">
                 <ImageContainer>
                     <Map/>
                 </ImageContainer>
