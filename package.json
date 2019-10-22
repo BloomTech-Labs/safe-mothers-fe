@@ -2,16 +2,22 @@
   "name": "safe-mothers-fe",
   "version": "0.1.0",
   "private": true,
+  "main": "webpack.config.js",
   "dependencies": {
     "axios": "^0.19.0",
     "formik": "^1.5.8",
+    "grommet": "^2.7.10",
+    "grommet-icons": "^4.3.0",
+    "pcln-design-system": "^2.6.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-inlinesvg": "^1.1.7",
     "react-redux": "^7.1.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^4.4.0",
     "yup": "^0.27.0"
   },
   "scripts": {
