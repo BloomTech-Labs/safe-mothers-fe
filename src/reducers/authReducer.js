@@ -1,39 +1,56 @@
-import { types } from "../actions/index";
+import {types} from "../actions/index";
+
+const {
+    LOGOUT,
+    LOGIN_START,
+    LOGIN_SUCCESS,
+    LOGIN_FAILURE,
+
+} = types;
 
 const initialState = {
     token: '',
     user: [],
-    isAuth: false,
+    isAuth: !!localStorage.getItem("token"),
     isLoading: false,
     isSuccess: false,
     errors: null,
-}
+};
 
- const authReducer = (state = initialState, action) => {
-    const { type, payload } = action;
+const authReducer = (state = initialState, {type, payload}) => {
     switch (type) {
-        case types.LOGIN_START:
+        case LOGIN_START:
             return {
                 ...state,
+                error: "",
                 isLoading: true
             };
-        case types.LOGIN_SUCCESS:
+        case LOGIN_SUCCESS:
             return {
                 ...state,
-                token: payload.token,
+                error: "",
                 isAuth: true,
                 isLoading: false,
+
+                token: payload.token,
                 isSuccess: true,
             };
-        case types.LOGIN_FAILURE:
+        case LOGIN_FAILURE:
             return {
                 ...state,
                 isLoading: false,
                 errors: payload
-            }
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                error: "",
+                isLoading: false,
+                isAuth: false,
+            };
         default:
             return state;
     }
-}
+};
 
 export default authReducer;
