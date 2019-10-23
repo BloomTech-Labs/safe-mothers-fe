@@ -7,9 +7,7 @@ import Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
 import SVG from 'react-inlinesvg/lib/index';
 import {Container} from './auth-style'
 import {Button} from 'pcln-design-system'
-import './Login.css';
 import Map from "./Map";
-
 
 const LoginForm = (props) => {
     return (
