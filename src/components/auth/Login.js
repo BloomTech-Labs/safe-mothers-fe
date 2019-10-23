@@ -19,21 +19,21 @@ const LoginForm = (props) => {
                 <div className="form-container">
                     <SVG className="svg-logo" src={Logo}/>
                     <Form className="form-contents">
-                        <h1>Safe Mothers, Safe Babies</h1>
+                        <h1>Login</h1>
                         <label>Username
-                            <Field className="form-inputs" type="text" name="username" placeholder="username..."/>
+                            <Field className="form-inputs" type="text" name="username"/>
                             {props.touched.username && props.errors.username && (
                                 <p className ="error-message">{props.errors.username}</p>
                             )}
                         </label>
                         <label>Password
-                            <Field className="form-inputs" type="password" name="password" placeholder="password.."/>
+                            <Field className="form-inputs" type="password" name="password"/>
                             {props.touched.password && props.errors.password && (
                             <p className ="error-message">{props.errors.password}</p>
                         )}
                         </label>
                         <div className="btn-container">
-                            <Button className="submit-btn" color="primary" type="submit">Login</Button>
+                            <Button className="submit-btn" color="primary" type="submit">Submit</Button>
                         </div>
                     </Form>
                 </div>

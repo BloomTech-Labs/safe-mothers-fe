@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+
     justify-items: center;
     display: flex;
     justify-content: center;
     background: #282E74;
+    
 
     .map {
         width: 60%; 
@@ -26,6 +28,7 @@ export const Container = styled.div`
     }
 
     .form-contents{
+        font-family: 'Asap', sans-serif;
         display: flex;
         align-items: center;
         max-width: 300px;
