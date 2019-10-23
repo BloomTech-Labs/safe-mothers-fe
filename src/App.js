@@ -5,11 +5,6 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AuthRoute from "./utilities/privateRoute";
 import Registration from "./components/auth/Registration";
 import {ThemeProvider} from 'pcln-design-system';
-<<<<<<< HEAD
-import {Grommet} from 'grommet';
-import styled from 'styled-components';
-import "./App.css";
-=======
 import Mothers from './components/mothers/Mothers';
 import {Grommet} from 'grommet';
 import styled from 'styled-components';
@@ -17,7 +12,6 @@ import "./App.css";
 import MenuBar from "./components/menubar/MenuBar";
 import connect from "react-redux/es/connect/connect";
 import {Search} from "grommet-icons";
->>>>>>> 370a5037f83ae164e4a7b8492475d2d5c54c8c78
 
 const Container = styled.div`
     text-align: center;
