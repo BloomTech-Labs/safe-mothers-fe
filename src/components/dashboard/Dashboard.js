@@ -30,7 +30,6 @@ const MainContainer = styled.div`
 const Dashboard = props => {
   return (
     <>
-      <MenuBar props={props} />
       <MainContainer className="mainContainer">
         <div className="cardContainer">
           <Card

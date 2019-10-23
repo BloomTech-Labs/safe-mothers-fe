@@ -1,8 +1,12 @@
 import React from 'react';
-import { Banner, Text, Button } from 'pcln-design-system';
+import {Banner, Text, Button} from 'pcln-design-system';
 import './MenuBar.css';
 import styled from 'styled-components';
 import SVG from 'react-inlinesvg/lib/index';
+import {connect} from "react-redux";
+import {logout} from "../../actions/authActions";
+import authReducer from "../../reducers/authReducer";
+import {Link} from "react-router-dom";
 
 const BannerContainer = styled.div`
   display: flex;
@@ -36,45 +40,34 @@ const BannerContainer = styled.div`
 //   }
 // `;
 
-const MenuBar = ({ props }) => {
-  return (
-    <>
-      <Banner px={10} py={30} bg="#282E74" color="white" showIcon={false}>
-        <BannerContainer>
-          <Text className="text">Hi, Jackie</Text>
-          <div className="ButtonContainer">
-            <Button
-              className="dashButton"
-              onClick={() => props.history.push('/mothers')}
-            >
-              Mom
-            </Button>
+const MenuBar = (props) => {
+    return (
+        <>
+            <Banner px={10} py={30} bg="#282E74" color="white" showIcon={false}>
+                <BannerContainer>
+                    <Text className="text">Hi, Jackie</Text>
+                    <div className="ButtonContainer">
+                        <Link to="/mothers">
+                            <Button className="dashButton"> Mom</Button>
+                        </Link>
 
-            <Button
-              className="dashButton"
-              onClick={() => props.history.push('/drivers')}
-            >
-              {' '}
-              Driver
-            </Button>
-            <Button
-              className="dashButton"
-              onClick={() => props.history.push('/settings')}
-            >
-              {' '}
-              Settings
-            </Button>
-            <Button
-              className="dashButton"
-              onClick={() => props.history.push('/')}
-            >
-              Log Off
-            </Button>
-          </div>
-        </BannerContainer>
-      </Banner>
-    </>
-  );
+                        <Button className="dashButton">
+                            {' '}
+                            Driver
+                        </Button>
+                        <Button className="dashButton">
+                            {' '}
+                            Settings
+                        </Button>
+
+                        <Button className="dashButton" onClick={() => props.logout()}>
+                            Log Off
+                        </Button>
+                    </div>
+                </BannerContainer>
+            </Banner>
+        </>
+    );
 };
 
-export default MenuBar;
+export default connect( "", {logout})(MenuBar);
