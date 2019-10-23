@@ -21,33 +21,33 @@ const RegistrationForm = props => {
                 <div className="form-container">
                     <SVG className="svg-logo" src={Logo}/>
                     <Form className="form-contents">
-                        <h1>Safe Mothers, Safe Babies</h1>
+                        <h1>Register a New User</h1>
                         <label>First Name
-                            <Field className="form-inputs" type="text" name="first_name" placeholder="First Name..."/>
+                            <Field className="form-inputs" type="text" name="first_name" />
                             {props.touched.first_name && props.errors.first_name && (
                                 <p className="errormessage">{props.errors.first_name}</p>
                             )}
                         </label>
                         <label>Last Name
-                            <Field className="form-inputs" type="text" name="last_name" placeholder="Last Name..."/>
+                            <Field className="form-inputs" type="text" name="last_name"/>
                             {props.touched.last_name && props.errors.last_name && (
                                 <p className="errormessage">{props.errors.last_name}</p>
                             )}
                         </label>
                         <label>Username
-                            <Field className="form-inputs" type="text" name="username" placeholder="username..."/>
+                            <Field className="form-inputs" type="text" name="username" />
                             {props.touched.username && props.errors.username && (
                                 <p className="errormessage">{props.errors.username}</p>
                             )}
                         </label>
                         <label>Password
-                            <Field className="form-inputs" type="password" name="password" placeholder="password.."/>
+                            <Field className="form-inputs" type="password" name="password"/>
                             {props.touched.password && props.errors.password && (
                                 <p className="errormessage">{props.errors.password}</p>
                             )}
                         </label>
                         <div className="btn-container">
-                            <Button className="submit-btn" type="submit">Register</Button>
+                            <Button className="submit-btn" type="submit">Submit</Button>
                             <p className="arrow">
                                <Link to="/">&#8592;</Link>
                             </p>

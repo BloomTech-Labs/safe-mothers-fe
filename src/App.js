@@ -4,10 +4,10 @@ import FormikLoginForm from './components/auth/Login';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AuthRoute from "./utilities/privateRoute";
 import Registration from "./components/auth/Registration";
-import {ThemeProvider} from 'pcln-design-system'
+import {ThemeProvider} from 'pcln-design-system';
 import {Grommet} from 'grommet';
 import styled from 'styled-components';
-import "./App.css"
+import "./App.css";
 
 const Container = styled.div`
     text-align: center;
