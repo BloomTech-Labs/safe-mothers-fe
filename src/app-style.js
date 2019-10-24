@@ -2,9 +2,16 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     text-align: center;
+    font-family: 'Asap', sans-serif;
     a {
         text-decoration: none;
         color: black;
+    }
+    .time-format{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 4%;
+        font-weight: bold;
     }
 `;
 

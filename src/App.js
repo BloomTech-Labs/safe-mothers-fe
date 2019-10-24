@@ -31,7 +31,7 @@ const theme = {
 const myTheme = {
     accordion:{
         border:{
-            color: "white",
+            color: theme.primary.gray,
             side: "bottom",
         },
         icons: {

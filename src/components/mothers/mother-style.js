@@ -27,30 +27,51 @@ export const StyledContents = styled.div`
 export const StyledLabel = styled.div`
     font-family: 'Asap', sans-serif;
     display: flex;
+    align-items: center;
     width: 100%;
-    justify-content: space-between;
     font-weight: bold;
     border-radius:3px;
-
+     
     p{
         justify-content: space-between;
         width: 33%;
     }
-
+    
     .badge{
-        margin-left: 7%;
-        min-width: 80px;
-        text-align: center;
-    }
-
-    .label-left{
         margin-left: 2%;
-        text-align: left;
-        justify-content: space-evenly;
+        min-width: 90px;
+        text-align: center;
+        height: 27px;
     }
 
-    .label-right{
-        text-align: right;
+    .inline-badges{
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 20px;
+        width: 55%; 
+    }
+    
+    .inline{
+        display: flex;
+        align-items: center;
+        width: 25%;
+        justify-content: flex-end;
+    }
+    
+    .name{
+        width: 20%; 
+        text-align: left;
+        padding-left: 1%;
+    }
+    
+    .svg-icon{
+        margin-right: 5%
+    }
+    
+    .svg-text{
+        font-weight: normal;
+        text-align: left;
+        padding-left: 3%;
     }
 `;
 
@@ -63,7 +84,6 @@ export const Content = styled.div`
     justify-content: center;
     margin-top: 25px;
     width: 90%;
-    margin-right: 1%;
     li{
          margin-bottom: 15px;
     }
@@ -91,7 +111,7 @@ export const Content = styled.div`
     .title{
         text-transform: uppercase;
         margin-bottom: 10px;
-        font-weight: 1000;
+        font-weight: bold;
         display: inline;
         line-height: 16px;
         min-width: 200px;
