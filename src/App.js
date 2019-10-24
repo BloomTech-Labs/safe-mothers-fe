@@ -13,40 +13,8 @@ import FormikLoginForm from './components/auth/Login';
 import {ThemeProvider} from 'pcln-design-system';
 import {Grommet} from 'grommet';
 import {Search} from "grommet-icons";
-import styled from 'styled-components';
-import "./App.css";
-
-const Container = styled.div`
-    text-align: center;
-`;
-
-const SearchWrapper = styled.div`
-    .search {
-        width: 173px;
-        height: 24px;
-        background: #FFFFFF;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.08);
-        border-radius: 15px;
-        border-width:0px;
-        border:none;
-    };
-    .searchLabel{
-         font-size: 12px;
-         margin-right: 15px;
-    };
-    .searchIcon{
-        position:absolute;
-        right:5px;
-        width:17px;
-    };
-    .searchContainer{
-         position: relative; 
-         display: flex;
-         justify-content: flex-end;
-         margin: 20px;
-         align-items: center;
-    };
-`;
+import {SearchWrapper} from './app-style';
+import {Container} from "./app-style";
 
 const theme = {
     primary: {
@@ -60,9 +28,21 @@ const theme = {
     },
 };
 
+const myTheme = {
+    accordion:{
+        border:{
+            color: "white",
+            side: "bottom",
+        },
+        icons: {
+            color: "black"
+        },
+    }
+};
+
 function App(props) {
     return (
-        <Grommet plain>
+        <Grommet theme={myTheme} plain>
             <ThemeProvider theme={theme}>
                 <Container>
 

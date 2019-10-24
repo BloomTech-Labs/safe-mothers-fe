@@ -1,12 +1,6 @@
 import React from 'react';
-import Mothers from '../mothers/Mothers';
-import Drivers from '../drivers/Drivers';
-import MenuBar from '../menubar/MenuBar';
 import { Card } from 'pcln-design-system';
 import styled from 'styled-components';
-import SVG from 'react-inlinesvg/lib/index';
-
-import './Dashboard.css';
 
 const MainContainer = styled.div`
   display: flex;
