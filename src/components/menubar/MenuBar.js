@@ -9,6 +9,7 @@ import authReducer from "../../reducers/authReducer";
 import {Link} from "react-router-dom";
 
 const BannerContainer = styled.div`
+  font-family: 'Asap', sans-serif;
   display: flex;
   justify-content: space-between;
   .text {

@@ -19,7 +19,7 @@ export default function AccordionContent (props) {
         <li>Village:</li>
         <br />
         <li>Phone Owner:</li>
-        <li>Phone Carrier:></li>
+        <li>Phone Carrier:</li>
         <li>Phone Number:</li>
        </ul>
        <ul className="list-values">

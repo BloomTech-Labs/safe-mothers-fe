@@ -1,17 +1,20 @@
 import React from 'react';
-import Dashboard from './components/dashboard/Dashboard';
-import FormikLoginForm from './components/auth/Login';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import AuthRoute from "./utilities/privateRoute";
+import connect from "react-redux/es/connect/connect";
+
 import Registration from "./components/auth/Registration";
-import {ThemeProvider} from 'pcln-design-system';
+import MenuBar from "./components/menubar/MenuBar";
+import Dashboard from './components/dashboard/Dashboard';
 import Mothers from './components/mothers/Mothers';
+
+import AuthRoute from "./utilities/privateRoute";
+
+import FormikLoginForm from './components/auth/Login';
+import {ThemeProvider} from 'pcln-design-system';
 import {Grommet} from 'grommet';
+import {Search} from "grommet-icons";
 import styled from 'styled-components';
 import "./App.css";
-import MenuBar from "./components/menubar/MenuBar";
-import connect from "react-redux/es/connect/connect";
-import {Search} from "grommet-icons";
 
 const Container = styled.div`
     text-align: center;
