@@ -23,18 +23,18 @@ export default function AccordionContent (props) {
         <li>Phone Number:</li>
        </ul>
        <ul className="list-values">
-        <li>{mother.age ? mother.age :'null'}</li>
-        <li>{mother.marital_status ? mother.marital_status :'null'}</li>
-        <li>{mother.wife_order ? mother.wife_order :'null'}</li>
-        <li>{mother.attend_school ? mother.attend_school :'null'}</li>
-        <li>{mother.education ? mother.education :'null'}</li>
+        <li>{mother.age ? mother.age :'N/A'}</li>
+        <li>{mother.marital_status ? mother.marital_status :'N/A'}</li>
+        <li>{mother.wife_order ? mother.wife_order :'N/A'}</li>
+        <li>{mother.attend_school ? mother.attend_school :'N/A'}</li>
+        <li>{mother.education ? mother.education :'N/A'}</li>
         <li>Unknown DB Value</li>
-        <li>{mother.edd ? mother.edd :'null'}</li>
-        <li>{mother.villiage ? mother.villiage :'null'}</li>
+        <li>{mother.edd ? mother.edd :'N/A'}</li>
+        <li>{mother.villiage ? mother.villiage :'N/A'}</li>
         <br />
-        <li>{mother.owner_phone ? mother.owner_phone :'null'}</li>
-        <li>{mother.carrier ? mother.carrier :'null'}</li>
-        <li>{mother.phone_number ? mother.phone_number :'null'}</li>
+        <li>{mother.owner_phone ? mother.owner_phone :'N/A'}</li>
+        <li>{mother.carrier ? mother.carrier :'N/A'}</li>
+        <li>{mother.phone_number ? mother.phone_number :'N/A'}</li>
        </ul>
       </div>  
         
@@ -47,11 +47,10 @@ export default function AccordionContent (props) {
 
 
 const StyledContents = styled.div`
-    font-family: 'Asap', sans-serif;
-    flex-direction: column;
-    text-align: left;
-    background: white;
-
+    display: flex;
+    font-weight: bold;
+    justify-content: space-between;
+    
     .list{
         list-style-type: none;
     }
@@ -62,6 +61,8 @@ const StyledContents = styled.div`
     }
 
     .att-list{
+        font-family: 'Asap', sans-serif;
+        text-align: left;
         display:flex;
     }
 `
