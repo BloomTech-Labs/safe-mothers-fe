@@ -1,8 +1,6 @@
 import React from 'react';
 import {Banner, Text, Button} from 'pcln-design-system';
-import './MenuBar.css';
 import styled from 'styled-components';
-import SVG from 'react-inlinesvg/lib/index';
 import {connect} from "react-redux";
 import {logout} from "../../actions/authActions";
 import authReducer from "../../reducers/authReducer";

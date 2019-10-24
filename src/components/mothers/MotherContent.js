@@ -1,71 +1,6 @@
 import React from 'react';
-import styled from 'styled-components'
 import {Divider} from "pcln-design-system";
-
-const Content = styled.div`
-    display: flex;
-    position: relative; 
-    display: flex;
-    width: 66%;
-    justify-content: space-evenly;
-    border-bottom-width: 3px;
-    font-family: 'Asap', sans-serif;
-    .divider {
-        position:absolute;
-        top: 18px;
-    };
-    .align-left {
-        text-align: left;
-        list-style-type: none; 
-        li{
-            margin-bottom: 7px;
-        }
-    };
-    .align-right {
-        text-align: right;
-        list-style-type: none; 
-        li{
-            margin-bottom: 7px;
-        }
-    };
-    .card{
-        display: flex;
-        flex-direction: column;
-        margin: 0 10px;
-    };
-    .card-content{
-        display: flex;
-        font-style: normal;
-        font-weight: bold;
-        line-height: 16px;
-    };
-    .title{
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        font-weight: bold;
-        display: inline;
-        font-style: normal;
-        line-height: 16px;
-    };
-    .values{
-        color: #1337F1;
-    };
-    .status-no{
-        color: red;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-    };
-    .status-yes{
-        color: #C4C4C4;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-    };
-    
-`;
+import {Content} from './mother-style'
 
 export default function MotherContent(props) {
     const {mother} = props;
@@ -161,9 +96,9 @@ export default function MotherContent(props) {
                             <li>Obstructed labor</li>
                             <li>Malpresentation</li>
                             <li>Hemorrhage</li>
-                            <li>RETAINED PLACENTA</li>
+                            <li>Retained placenta</li>
                             <li>Placenta previa</li>
-                            <li>Stillbieth</li>
+                            <li>Stillbirth</li>
                             <li>Other complication</li>
                         </ul>
                         <ul className="align-right">
