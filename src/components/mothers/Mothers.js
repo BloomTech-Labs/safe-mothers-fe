@@ -16,7 +16,6 @@ const Mothers = props => {
     <>
       <Box>
         {console.log(mothers)}
-        <h3>List of mothers: </h3>
           <Accordion animate={true} multiple={true} margin='small'>
             {mothers &&
             mothers.map((mother, index) => (
