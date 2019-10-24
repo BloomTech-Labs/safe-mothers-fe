@@ -20,6 +20,7 @@ const BannerContainer = styled.div`
   height: 70px;
   font-size: 1.2rem;
   margin: 10px;
+  background: #282E74;
 
   }
 `;

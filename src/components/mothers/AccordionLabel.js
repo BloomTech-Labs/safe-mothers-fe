@@ -9,7 +9,7 @@ export default function AccordionLabel (props) {
         <StyledLabel>
         <p className="label-left">
         {mother.name}
-        <Badge className="badge" color="secondary">{mother.amt_saved ? mother.amt_saved :'Null'}</Badge>
+        <Badge className="badge" color="secondary">{mother.amt_saved ? mother.amt_saved :'$0'}</Badge>
         <Badge className="badge" color="error">RISK</Badge>
         </p>
         <p className="label-right">DUE DATE {mother.edd}</p>
@@ -22,7 +22,8 @@ const StyledLabel = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
-    background:white;
+    font-weight: bold;
+    border-radius:3px;
 
     p{
         justify-content: space-between;
@@ -30,10 +31,13 @@ const StyledLabel = styled.div`
     }
 
     .badge{
-        margin-left: 10%;
+        margin-left: 7%;
+        min-width: 80px;
+        text-align: center;
     }
 
     .label-left{
+        margin-left: 2%;
         text-align: left;
         justify-content: space-evenly;
     }

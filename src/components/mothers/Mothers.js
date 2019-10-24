@@ -14,13 +14,13 @@ const Mothers = props => {
 
   return (
     <>
-      <Box>
+      <Box background= 'white'>
         {console.log(mothers)}
           <Accordion animate={true} multiple={true} margin='small'>
             {mothers &&
             mothers.map((mother, index) => (
             <AccordionPanel label= {<AccordionLabel mother={mother} />}>
-              <Box background='light-1'><AccordionContent mother={mother} /> </Box>
+              <Box background='white'><AccordionContent mother={mother} /> </Box>
             </AccordionPanel>
             ))}
           </Accordion>

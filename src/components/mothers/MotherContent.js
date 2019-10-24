@@ -6,7 +6,8 @@ const Content = styled.div`
     display: flex;
     position: relative; 
     display: flex;
-    margin: 30px;
+    width: 66%;
+    justify-content: space-evenly;
     border-bottom-width: 3px;
     font-family: 'Asap', sans-serif;
     .divider {
@@ -35,8 +36,7 @@ const Content = styled.div`
     .card-content{
         display: flex;
         font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
+        font-weight: bold;
         line-height: 16px;
     };
     .title{
@@ -45,8 +45,6 @@ const Content = styled.div`
         font-weight: bold;
         display: inline;
         font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
         line-height: 16px;
     };
     .values{
