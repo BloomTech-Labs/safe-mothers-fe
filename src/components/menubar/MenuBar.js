@@ -1,136 +1,57 @@
 import React, {useState} from 'react';
-import styled, {keyframes} from 'styled-components';
 import {connect} from "react-redux";
 import {logout} from "../../actions/authActions";
-import {Link} from "react-router-dom";
-
-const animateIn = keyframes`
-  0%{
-    width: 10%;
-    left: 50%;
-  }
-  100% {
-    width: 100%;
-    left: 0%;
-  }
-`;
-
-const BannerContainer = styled.div`
-  font-family: 'Asap', sans-serif;
-  display: flex;
-  
-  .text {
-    font-size: 1.5rem;
-  }
-  
-  .dash-button{
-    color: white;
-    border-bottom: 3px solid white;
-    font-size: 1.2rem;
-    margin: 10px;
-    background: #282E74;
-    border-bottom: white;
-    position: absolute;
-    left: 300px;
-    top: 100px;
-    width: 20px;
-    height: 20px;
-    
-  &:hover {
-    animation: ${animateIn} 2s ease-in-out
-  }
-  
-`;
-
-const Container = styled.div`
-    background: #282E74;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    height: 80px;
-    
-    .link{
-        color: white;
-        &:hover { 
-            .dash-button{
-                background: ${props => props.theme.navbar.linkColor};
-                position: absolute;
-                left: 50%;
-                top: 44px;
-                width: 10%;
-                height: 7px;
-                animation: ${animateIn} 300ms ease-in-out            
-                animation-fill-mode: forwards; 
-                transition: 1s;
-            }  
-        }
-        &:hover {
-            color: ${props => props.theme.navbar.linkColor};
-        }
-    }
-    
-    .focus{
-        background: ${props => props.theme.navbar.linkColor};
-        position: absolute;
-        left: 0%;
-        top: 44px;
-        width: 100%;
-        height: 7px;
-     }  
-     
-     .focus-link{
-        color: ${props => props.theme.navbar.linkColor};
-     }
-     
-    .links{
-        display: flex;
-        justify-content: flex-end;
-        width: 30%;
-        margin-right: 2%;
-    }
-    
-    .link-container{
-        position: relative;
-        margin-top: 30px;
-        margin-left: 3%;
-        margin-right: 3%;  
-    }
-    
-`;
+import {Link, withRouter} from "react-router-dom";
+import {Container} from "./menubar-style";
 
 const MenuBar = (props) => {
     const [active, setActive] = useState();
+    const [links, setLinks] = useState({
+        dashboard: "/dashboard",
+        mothers: "/mothers",
+        drivers: "/drivers",
+        settings: "/settings",
+    });
+
     return (
         <>
             <Container>
                 <div className="links">
                     <div className="link-container">
-                        <Link onClick={() => setActive(1)} className={"link " + (active === 1 ? "focus-link" : "")}
+                        <Link onClick={() => setActive(1)}
+                              className={"link " + (active === 1 || props.location.pathname === links.dashboard ? "focus-link" : "")}
                               to="/dashboard">
                             Home <div className="dash-button"></div>
-                            <div className={active === 1 ? "focus" : ""}></div>
+                            <div
+                                className={active === 1 || props.location.pathname === links.dashboard ? "focus" : ""}></div>
                         </Link>
                     </div>
                     <div className="link-container">
-                        <Link onClick={() => setActive(2)} className={"link " + (active === 2 ? "focus-link" : "")}
+                        <Link onClick={() => setActive(2)}
+                              className={"link " + (active === 2 || props.location.pathname === links.mothers ? "focus-link" : "")}
                               to="/mothers">
                             Mom <div className="dash-button"></div>
-                            <div className={active === 2 ? "focus" : ""}></div>
+                            <div
+                                className={active === 2 || props.location.pathname === links.mothers ? "focus" : ""}></div>
                         </Link>
                     </div>
                     <div className="link-container">
-                        <Link onClick={() => setActive(3)} className={"link " + (active === 3 ? "focus-link" : "")}
+                        <Link onClick={() => setActive(3)}
+                              className={"link " + (active === 3 || props.location.pathname === links.drivers ? "focus-link" : "")}
                               to="/drivers">
                             Driver <div className="dash-button"></div>
-                            <div className={active === 3 ? "focus" : ""}></div>
+                            <div
+                                className={active === 3 || props.location.pathname === links.drivers ? "focus" : ""}></div>
                         </Link>
                     </div>
                     <div className="link-container">
-                        <Link onClick={() => setActive(4)} className={"link " + (active === 4 ? "focus-link" : "")}
+                        <Link onClick={() => setActive(4)}
+                              className={"link " + (active === 4 || props.location.pathname === links.settings ? "focus-link" : "")}
                               to="/settings">
                             Settings
                             <div className="dash-button"></div>
-                            <div className={active === 4 ? "focus" : ""}></div>
+                            <div
+                                className={active === 4 || props.location.pathname === links.settings ? "focus" : ""}></div>
                         </Link>
                     </div>
                     <div className="link-container">
@@ -144,4 +65,4 @@ const MenuBar = (props) => {
         </>
     );
 };
-export default connect("", {logout})(MenuBar);
+export default connect("", {logout})(withRouter(MenuBar));
