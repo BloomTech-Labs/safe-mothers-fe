@@ -53,7 +53,7 @@ const Container = styled.div`
         color: white;
         &:hover { 
             .dash-button{
-                background: yellow;
+                background: ${props => props.theme.navbar.linkColor};
                 position: absolute;
                 left: 50%;
                 top: 44px;
@@ -65,12 +65,12 @@ const Container = styled.div`
             }  
         }
         &:hover {
-            color: yellow;
+            color: ${props => props.theme.navbar.linkColor};
         }
     }
     
     .focus{
-        background: yellow;
+        background: ${props => props.theme.navbar.linkColor};
         position: absolute;
         left: 0%;
         top: 44px;
@@ -79,7 +79,7 @@ const Container = styled.div`
      }  
      
      .focus-link{
-        color: yellow;
+        color: ${props => props.theme.navbar.linkColor};
      }
      
     .links{

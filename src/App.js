@@ -26,6 +26,9 @@ const theme = {
         darkBlue: "#282E74",
         blue: "#F9FBFC",
     },
+    navbar: {
+        linkColor: "yellow"
+    }
 };
 
 const myTheme = {
