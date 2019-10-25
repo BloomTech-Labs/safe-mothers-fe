@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const StyledContents = styled.div`
     display: flex;
     justify-content: center;
+    li{
+        margin-bottom: 10px;
+        white-space: nowrap;
+     }
     .list{
         list-style-type: none;
     }
@@ -10,16 +14,21 @@ export const StyledContents = styled.div`
     .list-values{
         list-style-type: none; 
         color: blue;
+        display: inline;
     }
     .mother-content{
         width: 75%;  
     };
+     .card{
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;  
+        width: 25%;
+    };
 
     .att-list{
-        font-family: 'Asap', sans-serif;
         text-align: left;
-        display:flex;
-        width: 25%;
+        display:flex; 
     }
 `;
 
@@ -76,7 +85,6 @@ export const StyledLabel = styled.div`
 `;
 
 
-
 export const Content = styled.div`
     font-family: 'Asap', sans-serif;
     position: relative; 
@@ -84,29 +92,14 @@ export const Content = styled.div`
     justify-content: center;
     margin-top: 25px;
     width: 90%;
-    li{
-         margin-bottom: 15px;
-    }
     .card{
         display: flex;
         flex-direction: column;
         margin: 0 10px;
     };
-    .card-content{
-        display: flex;
-        line-height: 16px;
-     };
     .divider {
         position:absolute;
         top: 18px;
-    };
-    .align-left {
-        text-align: left;
-        list-style-type: none; 
-    };
-    .align-right {
-        text-align: right;
-        list-style-type: none; 
     };
     .title{
         text-transform: uppercase;
@@ -115,9 +108,6 @@ export const Content = styled.div`
         display: inline;
         line-height: 16px;
         min-width: 200px;
-    };
-    .values{
-        color: #1337F1;
     };
     .status-no{
         color: #C4C4C4;
@@ -134,4 +124,32 @@ export const Content = styled.div`
         line-height: 16px;
     };
     
+`;
+
+export const Card = styled.div`
+     li{
+        margin-bottom: 15px;
+        white-space: nowrap;
+     }
+      .card-content{
+        display: flex;
+        line-height: 16px;
+     };
+       .align-left {
+        text-align: left;
+        list-style-type: none; 
+    };
+       .values{
+        color: #1337F1;
+    };
+      .align-right {
+        text-align: right;
+        list-style-type: none; 
+    };
+    
+    .align-center{
+        text-align: center;
+        list-style-type: none; 
+        padding: 0;
+    }
 `;
