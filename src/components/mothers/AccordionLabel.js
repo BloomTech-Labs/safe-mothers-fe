@@ -1,12 +1,12 @@
 import React from 'react';
 import {StyledLabel} from './mother-style'
 import {Badge} from 'pcln-design-system';
-import SVG from 'react-inlinesvg/lib/index';
-import Sun from './Sun Created by Adrien Coquet from the Noun Project.svg';
-import Rain from './Rain Created by Adrien Coquet from the Noun Project.svg';
-import Pregnant from './Pregnant.svg';
-import Baby from './Baby.svg';
-import Born from './Born.svg';
+import SVG from 'react-inlinesvg/lib';
+import Sun from './resources/Sun.svg';
+import Rain from './resources/Rain.svg';
+import Pregnant from './resources/Pregnant.svg';
+import Baby from './resources/Baby.svg';
+import Born from './resources/Born.svg';
 import {HIGHT_RISK, defineRainSeason, defineDrySeason, RAIN_SEASON, DRY_SEASON} from "./mother-utils";
 
 export default function AccordionLabel(props) {

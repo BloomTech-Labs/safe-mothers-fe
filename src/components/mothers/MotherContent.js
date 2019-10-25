@@ -1,10 +1,10 @@
 import React from 'react';
 import {Divider} from "pcln-design-system";
 import {Content} from './mother-style'
-import HighRiskCard from "./HightRiskCard";
-import MedicalHistoryCard from "./MedicalHistoryCard";
-import SuppliesForPregnancyCard from "./SuppliesForPregnancyCard";
-import FinanceAndInsuranceCard from "./FinanceAndInsuranceCard";
+import HighRiskCard from "./cards/HightRiskCard";
+import MedicalHistoryCard from "./cards/MedicalHistoryCard";
+import SuppliesForPregnancyCard from "./cards/SuppliesForPregnancyCard";
+import FinanceAndInsuranceCard from "./cards/FinanceAndInsuranceCard";
 
 export default function MotherContent(props) {
     const {mother} = props;
