@@ -5,7 +5,7 @@ import connect from "react-redux/es/connect/connect";
 import Registration from "./components/auth/Registration";
 import MenuBar from "./components/menubar/MenuBar";
 import Dashboard from './components/dashboard/Dashboard';
-import Mothers from './components/mothers/Mothers';
+import MothersList from './components/mothers/MothersList';
 
 import AuthRoute from "./utilities/privateRoute";
 
@@ -70,7 +70,7 @@ function App(props) {
                                     />
                                     <AuthRoute
                                         exact path="/mothers"
-                                        component={Mothers}
+                                        component={MothersList}
                                     />
                                 </Switch>
                             </SearchWrapper>
