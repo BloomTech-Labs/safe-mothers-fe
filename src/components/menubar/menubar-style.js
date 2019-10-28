@@ -58,8 +58,9 @@ export const Container = styled.div`
     .links{
         display: flex;
         justify-content: flex-end;
-        width: 30%;
+        width: 35%;
         margin-right: 2%;
+
 
         @media (max-width: 1024px) {
             width: 90%;
