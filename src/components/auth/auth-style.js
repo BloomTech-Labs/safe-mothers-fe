@@ -73,14 +73,14 @@ export const Container = styled.div`
     }
 
     .submit-btn{
-        color: black;
+        color: white;
         width: 122px;
         height: 48px;
         margin: 40px;
-        background:  ${props => props.theme.primary.darkGray};
+        background: ${props => props.theme.secondary.darkTeal}
         
         &:hover {
-            background:  ${props => props.theme.primary.gray};
+            background: ${props => props.theme.secondary.lightTeal};
         }
     }
     .arrow{
