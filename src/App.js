@@ -16,6 +16,7 @@ import {Search} from "grommet-icons";
 import {SearchWrapper} from './app-style';
 import {Container} from "./app-style";
 import DriversList from "./components/drivers/DriversList";
+import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
 
 export const theme = {
     primary: {
@@ -100,6 +101,10 @@ function App(props) {
                                         exact path="/mothers"
                                         component={MothersList}
                                     />
+                                    <AuthRoute
+                                        exact path="/mothers/:id"
+                                        component={SingleMotherView}
+                                        />
                                     <AuthRoute
                                         exact path="/drivers"
                                         component={DriversList}

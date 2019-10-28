@@ -3,22 +3,18 @@ import {Divider} from "pcln-design-system";
 import {Content} from './mother-style'
 import HighRiskCard from "./cards/HightRiskCard";
 import MedicalHistoryCard from "./cards/MedicalHistoryCard";
-import SuppliesForPregnancyCard from "./cards/SuppliesForPregnancyCard";
-import FinanceAndInsuranceCard from "./cards/FinanceAndInsuranceCard";
+import ContactsCard from "./cards/ContactsCard";
+import {Link, withRouter} from "react-router-dom";
 
-export default function MotherContent(props) {
+function MotherContent(props) {
     const {mother} = props;
     return (
         <>
             <Content>
                 <Divider borderColor={"black"} width={1} className="divider"/>
                 <div className="card">
-                    <span className="title">Finance and insurance</span>
-                    <FinanceAndInsuranceCard mother={mother}/>
-                </div>
-                <div className="card">
-                    <span className="title">Supplies for pregnancy</span>
-                    <SuppliesForPregnancyCard mother={mother}/>
+                    <span className="title">Contacts</span>
+                    <ContactsCard mother={mother}/>
                 </div>
                 <div className="card">
                     <span className="title">Medical history</span>
@@ -28,8 +24,11 @@ export default function MotherContent(props) {
                     <span className="title">High risk</span>
                     <HighRiskCard mother={mother}/>
                 </div>
+                <div className="see-more" onClick={() => props.history.push(`/mothers/${mother.id}`)}><p>See more</p></div>
             </Content>
         </>
     )
 }
+
+export default withRouter(MotherContent);
 
