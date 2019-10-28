@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
-import {getMothers} from '../../actions/mothersActions';
+import {getMothers} from '../../../actions/mothersActions';
 import {Accordion, AccordionPanel, Box} from 'grommet';
 import AccordionLabel from './AccordionLabel';
 import AccordionContent from './AccordionContent';
-import {defineHighRisk} from "./mother-utils";
+import {defineHighRisk} from "../mother-utils";
 
 const Mothers = props => {
     const {mothers} = props;
@@ -15,7 +15,6 @@ const Mothers = props => {
 
     return (
         <>
-            <span className="time-format">DUE DATE DD/MM/YYYY</span>
             <Box>
                 {console.log(mothers)}
                 <Accordion className="accordion"
@@ -27,7 +26,7 @@ const Mothers = props => {
                     {
                         mothers &&
                         mothers.map((mother, index) => (
-                            <AccordionPanel label={<AccordionLabel risk={defineHighRisk(mother)} mother={mother}/>}>
+                            <AccordionPanel key={index} label={<AccordionLabel risk={defineHighRisk(mother)} mother={mother}/>}>
                                 <Box background='white'><AccordionContent mother={mother}/> </Box>
                             </AccordionPanel>
                         ))
