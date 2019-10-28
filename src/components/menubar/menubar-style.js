@@ -17,6 +17,10 @@ export const Container = styled.div`
     justify-content: flex-end;
     width: 100%;
     height: 80px;
+
+    @media (max-width: 1024px) {
+        justify-content: center;
+    }
     
     .link{
         color: white;
@@ -56,13 +60,19 @@ export const Container = styled.div`
         justify-content: flex-end;
         width: 30%;
         margin-right: 2%;
+
+        @media (max-width: 1024px) {
+            width: 90%;
+            justify-content: center;
+            margin-right: 0%;
+        }
     }
     
     .link-container{
         position: relative;
         margin-top: 30px;
         margin-left: 3%;
-        margin-right: 3%;  
+        margin-right: 3%;
     }
     
 `;
