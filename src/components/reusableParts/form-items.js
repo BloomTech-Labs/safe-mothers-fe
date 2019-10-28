@@ -6,7 +6,7 @@ export const FormItems = styled.div`
         width: 100%;
         height: 48px;
         border-radius: 2px;
-        border-width:0px;
+        border-width: 0px;
         border: 1.5px solid ${props => props.theme.primary.darkGray};
         padding-left: 12px;  
          &:hover {

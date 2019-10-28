@@ -33,9 +33,7 @@ export default function AccordionContent(props) {
                         <br/>
                     </ul>
                 </div>
-                <ContactsCard mother={mother}/>
             </div>
-
             <MotherContent className="mother-content" mother={mother}/>
         </StyledContents>
     )

@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const Container = styled.div`
     text-align: center;
     font-family: 'Asap', sans-serif;
+    min-width: 500px;
+    font-size: 12px;
     a {
         text-decoration: none;
         color: black;

@@ -4,7 +4,7 @@ import {Card} from '../mother-style'
 export default function HighRiskCard({mother}) {
     return (
         <Card>
-            <div className="card-content">
+            <div className="card-content ">
                 <ul className="align-right">
                     <li>C-section</li>
                     <li>Anemia</li>
@@ -17,7 +17,7 @@ export default function HighRiskCard({mother}) {
                     <li>Stillbirth</li>
                     <li>Other complication</li>
                 </ul>
-                <ul className="align-right">
+                <ul className="align-right values high-risk-card">
                     <li>{true ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
                     <li>{mother.anemia
                         ? <p className="status-yes">YES</p>
