@@ -3,32 +3,50 @@ import styled from "styled-components";
 export const StyledContents = styled.div`
     display: flex;
     justify-content: center;
+    //font-size:1vw;
+    @media (max-width: 1024px) {
+       flex-direction: column;
+    }
     li{
         margin-bottom: 10px;
         white-space: nowrap;
      }
     .list{
         list-style-type: none;
+        padding: 0;
+        @media (max-width: 1024px) {
+          padding-left: 8%;
+        }
     }
-
+   
+   
     .list-values{
         list-style-type: none; 
         color: blue;
-        display: inline;
     }
+    
     .mother-content{
         width: 75%;  
-    };
-     .card{
+    }
+    
+    .card{
         display: flex;
         flex-direction: column;
-        margin: 0 10px;  
-        width: 25%;
-    };
+        margin-left: 1%;
+        width: 30%;
+        @media (max-width: 1024px) {
+           width: 50%; 
+           flex-wrap: wrap;
+           margin: auto;
+        }
+    }
 
     .att-list{
         text-align: left;
         display:flex; 
+        @media (max-width: 1024px) {
+           width: 70%;
+        }
     }
 `;
 
@@ -114,12 +132,22 @@ export const Content = styled.div`
     position: relative; 
     display: flex;
     justify-content: center;
-    margin-top: 25px;
-    width: 90%;
+    margin-top: 25px; 
+    margin-left: 3%;
+    margin-right: 4%;
+    width: 70%;
+    //font-size:1vw;
+    @media (max-width: 1024px) { 
+       width: 100%;
+       flex-wrap: wrap;
+    }
     .card{
-        display: flex;
+        width: 50%;
         flex-direction: column;
         margin: 0 10px;
+        @media (max-width: 1024px) {
+           width: 50%;
+        }
     };
     .divider {
         position:absolute;
@@ -132,21 +160,26 @@ export const Content = styled.div`
         display: inline;
         line-height: 16px;
         min-width: 200px;
-    };
+    }
     .status-no{
         color: #C4C4C4;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-    };
+        //font-weight: 600;
+    }
     .status-yes{ 
         color: red;
-        font-style: normal;
-        font-weight: 600;
-        font-size: 12px;
-        line-height: 16px;
-    };
+        //font-weight: 600;
+    }
+    .high-risk-card{
+        margin-top: 0;
+    }
+    position: relative;
+    
+    .see-more{
+        position: absolute;
+        top: 83%;
+        left: 0;
+        color: blue;
+    }
     
 `;
 
@@ -157,18 +190,35 @@ export const Card = styled.div`
      }
       .card-content{
         display: flex;
-        line-height: 16px;
-     };
-       .align-left {
+        justify-content: center;
+        @media (max-width: 1024px) {
+            justify-content: flex-start;
+        }
+     }
+     
+     .align-left {
         text-align: left;
         list-style-type: none; 
-    };
-       .values{
+        @media (max-width: 1024px) {
+            text-align: left;         
+            padding: 0;
+        }
+    }
+    
+    .values{
         color: #1337F1;
-    };
+        @media (max-width: 1024px) {
+            padding-left: 1%;
+        }
+    }
+    
       .align-right {
         text-align: right;
         list-style-type: none; 
+        @media (max-width: 1024px) {
+            text-align: left;
+            padding: 0;
+        }
     };
     
     .align-center{
@@ -178,7 +228,7 @@ export const Card = styled.div`
     }
 `;
 
-export const  Palette = styled.div`
+export const Palette = styled.div`
     font-family: 'Asap', sans-serif;
     background: #fff;
     align-item: center;
@@ -230,48 +280,48 @@ export const  Palette = styled.div`
         }
     }
     .box1{
-        background: ${props=> props.theme.palette.red};     
+        background: ${props => props.theme.palette.red};     
         cursor: pointer;
     }
     .box2{
-        background:  ${props=> props.theme.palette.blue};
+        background:  ${props => props.theme.palette.blue};
         cursor: pointer;
     }
     .box3{
-        background:  ${props=> props.theme.palette.yellow};
+        background:  ${props => props.theme.palette.yellow};
         cursor: pointer;
     }
     .box4{
-        background:  ${props=> props.theme.palette.lightPink};
+        background:  ${props => props.theme.palette.lightPink};
         cursor: pointer;
       
     }
     .box5{
-        background:  ${props=> props.theme.palette.orange};
+        background:  ${props => props.theme.palette.orange};
         cursor: pointer;
     }
     .box6{
-        background:  ${props=> props.theme.palette.deepPink};
+        background:  ${props => props.theme.palette.deepPink};
         cursor: pointer;
     }
     .box7{
-        background:  ${props=> props.theme.palette.green};
+        background:  ${props => props.theme.palette.green};
         cursor: pointer;
     }
     .box8{
-        background:  ${props=> props.theme.palette.black};
+        background:  ${props => props.theme.palette.black};
         cursor: pointer;
     }
     .box9{
-        background:  ${props=> props.theme.palette.plum};
+        background:  ${props => props.theme.palette.plum};
         cursor: pointer;
     }
     .box10{
-        background:  ${props=> props.theme.palette.rebeccaPurple};
+        background:  ${props => props.theme.palette.rebeccaPurple};
         cursor: pointer;
     }
     .box11{
-        background:  ${props=> props.theme.palette.gray};
+        background:  ${props => props.theme.palette.gray};
         cursor: pointer;
     }
 `;
