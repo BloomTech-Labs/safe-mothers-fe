@@ -27,6 +27,8 @@ export const theme = {
         darkBlue: "#282E74",
         lightBlue: "#c3ccfa",
         blue: "#F9FBFC",
+        darkTeal: "#3D689E",
+        lightTeal:"#6B95BD"
     },
     navbar: {
         linkColor: "yellow"
