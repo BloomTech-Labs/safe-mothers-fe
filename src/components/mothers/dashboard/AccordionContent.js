@@ -1,7 +1,7 @@
 import React from 'react';
-import MotherContent from './MotherContent';
-import {StyledContents} from './mother-style'
-import ContactsCard from "./cards/ContactsCard";
+import MotherContent from '../MotherContent';
+import {StyledContents} from '../mother-style'
+import ContactsCard from "../cards/ContactsCard";
 
 
 export default function AccordionContent(props) {

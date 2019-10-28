@@ -7,16 +7,11 @@ export const Container = styled.div`
         text-decoration: none;
         color: black;
     }
-    .time-format{
-        display: flex;
-        justify-content: flex-end;
-        margin-right: 4%;
-        font-weight: bold;
-    }
+    
 `;
 
 export const SearchWrapper = styled.div`
-    max-width: 1600px;
+    width: 95%;
     margin: auto;
     .search {
         width: 173px;

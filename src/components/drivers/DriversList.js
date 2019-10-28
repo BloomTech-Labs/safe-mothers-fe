@@ -2,8 +2,10 @@ import React, {useEffect} from 'react';
 import {connect} from "react-redux";
 import {getDrivers} from "../../actions/driversActions";
 
-const Drivers = (props) => {
+
+const DriversList = (props) => {
     const {drivers} = props;
+
 
     useEffect(() => {
         props.getDrivers();
@@ -21,8 +23,8 @@ const Drivers = (props) => {
 
 const mapStateToProps = state => {
     return {
-        drivers: state.driversReducer.drivers,
+         drivers: state.driversReducer.drivers,
     }
 };
 
-export default connect(mapStateToProps, {getDrivers})(Drivers);
+export default connect(mapStateToProps, {getDrivers})(DriversList);
