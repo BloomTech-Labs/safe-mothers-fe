@@ -8,25 +8,44 @@ import HightRiskCard from '../cards/HightRiskCard';
 import MedicalHistoryCard from '../cards/MedicalHistoryCard';
 import SuppliesForPregnancyCard from '../cards/SuppliesForPregnancyCard';
 
+import SVG from 'react-inlinesvg/lib/index';
+import Close from '../../reusableParts/resources/Close.svg';
+import Edit from '../../reusableParts/resources/Edit.svg';
+
 
 const StyledPageView = styled.div`
         
-        font-size: 20px;
+        font-size: 18px;
+
+        .banner{
+            align-items: center;
+        }
 
         .banner-title{
             text-align: left;
         }
 
+
         .align-left{
             align-content: flex-start;
             width: 50%;
             padding: 0%;
+
+            @media (max-width: 1024px){
+                width:40%;
+                align-content: flex-end;
+            }
         }
 
         .align-left-values{
-            align-content: flex-start;
+            align-content: flex-end;
             width: 50%;
             padding: 0%;
+
+            @media (max-width: 1024px){
+                align-content: center;
+                width: 0%;
+            }
         }
 
         .align-center.values{
@@ -45,6 +64,16 @@ const StyledPageView = styled.div`
             width: 50%;
             margin-top: 0%;
             padding: 0%;
+
+            li{
+                margin-top: 0%;
+                color: red;
+                margin-bottom: 0%;
+            }
+
+            p{
+                margin-bottom: 0%;
+            }
         }
 
         .card-container{
@@ -54,6 +83,10 @@ const StyledPageView = styled.div`
 
         .card{
             align-content: flex-start;
+
+            @media (max-width: 1024px){
+                text-align: center;
+            }
         }
 
         
@@ -75,6 +108,7 @@ const StyledPageView = styled.div`
             @media (max-width: 1024px) {
                 display: block;
                 width: 100%;
+                text-align: center;
             }
         }
 
@@ -90,6 +124,8 @@ const StyledPageView = styled.div`
             @media (max-width: 1024px) {
                 display: block;
                 width: 100%;
+                text-align: center;
+                align-content: center;
             }
         }
 
@@ -104,7 +140,11 @@ function SingleMotherView(props) {
         {singleMother && singleMother.map(mother => 
         (
       <StyledPageView className="single-page-view">
-        <h1 className="banner-title">{mother.name}</h1>
+        <div className="banner">
+            <h1 className="banner-title">{mother.name}</h1>
+            <a className="edit">EDIT<SVG src={Edit} /></a>
+            <a className="edit">DELETE<SVG src={Close} /></a>
+        </div>
         <div className="card-container">
         <div className="grid-top">
             <div className="card">
