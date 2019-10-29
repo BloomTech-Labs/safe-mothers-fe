@@ -5,12 +5,23 @@ export const Container = styled.div`
     font-family: 'Asap', sans-serif;
     min-width: 500px;
     font-size: 12px;
+    background: #F9FBFC;
     a {
         text-decoration: none;
         color: black;
     }
     ul{
        list-style-type: none; 
+    }
+    
+    
+    .column-title{
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        font-weight: bold;
+        display: inline;
+        line-height: 16px;
+        min-width: 200px;
     }
     
 `;
