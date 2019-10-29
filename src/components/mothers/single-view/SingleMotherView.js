@@ -20,11 +20,17 @@ const StyledPageView = styled.div`
         .align-left{
             align-content: flex-start;
             width: 50%;
+            padding: 0%;
         }
 
         .align-left-values{
             align-content: flex-start;
             width: 50%;
+            padding: 0%;
+        }
+
+        .align-center.values{
+            text-align: left;
         }
 
         .align-right{
@@ -64,7 +70,12 @@ const StyledPageView = styled.div`
             grid-column-gap: 0px;
             grid-row-gap: 0px;
             align-items: stretch;
-            text-align: left;  
+            text-align: left;
+            
+            @media (max-width: 1024px) {
+                display: block;
+                width: 100%;
+            }
         }
 
         .grid-bottom{
@@ -74,7 +85,12 @@ const StyledPageView = styled.div`
             grid-column-gap: 0px;
             grid-row-gap: 0px;
             align-items: stretch;
-            text-align: left; 
+            text-align: left;
+            
+            @media (max-width: 1024px) {
+                display: block;
+                width: 100%;
+            }
         }
 
 `
