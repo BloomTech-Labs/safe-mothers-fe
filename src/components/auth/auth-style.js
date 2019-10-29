@@ -6,10 +6,16 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     background: #282E74;
-    
 
+    
     .map {
         width: 60%; 
+
+        @media (max-width: 1024px) {
+            visibility: hidden;
+            width: 0%;
+        }
+        
     }
 
     .form-container{
@@ -20,6 +26,10 @@ export const Container = styled.div`
         background: white;
         align-items: center;
         justify-content: flex-start;
+
+        @media (max-width: 1024px) {
+            width: 75%;
+        }
     }
 
     .svg-logo{
@@ -63,14 +73,14 @@ export const Container = styled.div`
     }
 
     .submit-btn{
-        color: black;
+        color: white;
         width: 122px;
         height: 48px;
         margin: 40px;
-        background:  ${props => props.theme.primary.darkGray};
+        background: ${props => props.theme.secondary.darkTeal}
         
         &:hover {
-            background:  ${props => props.theme.primary.gray};
+            background: ${props => props.theme.secondary.lightTeal};
         }
     }
     .arrow{

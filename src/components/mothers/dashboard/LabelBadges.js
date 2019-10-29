@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {connect} from "react-redux";
 import FormikLabelForm from "./LabelForm";
 import {CustomBadge} from '../../reusableParts/accordion/label/label-style'
-import {Modal} from 'pcln-modal';
+// import {Modal} from 'pcln-modal';
 import {HIGHT_RISK} from "../mother-utils";
 import {getLabels, deleteLabel} from "../../../actions/mothersActions";
 

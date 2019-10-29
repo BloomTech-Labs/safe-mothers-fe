@@ -1,15 +1,11 @@
 import React from 'react';
-import MotherContent from '../MotherContent';
-import {StyledContents} from '../mother-style'
+import {Card} from '../mother-style'
 
-
-export default function AccordionContent(props) {
-    const {mother} = props;
+export default function PersonalCard({mother}) {
     return (
-        <StyledContents>
-            <div className="card">
-                <div className="att-list">
-                    <ul className="list">
+        <Card>
+            <div className="card-content">
+                    <ul className="align-left">
                         <li>Age:</li>
                         <li>Marital Status:</li>
                         <li>Wife Order:</li>
@@ -18,9 +14,8 @@ export default function AccordionContent(props) {
                         <li>Pregnant:</li>
                         <li>Due Date:</li>
                         <li>Village:</li>
-                        <br/>
                     </ul>
-                    <ul className="list-values">
+                    <ul className="align-left values">
                         <li>{mother.age ? mother.age : 'N/A'}</li>
                         <li>{mother.marital_status ? mother.marital_status : 'N/A'}</li>
                         <li>{mother.wife_order ? mother.wife_order : 'N/A'}</li>
@@ -29,11 +24,8 @@ export default function AccordionContent(props) {
                         <li>Unknown_DB_Value</li>
                         <li>{mother.edd ? mother.edd : 'N/A'}</li>
                         <li>{mother.villiage ? mother.villiage : 'N/A'}</li>
-                        <br/>
                     </ul>
-                </div>
             </div>
-            <MotherContent className="mother-content" mother={mother}/>
-        </StyledContents>
+        </Card>
     )
-};
+}

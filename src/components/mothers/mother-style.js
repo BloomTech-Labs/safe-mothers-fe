@@ -172,7 +172,7 @@ export const Content = styled.div`
     .high-risk-card{
         margin-top: 0;
     }
-    
+
     .see-more{
         position: absolute;
         top: 83%;
@@ -209,6 +209,10 @@ export const Card = styled.div`
         @media (max-width: 1024px) {
             padding-left: 1%;
         }
+    }
+
+    .list-break-values{
+        color: black;
     }
     
       .align-right {
