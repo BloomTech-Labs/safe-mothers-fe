@@ -1,28 +1,45 @@
 import React from 'react';
 import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from "yup";
-import {FormItems} from "../../reusableParts/form-items";
+import {Button, FormItems} from "../../reusableParts/form-items";
 import styled from 'styled-components';
-
-import {keyframes} from "styled-components";
-
-export const animate = keyframes`
-  from{
-    left: 0.3em
-  }
-  to {
-    left: 2.3em
-  }
-`;
-
+import SVG from 'react-inlinesvg/lib/index';
+import Pregnant from '../resources/Pregnant.svg';
 
 const EditMotherForm = styled.div`
     width: 100%;
     min-width: 718px;
     
-  .inline{
+    ul{
+      position: relative;
+    }
+    
+    .edit-personal{
+        display: flex;
+        justify-content: flex-start;
+        margin-left: 1%;
+        margin-bottom: 50px;
+    }
+    .personal-name{
+        font-weight: bold;
+        line-height: 16px;
+    }
+    
+    .edit-title{
+        position: absolute;
+        top: -50px;
+    }
+    
+    .edit-form{
+      margin-top: 60px;
+    }
+    
+    .inline{
       display: flex;
-  }
+      justify-content: center;
+      margin-bottom: 30px;
+      padding-top: 24px;
+    }
   
   li{
     padding-bottom: 42px;
@@ -43,11 +60,7 @@ const EditMotherForm = styled.div`
     min-width: 20px;
     margin-bottom: 10px;
   }
-  
-  .checkbox{
-   
-  }
-  
+
   .label-value{
     text-align: left;
     width: 33%;
@@ -57,10 +70,7 @@ const EditMotherForm = styled.div`
       position: relative;
       margin-bottom: 36px;
     }
-    .toggle-check{
-     
-    }
-    
+   
     .toggle-check-input {
         position: absolute;
         top: 1px;
@@ -78,7 +88,7 @@ const EditMotherForm = styled.div`
         min-width: 2em;
         color: #FFF;
         cursor: pointer;
-        //transition: background-color 0.15s;
+        transition: background-color 0.15s;
     }
 
     .toggle-check-text:after {
@@ -91,9 +101,7 @@ const EditMotherForm = styled.div`
         position: absolute;
         left: 0.3em;
         top: 0.25em;
-        //transition: left 0.15s, margin-left 0.15s;
         transition: 1s;
-        animation:  ${animate} 300ms ease-in-out;
     }
 
     .toggle-check-text:before {
@@ -122,11 +130,25 @@ function EditMother(props) {
     return (
         <>
             <FormItems>
-                <Form className="form-contents">
-                    <EditMotherForm>
+                <EditMotherForm>
+                    <Form className="form-contents edit-form">
+
+                        <div className="edit-personal">
+                            <h2 className="personal-name">{"Nancy Whitemoon"}</h2>
+                            <SVG src={Pregnant} />
+                            <div>
+                                <div className="btn-container">
+                                    <Button color="white" bg="blue" >Save</Button>
+                                    {/*<button onClick={(e) => props.modal(e)} className="submit-btn" type="submit">CREATE</button>*/}
+                                </div>
+
+                            </div>
+                        </div>
+
                         <div className="inline">
                             <div className="label-value inline">
                                 <ul>
+                                    <span className="column-title edit-title">Personal</span>
                                     <li>Age</li>
                                     <li>Marital status</li>
                                     <li>Wife order</li>
@@ -216,6 +238,7 @@ function EditMother(props) {
 
                             <div className="label-value inline">
                                 <ul>
+                                    <span className="column-title edit-title">Contact</span>
                                     <li>Phone Owner</li>
                                     <li>Phone Carrier</li>
                                     <li>Mobile Phone</li>
@@ -257,6 +280,7 @@ function EditMother(props) {
                         <div className="inline">
                             <div className="label-value inline">
                                 <ul>
+                                    <span className="column-title edit-title">finance and insurance</span>
                                     <li>Money Saved</li>
                                     <li>Decision Maker</li>
                                     <li>Antenatal Care Visits</li>
@@ -319,6 +343,7 @@ function EditMother(props) {
                             </div>
                             <div className="label-value inline">
                                 <ul>
+                                    <span className="column-title edit-title">Medical History</span>
                                     <li>Number Of Pregnancies</li>
                                     <li>Number Of Birth</li>
                                     <li>Had Twins Or More</li>
@@ -378,6 +403,7 @@ function EditMother(props) {
 
                             <div className="label-value inline">
                                 <ul>
+                                    <span className="column-title edit-title">HIGH RISK</span>
                                     <li>C-SECTION</li>
                                     <li>Anemia</li>
                                     <li>Malaria</li>
@@ -388,7 +414,6 @@ function EditMother(props) {
                                     <li>Placenta Previa</li>
                                     <li>Stillbirth</li>
                                     <li>Other Complications</li>
-
                                 </ul>
                                 <div className="column">
                                     <div className="toggle-check-container">
@@ -515,11 +540,8 @@ function EditMother(props) {
                             </div>
                         </div>
 
-                    </EditMotherForm>
-                    <div className="btn-container">
-                        <button onClick={(e) => props.modal(e)} className="submit-btn" type="submit">CREATE</button>
-                    </div>
-                </Form>
+                    </Form>
+                </EditMotherForm>
             </FormItems>
         </>
     );

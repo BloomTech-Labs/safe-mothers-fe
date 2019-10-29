@@ -37,3 +37,21 @@ export const FormItems = styled.div`
     }
    
 `;
+
+
+export const Button = styled.div`
+     
+        text-transform: uppercase;
+        font-size: 16px;
+        background: ${props => props.bg}
+        height: 48px;
+        width: 25%;
+        border: none;
+        border-radius: 2px;
+        color:  ${props => props.color }
+        &:hover {
+            color:  ${props => props.colorOnHover}
+            background: ${props => props.bg}
+        }
+    
+`;
