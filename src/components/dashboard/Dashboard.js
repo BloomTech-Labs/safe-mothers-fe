@@ -1,6 +1,9 @@
 import React from 'react';
 import { Card } from 'pcln-design-system';
 import styled from 'styled-components';
+import SVG from 'react-inlinesvg/lib/index';
+import motorcyle from './motorcycle.svg';
+import pregnant from '../mothers/resources/Pregnant.svg';
 
 const MainContainer = styled.div`
   display: flex;
@@ -35,6 +38,7 @@ const Dashboard = props => {
             onClick={() => props.history.push('/mothers')}
           >
             <p>Mothers Dashboard Card</p>
+            <SVG src  = {pregnant} />
           </Card>
           <Card
             className="appCard"
@@ -43,8 +47,13 @@ const Dashboard = props => {
             borderRadius={0}
             p={4}
             onClick={() => props.history.push('/drivers')}
+          
           >
             <p>Drivers Card</p>
+            <SVG src = {motorcyle} />
+            <SVG src  = {pregnant} />
+
+            
           </Card>
         </div>
         <Card
