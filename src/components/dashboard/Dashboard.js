@@ -5,6 +5,7 @@ import SVG from 'react-inlinesvg/lib/index';
 import motorcyle from './motorcycle.svg';
 import pregnant from '../mothers/resources/Pregnant.svg';
 
+
 const MainContainer = styled.div`
   display: flex;
   justify-content: space-between;
