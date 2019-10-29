@@ -9,6 +9,9 @@ export const Container = styled.div`
         text-decoration: none;
         color: black;
     }
+    ul{
+       list-style-type: none; 
+    }
     
 `;
 

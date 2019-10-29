@@ -172,7 +172,6 @@ export const Content = styled.div`
     .high-risk-card{
         margin-top: 0;
     }
-    position: relative;
     
     .see-more{
         position: absolute;

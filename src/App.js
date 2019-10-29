@@ -17,6 +17,7 @@ import {SearchWrapper} from './app-style';
 import {Container} from "./app-style";
 import DriversList from "./components/drivers/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
+import FormikEditMother from "./components/mothers/single-view/EditMother";
 
 export const theme = {
     primary: {
@@ -38,33 +39,33 @@ export const theme = {
         red: "#F22222",
         blue: "#1337F1",
         yellow: "#FFF500",
-        lightPink : "#FFCCCC",
+        lightPink: "#FFCCCC",
         orange: "#FFAA00",
-        deepPink : "#FF0099",
-        green : "#00AA00",
-        black : "#001833",
-        plum : "#EECCFF",
-        rebeccaPurple  : "#7700BB",
-        gray  : "#C4C4C4",
+        deepPink: "#FF0099",
+        green: "#00AA00",
+        black: "#001833",
+        plum: "#EECCFF",
+        rebeccaPurple: "#7700BB",
+        gray: "#C4C4C4",
     },
     darkPalette: {
         red: "#cb1818",
         blue: "#0d26a8",
         yellow: "#ffc008",
-        lightPink : "#ffb2b0",
+        lightPink: "#ffb2b0",
         orange: "#ff8100",
-        deepPink : "#df0080",
-        green : "#008a00",
-        black : "#02366b",
-        plum : "#eea2ff",
-        rebeccaPurple  : "#5f0095",
-        gray  : "#979797",
+        deepPink: "#df0080",
+        green: "#008a00",
+        black: "#02366b",
+        plum: "#eea2ff",
+        rebeccaPurple: "#5f0095",
+        gray: "#979797",
     }
 };
 
 const myTheme = {
-    accordion:{
-        border:{
+    accordion: {
+        border: {
             color: theme.primary.gray,
             side: "bottom",
         },
@@ -85,10 +86,10 @@ function App(props) {
                         <Route path="/registration" component={Registration}/>
 
                         {/** PRIVATE ROUTE */}
-                        {props.isAuth && <MenuBar />}
+                        {props.isAuth && <MenuBar/>}
                         {
                             props.isAuth &&
-                            <SearchWrapper >
+                            <SearchWrapper>
                                 <div className="searchContainer">
                                     <p className="searchLabel">SEARCH FOR KEYWORDS</p>
                                     <Search className="searchIcon"/>
@@ -106,7 +107,11 @@ function App(props) {
                                     <AuthRoute
                                         exact path="/mothers/:id"
                                         component={SingleMotherView}
-                                        />
+                                    />
+                                    <AuthRoute
+                                        exact path="/edit-mother/"
+                                        component={FormikEditMother}
+                                    />
                                     <AuthRoute
                                         exact path="/drivers"
                                         component={DriversList}

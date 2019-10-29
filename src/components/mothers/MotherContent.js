@@ -4,7 +4,7 @@ import {Content} from './mother-style'
 import HighRiskCard from "./cards/HightRiskCard";
 import MedicalHistoryCard from "./cards/MedicalHistoryCard";
 import ContactsCard from "./cards/ContactsCard";
-import {Link, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 function MotherContent(props) {
     const {mother} = props;
