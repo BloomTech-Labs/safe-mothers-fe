@@ -23,17 +23,14 @@ function AccordionLabel(props) {
 
     return (
         <StyledLabel>
-            {mother.id && <>
-                <span className="name">{mother.name}</span>
-                <LabelBadges entity={mother} risk={risk}/>
-                <LabelStatus icon={Born} text={"Delivered"}/>
-                <div className="icon-container">
-                    {rain_season === RAIN_SEASON && <SVG src={Rain} className="icon"/>}
-                    {dry_season === DRY_SEASON && <SVG src={Sun} className="icon"/>}
-                </div>
-                <LabelDate date={mother.edd}/>
-            </>}
-
+            <span className="name">{mother.name}</span>
+            <LabelBadges entity={mother} risk={risk}/>
+            <LabelStatus icon={Born} text={"Delivered"}/>
+            <div className="icon-container">
+                {rain_season === RAIN_SEASON && <SVG src={Rain} className="icon"/>}
+                {dry_season === DRY_SEASON && <SVG src={Sun} className="icon"/>}
+            </div>
+            <LabelDate date={mother.edd}  />
         </StyledLabel>
     )
 }
