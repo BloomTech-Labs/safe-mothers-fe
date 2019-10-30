@@ -132,17 +132,8 @@ const EditMotherForm = styled.div`
 
 `;
 
-const imaginaryThings = [
-    {label: 'Thing 1', value: 1},
-    {label: 'Thing 2', value: 2},
-    {label: 'Thing 3', value: 3},
-    {label: 'Thing 4', value: 4},
-    {label: 'Thing 5', value: 5},
-];
-
-
 function EditMother(props) {
-
+    const [supplies, setSuppliesForPregnancy] = React.useState(false);
     return (
         <>
             <FormItems>
@@ -201,10 +192,6 @@ function EditMother(props) {
                                     <li>Expected due date</li>
                                     <li>Age</li>
                                     <li>Village</li>
-                                    {/*       <li>Marital status</li>
-                                    <li>Wife order</li>
-                                    <li>Schooled</li>
-                                    <li>School level</li>*/}
                                 </ul>
                                 <div className="column">
 
@@ -241,91 +228,9 @@ function EditMother(props) {
                                         <Select list={villages}/>
                                         <option value="97">Other</option>
                                     </select>
-                                    {/*
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="marital_status"
-                                    />
-                                    {props.touched.marital_status && props.errors.marital_status && (
-                                        <p className="error-message">{props.errors.marital_status}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="wife_order"
-                                    />
-                                    {props.touched.wife_order && props.errors.wife_order && (
-                                        <p className="error-message">{props.errors.wife_order}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="schooled"
-                                    />
-                                    {props.touched.schooled && props.errors.schooled && (
-                                        <p className="error-message">{props.errors.schooled}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="school_level"
-                                    />
-                                    {props.touched.school_level && props.errors.school_level && (
-                                        <p className="error-message">{props.errors.school_level}</p>
-                                    )}*/}
+
                                 </div>
                             </div>
-                        </div>
-
-                        <div className="inline">
-                            {/*    <div className="label-value inline">
-                                <ul>
-                                    <span className="column-title edit-title">Personal</span>
-                                    <li>Age</li>
-                                    <li>Marital status</li>
-                                    <li>Wife order</li>
-                                    <li>Schooled</li>
-                                    <li>School level</li>
-                                </ul>
-                                <div className="column">
-
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="age"
-
-                                    />
-
-                                    {props.touched.age && props.errors.age && (
-                                        <p className="error-message">{props.errors.age}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="marital_status"
-                                    />
-                                    {props.touched.marital_status && props.errors.marital_status && (
-                                        <p className="error-message">{props.errors.marital_status}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="wife_order"
-                                    />
-                                    {props.touched.wife_order && props.errors.wife_order && (
-                                        <p className="error-message">{props.errors.wife_order}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="schooled"
-                                    />
-                                    {props.touched.schooled && props.errors.schooled && (
-                                        <p className="error-message">{props.errors.schooled}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="school_level"
-                                    />
-                                    {props.touched.school_level && props.errors.school_level && (
-                                        <p className="error-message">{props.errors.school_level}</p>
-                                    )}
-                                </div>
-                            </div>*/}
-
                             <div className="label-value inline">
                                 <ul>
                                     <li>Own phone</li>
@@ -372,57 +277,144 @@ function EditMother(props) {
                                     <YesNoDontknowDeclin  {...props} name={"want_education"} state={false}/>
                                 </div>
                             </div>
+                        </div>
 
-                            {/*  <div className="label-value inline">
+                        <div className="inline">
+
+                            <div className="label-value inline">
                                 <ul>
-                                    <span className="column-title edit-title">Contact</span>
-                                    <li>Phone Owner</li>
-                                    <li>Phone Carrier</li>
-                                    <li>Mobile Phone</li>
-                                    <li>Contact Book</li>
+                                    <span className="column-title edit-title">Birth Preparedness</span>
+                                    <li>purchase_supplies</li>
+                                    <li>Decision Maker</li>
+                                    <li>Antenatal Care Visits</li>
+                                    <li>Location Of Delivery</li>
+                                    <li>Method Of Arriving</li>
+                                    <li>Health Insurance</li>
+                                    <li>Insurance Type</li>
                                 </ul>
                                 <div className="column">
-                                    <select className="regular-input input" name="phone_owner"
-                                            onChange={(e) => props.setFieldValue("phone_owner", e.target.value)}>
-                                        <option value="1">RESPONDENT'S OWN PHONE</option>
-                                        <option value="2">SPOUSE'S PHONE</option>
-                                        <option value="3">OTHER FAMILY MEMBER'S PHONE</option>
-                                        <option value="4">NEIGHBOR'S PHONE</option>
-                                        <option value="97">OTHER</option>
-                                        <option value="-1">ENDS INTERVIEW</option>
-                                    </select>
 
-                                    <select className="regular-input input" name="phone_carrier"
-                                            onChange={(e) => props.setFieldValue("phone_carrier", e.target.value)}>
-                                        <option value="1">MTN</option>
-                                        <option value="2">Airtel</option>
-                                        <option value="3">Africell</option>
-                                        <option value="4">UTL</option>
-                                        <option value="5">Smile</option>
-                                        <option value="6">K2</option>
-                                        <option value="97">Other</option>
-                                        <option value="98">DON'T KNOW</option>
-                                        <option value="99">DECLINES TO ANSWER</option>
-                                        <option value="-1">ENDS INTERVIEW</option>
+                                    {/*purchase_supplies*/}
+                                    <select className="regular-input input" name="purchase_supplies"
+                                            onChange={(e) => {
+                                                props.setFieldValue("purchase_supplies", e.target.value);
+                                                if (e.target.value === "1") setSuppliesForPregnancy(true)
+                                            }}>
+                                        <option disabled selected value></option>
+                                        <option value={choices.YES}>YES</option>
+                                        <option value={choices.NO}>NO</option>
+                                        <option value={choices.IDN}>I DON`T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
                                     </select>
+                                    {props.touched.purchase_supplies && props.errors.purchase_supplies && (
+                                        <p className="error-message">{props.errors.purchase_supplies}</p>
+                                    )}
+
 
                                     <Field className="regular-input input"
                                            type="text"
-                                           name="mobile_phone"
+                                           name="money_saved"
                                     />
-                                    {props.touched.mobile_phone && props.errors.mobile_phone && (
-                                        <p className="error-message">{props.errors.mobile_phone}</p>
+                                    {props.touched.money_saved && props.errors.money_saved && (
+                                        <p className="error-message">{props.errors.money_saved}</p>
+                                    )}
+
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="decision_maker"
+                                    />
+                                    {props.touched.decision_maker && props.errors.decision_maker && (
+                                        <p className="error-message">{props.errors.decision_maker}</p>
+                                    )}
+
+
+                                    {/*no_anc*/}
+                                    <select className="regular-input input" name="no_anc"
+                                            onChange={(e) => props.setFieldValue("no_anc", e.target.value)}>
+                                        <Select list={number_anc}/>
+                                        <option value={choices.NO}>ZERO VISITS (NO ANC)</option>
+                                        <option value={choices.IDN}>DON'T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                    </select>
+
+                                    {/*deliver_place*/}
+                                    <select className="regular-input input" name="deliver_place"
+                                            onChange={(e) => props.setFieldValue("deliver_place", e.target.value)}>
+                                        <Select list={place_deliver}/>
+                                        <option value={choices.IDN}>DON'T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                        <option value={choices.OTHER}>OTHER</option>
+                                    </select>
+
+                                    {/*plan_transport*/}
+                                    <select className="regular-input input" name="plan_transport "
+                                            onChange={(e) => props.setFieldValue("plan_transport", e.target.value)}>
+                                        <Select list={transport_type}/>
+                                        <option value={choices.IDN}>DON'T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                        <option value={choices.OTHER}>OTHER</option>
+                                    </select>
+                                    {props.touched.plan_transport && props.errors.plan_transport && (
+                                        <p className="error-message">{props.errors.plan_transport}</p>
+                                    )}
+
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="health_insurance"
+                                    />
+                                    {props.touched.health_insurance && props.errors.health_insurance && (
+                                        <p className="error-message">{props.errors.health_insurance}</p>
                                     )}
                                     <Field className="regular-input input"
                                            type="text"
-                                           name="contact_book"
+                                           name="insurance_type"
                                     />
-                                    {props.touched.contact_book && props.errors.contact_book && (
-                                        <p className="error-message">{props.errors.contact_book}</p>
+                                    {props.touched.insurance_type && props.errors.insurance_type && (
+                                        <p className="error-message">{props.errors.insurance_type}</p>
                                     )}
                                 </div>
-                            </div>*/}
+                            </div>
+                            {supplies &&
+                            <div className="label-value inline">
+                                <ul>
+                                    <span className="column-title edit-title">Supplies</span>
+                                    <li>"mama kit"</li>
+                                    <li>"mackintosh"</li>
+                                    <li>"razor"</li>
+                                    <li>"pad"</li>
+                                    <li>"cotton"</li>
+                                    <li>"soap"</li>
+                                    <li>"gloves"</li>
+                                    <li>"medication"</li>
+                                    <li>"baby_clothes"</li>
+                                    <li>"blanket"</li>
+                                    <li>"sheets"</li>
+                                    <li>"supplies_other"</li>
+                                </ul>
+                                <div className="column">
+
+                                    <>
+                                        <CheckBox field={
+                                            <Field className="toggle-check-input"
+                                                   type="checkbox"
+                                                   name="other_complications"
+                                            />
+                                        }/>
+
+                                        <CheckBox field={
+                                            <Field className="toggle-check-input"
+                                                   type="checkbox"
+                                                   name="other_complications"
+                                            />
+                                        }/>
+
+                                    </>
+
+                                </div>
+                            </div>
+                            }
                         </div>
+
 
                         <div className="inline">
                             <div className="label-value inline">
@@ -664,12 +656,10 @@ const FormikEditMother = withFormik({
             money_saved,
             decision_maker,
 
-            //28
             no_anc,
-            //29
             deliver_place,
-            //30
             plan_transport,
+            purchase_supplies,
 
             health_insurance,
             insurance_type,
@@ -725,7 +715,10 @@ const FormikEditMother = withFormik({
             decision_maker: decision_maker || '',
             no_anc: no_anc || '',
             deliver_place: deliver_place || '',
+
             plan_transport: plan_transport || '',
+            purchase_supplies: purchase_supplies || '',
+
             health_insurance: health_insurance || '',
             insurance_type: insurance_type || '',
             number_of_pregnancies: number_of_pregnancies || '',
@@ -769,6 +762,7 @@ const FormikEditMother = withFormik({
 
         no_anc: Yup.string().required('Please enter visits'),
         deliver_place: Yup.string().required('Please choose something from a list'),
+        purchase_supplies: Yup.string().required('Please choose something from a list'),
 
         method_of_arriving: Yup.string().required('Please enter method of arriving'),
         health_insurance: Yup.string().required('Please enter a health insurance'),
