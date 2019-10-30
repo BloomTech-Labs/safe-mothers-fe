@@ -64,8 +64,8 @@ const Dashboard = props => {
             p={0}
             onClick={() => props.history.push('/mothers')}
           >
-            <p>Mothers</p>
-            <SVG src={pregnant} />
+            <GridItem><p>Mothers</p>
+            <SVG src={pregnant} ></SVG></GridItem>
             <GridItem> <h4>5</h4><p>Due within 30 days</p></GridItem>
             <GridItem> <h4>5</h4><p>Late Due Day</p></GridItem>
             <GridItem><h4>5</h4><p>High Risk</p></GridItem>
@@ -78,8 +78,8 @@ const Dashboard = props => {
             p={0}
             onClick={() => props.history.push('/drivers')}
             >
-            <p>Drivers</p>
-            <SVG src={motorcyle} />
+            <GridItem><p>Drivers</p>
+            <SVG src={motorcyle} ></SVG></GridItem>
             <GridItem> <h4>5</h4><p>New Drivers</p></GridItem>
             <GridItem> <h4>5</h4><p>Active Drivers</p></GridItem>
             <GridItem><h4>5</h4><p>Active 5 Stars</p></GridItem>
