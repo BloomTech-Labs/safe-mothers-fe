@@ -35,7 +35,6 @@ function AccordionLabel(props) {
                 <LabelDate date={mother.edd}/>
             </>
             }
-
         </StyledLabel>
     )
 }
