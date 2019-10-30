@@ -1,5 +1,54 @@
 import styled from "styled-components";
 
+export const StyledContents = styled.div`
+    display: flex;
+    justify-content: center;
+    //font-size:1vw;
+    @media (max-width: 1024px) {
+       flex-direction: column;
+    }
+    li{
+        margin-bottom: 10px;
+        white-space: nowrap;
+     }
+    .list{
+        list-style-type: none;
+        padding: 0;
+        @media (max-width: 1024px) {
+          padding-left: 8%;
+        }
+    }
+   
+   
+    .list-values{
+        list-style-type: none; 
+        color: blue;
+    }
+    
+    .mother-content{
+        width: 75%;  
+    }
+    
+    .card{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1%;
+        width: 30%;
+        @media (max-width: 1024px) {
+           width: 50%; 
+           flex-wrap: wrap;
+           margin: auto;
+        }
+    }
+
+    .att-list{
+        text-align: left;
+        display:flex; 
+        @media (max-width: 1024px) {
+           width: 70%;
+        }
+    }
+`;
 
 export const StyledLabel = styled.div`
     font-family: 'Asap', sans-serif;
@@ -36,6 +85,7 @@ export const StyledLabel = styled.div`
     }
      
     .status-text{
+        white-space: nowrap;
         padding-left: 5%;
     }     
      
@@ -112,7 +162,7 @@ export const CustomBadge = styled.div`
     background:  ${props => props.badgeColor}
     border-radius: 20px;
     color:  ${props => props.badgeText}
-    width: 18%;
+    width: 13%;
     height: 100%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
