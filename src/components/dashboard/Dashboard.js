@@ -105,7 +105,7 @@ const Dashboard = props => {
               <SVG src={motorcyle} ></SVG></GridItem>
             <GridItem> <h4>5</h4><p>New Drivers</p></GridItem>
             <GridItem> <h4>5</h4><p>Active Drivers</p></GridItem>
-            <GridItem><h4>5</h4><p>Active 5 Stars</p></GridItem>
+            {/* <GridItem><h4>5</h4><p>Active 5 Stars</p></GridItem> */}
           </Card>
         </div>
         <Card
