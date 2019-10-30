@@ -19,28 +19,49 @@ const MainContainer = styled.div`
     height: 78%;
     display: flex;
   justify-content: space-round;
-  
   overflow: hidden;
   align-items: center;
+  
   }
   
   .systemCard {
-    width: 75%;
-    margin: 20px;
+    display: flex;
+    width: 50%;
+    height: 35%
+    justify-content: space-round;
+    align-content: center;
+   
   }
   .cardContainer {
-    width: 100%;
+    width: 50%;
+    
   }
+  // .rankingCard {
+  //   display: flex;
+  //   width: 50%;
+  //   height: 70%
+  //   justify-content: space-round;
+  //   align-content: center;
+    
+  // }
 `;
 export const GridItem = styled.div`
   h4 {
     margin-top: 10px;
     margin-bottom: 20px;
   }
+  
+  h3 {
+    
+    text-align: center;
+  }
 
+p {
+padding: 20px
+
+}
   > div {
     align-items: center;
-    
     justify-content: center;
     margin-top: auto;
   }
@@ -48,6 +69,8 @@ export const GridItem = styled.div`
   svg {
     height: auto;
     width: 100%;
+    padding-left:0.5px
+    padding-top-bottom-right-left:60px
   }
 `;
 
@@ -65,11 +88,11 @@ const Dashboard = props => {
             onClick={() => props.history.push('/mothers')}
           >
             <GridItem><p>Mothers</p>
-            <SVG src={pregnant} ></SVG></GridItem>
+              <SVG src={pregnant} ></SVG></GridItem>
             <GridItem> <h4>5</h4><p>Due within 30 days</p></GridItem>
             <GridItem> <h4>5</h4><p>Late Due Day</p></GridItem>
             <GridItem><h4>5</h4><p>High Risk</p></GridItem>
-            </Card>
+          </Card>
           <Card
             className="appCard"
             boxShadowSize="xl"
@@ -77,22 +100,22 @@ const Dashboard = props => {
             borderRadius={0}
             p={0}
             onClick={() => props.history.push('/drivers')}
-            >
+          >
             <GridItem><p>Drivers</p>
-            <SVG src={motorcyle} ></SVG></GridItem>
+              <SVG src={motorcyle} ></SVG></GridItem>
             <GridItem> <h4>5</h4><p>New Drivers</p></GridItem>
             <GridItem> <h4>5</h4><p>Active Drivers</p></GridItem>
             <GridItem><h4>5</h4><p>Active 5 Stars</p></GridItem>
           </Card>
         </div>
         <Card
-          className="systemCard"
+          className="rankingCard"
           boxShadowSize="xl"
           borderWidth={0}
           borderRadius={0}
           p={0}
         >
-          Driver Rankings
+          {/* <GridItem><h3>Driver Rankings Board</h3></GridItem> */}
         </Card>
       </MainContainer>
     </>
