@@ -31,3 +31,8 @@ export function defineHighRisk(mother) {
     ) return HIGHT_RISK;
     return NO_RISK;
 }
+
+export function defineDate() {
+    let date = new Date();
+    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}

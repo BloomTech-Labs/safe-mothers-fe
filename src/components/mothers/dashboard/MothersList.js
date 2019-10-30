@@ -26,9 +26,14 @@ const Mothers = props => {
                     {
                         mothers &&
                         mothers.map((mother, index) => (
-                            <AccordionPanel key={index} label={<AccordionLabel risk={defineHighRisk(mother)} mother={mother}/>}>
-                                <Box background='white'><AccordionContent mother={mother}/> </Box>
-                            </AccordionPanel>
+                            <>
+                                {mother.name &&
+                                <AccordionPanel key={index}
+                                                label={<AccordionLabel risk={defineHighRisk(mother)} mother={mother}/>}>
+                                    <Box background='white'><AccordionContent mother={mother}/> </Box>
+                                </AccordionPanel>
+                                }
+                            </>
                         ))
                     }
                 </Accordion>
