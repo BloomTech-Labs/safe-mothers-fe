@@ -59,7 +59,7 @@ const StyledPageView = styled.div`
 
 
             @media (max-width: 1024px){
-                text-align: center;
+                text-align: right;
             }
         }
 
@@ -70,8 +70,8 @@ const StyledPageView = styled.div`
             color: black;
 
             @media (max-width: 1024px){
-                align-content: center;
-                width: 0%;
+                width: 100%;
+                text-align: left;
             }
         }
 
@@ -135,6 +135,11 @@ const StyledPageView = styled.div`
 
             .reduced {
                 width: 50%;
+
+                @media (max-width: 1024px){
+                    width: 100%;
+
+                }
             }
 
             .centered{

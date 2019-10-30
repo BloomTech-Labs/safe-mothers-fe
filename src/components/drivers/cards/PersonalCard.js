@@ -6,11 +6,13 @@ export default function PersonalCard() {
         <div>
             <div className="card-content">
                     <ul className="align-left">
-                        <li>Age:</li>
+                        <li>Name:</li>
                         <li>Marital Status:</li>
                         <li>Education:</li>
                         <li>Education Level:</li>
-                        <li>Villiage:</li>
+                        <li>District:</li>
+                        <li>Subcounty:</li>
+                        <li>Parish:</li>
                     
                     </ul>
                     <ul className="align-left values">
@@ -18,7 +20,10 @@ export default function PersonalCard() {
                         <li>Married</li>
                         <li>Yes</li>
                         <li>School</li>
-                        <li>N/A</li>
+                        <li>Iganga</li>
+                        <li>Nawandala</li>
+                        <li>Bugono Stage</li>
+
                     </ul>
             </div>
         </div>
