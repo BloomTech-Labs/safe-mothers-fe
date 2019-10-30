@@ -12,11 +12,11 @@ const MainContainer = styled.div`
   justify-content: space-round;
   height: 850px;
   overflow: hidden;
-  align-items: center;
+  align-items: flex-start;
 
   .appCard {
-    margin: 48px;
-    height: 30%;
+    margin: 78px;
+    height: 78%;
     display: flex;
   justify-content: space-round;
   
@@ -25,11 +25,11 @@ const MainContainer = styled.div`
   }
   
   .systemCard {
-    width: 30%;
+    width: 75%;
     margin: 20px;
   }
   .cardContainer {
-    width: 80%;
+    width: 100%;
   }
 `;
 export const GridItem = styled.div`
@@ -59,9 +59,9 @@ const Dashboard = props => {
           <Card
             className="appCard"
             boxShadowSize="xl"
-            borderWidth={0}
-            borderRadius={0}
-            p={0}
+            borderWidth={10}
+            borderRadius={10}
+            p={10}
             onClick={() => props.history.push('/mothers')}
           >
             <GridItem><p>Mothers</p>
@@ -73,9 +73,9 @@ const Dashboard = props => {
           <Card
             className="appCard"
             boxShadowSize="xl"
-            borderWidth={0}
-            borderRadius={0}
-            p={0}
+            borderWidth={10}
+            borderRadius={10}
+            p={10}
             onClick={() => props.history.push('/drivers')}
             >
             <GridItem><p>Drivers</p>
@@ -88,9 +88,9 @@ const Dashboard = props => {
         <Card
           className="systemCard"
           boxShadowSize="xl"
-          borderWidth={0}
-          borderRadius={0}
-          p={4}
+          borderWidth={10}
+          borderRadius={10}
+          p={10}
         >
           Driver Rankings
         </Card>
