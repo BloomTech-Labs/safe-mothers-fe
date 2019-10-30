@@ -5,6 +5,13 @@ import {Button, FormItems} from "../../reusableParts/form-items";
 import styled from 'styled-components';
 import SVG from 'react-inlinesvg/lib/index';
 import Pregnant from '../resources/Pregnant.svg';
+import YesNoDontknowDeclin, {choices} from "./YesNoDontknowDeclin";
+import CheckBox from "./CheckBox";
+import {defineDate} from "../mother-utils";
+import Select from "./Select";
+import {carriers, number_anc, phone_owner, place_deliver, transport_type, villages} from "./lists";
+import PregnancyComplication from "./PregnancyComplication";
+import PriorComplication from "./PriorComplication";
 
 const EditMotherForm = styled.div`
     width: 100%;
@@ -125,6 +132,15 @@ const EditMotherForm = styled.div`
 
 `;
 
+const imaginaryThings = [
+    {label: 'Thing 1', value: 1},
+    {label: 'Thing 2', value: 2},
+    {label: 'Thing 3', value: 3},
+    {label: 'Thing 4', value: 4},
+    {label: 'Thing 5', value: 5},
+];
+
+
 function EditMother(props) {
 
     return (
@@ -135,11 +151,11 @@ function EditMother(props) {
 
                         <div className="edit-personal">
                             <h2 className="personal-name">{"Nancy Whitemoon"}</h2>
-                            <SVG src={Pregnant} />
+                            <SVG src={Pregnant}/>
                             <div>
                                 <div className="btn-container">
-                                    <Button color="white" bg="blue" >Save</Button>
-                                    {/*<button onClick={(e) => props.modal(e)} className="submit-btn" type="submit">CREATE</button>*/}
+                                    {/*<Button color="white" nu="blue" >Save</Button>*/}
+                                    <button className="submit-btn" type="submit">CREATE</button>
                                 </div>
 
                             </div>
@@ -147,6 +163,119 @@ function EditMother(props) {
 
                         <div className="inline">
                             <div className="label-value inline">
+                                <ul>
+                                    <span className="column-title edit-title">Introduction</span>
+                                    <li>Pregnancy</li>
+                                    <li>Due date</li>
+                                    <li>Deliver in Iganga Hospital</li>
+                                    <li>Cesarean section</li>
+                                    <li>Complications during delivery</li>
+                                    <li>Twins pregnancy</li>
+                                </ul>
+                                <div className="column">
+
+                                    {/*  current_pg*/}
+                                    <YesNoDontknowDeclin {...props} name={"current_pg"} state={false}/>
+
+                                    {/*due_now*/}
+                                    <YesNoDontknowDeclin  {...props} name={"due_now"} state={true}/>
+
+                                    {/*deliver_elsewhere*/}
+                                    <YesNoDontknowDeclin {...props} name={"deliver_elsewhere"} state={true}/>
+
+                                    {/*hx_cesarean*/}
+                                    <YesNoDontknowDeclin {...props} name={"hx_cesarean"} state={true}/>
+
+                                    {/*hx_complication*/}
+                                    <YesNoDontknowDeclin {...props} name={"hx_complication"} state={true}/>
+
+                                    {/*current_multip*/}
+                                    <YesNoDontknowDeclin {...props} name={"current_multip"} state={true}/>
+
+                                </div>
+                            </div>
+                            <div className="label-value inline">
+                                <ul>
+                                    <span className="column-title edit-title">Personal</span>
+                                    <li>Name</li>
+                                    <li>Expected due date</li>
+                                    <li>Age</li>
+                                    <li>Village</li>
+                                    {/*       <li>Marital status</li>
+                                    <li>Wife order</li>
+                                    <li>Schooled</li>
+                                    <li>School level</li>*/}
+                                </ul>
+                                <div className="column">
+
+                                    {/*name*/}
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="name"
+                                    />
+                                    {props.touched.name && props.errors.name && (
+                                        <p className="error-message">{props.errors.name}</p>
+                                    )}
+
+                                    {/*edd*/}
+                                    <Field className="regular-input input"
+                                           type="date"
+                                           name="edd"
+                                    />
+                                    {props.touched.edd && props.errors.edd && (
+                                        <p className="error-message">{props.errors.edd}</p>
+                                    )}
+
+                                    {/*age*/}
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="age"
+                                    />
+                                    {props.touched.age && props.errors.age && (
+                                        <p className="error-message">{props.errors.age}</p>
+                                    )}
+
+                                    {/*village*/}
+                                    <select className="regular-input input" name="village"
+                                            onChange={(e) => props.setFieldValue("village", e.target.value)}>
+                                        <Select list={villages}/>
+                                        <option value="97">Other</option>
+                                    </select>
+                                    {/*
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="marital_status"
+                                    />
+                                    {props.touched.marital_status && props.errors.marital_status && (
+                                        <p className="error-message">{props.errors.marital_status}</p>
+                                    )}
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="wife_order"
+                                    />
+                                    {props.touched.wife_order && props.errors.wife_order && (
+                                        <p className="error-message">{props.errors.wife_order}</p>
+                                    )}
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="schooled"
+                                    />
+                                    {props.touched.schooled && props.errors.schooled && (
+                                        <p className="error-message">{props.errors.schooled}</p>
+                                    )}
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="school_level"
+                                    />
+                                    {props.touched.school_level && props.errors.school_level && (
+                                        <p className="error-message">{props.errors.school_level}</p>
+                                    )}*/}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="inline">
+                            {/*    <div className="label-value inline">
                                 <ul>
                                     <span className="column-title edit-title">Personal</span>
                                     <li>Age</li>
@@ -156,10 +285,13 @@ function EditMother(props) {
                                     <li>School level</li>
                                 </ul>
                                 <div className="column">
+
                                     <Field className="regular-input input"
                                            type="text"
                                            name="age"
+
                                     />
+
                                     {props.touched.age && props.errors.age && (
                                         <p className="error-message">{props.errors.age}</p>
                                     )}
@@ -192,51 +324,56 @@ function EditMother(props) {
                                         <p className="error-message">{props.errors.school_level}</p>
                                     )}
                                 </div>
-                            </div>
+                            </div>*/}
 
                             <div className="label-value inline">
                                 <ul>
-                                    <li>Village</li>
-                                    <li>Latitude</li>
-                                    <li>Longitude</li>
-                                    <li>Assigned Driver</li>
+                                    <li>Own phone</li>
+                                    <li>Other phone</li>
+                                    <li>Phone number</li>
+                                    <li>Carrier</li>
+                                    <li>Phone owner</li>
+                                    <li>Want education</li>
                                 </ul>
                                 <div className="column">
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="village"
-                                    />
 
-                                    {props.touched.village && props.errors.village && (
-                                        <p className="error-message">{props.errors.village}</p>
+                                    {/*own_phone*/}
+                                    <YesNoDontknowDeclin  {...props} name={"own_phone"} state={false}/>
+
+                                    {/*other_phone*/}
+                                    <YesNoDontknowDeclin  {...props} name={"other_phone"} state={false}/>
+
+                                    {/*phone_number*/}
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="phone_number"
+                                    />
+                                    {props.touched.phone_number && props.errors.phone_number && (
+                                        <p className="error-message">{props.errors.phone_number}</p>
                                     )}
 
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="latitude"
-                                    />
-                                    {props.touched.latitude && props.errors.latitude && (
-                                        <p className="error-message">{props.errors.latitude}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="longitude"
-                                    />
-                                    {props.touched.longitude && props.errors.longitude && (
-                                        <p className="error-message">{props.errors.longitude}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="assigned_driver"
-                                    />
+                                    {/*carrier*/}
+                                    <select className="regular-input input" name="carrier"
+                                            onChange={(e) => props.setFieldValue("carrier", e.target.value)}>
+                                        <Select list={carriers}/>
+                                        <option value={choices.OTHER}>Other</option>
+                                        <option value={choices.IDN}>Don`t know</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>Decline to answer</option>
+                                    </select>
 
-                                    {props.touched.assigned_driver && props.errors.assigned_driver && (
-                                        <p className="error-message">{props.errors.assigned_driver}</p>
-                                    )}
+                                    {/*owner_phone*/}
+                                    <select className="regular-input input" name="owner_phone"
+                                            onChange={(e) => props.setFieldValue("owner_phone", e.target.value)}>
+                                        <Select list={phone_owner}/>
+                                        <option value={choices.OTHER}>Other</option>
+                                    </select>
+
+                                    {/*want_education*/}
+                                    <YesNoDontknowDeclin  {...props} name={"want_education"} state={false}/>
                                 </div>
                             </div>
 
-                            <div className="label-value inline">
+                            {/*  <div className="label-value inline">
                                 <ul>
                                     <span className="column-title edit-title">Contact</span>
                                     <li>Phone Owner</li>
@@ -245,20 +382,30 @@ function EditMother(props) {
                                     <li>Contact Book</li>
                                 </ul>
                                 <div className="column">
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="phone_owner"
-                                    />
-                                    {props.touched.phone_owner && props.errors.phone_owner && (
-                                        <p className="error-message">{props.errors.phone_owner}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="phone_carrier"
-                                    />
-                                    {props.touched.phone_carrier && props.errors.phone_carrier && (
-                                        <p className="error-message">{props.errors.phone_carrier}</p>
-                                    )}
+                                    <select className="regular-input input" name="phone_owner"
+                                            onChange={(e) => props.setFieldValue("phone_owner", e.target.value)}>
+                                        <option value="1">RESPONDENT'S OWN PHONE</option>
+                                        <option value="2">SPOUSE'S PHONE</option>
+                                        <option value="3">OTHER FAMILY MEMBER'S PHONE</option>
+                                        <option value="4">NEIGHBOR'S PHONE</option>
+                                        <option value="97">OTHER</option>
+                                        <option value="-1">ENDS INTERVIEW</option>
+                                    </select>
+
+                                    <select className="regular-input input" name="phone_carrier"
+                                            onChange={(e) => props.setFieldValue("phone_carrier", e.target.value)}>
+                                        <option value="1">MTN</option>
+                                        <option value="2">Airtel</option>
+                                        <option value="3">Africell</option>
+                                        <option value="4">UTL</option>
+                                        <option value="5">Smile</option>
+                                        <option value="6">K2</option>
+                                        <option value="97">Other</option>
+                                        <option value="98">DON'T KNOW</option>
+                                        <option value="99">DECLINES TO ANSWER</option>
+                                        <option value="-1">ENDS INTERVIEW</option>
+                                    </select>
+
                                     <Field className="regular-input input"
                                            type="text"
                                            name="mobile_phone"
@@ -274,7 +421,7 @@ function EditMother(props) {
                                         <p className="error-message">{props.errors.contact_book}</p>
                                     )}
                                 </div>
-                            </div>
+                            </div>*/}
                         </div>
 
                         <div className="inline">
@@ -290,6 +437,7 @@ function EditMother(props) {
                                     <li>Insurance Type</li>
                                 </ul>
                                 <div className="column">
+
                                     <Field className="regular-input input"
                                            type="text"
                                            name="money_saved"
@@ -297,6 +445,7 @@ function EditMother(props) {
                                     {props.touched.money_saved && props.errors.money_saved && (
                                         <p className="error-message">{props.errors.money_saved}</p>
                                     )}
+
                                     <Field className="regular-input input"
                                            type="text"
                                            name="decision_maker"
@@ -304,27 +453,38 @@ function EditMother(props) {
                                     {props.touched.decision_maker && props.errors.decision_maker && (
                                         <p className="error-message">{props.errors.decision_maker}</p>
                                     )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="antenatal_care_visits"
-                                    />
-                                    {props.touched.antenatal_care_visits && props.errors.antenatal_care_visits && (
-                                        <p className="error-message">{props.errors.antenatal_care_visits}</p>
+
+
+                                    {/*no_anc*/}
+                                    <select className="regular-input input" name="no_anc"
+                                            onChange={(e) => props.setFieldValue("no_anc", e.target.value)}>
+                                        <Select list={number_anc}/>
+                                        <option value={choices.NO}>ZERO VISITS (NO ANC)</option>
+                                        <option value={choices.IDN}>DON'T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                    </select>
+
+                                    {/*deliver_place*/}
+                                    <select className="regular-input input" name="deliver_place"
+                                            onChange={(e) => props.setFieldValue("deliver_place", e.target.value)}>
+                                        <Select list={place_deliver}/>
+                                        <option value={choices.IDN}>DON'T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                        <option value={choices.OTHER}>OTHER</option>
+                                    </select>
+
+                                    {/*plan_transport*/}
+                                    <select className="regular-input input" name="plan_transport "
+                                            onChange={(e) => props.setFieldValue("plan_transport", e.target.value)}>
+                                        <Select list={transport_type}/>
+                                        <option value={choices.IDN}>DON'T KNOW</option>
+                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                        <option value={choices.OTHER}>OTHER</option>
+                                    </select>
+                                    {props.touched.plan_transport && props.errors.plan_transport && (
+                                        <p className="error-message">{props.errors.plan_transport}</p>
                                     )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="location_of_delivery"
-                                    />
-                                    {props.touched.location_of_delivery && props.errors.location_of_delivery && (
-                                        <p className="error-message">{props.errors.location_of_delivery}</p>
-                                    )}
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="method_of_arriving"
-                                    />
-                                    {props.touched.method_of_arriving && props.errors.method_of_arriving && (
-                                        <p className="error-message">{props.errors.method_of_arriving}</p>
-                                    )}
+
                                     <Field className="regular-input input"
                                            type="text"
                                            name="health_insurance"
@@ -357,6 +517,7 @@ function EditMother(props) {
                                            name="number_of_pregnancies"
 
                                     />
+
                                     {props.touched.number_of_pregnancies && props.errors.number_of_pregnancies && (
                                         <p className="error-message">{props.errors.number_of_pregnancies}</p>
                                     )}
@@ -401,141 +562,62 @@ function EditMother(props) {
                                 </div>
                             </div>
 
+                            {/*HIGHT_RISK READY*/}
                             <div className="label-value inline">
                                 <ul>
                                     <span className="column-title edit-title">HIGH RISK</span>
-                                    <li>C-SECTION</li>
                                     <li>Anemia</li>
                                     <li>Malaria</li>
                                     <li>Obstructed Labor</li>
                                     <li>Malpresentation</li>
-                                    <li>Hemorrhage</li>
+                                    <li>Antepartum hemorrhage</li>
+                                    <li>Postpartum hemorrhage</li>
                                     <li>Retained Placenta</li>
                                     <li>Placenta Previa</li>
                                     <li>Stillbirth</li>
-                                    <li>Other Complications</li>
+                                    <li>How many stillbirth</li>
+                                    <li>Other complications</li>
                                 </ul>
                                 <div className="column">
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="c_section"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.c_section && props.errors.c_section && (
-                                        <p className="error-message">{props.errors.c_section}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="anemia"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.anemia && props.errors.anemia && (
-                                        <p className="error-message">{props.errors.anemia}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="malaria"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.malaria && props.errors.malaria && (
-                                        <p className="error-message">{props.errors.malaria}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="obstructed_labor"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.obstructed_labor && props.errors.obstructed_labor && (
-                                        <p className="error-message">{props.errors.obstructed_labor}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="malpresentation"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.malpresentation && props.errors.malpresentation && (
-                                        <p className="error-message">{props.errors.malpresentation}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="hemorrhage"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.hemorrhage && props.errors.hemorrhage && (
-                                        <p className="error-message">{props.errors.hemorrhage}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="retained_placenta"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.retained_placenta && props.errors.retained_placenta && (
-                                        <p className="error-message">{props.errors.retained_placenta}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="placenta_previa"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.placenta_previa && props.errors.placenta_previa && (
-                                        <p className="error-message">{props.errors.placenta_previa}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="stillbirth"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.stillbirth && props.errors.stillbirth && (
-                                        <p className="error-message">{props.errors.stillbirth}</p>
-                                    )}
-                                    <div className="toggle-check-container">
-                                        <label className="toggle-check">
-                                            <Field className="toggle-check-input"
-                                                   type="checkbox"
-                                                   name="other_complications"
-                                            />
-                                            <span className="toggle-check-text"></span>
-                                        </label>
-                                    </div>
-                                    {props.touched.other_complications && props.errors.other_complications && (
-                                        <p className="error-message">{props.errors.other_complications}</p>
-                                    )}
+
+                                    {/*anemia*/}
+                                    <PregnancyComplication  {...props} name={"anemia"}/>
+
+                                    {/*malaria*/}
+                                    <PregnancyComplication  {...props} name={"malaria"}/>
+
+                                    {/*obstructed_labor*/}
+                                    <PriorComplication  {...props} name={"obstructed_labor"}/>
+
+                                    {/*malpresent*/}
+                                    <PriorComplication  {...props} name={"malpresent"}/>
+
+                                    {/*aph*/}
+                                    <PregnancyComplication  {...props} name={"aph"}/>
+
+                                    {/*pph*/}
+                                    <PriorComplication  {...props} name={"pph"}/>
+
+                                    {/*ret_placenta*/}
+                                    <PriorComplication  {...props} name={"ret_placenta"}/>
+
+                                    {/*placenta_previa*/}
+                                    <PregnancyComplication  {...props} name={"placenta_previa"}/>
+
+                                    {/*ho_stillbirth*/}
+                                    <YesNoDontknowDeclin  {...props} name={"no_stillbirth"} state={true}/>
+
+                                    {/*hx_stillbirth*/}
+
+                                    <Field className="regular-input input"
+                                           type="text"
+                                           name="hx_stillbirth"
+                                    />
+
+                                    {/*BP_note*/}
+                                    <YesNoDontknowDeclin  {...props} name={"BP_note"} state={true}/>
+
+
                                 </div>
                             </div>
                         </div>
@@ -551,24 +633,44 @@ function EditMother(props) {
 const FormikEditMother = withFormik({
     mapPropsToValues(
         {
+            current_pg,
+            due_now,
+            deliver_elsewhere,
+            hx_cesarean,
+            hx_complication,
+            current_multip,
+
+            name,
+            edd,
             age,
+            village,
+
+            own_phone,
+            other_phone,
+            phone_number,
+            carrier,
+            owner_phone,
+            want_education,
+
             marital_status,
             wife_order,
             schooled,
             school_level,
-            village,
-            latitude,
-            longitude,
+
             assigned_driver,
-            phone_owner,
-            phone_carrier,
+
             mobile_phone,
             contact_book,
             money_saved,
             decision_maker,
-            antenatal_care_visits,
-            location_of_delivery,
-            method_of_arriving,
+
+            //28
+            no_anc,
+            //29
+            deliver_place,
+            //30
+            plan_transport,
+
             health_insurance,
             insurance_type,
             number_of_pregnancies,
@@ -577,36 +679,53 @@ const FormikEditMother = withFormik({
             living_children,
             children_under_five,
             infant_death,
-            c_section,
+
             anemia,
             malaria,
             obstructed_labor,
-            malpresentation,
-            hemorrhage,
-            retained_placenta,
+            malpresent,
+            aph,
+            pph,
+            ret_placenta,
             placenta_previa,
-            stillbirth,
-            other_complications
+            hx_stillbirth,
+            no_stillbirth,
+            BP_note
         }) {
         return {
+            current_pg: current_pg || '',
+            due_now: due_now || '',
+            deliver_elsewhere: deliver_elsewhere || '',
+            hx_cesarean: hx_cesarean || '',
+            hx_complication: hx_complication || '',
+            current_multip: current_multip || '',
+
+            name: name || '',
+            edd: edd || defineDate(),
             age: age || '',
+            village: village || '',
+
+            own_phone: own_phone || '',
+            other_phone: other_phone || '',
+            phone_number: phone_number || '',
+            carrier: carrier || '',
+            owner_phone: owner_phone || '',
+            want_education: want_education || '',
+            // complications_note
+
             marital_status: marital_status || '',
             wife_order: wife_order || '',
             schooled: schooled || '',
             school_level: school_level || '',
-            village: village || '',
-            latitude: latitude || '',
-            longitude: longitude || '',
+
+
             assigned_driver: assigned_driver || '',
-            phone_owner: phone_owner || '',
-            phone_carrier: phone_carrier || '',
-            mobile_phone: mobile_phone || '',
-            contact_book: contact_book || '',
+
             money_saved: money_saved || '',
             decision_maker: decision_maker || '',
-            antenatal_care_visits: antenatal_care_visits || '',
-            location_of_delivery: location_of_delivery || '',
-            method_of_arriving: method_of_arriving || '',
+            no_anc: no_anc || '',
+            deliver_place: deliver_place || '',
+            plan_transport: plan_transport || '',
             health_insurance: health_insurance || '',
             insurance_type: insurance_type || '',
             number_of_pregnancies: number_of_pregnancies || '',
@@ -615,39 +734,42 @@ const FormikEditMother = withFormik({
             living_children: living_children || '',
             children_under_five: children_under_five || '',
             infant_death: infant_death || '',
-            c_section: c_section || '',
+
+
             anemia: anemia || '',
             malaria: malaria || '',
             obstructed_labor: obstructed_labor || '',
-            malpresentation: malpresentation || '',
-            hemorrhage: hemorrhage || '',
-            retained_placenta: retained_placenta || '',
+            malpresent: malpresent || '',
+            aph: aph || '',
+            pph: pph || '',
+            ret_placenta: ret_placenta || '',
             placenta_previa: placenta_previa || '',
-            stillbirth: stillbirth || '',
-            other_complications: other_complications || '',
+            hx_stillbirth: hx_stillbirth || '',
+            no_stillbirth: no_stillbirth || '',
+            BP_note: BP_note || '',
         };
     },
 
     validationSchema: Yup.object().shape({
-        age: Yup.string().max(3).required('Please enter an age'),
+        name: Yup.string().max(30).required('Please enter name'),
+        age: Yup.string().max(3).required('Please enter age'),
+
         marital_status: Yup.string().required('Please enter a marital status'),
         wife_order: Yup.string().required('Please enter a wife order'),
         school_level: Yup.string().required('Please enter a school level'),
 
-        village: Yup.string().required('Please enter a village'),
-        latitude: Yup.string().required('Please enter a latitude'),
-        longitude: Yup.string().required('Please enter a longitude'),
+
         assigned_driver: Yup.string().required('Please enter an assigned driver'),
 
-        phone_owner: Yup.string().required('Please enter a phone owner'),
-        phone_carrier: Yup.string().required('Please enter a phone carrier'),
         mobile_phone: Yup.string().required('Please enter a mobile phone'),
         contact_book: Yup.string().required('Please enter a contact book'),
 
         money_saved: Yup.string().required('Please enter money saved'),
         decision_maker: Yup.string().required('Please enter a decision maker'),
-        antenatal_care_visits: Yup.string().required('Please enter visits'),
-        location_of_delivery: Yup.string().required('Please enter a location of delivery'),
+
+        no_anc: Yup.string().required('Please enter visits'),
+        deliver_place: Yup.string().required('Please choose something from a list'),
+
         method_of_arriving: Yup.string().required('Please enter method of arriving'),
         health_insurance: Yup.string().required('Please enter a health insurance'),
         insurance_type: Yup.string().required('Please enter insurance type'),
@@ -659,24 +781,86 @@ const FormikEditMother = withFormik({
         children_under_five: Yup.string().required('Please enter children under five'),
         infant_death: Yup.string().required('Please enter number of infant death'),
 
-        c_section: Yup.string().required('Please enter c-section'),
-        anemia: Yup.string().required('Please enter anemia'),
-        malaria: Yup.string().required('Please enter malaria'),
-        obstructed_labor: Yup.string().required('Please enter obstructed labor'),
-        malpresentation: Yup.string().required('Please enter malpresentation'),
-        hemorrhage: Yup.string().required('Please enter hemorrhage'),
-        retained_placenta: Yup.string().required('Please enter retained placenta'),
-        placenta_previa: Yup.string().required('Please enter placenta previa'),
-        stillbirth: Yup.string().required('Please enter stillbirth'),
-        other_complications: Yup.string().required('Please enter other complications'),
+
+        hx_stillbirth: Yup.string().required('Please enter number of stillbirths'),
+        BP_note: Yup.string().required('Please choose something from a list'),
+
     }),
 
     handleSubmit(values, {props}) {
-        values.mother_id = props.mother_id;
-        props.createLabel(values);
-
+        console.log("values ", values);
     }
 })(EditMother);
 
 
 export default FormikEditMother;
+
+
+/*
+
+own_phone - just a phone don`t worry about that
+
+
+
+interviewer_other (string) from db
+
+
+
+1. interviewer
+
+Mukalu Mohamed
+Mikayla O’Bryan
+Barilaine Joseph Peter
+Tatumwa Desmond Benjamine
+Ssemambo Peter Mumbya
+Other
+
+2. current_pg  (current_pg -be)(Are you currently pregnant?)
+
+3.due date  - (due_now -be)
+1	YES
+0	NO
+98	DON'T KNOW
+99	DECLINES TO ANSWER
+-1	ENDS INTERVIEW
+
+4.
+
+
+
+plan_transport
+
+WALKING
+BICYCLE TAXI
+MOTORCYCLE TAXI
+MATATU
+BICYCLE MY HOUSEHOLD OWNS
+MOTORCYCLE MY HOUSEHOLD OWNS
+AUTOCAR MY HOUSEHOLD OWNS
+SAFE MOTORCYCLE AMBULANCE
+OTHER
+DON'T KNOW
+DECLINES TO ANSWER
+ENDS INTERVIEW
+
+
+
+
+*supplies
+
+* MAMA KIT
+MACKINTOSH
+RAZOR
+SANITARY PAD
+COTTON ROLL
+SOAP
+GLOVES
+MEDICATION
+BABY CLOTHES
+BABY BLANKET
+SHEETS
+OTHER
+DECLINES TO ANSWER
+ENDS INTERVIEW
+*/
+

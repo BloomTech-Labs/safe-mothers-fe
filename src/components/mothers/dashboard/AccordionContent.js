@@ -7,7 +7,7 @@ export default function AccordionContent(props) {
     const {mother} = props;
     return (
         <StyledContents>
-            <div className="card">
+            {mother.id && <div className="card">
                 <div className="att-list">
                     <ul className="list">
                         <li>Age:</li>
@@ -32,7 +32,8 @@ export default function AccordionContent(props) {
                         <br/>
                     </ul>
                 </div>
-            </div>
+            </div>}
+
             <MotherContent className="mother-content" mother={mother}/>
         </StyledContents>
     )

@@ -17,7 +17,7 @@ import {SearchWrapper} from './app-style';
 import {Container} from "./app-style";
 import DriversList from "./components/drivers/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
-import FormikEditMother from "./components/mothers/single-view/EditMother";
+import FormikEditMother from "./components/mothers/form/EditMother";
 
 export const theme = {
     primary: {
