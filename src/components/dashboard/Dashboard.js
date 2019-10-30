@@ -59,9 +59,9 @@ const Dashboard = props => {
           <Card
             className="appCard"
             boxShadowSize="xl"
-            borderWidth={10}
-            borderRadius={10}
-            p={10}
+            borderWidth={0}
+            borderRadius={0}
+            p={0}
             onClick={() => props.history.push('/mothers')}
           >
             <GridItem><p>Mothers</p>
@@ -73,9 +73,9 @@ const Dashboard = props => {
           <Card
             className="appCard"
             boxShadowSize="xl"
-            borderWidth={10}
-            borderRadius={10}
-            p={10}
+            borderWidth={0}
+            borderRadius={0}
+            p={0}
             onClick={() => props.history.push('/drivers')}
             >
             <GridItem><p>Drivers</p>
@@ -88,9 +88,9 @@ const Dashboard = props => {
         <Card
           className="systemCard"
           boxShadowSize="xl"
-          borderWidth={10}
-          borderRadius={10}
-          p={10}
+          borderWidth={0}
+          borderRadius={0}
+          p={0}
         >
           Driver Rankings
         </Card>
