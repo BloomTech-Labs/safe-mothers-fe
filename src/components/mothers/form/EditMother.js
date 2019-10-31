@@ -42,16 +42,9 @@ const EditMotherForm = styled.div`
     }
     
     .inline{
-      display: flex;
-      justify-content: center;
       margin-bottom: 30px;
       padding-top: 24px;
     }
-  
-  li{
-    padding-bottom: 42px;
-    white-space: nowrap;
-  }
   
   .column{
     padding: 1%;
@@ -63,9 +56,9 @@ const EditMotherForm = styled.div`
   }
   
   .input{
-    margin-left: 1%;
+ /*   margin-left: 1%;
     min-width: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 10px;*/
   }
 
   .label-value{

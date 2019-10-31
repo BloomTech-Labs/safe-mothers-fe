@@ -4,28 +4,31 @@ import User from './users/User'
 import UserFilter from './users/UserFilter'
 
 import styled from "styled-components";
+import {ContentContainer} from "./setting-style";
 
-const Cardd = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-`
+const Card = styled.div`
+  
+  display: flex;
+  justify-content: center;
+  @media(max-width: 1024px){
+      flex-direction: column;
+  }
+`;
 
 
 const Settings = () => {
   return (
-    <Cardd>
-      <div>
+    <Card>
+      <ContentContainer>
         <RegisterForm />
-      </div>
+      </ContentContainer>
 
-
-      <div>
+      <ContentContainer>
       <UserFilter/>
         <User/>
-      </div>
-    </Cardd>
+      </ContentContainer>
+    </Card>
   )
-}
+};
 
 export default Settings
