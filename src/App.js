@@ -6,7 +6,7 @@ import Registration from "./components/auth/Registration";
 import MenuBar from "./components/menubar/MenuBar";
 import Dashboard from './components/dashboard/Dashboard';
 import MothersList from './components/mothers/dashboard/MothersList';
-import Settings from './components/pages/Settings'
+import Settings from './components/settings/Settings'
 
 import AuthRoute from "./utilities/privateRoute";
 

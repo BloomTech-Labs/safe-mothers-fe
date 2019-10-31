@@ -5,6 +5,8 @@ import {Accordion, AccordionPanel, Box} from 'grommet';
 import AccordionLabel from './AccordionLabel';
 import AccordionContent from './AccordionContent';
 import {defineHighRisk} from "../mother-utils";
+import settingsReducer from "../../../reducers/settingsReducer";
+
 
 const Mothers = props => {
     const {mothers} = props;
@@ -44,12 +46,9 @@ const Mothers = props => {
 
 const mapStateToProps = state => {
     return {
-        mothers: state.mothersReducer.mothers
+        mothers: state.mothersReducer.mothers,
     };
 };
 
-export default connect(
-    mapStateToProps,
-    {getMothers}
-)(Mothers);
+export default connect(mapStateToProps, {getMothers})(Mothers);
 

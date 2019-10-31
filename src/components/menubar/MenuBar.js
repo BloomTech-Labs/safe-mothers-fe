@@ -46,7 +46,7 @@ const MenuBar = (props) => {
                             </div>
                         </Link>
                     </div>
-                  {/*  <div className="link-container">
+                    <div className="link-container">
                         <Link
                             className={"link " + (props.location.pathname === links.settings ? "focus-link" : "")}
                             to="/settings">
@@ -56,7 +56,7 @@ const MenuBar = (props) => {
                             <div className={props.location.pathname === links.settings ? "focus" : ""}>
                             </div>
                         </Link>
-                    </div>*/}
+                    </div>
                     <div className="link-container">
                         <Link onClick={() => props.logout()} className="link " to="/">
                             Sign Out
