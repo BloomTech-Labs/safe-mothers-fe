@@ -9,7 +9,7 @@ const MenuBar = (props) => {
         dashboard: "/dashboard",
         mothers: "/mothers",
         drivers: "/drivers",
-        settings: "/settings",
+        admin: "/admin",
     });
 
     return (
@@ -48,12 +48,12 @@ const MenuBar = (props) => {
                     </div>
                     <div className="link-container">
                         <Link
-                            className={"link " + (props.location.pathname === links.settings ? "focus-link" : "")}
-                            to="/settings">
+                            className={"link " + (props.location.pathname === links.admin ? "focus-link" : "")}
+                            to="/admin">
                             Admin
                             <div className="dash-button">
                             </div>
-                            <div className={props.location.pathname === links.settings ? "focus" : ""}>
+                            <div className={props.location.pathname === links.admin ? "focus" : ""}>
                             </div>
                         </Link>
                     </div>
