@@ -183,4 +183,3 @@ export const CustomBadge = styled.div`
     
     
 `;
-
