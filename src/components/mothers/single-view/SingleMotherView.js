@@ -20,6 +20,12 @@ const StyledPageView = styled.div`
 
         a{
             padding-right: 2%;
+            min-width: 5%;
+        }
+
+        .del-btn{
+            color: red;
+            align-items: baseline;
         }
 
         ul {
@@ -33,11 +39,22 @@ const StyledPageView = styled.div`
         .banner{
             align-items: center;
             display: flex; 
+            align-content: center;
+
+            @media (max-width: 1024px){
+                align-items: center;
+            }
         }
 
         .banner-title{
             text-align: left;
             padding-right: 20%;
+
+            @media (max-width: 1024px){
+                text-align: center;
+                padding-left: 40%;
+                padding-right: 10%;
+            }
         }
 
         .card-content{
@@ -63,14 +80,15 @@ const StyledPageView = styled.div`
             }
         }
 
-        .align-left values{
+        .values{
             align-content: flex-end;
             width: 50%;
             padding: 0%;
             color: black;
 
             @media (max-width: 1024px){
-                width: 100%;
+                padding-left: 3%;
+                color: black;
                 text-align: left;
             }
         }
@@ -86,7 +104,8 @@ const StyledPageView = styled.div`
             padding: 0%;
 
             @media (max-width: 1024px){
-                text-align: center;
+                text-align: right;
+                margin-right: 2%;
             }
         }
 
@@ -97,18 +116,18 @@ const StyledPageView = styled.div`
             padding: 0%;
             margin-bottom: 0%;
 
-            li{
-                color: red;
-                margin-bottom: 0%;
-              }
+            @media (max-width: 1024px){
+            } 
 
             p{
                 margin-bottom: 0%;
+                text-align: left;
                 margin-top: 0%;
             }
 
             @media (max-width: 1024px){
                 text-align: center;
+                margin-left: 2%;
             }
         }
 
@@ -153,6 +172,11 @@ const StyledPageView = styled.div`
                 .card-title{
                     padding-right: 20%;
                 }
+
+                @media (max-width: 1024px) {
+                    text-align: center;
+                    padding-right: 0%;
+                }
             }
 
             .increased {
@@ -194,7 +218,7 @@ const StyledPageView = styled.div`
             
             @media (max-width: 1024px) {
                 display: block;
-                width: 100%;
+                width: 80%;
                 text-align: center;
                 align-content: center;
             }
@@ -217,8 +241,8 @@ function SingleMotherView(props) {
       <StyledPageView className="single-page-view">
         <div className="banner">
             <h1 className="banner-title">{mother.name}</h1>
-            <a className="spv-btn">EDIT<SVG src={Edit} /></a>
-            <a className="spv-btn">DELETE<SVG src={Close} /></a>
+            <a className="edit-btn">EDIT<SVG className="edit-svg" src={Edit} /></a>
+            <a className="del-btn">DELETE<SVG className="del-svg" src={Close} /></a>
         </div>
         <div className="card-container">
         <div className="grid-top">
