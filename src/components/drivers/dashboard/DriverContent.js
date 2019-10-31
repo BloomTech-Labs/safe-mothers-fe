@@ -30,8 +30,8 @@ function DriverContent(props) {
                         <span className="title">Motorcycle</span>
                         <MotorcycleCard/>
                     </div>
-                    <div className="see-more" onClick={() => props.history.push(`/drivers/${driver.id}`)}><p>See
-                        more</p></div>
+                 {/*   <div className="see-more" onClick={() => props.history.push(`/drivers/${driver.id}`)}><p>See
+                        more</p></div>*/}
                 </>
                 }
             </Content>

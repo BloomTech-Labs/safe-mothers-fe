@@ -12,7 +12,7 @@ export default function LabelBadges(props) {
                     </CustomBadge>
                     :
                     <CustomBadge  width="9%" badgeColor="red" badgeText="white" className="badge" color="secondary">
-                        {"OFLINE"}
+                        {"OFFLINE"}
                     </CustomBadge>
                 }
 

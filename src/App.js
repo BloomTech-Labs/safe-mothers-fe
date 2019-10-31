@@ -90,11 +90,11 @@ function App(props) {
                         {
                             props.isAuth &&
                             <SearchWrapper>
-                                <div className="searchContainer">
+                              {/*  <div className="searchContainer">
                                     <p className="searchLabel">SEARCH FOR KEYWORDS</p>
                                     <Search className="searchIcon"/>
                                     <input type="text" className="search"/>
-                                </div>
+                                </div>*/}
                                 <Switch>
                                     <AuthRoute
                                         exact path="/dashboard"

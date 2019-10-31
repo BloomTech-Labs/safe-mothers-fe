@@ -41,7 +41,9 @@ export const Container = styled.div`
 
 export const SearchWrapper = styled.div`
     width: 95%;
-    margin: auto;
+    //delete matgin top
+    margin: 50px auto;
+    
     .search {
         width: 173px;
         height: 24px;
