@@ -10,25 +10,23 @@ export default function AccordionContent(props) {
             <div className="card">
                 <div className="att-list">
                     <ul className="list">
-                        <li>Age:</li>
-                        <li>Marital Status:</li>
-                        <li>Wife Order:</li>
-                        <li>Education:</li>
-                        <li>Education Level:</li>
-                        <li>Pregnant:</li>
-                        <li>Due Date:</li>
-                        <li>Village:</li>
+                            <li>Name:</li>
+                            <li>Marital Status:</li>
+                            <li>Education:</li>
+                            <li>Education Level:</li>
+                            <li>District:</li>
+                            <li>Subcounty:</li>
+                            <li>Parish:</li>
                         <br/>
                     </ul>
                     <ul className="list-values">
-                        <li> 'N/A'</li>
-                        <li> 'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
+                        <li>30</li>
+                        <li>Married</li>
+                        <li>Yes</li>
+                        <li>School</li>
+                        <li>Iganga</li>
+                        <li>Nawandala</li>
+                        <li>Bugono Stage</li>
                         <br/>
                     </ul>
                 </div>

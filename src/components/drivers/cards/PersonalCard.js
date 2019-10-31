@@ -13,7 +13,6 @@ export default function PersonalCard() {
                         <li>District:</li>
                         <li>Subcounty:</li>
                         <li>Parish:</li>
-                    
                     </ul>
                     <ul className="align-left values">
                         <li>30</li>
