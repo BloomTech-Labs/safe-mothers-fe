@@ -10,11 +10,13 @@ import Rain from '../resources/Rain.svg';
 import Pregnant from '../resources/Pregnant.svg';
 import Baby from '../resources/Baby.svg';
 import Born from '../resources/Born.svg';
+import SeeMore from '../../reusableParts/resources/eye.svg'
 
 import {defineRainSeason, defineDrySeason, RAIN_SEASON, DRY_SEASON} from "../mother-utils";
 import LabelBadges from "./LabelBadges";
 import LabelStatus from "../../reusableParts/accordion/label/LabelStatus";
 import LabelDate from "../../reusableParts/accordion/label/LabelDate";
+import {withRouter} from "react-router-dom";
 
 function AccordionLabel(props) {
     const {mother, risk} = props;
@@ -25,12 +27,12 @@ function AccordionLabel(props) {
         <StyledLabel>
             {mother.id &&
             <>
-                <span className="name">{mother.name}</span>
+                <span className="name"><SVG onClick={() => props.history.push(`/mothers/${mother.id}`)} className="see-more" src={SeeMore}/>{mother.name}</span>
                 <LabelBadges entity={mother} risk={risk}/>
                 <LabelStatus icon={Born} text={"Delivered"}/>
                 <div className="icon-container">
-                    {rain_season === RAIN_SEASON && <SVG src={Rain} className="icon"/>}
-                    {dry_season === DRY_SEASON && <SVG src={Sun} className="icon"/>}
+                    {rain_season === RAIN_SEASON && <SVG src={Rain} className="icon responsive-icon"/>}
+                    {dry_season === DRY_SEASON && <SVG src={Sun} className="icon responsive-icon"/>}
                 </div>
                 <LabelDate date={mother.edd}/>
             </>
@@ -39,4 +41,4 @@ function AccordionLabel(props) {
     )
 }
 
-export default AccordionLabel;
+export default withRouter(AccordionLabel);

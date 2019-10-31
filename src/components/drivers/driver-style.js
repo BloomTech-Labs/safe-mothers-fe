@@ -14,12 +14,18 @@ export const ratings = {
 };
 
 export const Rating = styled.div`
-  width: 50%;
-  height: 33px;
-  color: white;
-  background: ${props => props.bg};
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 50%;
+    height: 1rem;
+    color: white;
+    background: ${props => props.bg};
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (min-width: 1024px) {
+        height: 1.4rem;
+    }
+    @media (min-width: 1400px) {
+        height: 1.8rem;
+    }
 `;

@@ -26,8 +26,9 @@ function MotherContent(props) {
                         <span className="title">High risk</span>
                         <HighRiskCard mother={mother}/>
                     </div>
-                    <div className="see-more" onClick={() => props.history.push(`/mothers/${mother.id}`)}><p>See
-                        more</p></div>
+                   {/* <div className="see-more" onClick={() => props.history.push(`/mothers/${mother.id}`)}><p>See
+                        more</p>
+                    </div>*/}
                 </>
                 }
             </Content>

@@ -6,6 +6,9 @@ import HighRiskCard from "./cards/HightRiskCard";
 import MedicalHistoryCard from "./cards/MedicalHistoryCard";
 import ContactsCard from "./cards/ContactsCard";*/
 import {withRouter} from "react-router-dom";
+import PersonalCard from "../cards/AspirationCard"
+import ContactsCard from "../cards/ContactCard";
+import MotorcycleCard from "../cards/MotorcycleCard";
 
 function DriverContent(props) {
     const {driver} = props;
@@ -16,19 +19,19 @@ function DriverContent(props) {
                 <>
                     <Divider borderColor={"black"} width={1} className="divider"/>
                     <div className="card">
+                        <span className="title">Statistic</span>
+                        <PersonalCard/>
+                    </div>
+                    <div className="card">
                         <span className="title">Contacts</span>
-                        {/*<ContactsCard mother={mother}/>*/}
+                        <ContactsCard/>
                     </div>
                     <div className="card">
-                        <span className="title">Medical history</span>
-                        {/*<MedicalHistoryCard mother={mother}/>*/}
+                        <span className="title">Motorcycle</span>
+                        <MotorcycleCard/>
                     </div>
-                    <div className="card">
-                        <span className="title">High risk</span>
-                        {/*<HighRiskCard mother={mother}/>*/}
-                    </div>
-                    <div className="see-more" onClick={() => props.history.push(`/drivers/${driver.id}`)}><p>See
-                        more</p></div>
+                 {/*   <div className="see-more" onClick={() => props.history.push(`/drivers/${driver.id}`)}><p>See
+                        more</p></div>*/}
                 </>
                 }
             </Content>

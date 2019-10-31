@@ -1,34 +1,32 @@
 import React from 'react';
-import {StyledContents} from "../../reusableParts/accordion/label/label-style";
+import {StyledContents} from "../../reusableParts/accordion/content/content-style";
 import DriverContent from "./DriverContent";
 
 export default function AccordionContent(props) {
     const {driver} = props;
-
+    console.log("driver ", driver);
     return (
         <StyledContents>
             <div className="card">
                 <div className="att-list">
                     <ul className="list">
-                        <li>Age:</li>
+                        <li>Name:</li>
                         <li>Marital Status:</li>
-                        <li>Wife Order:</li>
                         <li>Education:</li>
                         <li>Education Level:</li>
-                        <li>Pregnant:</li>
-                        <li>Due Date:</li>
-                        <li>Village:</li>
+                        <li>District:</li>
+                        <li>Subcounty:</li>
+                        <li>Parish:</li>
                         <br/>
                     </ul>
                     <ul className="list-values">
-                        <li> 'N/A'</li>
-                        <li> 'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
-                        <li>'N/A'</li>
+                        <li>{driver.name}</li>
+                        <li>Married</li>
+                        <li>Yes</li>
+                        <li>School</li>
+                        <li>Iganga</li>
+                        <li>Nawandala</li>
+                        <li>Bugono Stage</li>
                         <br/>
                     </ul>
                 </div>

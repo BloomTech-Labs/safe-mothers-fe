@@ -1,55 +1,5 @@
 import styled from "styled-components";
 
-export const StyledContents = styled.div`
-    display: flex;
-    justify-content: center;
-    //font-size:1vw;
-    @media (max-width: 1024px) {
-       flex-direction: column;
-    }
-    li{
-        margin-bottom: 10px;
-        white-space: nowrap;
-     }
-    .list{
-        list-style-type: none;
-        padding: 0;
-        @media (max-width: 1024px) {
-          padding-left: 8%;
-        }
-    }
-   
-   
-    .list-values{
-        list-style-type: none; 
-        color: blue;
-    }
-    
-    .mother-content{
-        width: 75%;  
-    }
-    
-    .card{
-        display: flex;
-        flex-direction: column;
-        margin-left: 1%;
-        width: 30%;
-        @media (max-width: 1024px) {
-           width: 50%; 
-           flex-wrap: wrap;
-           margin: auto;
-        }
-    }
-
-    .att-list{
-        text-align: left;
-        display:flex; 
-        @media (max-width: 1024px) {
-           width: 70%;
-        }
-    }
-`;
-
 export const StyledLabel = styled.div`
     font-family: 'Asap', sans-serif;
     display: flex;
@@ -57,12 +7,29 @@ export const StyledLabel = styled.div`
     width: 100%;
     font-weight: bold;
     border-radius:3px;
-    font-size:1vw;
-    padding: 1% 0;
+    padding: 0.4% 0;
+    @media (max-width: 500px) {
+        padding-right: 3%;
+    }  
+    @media (max-width: 700px) {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
     .name{
         width: 20%; 
         text-align: left;
         padding-left: 1%;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+    }
+    .see-more{
+        padding-right: 3%;
+        fill: #ab7bff;
+        width: 20%;
+        &:hover{
+            fill: #d896ff;
+        }
     }
     
     .inline-badges{
@@ -76,7 +43,10 @@ export const StyledLabel = styled.div`
         display: flex;
         align-items: center;
         width: 7%;
-        
+        white-space: nowrap;
+        @media (max-width: 700px) {
+          justify-content: flex-end;
+        }
     }
     
     .status-icon{
@@ -87,6 +57,9 @@ export const StyledLabel = styled.div`
     .status-text{
         white-space: nowrap;
         padding-left: 5%;
+        @media (max-width: 700px) {
+          display: none;
+        }
     }     
      
     .icon-container{
@@ -98,6 +71,15 @@ export const StyledLabel = styled.div`
         width: 30%;
         height: 30%;
         margin: 0 1%;
+    }
+    
+    .responsive-icon{
+        @media (max-width: 730px) {
+            display: none;
+        }
+        @media (max-width: 850px) {
+            margin-left: 40%;
+        }
     }
     
     .modal{
@@ -153,7 +135,7 @@ export const StyledLabel = styled.div`
 
 export const CustomBadge = styled.div`
     font-family: 'Asap', sans-serif;
-    font-size:1vw;
+    white-space: nowrap;
     text-transform: uppercase;
     margin-left: 2%;
     display: flex;
@@ -162,18 +144,22 @@ export const CustomBadge = styled.div`
     background:  ${props => props.badgeColor}
     border-radius: 20px;
     color:  ${props => props.badgeText}
-    width: 13%;
+    width: ${props => props.width}
     height: 100%;
     padding-top: 0.5%;
     padding-bottom: 0.5%;
     position: relative;
+    
+    @media (max-width: 950px) {
+        width: 50px;
+        font-size: 0.6rem;
+    }
     
     .delete-badge{
         border: none;
         background: ${props => props.badgeDark};
         border-top-right-radius: 20px;
         border-bottom-right-radius: 20px;    
-        font-size:1vw;
         color:  ${props => props.badgeText}
         width: 25%;
         display: flex;
@@ -189,7 +175,6 @@ export const CustomBadge = styled.div`
             filter: brightness(85%);
        }
        .delete-icon{
-            font-size:1vw;
             position: absolute;
             top: 5%;
        }
