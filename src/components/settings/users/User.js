@@ -1,5 +1,15 @@
 import React, {useState} from 'react'
 import UserList from './UserList'
+import styled from 'styled-components';
+
+const AdminList = styled.div`
+  
+  .banner{
+    display: flex;
+    justify-content: space-around;
+  }
+
+`
 
 const User = () => {
 
@@ -26,11 +36,15 @@ const User = () => {
 
 
   return (
-    <div>
-      {admins.map(admin => ( 
-        <UserList key = {admin.id} admin={admin} />
-      ))}
-    </div>
+    <AdminList>
+      <div className="banner">
+        <h2>Name</h2>
+        <h2>Username</h2>
+      </div>
+        {admins.map(admin => ( 
+          <UserList key = {admin.id} admin={admin} />
+        ))}
+    </AdminList>
   )
 }
 

@@ -1,31 +1,33 @@
 import React from 'react';
 import styled from 'styled-components';
+import SVG from 'react-inlinesvg';
+import Edit from '../../reusableParts/resources/Edit.svg';
+import Close from '../../reusableParts/resources/Close.svg';
 import {connect} from 'react-redux';
 
 const Card = styled.div`
   padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
-  border: #ccc solid 1px;
+  margin: 2 rem auto;
   width: 100%;
   align-items: center;
+  display: flex;
+  justify-content: space-around;
 
-  .btn {
-    display: inline-block;
-    background: #282e74;
-    color: #f4f4f4;
-    padding: 0.4rem 1.3rem;
-    font-size: 1rem;
-    cursor: pointer;
+
+  .btns{
+      padding-left: 2%;
   }
 
-  .btnn {
-    display: inline-block;
-    background: #dc3545;
-    color: #f4f4f4;
-    padding: 0.4rem 1.3rem;
-    font-size: 1rem;
-    cursor: pointer;
+  .close{
+      fill: #EB5757; 
+  }
+
+  .edit{
+      fill: #35E632;
+  }
+
+  .name-detail{
+      padding-left: 2%;
   }
 `;
 
@@ -35,15 +37,16 @@ const UserList = ({admin}) => {
     return (
         <>
             <Card>
-                <h2>
-                    {firstName} {lastName}{' '}
-                </h2>
-                <h3>{userName}</h3>
-
-                <div>
-                    <button className='btn'>Edit</button>
-                    <button className='btnn'>Delete</button>
+                <div className = "btns">
+                    <SVG className="close" src={Close} />
+                    <SVG className="edit" src={Edit} />
                 </div>
+                <p classname="name-detail">
+                    {firstName} 
+                    {lastName}{' '}
+                </p>
+                <p className="uname-detail">{userName}</p>
+
             </Card>
         </>
     );
