@@ -15,7 +15,7 @@ import {Grommet} from 'grommet';
 import {Search} from "grommet-icons";
 import {SearchWrapper} from './app-style';
 import {Container} from "./app-style";
-import DriversList from "./components/drivers/DriversList";
+import DriversList from "./components/drivers/dashboard/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
 import FormikEditMother from "./components/mothers/form/EditMother";
 
