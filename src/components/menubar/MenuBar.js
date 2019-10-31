@@ -50,7 +50,7 @@ const MenuBar = (props) => {
                         <Link
                             className={"link " + (props.location.pathname === links.settings ? "focus-link" : "")}
                             to="/settings">
-                            Settings
+                            Admin
                             <div className="dash-button">
                             </div>
                             <div className={props.location.pathname === links.settings ? "focus" : ""}>
