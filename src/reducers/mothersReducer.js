@@ -21,7 +21,6 @@ const initialState = {
     isAuth: !!localStorage.getItem("token"),
     mothers: [],
     labels: [],
-
 };
 
 const mothersReducer = (state = initialState, {type, payload}) => {

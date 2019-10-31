@@ -1,7 +1,7 @@
 import React from 'react'
-import RegisterForm from '../users/RegisterForm'
-import User from '../users/User'
-import UserFilter from '../users/UserFilter'
+import RegisterForm from './users/RegisterForm'
+import User from './users/User'
+import UserFilter from './users/UserFilter'
 
 import styled from "styled-components";
 
