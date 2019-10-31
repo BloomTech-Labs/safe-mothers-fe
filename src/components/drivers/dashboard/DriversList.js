@@ -29,7 +29,7 @@ const DriversList = (props) => {
                             <>
                                 {driver.name &&
                                 <AccordionPanel key={index}
-                                                label={<AccordionLabel  driver={driver}/>}>
+                                                label={<AccordionLabel driver={driver}/>}>
                                     <Box background='white'><AccordionContent driver={driver}/> </Box>
                                 </AccordionPanel>
                                 }
@@ -45,7 +45,7 @@ const DriversList = (props) => {
 
 const mapStateToProps = state => {
     return {
-         drivers: state.driversReducer.drivers,
+        drivers: state.driversReducer.drivers,
     }
 };
 

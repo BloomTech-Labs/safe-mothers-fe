@@ -35,12 +35,12 @@ function LabelBadges(props) {
     return (
         <div className="inline-badges">
             {entity.amt_saved > 0 &&
-            <CustomBadge className="badge" color="secondary">
+            <CustomBadge  width="12%" className="badge" color="secondary">
                 {entity.amt_saved ? entity.amt_saved : '$0'}
             </CustomBadge>}
 
             {risk === HIGHT_RISK &&
-            <CustomBadge badgeColor="red" badgeText="white">
+            <CustomBadge width="12%" badgeColor="red" badgeText="white">
                 {HIGHT_RISK}
             </CustomBadge>}
 {/*

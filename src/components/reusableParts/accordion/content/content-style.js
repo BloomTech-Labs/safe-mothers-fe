@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const StyledContents = styled.div`
     display: flex;
     justify-content: center;
-    //font-size:1vw;
     @media (max-width: 1024px) {
        flex-direction: column;
+      
     }
     li{
         margin-bottom: 10px;
@@ -15,14 +15,17 @@ export const StyledContents = styled.div`
         list-style-type: none;
         padding: 0;
         @media (max-width: 1024px) {
-          padding-left: 8%;
+          width: 100%;
         }
     }
    
    
     .list-values{
+        padding-left: 6%;
         list-style-type: none; 
-        color: blue;
+        @media (max-width: 1024px) {
+          padding-left: 50%;           
+        }
     }
     
     .mother-content{
@@ -35,8 +38,7 @@ export const StyledContents = styled.div`
         margin-left: 1%;
         width: 30%;
         @media (max-width: 1024px) {
-           width: 50%; 
-           flex-wrap: wrap;
+           width: 40%; 
            margin: auto;
         }
     }
@@ -45,7 +47,8 @@ export const StyledContents = styled.div`
         text-align: left;
         display:flex; 
         @media (max-width: 1024px) {
-           width: 70%;
+           justify-content: flex-start;
+            width: 40%;
         }
     }
 `;
@@ -58,22 +61,26 @@ export const Content = styled.div`
     margin-left: 3%;
     margin-right: 4%;
     width: 70%;
-    //font-size:1vw;
     @media (max-width: 1024px) { 
        width: 100%;
        flex-wrap: wrap;
+       margin: 0;
+       flex-direction: column;
     }
     .card{
         width: 50%;
         flex-direction: column;
-        margin: 0 10px;
+        margin: 0 0;
         @media (max-width: 1024px) {
-           width: 50%;
+           width: 100%;
         }
     };
     .divider {
         position:absolute;
         top: 18px;
+        @media (max-width: 1024px) {
+           display: none;
+        }
     };
     .title{
         text-transform: uppercase;
@@ -82,14 +89,20 @@ export const Content = styled.div`
         display: inline;
         line-height: 16px;
         min-width: 200px;
+        @media (max-width: 1024px) {
+           text-align: center;
+           background: #f2f8ff;
+           width: 90%;
+           margin: auto;
+           height: 30px;
+           padding-top: 6px;
+        }
     }
     .status-no{
         color: #C4C4C4;
-        //font-weight: 600;
     }
     .status-yes{ 
         color: red;
-        //font-weight: 600;
     }
     .high-risk-card{
         margin-top: 0;
@@ -114,22 +127,27 @@ export const Card = styled.div`
         justify-content: center;
         @media (max-width: 1024px) {
             justify-content: flex-start;
+            width: 40%;
+            margin: auto;
         }
      }
      
      .align-left {
         text-align: left;
         list-style-type: none; 
+        padding-left: 0;
         @media (max-width: 1024px) {
             text-align: left;         
             padding: 0;
+            width: 100%;
         }
     }
     
     .values{
-        color: #1337F1;
+        padding-left: 3%;
         @media (max-width: 1024px) {
-            padding-left: 1%;
+            padding-left: 5%;
+            width: 100%;
         }
     }
 

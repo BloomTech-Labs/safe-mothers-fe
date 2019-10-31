@@ -18,7 +18,7 @@ function AccordionLabel(props) {
             <LabelBadges entity={driver}/>
             <LabelStatus icon={Active} text={"On duty"}/>
             <div className="icon-container">
-                <Rating bg={ratings[7]}>{7}.0</Rating>
+                <Rating className="responsive-icon" bg={ratings[driver.reliability]}>{driver.reliability}.0</Rating>
             </div>
             <LabelDate date={"2019-12-19"}/>
         </StyledLabel>

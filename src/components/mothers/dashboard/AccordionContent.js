@@ -1,6 +1,6 @@
 import React from 'react';
 import MotherContent from '../MotherContent';
-import {StyledContents} from "../../reusableParts/accordion/label/label-style";
+import {StyledContents} from "../../reusableParts/accordion/content/content-style";
 
 
 export default function AccordionContent(props) {

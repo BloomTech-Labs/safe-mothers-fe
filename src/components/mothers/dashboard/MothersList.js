@@ -19,7 +19,7 @@ const Mothers = props => {
                 {console.log(mothers)}
                 <Accordion className="accordion"
                            animate={true}
-                           multiple={true}
+                           multiple={false}
                            margin='small'
                            background='white'
                 >
