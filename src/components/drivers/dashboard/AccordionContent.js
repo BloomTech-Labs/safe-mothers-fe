@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyledContents} from "../../reusableParts/accordion/content/content-style";
-import DriverContent from "./DriverContent";
+import {StyledContents} from '../../reusableParts/accordion/content/content-style';
+import DriverContent from './DriverContent';
 
 export default function AccordionContent(props) {
     const {driver} = props;
