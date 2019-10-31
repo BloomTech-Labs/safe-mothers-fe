@@ -44,4 +44,6 @@ export const SearchWrapper = styled.div`
          align-items: center;
         
     };
+
+    
 `;

@@ -6,6 +6,7 @@ import Registration from "./components/auth/Registration";
 import MenuBar from "./components/menubar/MenuBar";
 import Dashboard from './components/dashboard/Dashboard';
 import MothersList from './components/mothers/dashboard/MothersList';
+import Settings from './components/pages/Settings'
 
 import AuthRoute from "./utilities/privateRoute";
 
@@ -115,6 +116,10 @@ function App(props) {
                                     <AuthRoute
                                         exact path="/drivers"
                                         component={DriversList}
+                                    />
+                                    <AuthRoute
+                                        exact path="/settings"
+                                        component={Settings}
                                     />
                                 </Switch>
                             </SearchWrapper>
