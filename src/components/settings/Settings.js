@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import RegisterForm from './users/RegisterForm'
 import User from './users/User'
 import UserFilter from './users/UserFilter'
@@ -7,7 +7,6 @@ import styled from "styled-components";
 import {ContentContainer} from "./setting-style";
 
 const Card = styled.div`
-  
   display: flex;
   justify-content: center;
   @media(max-width: 1024px){
@@ -15,12 +14,12 @@ const Card = styled.div`
   }
 `;
 
-
 const Settings = () => {
+    const [formState, setFormState] = useState(true);
   return (
     <Card>
       <ContentContainer>
-        <RegisterForm />
+        <RegisterForm formState={formState} cancel={setFormState}/>
       </ContentContainer>
 
       <ContentContainer>
