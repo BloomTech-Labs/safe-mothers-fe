@@ -1,11 +1,11 @@
 import React from 'react';
-import {Card} from '../mother-style';
+import {Card} from "../../reusableParts/accordion/content/content-style";
 
 export default function HighRiskCard({mother}) {
     return (
         <Card>
             <div className="card-content ">
-                <ul className="align-right">
+                <ul className="align-left">
                     <li>C-section</li>
                     <li>Anemia</li>
                     <li>Malaria</li>
@@ -19,7 +19,7 @@ export default function HighRiskCard({mother}) {
                     <li>Other complication</li>
                   </div>
                 </ul>
-                <ul className="align-right values high-risk-card">
+                <ul className="align-left values high-risk-card">
                     <li>{true ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
                     <li>{mother.anemia
                         ? <p className="status-yes">YES</p>

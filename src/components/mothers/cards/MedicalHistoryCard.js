@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card} from '../mother-style';
+import {Card} from "../../reusableParts/accordion/content/content-style";
 
 export default function MedicalHistoryCard({mother}) {
     return (

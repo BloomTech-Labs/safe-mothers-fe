@@ -1,9 +1,9 @@
 import React from 'react';
-// import {Card} from '../mother-style'
+import {Card} from "../../reusableParts/accordion/content/content-style";
 
 export default function PersonalCard() {
     return (
-        <div>
+        <Card>
             <div className="card-content">
                     <ul className="align-left">
                         <li>Name:</li>
@@ -26,6 +26,6 @@ export default function PersonalCard() {
 
                     </ul>
             </div>
-        </div>
+        </Card>
     )
 }

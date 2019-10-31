@@ -103,3 +103,52 @@ export const Content = styled.div`
     }
     
 `;
+
+export const Card = styled.div`
+     li{
+        margin-bottom: 15px;
+        white-space: nowrap;
+     }
+      .card-content{
+        display: flex;
+        justify-content: center;
+        @media (max-width: 1024px) {
+            justify-content: flex-start;
+        }
+     }
+     
+     .align-left {
+        text-align: left;
+        list-style-type: none; 
+        @media (max-width: 1024px) {
+            text-align: left;         
+            padding: 0;
+        }
+    }
+    
+    .values{
+        color: #1337F1;
+        @media (max-width: 1024px) {
+            padding-left: 1%;
+        }
+    }
+
+    .list-break-values{
+        color: black;
+    }
+    
+      .align-right {
+        text-align: right;
+        list-style-type: none; 
+        @media (max-width: 1024px) {
+            text-align: left;
+            padding: 0;
+        }
+    };
+    
+    .align-center{
+        text-align: center;
+        list-style-type: none; 
+        padding: 0;
+    }
+`;
