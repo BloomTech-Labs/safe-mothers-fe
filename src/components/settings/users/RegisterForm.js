@@ -28,9 +28,10 @@ const RegistrationForm = props => {
                                     </ul>
                                 </div>
                                 <div>
-                                    <Field className="regular-input" type="text" name="first_name"/>
-                                    {props.touched.first_name && props.errors.first_name && (
-                                        <p className="errormessage">{props.errors.first_name}</p>
+                                    <Field className="regular-input" type="text" name="firstName"/>
+
+                                    {props.touched.first_name && props.errors.firstName && (
+                                        <p className="errormessage">{props.errors.firstName}</p>
                                     )}
                                     <Field className="regular-input" type="text" name="last_name"/>
                                     {props.touched.last_name && props.errors.last_name && (
@@ -61,12 +62,15 @@ const RegistrationForm = props => {
 };
 
 const FormikRegistrationForm = withFormik({
-    mapPropsToValues({first_name, last_name, username, password}) {
+    mapPropsToValues({firstName, last_name, username, password, edit, handleFirstName, handleSubmit}) {
         return {
-            first_name: first_name || "",
+            firstName: firstName || "",
             last_name: last_name || "",
             username: username || "",
-            password: password || ""
+            password: password || "",
+            edit: edit,
+            handleFirstName: handleFirstName,
+            handleSubmit: handleSubmit
         };
     },
 
@@ -80,6 +84,7 @@ const FormikRegistrationForm = withFormik({
     handleSubmit(values,{props}) {
         props.registerUser(values);
         props.history.push("/dashboard");
+
     }
 })(RegistrationForm);
 
