@@ -12,6 +12,12 @@ const AdminList = styled.div`
   .banner{
     display: flex;
     justify-content: space-around;
+
+    @media(max-width: 1024px){
+      justify-content: space-around;
+      width: 70%;
+      padding-left: 30%;
+    }
   }
 
 `

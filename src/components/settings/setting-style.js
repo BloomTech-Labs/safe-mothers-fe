@@ -7,8 +7,7 @@ export const ContentContainer = styled.div`
     border: 1.5px solid ${props => props.theme.primary.darkGray};
 
     @media(max-width: 1024px){
-        justify-content: center;
-        width: auto;
+      width: auto;
     }
     
     .form-container{
@@ -31,5 +30,11 @@ export const SettingsForm = styled.div`
     }
     ul{
      padding: 0;
+    }
+    
+    .btn-container{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5%;
     }
 `;

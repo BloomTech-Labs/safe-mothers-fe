@@ -6,7 +6,7 @@ import {ContentContainer} from "./setting-style";
 const Card = styled.div`
   display: flex;
   justify-content: center;
-  background: black;
+  background: white;
 
   @media(max-width: 1024px){
       flex-direction: column;

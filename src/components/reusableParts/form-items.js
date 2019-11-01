@@ -41,6 +41,7 @@ export const FormItems = styled.div`
         background: #e7f0fa;;
         height: 48px;
         width: 25%;
+        margin: 2%;
         border: none;
         border-radius: 2px;
         color: #1337F1;
@@ -63,10 +64,14 @@ export const Button = styled.div`
         min-width: 20px;
         border: none;
         border-radius: 2px;
-        color:  ${props => props.color }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        color:  ${props => props.color };
         &:hover {
-            color:  ${props => props.colorOnHover}
-            background: ${props => props.bg}
+            color:  ${props => props.colorOnHover};
+            background: ${props => props.bgOnHover};
         }
     
 `;

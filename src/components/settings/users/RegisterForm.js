@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {Form, Field, withFormik, Formik} from "formik/dist/index";
+import React from "react";
+import {Form, Field, withFormik} from "formik/dist/index";
 import * as Yup from "yup";
 import {connect} from "react-redux";
 import {registerUser} from "../../../actions/authActions";
@@ -12,7 +12,11 @@ const RegistrationForm = props => {
                 <FormItems>
                     <SettingsForm>
                     <div className="form-container">
-                        <h1 className="title">Register a New User</h1>
+                        {props.formState ?
+                            <h1 className="title">Edit Administrator</h1>
+                            :
+                            <h1 className="title">Add Administrator</h1>
+                        }
                         <Form>
                             <div className="inline">
                                 <div className="labels">
@@ -44,6 +48,9 @@ const RegistrationForm = props => {
                             </div>
                             <div className="btn-container">
                                 <button className="submit-btn" type="submit">Submit</button>
+                                {props.formState &&
+                                    <Button onClick={() => props.cancel(!props.formState)} bgOnHover="#db4343" bg="#EB5757" color="white">Cancel</Button>
+                                }
                             </div>
                         </Form>
                     </div>
@@ -70,9 +77,9 @@ const FormikRegistrationForm = withFormik({
         password: Yup.string().required("Enter a password")
     }),
 
-    handleSubmit(values, formikBag) {
-        formikBag.props.registerUser(values);
-        formikBag.props.history.push("/dashboard");
+    handleSubmit(values,{props}) {
+        props.registerUser(values);
+        props.history.push("/dashboard");
     }
 })(RegistrationForm);
 

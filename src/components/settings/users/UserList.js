@@ -31,6 +31,10 @@ const Card = styled.div`
       display: flex;
       justify-content: space-between;
       width: 73%;
+
+      @media(max-width: 1024px){
+          justify-content: center;
+      }
     }
 
   p{
