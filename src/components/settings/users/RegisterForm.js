@@ -1,122 +1,90 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React from "react";
+import {Form, Field, withFormik} from "formik/dist/index";
+import * as Yup from "yup";
+import {connect} from "react-redux";
+import {registerUser} from "../../../actions/authActions";
+import {FormItems, Button} from "../../reusableParts/form-items";
+import {SettingsForm} from "../setting-style";
 
-const FormD = styled.div`
-  max-width: 500px;
-  margin: 2rem auto;
-  overflow: hidden;
-  padding: 0 2rem;
-
-  input {
-    display: block;
-    width: 100%;
-    padding: 0.4rem;
-    font-size: 1.2rem;
-    border: 1px solid #ccc;
-  }
-
-  label {
-    font-size: 1rem;
-    color: #282e74;
-    padding: 10px;
-  }
-`;
-const FormGrp = styled.div`
-  margin: 1.2rem 0;
-`;
-
-const Button = styled.div`
-  display: block;
-  width: 100%;
-  display: inline-block;
-
-  color: #333;
-  padding: 0.4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin-right: 0.5rem;
-  transition: opacity 0.2s ease-in;
-  outline: none;
-  background: #282e74;
-  color: #fff;
-`;
-
-const RegisterForm = () => {
-  const [user, setUser] = useState({
-    firstName: '',
-    lastName: '',
-    userName: '',
-    password: '',
-  });
-
-  const { firstName, lastName, userName, password } = user;
-
-  const onChange = e => setUser({ ...user, [e.target.name]: e.target.value });
-
-  const onSubmit = e => {
-    e.preventDefault();
-    setUser({
-      firstName: '',
-      lastName: '',
-      userName: '',
-      password: '',
-    });
-  };
-
-  return (
-    <FormD>
-      <form onSubmit={onSubmit}>
-        <h1>Add Admin</h1>
-        <label htmlFor='firstName'>First Name</label>
-        <FormGrp>
-          <input
-            type='text'
-            placeholder='First Name'
-            name='firstName'
-            value={firstName}
-            onChange={onChange}
-          />
-        </FormGrp>
-
-        <label htmlFor='Last Name'>Last Name</label>
-        <FormGrp>
-          <input
-            type='text'
-            placeholder='Last Name'
-            name='lastName'
-            value={lastName}
-            onChange={onChange}
-          />
-        </FormGrp>
-        <label htmlFor='User Name'>User Name</label>
-        <FormGrp>
-          <input
-            type='text'
-            placeholder='User Name'
-            name='userName'
-            value={userName}
-            onChange={onChange}
-          />
-        </FormGrp>
-
-        <label htmlFor='password'>Password</label>
-        <FormGrp>
-          <input
-            type='text'
-            placeholder='Password'
-            name='password'
-            value={password}
-            onChange={onChange}
-          />
-        </FormGrp>
-
-        <div>
-          <Button>Submit</Button>
-        </div>
-      </form>
-    </FormD>
-  );
+const RegistrationForm = props => {
+    return (
+        <>
+                <FormItems>
+                    <SettingsForm>
+                    <div className="form-container">
+                        {props.formState ?
+                            <h1 className="title">Edit Administrator</h1>
+                            :
+                            <h1 className="title">Add Administrator</h1>
+                        }
+                        <Form>
+                            <div className="inline">
+                                <div className="labels">
+                                    <ul>
+                                        <li>First Name</li>
+                                        <li>Last Name</li>
+                                        <li>Username</li>
+                                        <li>Password</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <Field className="regular-input" type="text" name="first_name"/>
+                                    {props.touched.first_name && props.errors.first_name && (
+                                        <p className="errormessage">{props.errors.first_name}</p>
+                                    )}
+                                    <Field className="regular-input" type="text" name="last_name"/>
+                                    {props.touched.last_name && props.errors.last_name && (
+                                        <p className="errormessage">{props.errors.last_name}</p>
+                                    )}
+                                    <Field className="regular-input" type="text" name="username"/>
+                                    {props.touched.username && props.errors.username && (
+                                        <p className="errormessage">{props.errors.username}</p>
+                                    )}
+                                    <Field className="regular-input" type="password" name="password"/>
+                                    {props.touched.password && props.errors.password && (
+                                        <p className="errormessage">{props.errors.password}</p>
+                                    )}
+                                </div>
+                            </div>
+                            <div className="btn-container">
+                                <button className="submit-btn" type="submit">Submit</button>
+                                {props.formState &&
+                                    <Button onClick={() => props.cancel(!props.formState)} bgOnHover="#db4343" bg="#EB5757" color="white">Cancel</Button>
+                                }
+                            </div>
+                        </Form>
+                    </div>
+                    </SettingsForm>
+                </FormItems>
+        </>
+    );
 };
 
-export default RegisterForm;
+const FormikRegistrationForm = withFormik({
+    mapPropsToValues({first_name, last_name, username, password}) {
+        return {
+            first_name: first_name || "",
+            last_name: last_name || "",
+            username: username || "",
+            password: password || ""
+        };
+    },
+
+    validationSchema: Yup.object().shape({
+        first_name: Yup.string().required("Please enter a first name"),
+        last_name: Yup.string().required("Please enter a last name"),
+        username: Yup.string().required("Please enter a username"),
+        password: Yup.string().required("Enter a password")
+    }),
+
+    handleSubmit(values,{props}) {
+        props.registerUser(values);
+        props.history.push("/dashboard");
+    }
+})(RegistrationForm);
+
+
+export default connect(
+    null,
+    {registerUser}
+)(FormikRegistrationForm);

@@ -1,8 +1,22 @@
 import styled from 'styled-components';
 
 export const FormItems = styled.div`
+    li{
+        padding-bottom: 42px;
+        white-space: nowrap;
+    }
+    
+    .inline{
+        display: flex;
+        justify-content: center;
+    }
+    
     .regular-input{
+        margin-left: 1%;
+        min-width: 20px;
+        margin-bottom: 10px;
         outline: none;
+        
         width: 100%;
         height: 48px;
         border-radius: 2px;
@@ -27,6 +41,7 @@ export const FormItems = styled.div`
         background: #e7f0fa;;
         height: 48px;
         width: 25%;
+        margin: 2%;
         border: none;
         border-radius: 2px;
         color: #1337F1;
@@ -46,12 +61,18 @@ export const Button = styled.div`
         background: ${props => props.bg}
         height: 48px;
         width: 25%;
+        min-width: 20px;
         border: none;
         border-radius: 2px;
-        color:  ${props => props.color }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2%;
+        color:  ${props => props.color };
         &:hover {
-            color:  ${props => props.colorOnHover}
-            background: ${props => props.bg}
+            color:  ${props => props.colorOnHover};
+            background: ${props => props.bgOnHover};
         }
     
 `;
+
