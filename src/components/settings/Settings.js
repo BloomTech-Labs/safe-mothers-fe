@@ -21,7 +21,7 @@ const Settings = () => {
         <RegisterForm formState={formState} cancel={setFormState}/>
       </ContentContainer>
       <ContentContainer>
-        <User/>
+        <User edit={setFormState}/>
       </ContentContainer>
     </Card>
   )

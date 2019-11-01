@@ -30,7 +30,7 @@ const MenuBar = (props) => {
                         <Link
                             className={"link " + (props.location.pathname === links.mothers ? "focus-link" : "")}
                               to="/mothers">
-                            Mom <div className="dash-button">
+                            Mother <div className="dash-button">
                         </div>
                             <div className={props.location.pathname === links.mothers ? "focus" : ""}>
                             </div>
@@ -50,7 +50,7 @@ const MenuBar = (props) => {
                         <Link
                             className={"link " + (props.location.pathname === links.settings ? "focus-link" : "")}
                             to="/settings">
-                            Settings
+                            Admin
                             <div className="dash-button">
                             </div>
                             <div className={props.location.pathname === links.settings ? "focus" : ""}>

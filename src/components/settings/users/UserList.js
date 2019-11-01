@@ -17,6 +17,10 @@ const Card = styled.div`
   .btns{
       padding-left: 2%;
       width: 12%;
+
+      &:hover{
+          cursor:pointer;
+      }
   }
 
   .close{
@@ -43,9 +47,15 @@ const Card = styled.div`
       height: 42px;
       margin-left: 2%;
     }
+
+    .names{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 `
 
-const UserList = ({admin}) => {
+const UserList = ({admin, props}) => {
     const {firstName, lastName, userName} = admin;
 
     return (
@@ -53,13 +63,14 @@ const UserList = ({admin}) => {
             <Card>
                 <div className = "btns">
                     <SVG className="close" src={Close} />
-                    <SVG className="edit" src={Edit} />
+                    <SVG className="edit" src={Edit} onClick={() => props.edit(!props.setFormState)}  />
                 </div>
                 <div className="details-container">
-                    <p classname="name-detail">
-                        {firstName} {' '}
-                        {lastName}
-                    </p>
+                    <div classname="name-detail">
+                        <p classname="names">{firstName} {' '}
+                           {lastName}
+                        </p>
+                    </div>
                     <p className="uname-detail">{userName}</p>
                 </div>
             </Card>
