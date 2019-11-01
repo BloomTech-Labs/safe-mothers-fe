@@ -5,10 +5,11 @@ export const ContentContainer = styled.div`
     background: white;
     margin: 3%;
     border: 1.5px solid ${props => props.theme.primary.darkGray};
+
     @media(max-width: 1024px){
-      width: 93%;
-      
+      width: auto;
     }
+    
     .form-container{
         width: 75%;
         display: flex;
