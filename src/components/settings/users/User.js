@@ -4,6 +4,11 @@ import styled from 'styled-components';
 
 const AdminList = styled.div`
   
+  .header{
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+
   .banner{
     display: flex;
     justify-content: space-around;
@@ -37,6 +42,9 @@ const User = () => {
 
   return (
     <AdminList>
+      <div className="header">
+        <h1>Administrative Users</h1>
+      </div>
       <div className="banner">
         <h2>Name</h2>
         <h2>Username</h2>

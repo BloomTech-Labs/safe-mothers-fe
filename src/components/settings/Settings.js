@@ -1,31 +1,29 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import RegisterForm from './users/RegisterForm'
 import User from './users/User'
-// import UserFilter from './users/UserFilter'
-
 import styled from "styled-components";
+import {ContentContainer} from "./setting-style";
+const Card = styled.div`
+  display: flex;
+  justify-content: center;
+  background: black;
 
-const Cardd = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-`
+  @media(max-width: 1024px){
+      flex-direction: column;
+  }
 
-
+`;
 const Settings = () => {
+    const [formState, setFormState] = useState(true);
   return (
-    <Cardd>
-      <div>
-        <RegisterForm />
-      </div>
-
-
-      <div>
-      {/* <UserFilter/> */}
+    <Card>
+      <ContentContainer>
+        <RegisterForm formState={formState} cancel={setFormState}/>
+      </ContentContainer>
+      <ContentContainer>
         <User/>
-      </div>
-    </Cardd>
+      </ContentContainer>
+    </Card>
   )
-}
-
+};
 export default Settings

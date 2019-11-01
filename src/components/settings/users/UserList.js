@@ -6,30 +6,40 @@ import Close from '../../reusableParts/resources/Close.svg';
 import {connect} from 'react-redux';
 
 const Card = styled.div`
-  padding: 1rem;
   margin: 2 rem auto;
   width: 100%;
   align-items: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
+
 
 
   .btns{
       padding-left: 2%;
+      width: 12%;
   }
 
   .close{
-      fill: #EB5757; 
-  }
+      fill: #EB5757;
+    }
 
   .edit{
       fill: #35E632;
-  }
+    }
 
-  .name-detail{
-      padding-left: 2%;
-  }
-`;
+  .details-container{
+      display: flex;
+      justify-content: space-between;
+      width: 73%;
+    }
+
+  p{
+      background: #e7f0fa;
+      width: 150px;
+      height: 42px;
+      margin-left: 2%;
+    }
+`
 
 const UserList = ({admin}) => {
     const {firstName, lastName, userName} = admin;
@@ -41,12 +51,13 @@ const UserList = ({admin}) => {
                     <SVG className="close" src={Close} />
                     <SVG className="edit" src={Edit} />
                 </div>
-                <p classname="name-detail">
-                    {firstName} 
-                    {lastName}{' '}
-                </p>
-                <p className="uname-detail">{userName}</p>
-
+                <div className="details-container">
+                    <p classname="name-detail">
+                        {firstName} {' '}
+                        {lastName}
+                    </p>
+                    <p className="uname-detail">{userName}</p>
+                </div>
             </Card>
         </>
     );
