@@ -1,48 +1,77 @@
 import React from 'react';
 import styled from 'styled-components';
+import SVG from 'react-inlinesvg';
+import Edit from '../../reusableParts/resources/Edit.svg';
+import Close from '../../reusableParts/resources/Close.svg';
 import {connect} from 'react-redux';
 
 const Card = styled.div`
-  padding: 1rem;
-  border: #ccc 1px dotted;
-  margin: 0.7rem 0;
-  border: #ccc solid 1px;
+  margin: 2 rem auto;
   width: 100%;
   align-items: center;
+  display: flex;
+  justify-content: left;
 
-  .btn {
-    display: inline-block;
-    background: #282e74;
-    color: #f4f4f4;
-    padding: 0.4rem 1.3rem;
-    font-size: 1rem;
-    cursor: pointer;
+
+
+  .btns{
+      padding-left: 2%;
+      width: 12%;
+
+      &:hover{
+          cursor:pointer;
+      }
   }
 
-  .btnn {
-    display: inline-block;
-    background: #dc3545;
-    color: #f4f4f4;
-    padding: 0.4rem 1.3rem;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-`;
+  .close{
+      fill: #EB5757;
+    }
 
-const UserList = ({admin}) => {
+  .edit{
+      fill: #35E632;
+    }
+
+  .details-container{
+      display: flex;
+      justify-content: space-between;
+      width: 73%;
+
+      @media(max-width: 1024px){
+          justify-content: center;
+      }
+    }
+
+  p{
+      background: #e7f0fa;
+      width: 150px;
+      height: 42px;
+      margin-left: 2%;
+    }
+
+    .names{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+`
+
+const UserList = ({admin, props}) => {
     const {firstName, lastName, userName} = admin;
 
     return (
         <>
             <Card>
-                <h2>
-                    {firstName} {lastName}{' '}
-                </h2>
-                <h3>{userName}</h3>
-
-                <div>
-                    <button className='btn'>Edit</button>
-                    <button className='btnn'>Delete</button>
+                <div className = "btns">
+                    <SVG className="close" src={Close} />
+                    <SVG className="edit" src={Edit} onClick={() => props.edit(!props.setFormState)}  />
+                </div>
+                <div className="details-container">
+                    <div classname="name-detail">
+                        <p classname="names">{firstName} {' '}
+                           {lastName}
+                        </p>
+                    </div>
+                    <p className="uname-detail">{userName}</p>
                 </div>
             </Card>
         </>

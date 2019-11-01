@@ -1,19 +1,18 @@
 import React, {useEffect, useState} from 'react'
 import RegisterForm from './users/RegisterForm'
 import User from './users/User'
-import UserFilter from './users/UserFilter'
-
 import styled from "styled-components";
 import {ContentContainer} from "./setting-style";
-
 const Card = styled.div`
   display: flex;
   justify-content: center;
+  background: white;
+
   @media(max-width: 1024px){
       flex-direction: column;
   }
-`;
 
+`;
 const Settings = () => {
     const [formState, setFormState] = useState(true);
   return (
@@ -21,13 +20,10 @@ const Settings = () => {
       <ContentContainer>
         <RegisterForm formState={formState} cancel={setFormState}/>
       </ContentContainer>
-
       <ContentContainer>
-      <UserFilter/>
-        <User/>
+        <User edit={setFormState}/>
       </ContentContainer>
     </Card>
   )
 };
-
 export default Settings
