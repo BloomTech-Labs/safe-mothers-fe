@@ -19,6 +19,7 @@ import {Container} from "./app-style";
 import DriversList from "./components/drivers/dashboard/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
 import FormikEditMother from "./components/mothers/form/EditMother";
+import FormikEditDriver from "./components/drivers/form/EditDriver";
 
 export const theme = {
     primary: {
@@ -112,6 +113,10 @@ function App(props) {
                                     <AuthRoute
                                         exact path="/edit-mother/"
                                         component={FormikEditMother}
+                                    />
+                                    <AuthRoute
+                                        exact path="/edit-driver/"
+                                        component={FormikEditDriver}
                                     />
                                     <AuthRoute
                                         exact path="/drivers"
