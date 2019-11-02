@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import UserList from './UserList'
 import styled from 'styled-components';
 import RegisterForm from './RegisterForm';
+import {getUsers, deleteUsers, editUsers} from '../../../actions/adminActions'
+import {connect} from 'react-redux'
 
 const AdminList = styled.div`
   
@@ -23,81 +25,34 @@ const AdminList = styled.div`
 
 `
 
-const User = () => {
+const User = (props) => {
 
-  const [admins, setAdmin] = useState([
-    {
-      id: 1,
-      firstName: 'tempris',
-      lastName: 'thomas',
-      userName: 'cucu'
-    },
-    {
-      id: 2,
-    firstName: 'mandy',
-    lastName: 'cruz',
-    userName: 'cucu',
-    },
-    {
-      id: 3,
-    firstName: 'kenny',
-    lastName: 'gary',
-    userName: 'many',
-    }
-    ])
+  useEffect(() => {
+    props.getUsers()
 
-    //single  firstName
-    const [firstName, setFirstName] = useState('')
-   //single  lirstName
-    const [lastName, setLastName] = useState('')
+  }, [])
 
-      const [password, setPassword] = useState('')
-    //single username
-    const [username, setUserName] = useState('')
-    //edit
-    const [edit, setEdit] = useState(false)
+
+    
 
 //////////////////////////////////////
 
-const handleFirstName = e => {
-
-  console.log(`firstname: ${e.target.value}`)
-  setFirstName(e.target.value)
-}
-  const handleLastName = e => {
-    setLastName(e.target.value)
-  }
-  const handleUserName = e => {
-    setUserName(e.target.value)
-  }
-  const handlePassword = e => {
-    setPassword(e.target.value)
-  }
-
-  const handleSubmit = e => {
-    e.preventDefault()
-  }
 
     //edit item
-    const [id, setId] = useState(0)
+    // const [id, setId] = useState(0)
 
-const handleDelete = (id) =>{
-  // console.log(`item deleted : ${id}`)
-  let deleteAdmin = admins.filter(item=>item.id !== id);
-  console.log(deleteAdmin)
-  setAdmin(deleteAdmin)
-}
 
-const handleEdit = id => {
-  let admin = admins.find(item => item.id === id)
-  console.log(admin)
-  let {firstName, lastName, userName} = admin;
-  setFirstName(firstName)
-  setLastName(lastName)
-  setUserName(userName)
-  setEdit(true)
-  setId(id)
-}
+
+// const handleEdit = id => {
+//   let admin = admin.find(item => item.id === id)
+//   console.log(admin)
+//   let {firstName, lastName, userName} = admin;
+//   setFirstName(firstName)
+//   setLastName(lastName)
+//   setUserName(userName)
+//   setEdit(true)
+//   setId(id)
+// }
 
   return (
     <AdminList>
@@ -108,12 +63,18 @@ const handleEdit = id => {
         <h2>Name</h2>
         <h2>Username</h2>
       </div>
-        {admins.map(admin => ( 
-          <UserList key = {admin.id} admin={admin} handleDelete={handleDelete} handleEdit= {handleEdit}/>
+      {console.log('admin', props.admins)}
+        {props.admins && props.admins.map(admin => ( 
+
+          <UserList key = {admin.id} admin={admin} handleDelete={props.deleteUsers} setAdmin={props.setAdmin}/>
         ))}
-        <RegisterForm firstName={firstName} handleFirstName={handleFirstName} handleSubmit={handleSubmit}/>
+       
     </AdminList>
   )
 }
-
-export default User
+const mapStateToProps = state =>{
+  return {
+    admins: state.settingsReducer.users 
+  }
+}
+export default connect(mapStateToProps, {getUsers, deleteUsers, editUsers})(User)

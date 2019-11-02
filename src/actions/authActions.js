@@ -8,6 +8,7 @@ const {
     REGISTER_USER_SUCCESS,
     REGISTER_USER_FAILURE,
     LOGOUT,
+    
 } = types;
 
 

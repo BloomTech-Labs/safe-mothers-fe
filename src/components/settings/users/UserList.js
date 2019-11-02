@@ -53,24 +53,32 @@ const Card = styled.div`
   }
 `;
 
-const UserList = ({ admin, props, handleDelete, handleEdit }) => {
-  const { id, firstName, lastName, userName } = admin;
+const UserList = ({ admin, props, handleDelete, handleEdit, setAdmin }) => {
+  const { id, first_name, last_name, username } = admin;
 
+  const updateAdmin = id => {
+    setAdmin({
+        id:admin.id,
+      first_name: admin.first_name,
+      last_name: admin.last_name,
+      username: admin.username,
+    });
+  };
   return (
     <>
       <Card>
         <div className='btns'>
           <SVG className='close' src={Close} onClick={() => handleDelete(id)} />
           {/* <SVG className="edit" src={Edit} onClick={() => props.edit(!props.setFormState)}  /> */}
-                  <SVG className='edit' src={Edit} onClick={() => handleEdit(id)}/>
+          <SVG className='edit' src={Edit} onClick={() => updateAdmin(id)} />
         </div>
         <div className='details-container'>
           <div classname='name-detail'>
             <p classname='names'>
-              {firstName} {lastName}
+              {first_name} {last_name}
             </p>
           </div>
-          <p className='uname-detail'>{userName}</p>
+          <p className='uname-detail'>{username}</p>
         </div>
       </Card>
     </>
