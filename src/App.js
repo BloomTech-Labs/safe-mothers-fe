@@ -118,7 +118,7 @@ function App(props) {
                                         component={DriversList}
                                     />
                                     <AuthRoute
-                                        exact path="/settings"
+                                        exact path="/admin"
                                         component={Settings}
                                     />
                                 </Switch>

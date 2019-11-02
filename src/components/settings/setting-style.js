@@ -4,8 +4,9 @@ export const ContentContainer = styled.div`
     width: 50%;
     background: white;
     margin: 3%;
+    padding-bottom: 3%;
     border: 1.5px solid ${props => props.theme.primary.darkGray};
-
+    
     @media(max-width: 1024px){
       width: auto;
     }

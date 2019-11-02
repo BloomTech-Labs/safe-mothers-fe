@@ -2,41 +2,38 @@ import React, {useEffect} from "react";
 import {Form, Field, withFormik} from "formik/dist/index";
 import * as Yup from "yup";
 import {connect} from "react-redux";
-import {registerUser} from "../../../actions/authActions";
 import {FormItems, Button} from "../../reusableParts/form-items";
 import {SettingsForm} from "../setting-style";
-import {editUsers} from '../../../actions/adminActions'
+import {editUsers, createUser} from '../../../actions/adminActions'
 
-const RegistrationForm = props => {
+const AdminForm = props => {
 
     useEffect(() => {
-     
-        props.setValues(props.admin)
-    }, [props.admin])
+        if (!Array.isArray(props.admin)) {
+            props.setValues(props.admin)
+        }
+    }, [props.admin]);
 
-    const handleCancel = ()=>{
-        props.cancel(!props.formState)
-        props.setAdmin(
-            {
-
+    const handleCancel = () => {
+        props.setFormState(!props.formState);
+        props.setAdmin({
                 first_name: '',
                 last_name: '',
                 username: ''
             }
-
         )
-    }
+    };
 
 
     return (
         <>
-                <FormItems>
-                    <SettingsForm>
+            <FormItems>
+                <SettingsForm>
                     <div className="form-container">
-                        {props.formState ?
-                            <h1 className="title">Edit Administrator</h1>
-                            :
+                        {!props.formState ?
                             <h1 className="title">Add Administrator</h1>
+                            :
+                            <h1 className="title">Edit Administrator</h1>
                         }
                         <Form>
                             <div className="inline">
@@ -45,46 +42,51 @@ const RegistrationForm = props => {
                                         <li>First Name</li>
                                         <li>Last Name</li>
                                         <li>Username</li>
+                                        {!props.formState &&
                                         <li>Password</li>
+                                        }
                                     </ul>
                                 </div>
                                 <div>
                                     <Field className="regular-input" type="text" name="first_name"/>
-
                                     {props.touched.first_name && props.errors.firstName && (
                                         <p className="errormessage">{props.errors.firstName}</p>
                                     )}
+
                                     <Field className="regular-input" type="text" name="last_name"/>
                                     {props.touched.last_name && props.errors.last_name && (
                                         <p className="errormessage">{props.errors.last_name}</p>
                                     )}
+
                                     <Field className="regular-input" type="text" name="username"/>
                                     {props.touched.username && props.errors.username && (
                                         <p className="errormessage">{props.errors.username}</p>
                                     )}
-                                    {props.formState && <Field className="regular-input" type="password" name="password" />
-                                      }
+
+                                    {!props.formState &&
+                                    <Field className="regular-input" type="password" name="password"/>}
                                     {props.touched.password && props.errors.password && (
                                         <p className="errormessage">{props.errors.password}</p>
                                     )}
-                                    
+
                                 </div>
                             </div>
                             <div className="btn-container">
                                 <button className="submit-btn" type="submit">Submit</button>
                                 {props.formState &&
-                                    <Button onClick={() =>handleCancel()} bgOnHover="#db4343" bg="#EB5757" color="white">Cancel</Button>
+                                <Button onClick={() => handleCancel()} bgOnHover="#db4343" bg="#EB5757"
+                                        color="white">Cancel</Button>
                                 }
                             </div>
                         </Form>
                     </div>
-                    </SettingsForm>
-                </FormItems>
+                </SettingsForm>
+            </FormItems>
         </>
     );
 };
 
-const FormikRegistrationForm = withFormik({
+const FormikAdminForm = withFormik({
     mapPropsToValues({first_name, last_name, username, password}) {
         return {
             first_name: first_name || "",
@@ -94,30 +96,30 @@ const FormikRegistrationForm = withFormik({
         };
     },
 
-    validationSchema: Yup.object().shape({
-        first_name: Yup.string().required("Please enter a first name"),
-        last_name: Yup.string().required("Please enter a last name"),
-        username: Yup.string().required("Please enter a username"),
-        password: Yup.string().required("Enter a password")
-    }),
+    validationSchema: props =>{
+        const schema = {};
 
-    handleSubmit(values,{props}) {
-        if(props.formState){
-props.editUsers(
-   props.admin.id, values
-)
-        } else {
-            props.registerUser(values);  
+        schema.first_name =  Yup.string().required("Please enter a first name");
+        schema.last_name = Yup.string().required("Please enter a last name");
+        schema.username = Yup.string().required("Please enter a username");
+        if(!props.formState){
+            schema.password =  Yup.string().required("Please enter a password");
         }
-        
-        // props.history.push("/dashboard");
+        return Yup.object().shape(schema);
+    },
 
+    handleSubmit(values, {props}) {
+        if (props.formState) {
+            props.editUsers(props.admin.id, values);
+            props.setFormState(!props.formState);
+        } else {
+            props.createUser(values);
+        }
     }
-})(RegistrationForm);
+})(AdminForm);
 
 
 export default connect(
     null,
-    {registerUser, editUsers}
-
-)(FormikRegistrationForm);
+    {createUser, editUsers}
+)(FormikAdminForm);
