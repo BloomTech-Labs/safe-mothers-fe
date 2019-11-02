@@ -1,17 +1,20 @@
 import axiosWithAuth from '../utilities/axiosWithAuth'
+import {types} from './index'
 
-export const GET_USERS_START = "GET_USERS_START"
-export const GET_USERS_SUCCESS = "GET_USERS_SUCCESS"
-export const GET_USERS_FAILURE = "GET_USERS_FAILURE"
+const {
+    GET_USERS_START,
+    GET_USERS_SUCCESS,
+    GET_USERS_FAILURE,
 
-export const EDIT_USERS_START = "EDIT_USERS_START"
-export const EDIT_USERS_SUCCESS = "EDIT_USERS_SUCCESS"
-export const EDIT_USERS_FAILURE = "EDIT_USERS_FAILURE"
+    EDIT_USERS_START,
+    EDIT_USERS_SUCCESS, 
+    EDIT_USERS_FAILURE,
 
-export const DELETE_USERS_START = "DELETE_USERS_START"
-export const DELETE_USERS_SUCCESS = "DELETE_USERS_SUCCESS"
-export const DELETE_USERS_FAILURE = "DELETE_USERS_FAILURE"
+    DELETE_USERS_START,
+    DELETE_USERS_SUCCESS, 
+    DELETE_USERS_FAILURE,
 
+} = types;
 
 
 export const SET_USERS = "SET_USERS"
@@ -19,9 +22,10 @@ export const SET_USERS = "SET_USERS"
 export const getUsers =() => dispatch => {
     dispatch({type: GET_USERS_START})
     axiosWithAuth()
-        .get(`${url}`)
+        .get(`/users/`)
         .then(res => {
-            console.log("getUsers")
+            // console.log("getUsers", res)
+            
             dispatch({type: GET_USERS_SUCCESS, payload: res.data});
         })
         .catch(err => {
@@ -29,30 +33,29 @@ export const getUsers =() => dispatch => {
         });
 };
 
-export const editUsers = (url, id, object, dataType) => dispatch => {
+export const editUsers = (id, object) => dispatch => {
     dispatch({type: EDIT_USERS_START})
     axiosWithAuth()
-        .put(`${url}${id}`, object)
+        .put(`/user/${id}`, object)
         .then(res => {
-            dispatch({type: EDIT_USERS_SUCCESS, payload: id, data: dataType, newObj: {...object, id}})
+            dispatch({type: EDIT_USERS_SUCCESS, payload: res.data})
         })
         .catch(err => {
             dispatch({type: EDIT_USERS_FAILURE, payload: err.response})
         })
 }
 
-export const deleteUsers = (url, id, dataType) => dispatch => {
+export const deleteUsers = (id) => dispatch => {
     dispatch({type: DELETE_USERS_START})
-    axiosWithAuth().delete(`${url}${id}`)
+    console.log('delete')
+    axiosWithAuth().delete(`/users/${id}`)
         .then(res => {
-            dispatch({type: DELETE_DATA_SUCCESS, payload: id, data: dataType})
+            
+            dispatch({type: DELETE_USERS_SUCCESS, payload: id})
         })
         .catch(err => {
-            dispatch({type: DELETE_DATA_FAILURE, payload: err.response})
+            dispatch({type: DELETE_USERS_FAILURE, payload: err.response})
         })
 }
 
 
-export const getUsers = (id) => dispatch => {
-    dispatch({type: SET_USERS, payload: id})
-}

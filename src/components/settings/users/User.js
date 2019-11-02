@@ -1,6 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import UserList from './UserList'
 import styled from 'styled-components';
+import RegisterForm from './RegisterForm';
+import {getUsers, deleteUsers, editUsers} from '../../../actions/adminActions'
+import {connect} from 'react-redux'
 
 const AdminList = styled.div`
   
@@ -22,29 +25,34 @@ const AdminList = styled.div`
 
 `
 
-const User = () => {
+const User = (props) => {
 
-  const [admins, setAdmin] = useState([
-    {
-      id: 1,
-      firstName: 'tempris',
-      lastName: 'thomas',
-      userName: 'cucu'
-    },
-    {
-      id: 2,
-    firstName: 'mandy',
-    lastName: 'cruz',
-    userName: 'cucu',
-    },
-    {
-      id: 3,
-    firstName: 'kenny',
-    lastName: 'gary',
-    userName: 'many',
-    }
-    ])
+  useEffect(() => {
+    props.getUsers()
 
+  }, [])
+
+
+    
+
+//////////////////////////////////////
+
+
+    //edit item
+    // const [id, setId] = useState(0)
+
+
+
+// const handleEdit = id => {
+//   let admin = admin.find(item => item.id === id)
+//   console.log(admin)
+//   let {firstName, lastName, userName} = admin;
+//   setFirstName(firstName)
+//   setLastName(lastName)
+//   setUserName(userName)
+//   setEdit(true)
+//   setId(id)
+// }
 
   return (
     <AdminList>
@@ -55,11 +63,18 @@ const User = () => {
         <h2>Name</h2>
         <h2>Username</h2>
       </div>
-        {admins.map(admin => ( 
-          <UserList key = {admin.id} admin={admin} />
+      {console.log('admin', props.admins)}
+        {props.admins && props.admins.map(admin => ( 
+
+          <UserList key = {admin.id} admin={admin} handleDelete={props.deleteUsers} setAdmin={props.setAdmin}/>
         ))}
+       
     </AdminList>
   )
 }
-
-export default User
+const mapStateToProps = state =>{
+  return {
+    admins: state.settingsReducer.users 
+  }
+}
+export default connect(mapStateToProps, {getUsers, deleteUsers, editUsers})(User)

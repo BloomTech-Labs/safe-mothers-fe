@@ -1,12 +1,33 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Form, Field, withFormik} from "formik/dist/index";
 import * as Yup from "yup";
 import {connect} from "react-redux";
 import {registerUser} from "../../../actions/authActions";
 import {FormItems, Button} from "../../reusableParts/form-items";
 import {SettingsForm} from "../setting-style";
+import {editUsers} from '../../../actions/adminActions'
 
 const RegistrationForm = props => {
+
+    useEffect(() => {
+     
+        props.setValues(props.admin)
+    }, [props.admin])
+
+    const handleCancel = ()=>{
+        props.cancel(!props.formState)
+        props.setAdmin(
+            {
+
+                first_name: '',
+                last_name: '',
+                username: ''
+            }
+
+        )
+    }
+
+
     return (
         <>
                 <FormItems>
@@ -29,8 +50,9 @@ const RegistrationForm = props => {
                                 </div>
                                 <div>
                                     <Field className="regular-input" type="text" name="first_name"/>
-                                    {props.touched.first_name && props.errors.first_name && (
-                                        <p className="errormessage">{props.errors.first_name}</p>
+
+                                    {props.touched.first_name && props.errors.firstName && (
+                                        <p className="errormessage">{props.errors.firstName}</p>
                                     )}
                                     <Field className="regular-input" type="text" name="last_name"/>
                                     {props.touched.last_name && props.errors.last_name && (
@@ -40,16 +62,18 @@ const RegistrationForm = props => {
                                     {props.touched.username && props.errors.username && (
                                         <p className="errormessage">{props.errors.username}</p>
                                     )}
-                                    <Field className="regular-input" type="password" name="password"/>
+                                    {props.formState && <Field className="regular-input" type="password" name="password" />
+                                      }
                                     {props.touched.password && props.errors.password && (
                                         <p className="errormessage">{props.errors.password}</p>
                                     )}
+                                    
                                 </div>
                             </div>
                             <div className="btn-container">
                                 <button className="submit-btn" type="submit">Submit</button>
                                 {props.formState &&
-                                    <Button onClick={() => props.cancel(!props.formState)} bgOnHover="#db4343" bg="#EB5757" color="white">Cancel</Button>
+                                    <Button onClick={() =>handleCancel()} bgOnHover="#db4343" bg="#EB5757" color="white">Cancel</Button>
                                 }
                             </div>
                         </Form>
@@ -66,7 +90,7 @@ const FormikRegistrationForm = withFormik({
             first_name: first_name || "",
             last_name: last_name || "",
             username: username || "",
-            password: password || ""
+            password: password || "",
         };
     },
 
@@ -78,13 +102,22 @@ const FormikRegistrationForm = withFormik({
     }),
 
     handleSubmit(values,{props}) {
-        props.registerUser(values);
-        props.history.push("/dashboard");
+        if(props.formState){
+props.editUsers(
+   props.admin.id, values
+)
+        } else {
+            props.registerUser(values);  
+        }
+        
+        // props.history.push("/dashboard");
+
     }
 })(RegistrationForm);
 
 
 export default connect(
     null,
-    {registerUser}
+    {registerUser, editUsers}
+
 )(FormikRegistrationForm);
