@@ -28,11 +28,13 @@ export const getDrivers = () => dispatch => {
 
 };
 
-export const addDrivers = drivers => dispatch => {
+export const addDrivers = driver => dispatch => {
     dispatch({ type: ADD_DRIVERS_START });
+    console.log("driver", driver)
     axiosWithAuth()
-      .post('', drivers)
-      .then(res => dispatch({ type: ADD_DRIVERS_SUCCESS }))
+      .post('/drivers/register/', driver)
+      .then(res => {dispatch({ type: ADD_DRIVERS_SUCCESS, payload: res.data })
+      console.log("res", res)})
       .catch(err => dispatch({ type: ADD_DRIVERS_FAILURE, payload: err.response }));
   };
 
