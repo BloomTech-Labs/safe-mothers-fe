@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {Link} from "react-router-dom";
-import {Form, Field, withFormik, Formik} from "formik/dist/index";
+import {Form, Field, withFormik} from "formik/dist/index";
 import * as Yup from "yup";
 import {connect} from "react-redux";
 import {registerUser} from "../../actions/authActions";

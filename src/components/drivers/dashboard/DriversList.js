@@ -19,7 +19,7 @@ const DriversList = (props) => {
             <Box>
                 <Accordion className="accordion"
                            animate={true}
-                           multiple={true}
+                           multiple={false}
                            margin='small'
                            background='white'
                 >

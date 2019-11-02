@@ -10,6 +10,9 @@ const {
     EDIT_USERS_START,
     EDIT_USERS_SUCCESS,
     EDIT_USERS_FAILURE,
+    CREATE_USER_START,
+    CREATE_USER_SUCCESS,
+    CREATE_USER_FAILURE,
 } = types;
 
 const initialState = {
@@ -21,7 +24,7 @@ const initialState = {
 const settingsReducer = (state = initialState, {type, payload}) => {
     switch (type) {
         case GET_USERS_START:
-            return{
+            return {
                 ...state,
                 isLoading: true,
                 error: "",
@@ -38,7 +41,7 @@ const settingsReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 isLoading: false,
                 error: payload,
-            }
+            };
         case DELETE_USERS_START:
             return {
                 ...state,
@@ -58,7 +61,7 @@ const settingsReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 isLoading: false,
                 error: payload,
-            }
+            };
 
         case EDIT_USERS_START:
             return {
@@ -67,19 +70,39 @@ const settingsReducer = (state = initialState, {type, payload}) => {
                 error: "",
             };
         case EDIT_USERS_SUCCESS:
-            // let editAdmin = state.users.filter(item => item.id !== payload);
+            let admins = state.users.map(user => user.id === payload.id ? payload : user);
             return {
                 ...state,
                 isLoading: false,
                 error: "",
-                users: payload,
+                users: admins,
             };
         case EDIT_USERS_FAILURE:
             return {
                 ...state,
                 isLoading: false,
                 error: payload,
-            }
+            };
+        case CREATE_USER_START:
+            return {
+                ...state,
+                isLoading: true,
+                error: "",
+            };
+        case CREATE_USER_SUCCESS:
+            console.log("USER ", payload);
+            return {
+                ...state,
+                isLoading: false,
+                users: [...state.users, payload],
+                error: "",
+            };
+        case CREATE_USER_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                error: payload,
+            };
 
         default:
             return state;

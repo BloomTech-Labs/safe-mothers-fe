@@ -38,7 +38,7 @@ export const FormItems = styled.div`
     .submit-btn{
         text-transform: uppercase;
         font-size: 16px;
-        background: #e7f0fa;;
+        background: #e7f0fa;
         height: 48px;
         width: 25%;
         margin: 2%;
@@ -55,7 +55,6 @@ export const FormItems = styled.div`
 
 
 export const Button = styled.div`
-     
         text-transform: uppercase;
         font-size: 16px;
         background: ${props => props.bg}
@@ -73,6 +72,5 @@ export const Button = styled.div`
             color:  ${props => props.colorOnHover};
             background: ${props => props.bgOnHover};
         }
-    
 `;
 
