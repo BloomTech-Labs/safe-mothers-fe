@@ -82,7 +82,6 @@ function App(props) {
         <Grommet theme={myTheme} plain>
             <ThemeProvider theme={theme}>
                 <Container>
-
                     <Router>
                         {/*<Route exact path="/login" component={FormikLoginForm}/>*/}
                         {/*<Route exact path="/registration" component={Registration}/>*/}
@@ -101,9 +100,7 @@ function App(props) {
                                 <AuthRoute path="/edit-mother" component={FormikEditMother}/>
                                 <AuthRoute exact path="/drivers" component={DriversList}/>
                                 <AuthRoute path="/admin" component={Settings}/>
-                                <Route exact path="/">
-                                    <Redirect to="/dashboard" />
-                                </Route>
+                                <Route exact path="/"><Redirect to="/dashboard" /></Route>
                             </SearchWrapper>
                         </Switch>
                     </Router>
