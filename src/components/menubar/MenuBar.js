@@ -27,7 +27,7 @@ const MenuBar = (props) => {
                         <NavLink path={LINKS.admin} tab={"Admin"}/>
                     </div>
                     <div className="link-container">
-                        <Link onClick={() => props.logout()} className="link " to="/">
+                        <Link onClick={() => props.logout()} className="link " to="/login">
                             Sign Out
                             <div className="dash-button">
                             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import connect from "react-redux/es/connect/connect";
 
 import Registration from "./components/auth/Registration";
@@ -32,7 +32,7 @@ export const theme = {
         lightBlue: "#c3ccfa",
         blue: "#F9FBFC",
         darkTeal: "#3D689E",
-        lightTeal:"#6B95BD"
+        lightTeal: "#6B95BD"
     },
     navbar: {
         linkColor: "yellow"
@@ -84,49 +84,26 @@ function App(props) {
                 <Container>
 
                     <Router>
-                        <Route exact path="/" component={FormikLoginForm}/>
-                        <Route path="/registration" component={Registration}/>
-
-                        {/** PRIVATE ROUTE */}
-
+                        {/*<Route exact path="/login" component={FormikLoginForm}/>*/}
+                        {/*<Route exact path="/registration" component={Registration}/>*/}
                         {props.isAuth && <MenuBar/>}
-                        {
-                            props.isAuth &&
+                        <Switch>
+                            <Route path="/login" component={FormikLoginForm}/>
                             <SearchWrapper>
                               {/*  <div className="searchContainer">
                                     <p className="searchLabel">SEARCH FOR KEYWORDS</p>
                                     <Search className="searchIcon"/>
                                     <input type="text" className="search"/>
                                 </div>*/}
-                                <Switch>
-                                    <AuthRoute
-                                        exact path="/dashboard"
-                                        component={Dashboard}
-                                    />
-                                    <AuthRoute
-                                        exact path="/mothers"
-                                        component={MothersList}
-                                    />
-                                    <AuthRoute
-                                        exact path="/mothers/:id"
-                                        component={SingleMotherView}
-                                    />
-                                    <AuthRoute
-                                        exact path="/edit-mother/"
-                                        component={FormikEditMother}
-                                    />
-                                    <AuthRoute
-                                        exact path="/drivers"
-                                        component={DriversList}
-                                    />
-                                    <AuthRoute
-                                        exact path="/admin"
-                                        component={Settings}
-                                    />
-                                </Switch>
+                                <AuthRoute path="/dashboard" component={Dashboard}/>
+                                <AuthRoute exact path="/mothers" component={MothersList}/>
+                                <AuthRoute path="/mothers/:id" component={SingleMotherView}/>
+                                <AuthRoute path="/edit-mother/" component={FormikEditMother}/>
+                                <AuthRoute exact path="/drivers" component={DriversList}/>
+                                <AuthRoute path="/admin" component={Settings}/>
+                                <Redirect from="/" to="/dashboard"/>
                             </SearchWrapper>
-                        }
-
+                        </Switch>
                     </Router>
                 </Container>
             </ThemeProvider>
