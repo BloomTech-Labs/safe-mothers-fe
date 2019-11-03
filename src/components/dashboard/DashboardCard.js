@@ -4,6 +4,7 @@ import SVG from 'react-inlinesvg/lib/index';
 import Motorcyclist from './resources/Motorcyclist.svg';
 import Pregnant from './resources/Pregnant.svg';
 import {MOTHER} from "./dashboard-utils";
+import {withRouter} from "react-router-dom";
 
 export const CardContent = styled.div`
     margin: 2%;
@@ -65,4 +66,4 @@ const DashboardCard = props => {
     );
 };
 
-export default DashboardCard;
+export default withRouter(DashboardCard);
