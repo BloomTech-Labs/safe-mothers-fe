@@ -98,10 +98,12 @@ function App(props) {
                                 <AuthRoute path="/dashboard" component={Dashboard}/>
                                 <AuthRoute exact path="/mothers" component={MothersList}/>
                                 <AuthRoute path="/mothers/:id" component={SingleMotherView}/>
-                                <AuthRoute path="/edit-mother/" component={FormikEditMother}/>
+                                <AuthRoute path="/edit-mother" component={FormikEditMother}/>
                                 <AuthRoute exact path="/drivers" component={DriversList}/>
                                 <AuthRoute path="/admin" component={Settings}/>
-                                <Redirect from="/" to="/dashboard"/>
+                                <Route exact path="/">
+                                    <Redirect to="/dashboard" />
+                                </Route>
                             </SearchWrapper>
                         </Switch>
                     </Router>
