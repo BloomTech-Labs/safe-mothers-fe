@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import SVG from 'react-inlinesvg';
 
 export const FormItems = styled.div`
     li{
@@ -72,5 +73,12 @@ export const Button = styled.div`
             color:  ${props => props.colorOnHover};
             background: ${props => props.bgOnHover};
         }
+`;
+
+export const SVGBtn = styled(SVG)`
+    fill: ${props => props.bg};
+    &:hover{ 
+        fill: ${props => props.bgOnHover};
+    }
 `;
 

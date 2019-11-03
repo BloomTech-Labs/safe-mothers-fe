@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import SVG from 'react-inlinesvg';
 import Edit from '../../reusableParts/resources/Edit.svg';
 import Close from '../../reusableParts/resources/Close.svg';
+import {SVGBtn} from "../../reusableParts/form-items";
+import {ADMIN} from "../settings-utils";
 
 const Card = styled.div`
   margin: 1rem auto;
@@ -20,13 +21,11 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     &:hover {
-      cursor: pointer;
+        cursor: pointer;
     }
   }
   
   .icon-btn{
-    background: #ffffff;
-    border: 0.5px solid #76e2e7;
     border-radius: 50%;
     width: 2.3rem;
     height: 2rem;
@@ -35,21 +34,21 @@ const Card = styled.div`
     align-items: center;
     justify-content: center;
       &:hover{
-       background: #ecf8ff;
+          background: #ecf8ff;
       }
   }
   
-  .close {
-    fill: #eb5757;
-    &:hover{
-      fill: #eb2d3e;
+  .close-container{
+   background: #fbedb1;
+     &:hover{ 
+        background: #fbc9a2;
     }
   }
 
-  .edit {
-    fill: #35e632;
-    &:hover{
-      fill: #2cc72a;
+  .edit-container{
+   background: #c3fbc6;
+     &:hover{ 
+        background: #98FB98;
     }
   }
 
@@ -57,9 +56,8 @@ const Card = styled.div`
     display: flex;
     justify-content: space-between;
     width: 85%;
-
     @media (max-width: 1024px) {
-      justify-content: center;
+        justify-content: center;
     }
   }
 
@@ -92,22 +90,29 @@ const UserList = (props) => {
         setFormState(true);
     };
     return (
-        <Card>
-            <div className='btns'>
-                <div className="icon-btn">
-                    <SVG className='close icon' src={Close} onClick={() => handleDelete(id)}/>
+        <>
+            {username !==  ADMIN &&
+            <Card>
+                <div className='btns'>
+                    <div className="icon-btn close-container">
+                        <SVGBtn bg="#eb5757" bgOnHover="#eb2d3e" className='icon' src={Close}
+                                onClick={() => handleDelete(id)}/>
+                    </div>
+                    <div className="icon-btn edit-container">
+                        <SVGBtn bg="#07902d" bgOnHover="#027034" className='icon' src={Edit}
+                                onClick={() => updateAdmin()}/>
+                    </div>
                 </div>
-                <div className="icon-btn">
-                    <SVG className='edit icon' src={Edit} onClick={() => updateAdmin()}/>
+                <div className='details-container'>
+                    <p className='field-content'>
+                        {first_name} {last_name}
+                    </p>
+                    <p className='field-content'>{username}</p>
                 </div>
-            </div>
-            <div className='details-container'>
-                <p className='field-content'>
-                    {first_name} {last_name}
-                </p>
-                <p className='field-content'>{username}</p>
-            </div>
-        </Card>
+            </Card>
+            }
+
+        </>
     );
 };
 
