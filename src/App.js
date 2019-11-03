@@ -19,6 +19,7 @@ import {Container} from "./app-style";
 import DriversList from "./components/drivers/dashboard/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
 import FormikEditMother from "./components/mothers/form/EditMother";
+import FormikEditDriver from "./components/drivers/form/EditDriver";
 import {LINKS} from "./components/menubar/menu-utils";
 
 export const theme = {
@@ -95,10 +96,14 @@ function App(props) {
                                     <input type="text" className="search"/>
                                 </div>*/}
                                 <AuthRoute path="/dashboard" component={Dashboard}/>
+
                                 <AuthRoute exact path="/mothers" component={MothersList}/>
                                 <AuthRoute path="/mothers/:id" component={SingleMotherView}/>
                                 <AuthRoute path="/edit-mother" component={FormikEditMother}/>
+
                                 <AuthRoute exact path="/drivers" component={DriversList}/>
+                                <AuthRoute  path="/edit-driver" component={FormikEditDriver}/>
+
                                 <AuthRoute path="/admin" component={Settings}/>
                                 <Route exact path="/"><Redirect to="/dashboard" /></Route>
                             </SearchWrapper>

@@ -59,7 +59,7 @@ const driversReducer = (state = initialState, {type, payload}) => {
             };
         default:
             return state;
-        };
+        }
 };
 
 export default driversReducer;

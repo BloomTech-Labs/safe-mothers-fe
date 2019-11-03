@@ -16,7 +16,9 @@ const DriversList = (props) => {
 
     return (
         <>
+            {console.log("DRIVERS ", drivers)}
             <Box>
+
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}

@@ -4,4 +4,5 @@ export const LINKS = {
     drivers: "/drivers",
     admin: "/admin",
     editMother: "/edit-mother",
+    login: "/login",
 };
