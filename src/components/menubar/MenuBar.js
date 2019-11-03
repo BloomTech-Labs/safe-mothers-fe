@@ -1,61 +1,30 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from "react-redux";
 import {logout} from "../../actions/authActions";
 import {Link, withRouter} from "react-router-dom";
 import {Container} from "./menubar-style";
+import {LINKS} from "./menu-utils";
+import NavLink from "./NavLink";
 
 const MenuBar = (props) => {
-    const [links, setLinks] = useState({
-        dashboard: "/dashboard",
-        mothers: "/mothers",
-        drivers: "/drivers",
-        admin: "/admin",
-    });
 
     return (
         <>
+            {(props.location.pathname === LINKS.mothers || props.location.pathname === LINKS.admin
+                || props.location.pathname === LINKS.drivers || props.location.pathname === LINKS.dashboard) &&
             <Container>
                 <div className="links">
                     <div className="link-container">
-                        <Link
-                            className={"link " + (props.location.pathname === links.dashboard ? "focus-link" : "")}
-                              to="/dashboard">
-                            Home <div className="dash-button">
-                        </div>
-                            <div className={props.location.pathname === links.dashboard ? "focus" : ""}>
-                            </div>
-                        </Link>
+                        <NavLink path={LINKS.dashboard} tab={"Home"}/>
                     </div>
                     <div className="link-container">
-                        <Link
-                            className={"link " + (props.location.pathname === links.mothers ? "focus-link" : "")}
-                              to="/mothers">
-                            Mother <div className="dash-button">
-                        </div>
-                            <div className={props.location.pathname === links.mothers ? "focus" : ""}>
-                            </div>
-                        </Link>
+                        <NavLink path={LINKS.mothers} tab={"Mother"}/>
                     </div>
                     <div className="link-container">
-                        <Link
-                            className={"link " + (props.location.pathname === links.drivers ? "focus-link" : "")}
-                            to="/drivers">
-                            Driver <div className="dash-button">
-                        </div>
-                            <div className={props.location.pathname === links.drivers ? "focus" : ""}>
-                            </div>
-                        </Link>
+                        <NavLink path={LINKS.drivers} tab={"Driver"}/>
                     </div>
                     <div className="link-container">
-                        <Link
-                            className={"link " + (props.location.pathname === links.admin ? "focus-link" : "")}
-                            to="/admin">
-                            Admin
-                            <div className="dash-button">
-                            </div>
-                            <div className={props.location.pathname === links.admin ? "focus" : ""}>
-                            </div>
-                        </Link>
+                        <NavLink path={LINKS.admin} tab={"Admin"}/>
                     </div>
                     <div className="link-container">
                         <Link onClick={() => props.logout()} className="link " to="/">
@@ -66,6 +35,7 @@ const MenuBar = (props) => {
                     </div>
                 </div>
             </Container>
+            }
         </>
     );
 };

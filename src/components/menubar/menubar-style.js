@@ -7,7 +7,7 @@ export const animateIn = keyframes`
   }
   100% {
     width: 100%;
-    left: 0%;
+    left: 0;
   }
 `;
 
@@ -66,13 +66,12 @@ export const Container = styled.div`
         @media (max-width: 1024px) {
             width: 90%;
             justify-content: center;
-            margin-right: 0%;
+            margin-right: 0;
         }
     }
     
     .link-container{
         position: relative;
-        //margin-top: 30px;
         margin-left: 3%;
         margin-right: 3%;
     }

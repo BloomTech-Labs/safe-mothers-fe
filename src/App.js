@@ -19,6 +19,7 @@ import {Container} from "./app-style";
 import DriversList from "./components/drivers/dashboard/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
 import FormikEditMother from "./components/mothers/form/EditMother";
+import {LINKS} from "./components/menubar/menu-utils";
 
 export const theme = {
     primary: {
@@ -87,6 +88,7 @@ function App(props) {
                         <Route path="/registration" component={Registration}/>
 
                         {/** PRIVATE ROUTE */}
+
                         {props.isAuth && <MenuBar/>}
                         {
                             props.isAuth &&
