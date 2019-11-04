@@ -49,7 +49,7 @@ const driversReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 error: null,
                 isLoading: false,
-                drivers: payload
+                drivers: [...state.drivers, payload]
             };
         case ADD_DRIVERS_FAILURE:
             return {
