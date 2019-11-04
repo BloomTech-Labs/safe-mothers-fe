@@ -7,14 +7,9 @@ import {LINKS} from "./menu-utils";
 import NavLink from "./NavLink";
 
 const MenuBar = (props) => {
-
-    console.log(" props.location.pathname.indexOf(LINKS.mothers)",  props.location.pathname.includes(LINKS.mothers));
     return (
         <>
-            {(props.location.pathname.includes(LINKS.mothers)
-                || props.location.pathname === LINKS.admin
-                || props.location.pathname === LINKS.drivers || props.location.pathname === LINKS.dashboard
-                || props.location.pathname === LINKS.editMother) &&
+            {props.location.pathname !== LINKS.login &&
             <Container>
                 <div className="links">
                     <div className="link-container">

@@ -91,6 +91,8 @@ function EditDriver(props) {
                                     <span className="column-title edit-title">Create Driver</span>
                                     <li>Name</li>
                                     <li>Phone Number</li>
+                                    <li>lat</li>
+                                    <li>long</li>
                                     <li>Village</li>
                                 </ul>
                                 <div className="column">
