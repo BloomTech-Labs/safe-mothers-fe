@@ -21,7 +21,7 @@ const Dashboard = props => {
     return (
         <MainContainer className="mainContainer">
             <div className="cards">
-                <DashboardCard val1="5" val2="3" val3="4" cardState={MOTHER}/>
+                {/* <DashboardCard val1="5" val2="3" val3="4" cardState={MOTHER}/> */}
                 <DashboardCard val1="1" val2="2" val3="1"  cardState={DRIVER}/>
             </div>
             <div className="board">

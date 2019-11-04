@@ -15,9 +15,9 @@ const MenuBar = (props) => {
                     <div className="link-container">
                         <NavLink path={LINKS.dashboard} tab={"Home"}/>
                     </div>
-                    <div className="link-container">
+                    {/* <div className="link-container">
                         <NavLink path={LINKS.mothers} tab={"Mother"}/>
-                    </div>
+                    </div> */}
                     <div className="link-container">
                         <NavLink path={LINKS.drivers} tab={"Driver"}/>
                     </div>
