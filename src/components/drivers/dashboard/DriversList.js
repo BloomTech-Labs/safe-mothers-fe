@@ -4,6 +4,26 @@ import {getDrivers} from "../../../actions/driversActions";
 import {Accordion, AccordionPanel, Box} from "grommet/es6";
 import AccordionLabel from "./AccordionLabel";
 import AccordionContent from "./AccordionContent";
+import styled from "styled-components";
+
+const StyledBox = styled.div`
+    .add-driver{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px;
+        cursor: pointer;
+        background: rgb(50, 205, 50);
+        width: 80px;
+        font-weight: bold;
+        height: 23px;
+        border-radius: 50px;
+        color: white;
+
+    }
+`
+
+
 
 
 const DriversList = (props) => {
@@ -16,9 +36,9 @@ const DriversList = (props) => {
 
     return (
         <>
-            {console.log("DRIVERS ", drivers)}
-            <Box>
-
+            {console.log("props.history", props.history)}
+            <StyledBox>
+            <p className="add-driver" onClick = {() => props.history.push("/edit-driver")}>+ Add Driver</p>
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}
@@ -42,7 +62,7 @@ const DriversList = (props) => {
                         ))
                     }
                 </Accordion>
-            </Box>
+            </StyledBox>
 
         </>
     )
