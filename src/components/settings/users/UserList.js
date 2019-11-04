@@ -4,6 +4,7 @@ import Edit from '../../reusableParts/resources/Edit.svg';
 import Close from '../../reusableParts/resources/Close.svg';
 import {SVGBtn} from "../../reusableParts/form-items";
 import {ADMIN} from "../settings-utils";
+import ConfirmDelete from "../../reusableParts/ConfirmDelete";
 
 const Card = styled.div`
   margin: 1rem auto;
@@ -95,8 +96,7 @@ const UserList = (props) => {
             <Card>
                 <div className='btns'>
                     <div className="icon-btn close-container">
-                        <SVGBtn bg="#eb5757" bgOnHover="#eb2d3e" className='icon' src={Close}
-                                onClick={() => handleDelete(id)}/>
+                        <ConfirmDelete handleDelete = {handleDelete} id= {id}/>
                     </div>
                     <div className="icon-btn edit-container">
                         <SVGBtn bg="#07902d" bgOnHover="#027034" className='icon' src={Edit}
