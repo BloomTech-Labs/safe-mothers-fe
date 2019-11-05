@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card} from '../mother-style'
+import {Card} from "../../reusableParts/accordion/content/content-style";
 
 export default function PersonalCard({mother}) {
     return (
@@ -21,7 +21,7 @@ export default function PersonalCard({mother}) {
                         <li>{mother.wife_order ? mother.wife_order : 'N/A'}</li>
                         <li>{mother.attend_school ? mother.attend_school : 'N/A'}</li>
                         <li>{mother.education ? mother.education : 'N/A'}</li>
-                        <li>Unknown_DB_Value</li>
+                        <li>{mother.current_pg ? mother.current_pg : 'N/A'}</li>
                         <li>{mother.edd ? mother.edd : 'N/A'}</li>
                         <li>{mother.villiage ? mother.villiage : 'N/A'}</li>
                     </ul>

@@ -5,7 +5,6 @@
   "main": "webpack.config.js",
   "dependencies": {
     "axios": "^0.19.0",
-    "component": "^1.1.0",
     "formik": "^1.5.8",
     "grommet": "^2.7.10",
     "grommet-icons": "^4.3.0",
@@ -18,8 +17,8 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
-    "styled": "^1.0.0",
     "styled-components": "^4.4.0",
     "yup": "^0.27.0"
   },
