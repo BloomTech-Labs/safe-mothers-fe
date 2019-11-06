@@ -6,12 +6,17 @@
 
 # Safe Mothers Safe Babies
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+You can find the deployed project at:  
 
-## 4️⃣ Contributors
+
+Staging:   [staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/)    
+Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herokuapp.com/)
+                                    
+
+## Contributors
 
 |                                       [Aleksandra Foksman](https://github.com/AlexFox1777)                                        |                                       [Annique Nsabimana](https://github.com/AnniqueN)                                        |                                       [Blake Prouty](https://github.com/Prouty89)                                        |                                       [Chris Delfaus](https://github.com/ChrisDelf)                                        |                                       [Christian Ubani](https://github.com/chikechris)                                        |                                       [Dennis Mercado](https://github.com/denmercs)                                        |                                       [Jade E Lopez](https://github.com/jadeli1720)                                        |                                       [Jonathan Dorety](https://github.com/kyullog)                                        |
-| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+
 |                      [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777)                       |                      [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN)                       |                      [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89)                       |                      [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf)                       |                      [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)                       |                      [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs)                       |                      [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)                       |                      [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog)                       |
 |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AlexFox1777)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnniqueN)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Prouty89)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ChrisDelf)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chikechris)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)             |
 | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
@@ -23,7 +28,7 @@
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
+![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)[staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/).
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -35,10 +40,10 @@
 
 [Product Canvas](https://www.notion.so/SAFE-Mothers-fa66eb370c2b4a20a10f3f3159542c74)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
+[UX Design files](https://www.figma.com/file/gUEga1dX7l0CCPsthYSQr0/Labs17_Safe-Mothers%2C-Alexander-Vargas?node-id=192%3A14) 
 
 
-Safe Mother, Safe Babies is concerned with transporting mothers in labour to the proper facilities quickly and safely with a list of volunteer drivers Safe Mothers has entered into the database. The app specifically consists of several parts:
+Safe Mother, Safe Babies is a non-profit organization whose goal is to increase health facility access to pregnant mothers residing in Ugandan Villages. The organization relies on data collection of Mothers and volunteer drivers whose information is stored on a database and accessed for risk evaluation and SMS communication purposes. The app consists of several parts:
 
 -    Administrative Dashboard that will display mother and driver data from the database.
 -    Allow the user to perform CRUD operations on the available data
@@ -46,9 +51,9 @@ Safe Mother, Safe Babies is concerned with transporting mothers in labour to the
 -    Interact and control the dispatch of drivers to mothers in need
 
 
-### 4️⃣ Key Features
+###  Key Features
 
--    feature one
+-    Mother can register her information using a phone with SMS capabilities
 -    feature two
 -    feature three
 -    feature four
@@ -58,16 +63,19 @@ Safe Mother, Safe Babies is concerned with transporting mothers in labour to the
 
 ### Front end built using:
 
-React and Redux
+React
 
 We chose these frameworks because:
 
--    Scalability
--    Ease of readability for the next team who builds on to this project
+- Scalability
+- Ease of readability for the next team who builds on to this project
+- Vast selection of libraries to aid in accomplishing our goal
+- React's virtual DOM in ReactJS makes for faster development and better user experience
+- Allows us to specify various configurations and build reusable components
 
 🚫List the rest of the front end features and libraries in the same format as the framework above.
 
-#### Front end deployed to `🚫insert service here`
+#### Front end deployed to Heroku
 
 #### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
