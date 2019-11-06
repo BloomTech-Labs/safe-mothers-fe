@@ -3,7 +3,7 @@ import SVG from 'react-inlinesvg';
 
 export const FormItems = styled.div`
     li{
-        padding-bottom: 42px;
+        padding-bottom: 48px;
         white-space: nowrap;
     }
     
@@ -15,11 +15,11 @@ export const FormItems = styled.div`
     .regular-input{
         margin-left: 1%;
         min-width: 20px;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         outline: none;
         
         width: 100%;
-        height: 48px;
+        height: 45px;
         border-radius: 2px;
         border-width: 0px;
         border: 1.5px solid ${props => props.theme.primary.darkGray};
@@ -51,7 +51,16 @@ export const FormItems = styled.div`
             background: #d8e6f6;
         }
     }
-   
+    
+    .errormessage{
+        color: red;
+        position: absolute;
+        bottom: 20px;
+    }
+    
+   .error-holder{
+        position: relative;
+   }
 `;
 
 
