@@ -38,7 +38,7 @@ export const getMothers = () => dispatch => {
 export const addMothers = mothers => dispatch => {
             dispatch({ type: ADD_MOTHERS_START });
             axiosWithAuth()
-              .post('', mothers)
+              .post('/mothers/auth/register', mothers)
               .then(res => dispatch({ type: ADD_MOTHERS_SUCCESS }))
               .catch(err => dispatch({ type: ADD_MOTHERS_FAILURE, payload: err.response }));
           };

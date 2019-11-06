@@ -6,6 +6,7 @@ import AccordionLabel from './AccordionLabel';
 import AccordionContent from './AccordionContent';
 import {defineHighRisk} from "../mother-utils";
 import settingsReducer from "../../../reducers/settingsReducer";
+import AddEntityBtn from "../../reusableParts/AddEntityBtn";
 
 
 const Mothers = props => {
@@ -18,7 +19,7 @@ const Mothers = props => {
     return (
         <>
             <Box>
-                {console.log(mothers)}
+                <AddEntityBtn name="Add Mother" history={props.history} path={"/edit-mother"} />
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}
