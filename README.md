@@ -73,17 +73,50 @@ We chose these frameworks because:
 - React's virtual DOM in ReactJS makes for faster development and better user experience
 - Allows us to specify various configurations and build reusable components
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+## Libraries
+
+- axios
+- formik
+- yup
+- react-dom
+- react-redux
+- react-router-dom
+- react-scripts
+- redux-persist
+- redux-thunk
+
+# UI Design Libraries
+
+- grommet
+- grommet-icons
+- styled-components
+- priceline-design-system
+- react-inlinesvg
 
 #### Front end deployed to Heroku
 
 #### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
--    NodeJS
--    ExpressJS
--    KnexJS
+#    NodeJS + ExpressJS
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+- Allows for quick building of scalable network applications
+- REST API is predictable, and doesn't expose database architecture to FE
+- Clean and organized code using packages/middleware for validation, error handling, etc.
+
+## Libraries 
+
+- axios
+- bcryptjs
+- cors
+- dotenv
+- express
+- fuse. js
+- helmet
+- jsonwebtoken
+- knex
+- knex-cleaner
+- pg 
+- sqlite3
 
 # APIs
 
