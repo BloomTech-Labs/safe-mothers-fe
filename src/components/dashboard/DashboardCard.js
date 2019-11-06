@@ -49,15 +49,15 @@ const DashboardCard = props => {
                 }
             </div>
             <div className="content-container">
-                <div className="grid-item" onClick={val1}>
+                <div className="grid-item">
                     <h1>{val1}</h1>
                     <p>{cardState === MOTHER ? "Due within 30 days" : "New Drivers"}</p>
                 </div>
-                <div className="grid-item" onClick={val2}>
+                <div className="grid-item">
                     <h1>{val2}</h1>
                     <p>{cardState === MOTHER ? "Late Due Day" : "Active Drivers"}</p>
                 </div>
-                <div className="grid-item" onClick={val3}>
+                <div className="grid-item">
                     <h1>{val3}</h1>
                     <p>{cardState === MOTHER ? "High Risk" : "Active 5 Stars"}</p>
                 </div>

@@ -18,6 +18,7 @@ const Mothers = props => {
 
     return (
         <>
+        {console.log(mothers)}
             <Box>
                 <AddEntityBtn name="Add Mother" history={props.history} path={"/edit-mother"} />
                 <Accordion className="accordion"
@@ -48,6 +49,7 @@ const Mothers = props => {
 const mapStateToProps = state => {
     return {
         mothers: state.mothersReducer.mothers,
+
     };
 };
 

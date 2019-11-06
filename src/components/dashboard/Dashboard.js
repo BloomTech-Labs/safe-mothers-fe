@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {getMothers} from '../../actions/mothersActions';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
 import DashboardCard from "./DashboardCard";
+
 import {DRIVER, MOTHER} from "./dashboard-utils";
 
 const MainContainer = styled.div`
@@ -26,7 +29,18 @@ const MainContainer = styled.div`
 `;
 
 const Dashboard = props => {
+  useEffect(() => {
+    props.getMothers();
+    
+  }, []);
+  const DueNow = props => {
+    console.log(props.mothers)
+return ;
+
+};
+console.log(props.mothers)
     return (
+      
         <MainContainer className="mainContainer">
             <div className="cards">
                 <DashboardCard val1="5" val2="3" val3="4" cardState={MOTHER}/>
@@ -38,5 +52,14 @@ const Dashboard = props => {
         </MainContainer>
     )
 };
+const mapStateToProps = state => {
+  return {
+      mothers: state.mothersReducer.mothers,
 
-export default Dashboard;
+  };
+};
+
+export default connect(mapStateToProps, {getMothers})
+(Dashboard);
+
+
