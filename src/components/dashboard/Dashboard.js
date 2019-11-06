@@ -1,64 +1,34 @@
 import React from 'react';
-import { Card } from 'pcln-design-system';
 import styled from 'styled-components';
+import DashboardCard from "./DashboardCard";
+import {DRIVER, MOTHER} from "./dashboard-utils";
 
 const MainContainer = styled.div`
   display: flex;
-  justify-content: space-between;
-  height: 750px;
+  justify-content: space-around;
   overflow: hidden;
-
-  .appCard {
-    margin: 48px;
-    height: 30%;
-  }
-  .systemCard {
+  align-items: center;
+  .board {
     width: 30%;
     margin: 20px;
   }
-  .cardContainer {
+  .cards{
     width: 80%;
   }
 `;
 
 const Dashboard = props => {
-  return (
-    <>
-      <MainContainer className="mainContainer">
-        <div className="cardContainer">
-          <Card
-            className="appCard"
-            boxShadowSize="xl"
-            borderWidth={0}
-            borderRadius={0}
-            p={4}
-            onClick={() => props.history.push('/mothers')}
-          >
-            <p>Mothers Dashboard Card</p>
-          </Card>
-          <Card
-            className="appCard"
-            boxShadowSize="xl"
-            borderWidth={0}
-            borderRadius={0}
-            p={4}
-            onClick={() => props.history.push('/drivers')}
-          >
-            <p>Drivers Card</p>
-          </Card>
-        </div>
-        <Card
-          className="systemCard"
-          boxShadowSize="xl"
-          borderWidth={0}
-          borderRadius={0}
-          p={4}
-        >
-          Driver Rankings
-        </Card>
-      </MainContainer>
-    </>
-  );
+    return (
+        <MainContainer className="mainContainer">
+            <div className="cards">
+                <DashboardCard val1="5" val2="3" val3="4" cardState={MOTHER}/>
+                <DashboardCard val1="1" val2="2" val3="1"  cardState={DRIVER}/>
+            </div>
+            <div className="board">
+                {/*Driver Rankings*/}
+            </div>
+        </MainContainer>
+    )
 };
 
 export default Dashboard;

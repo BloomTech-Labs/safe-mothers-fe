@@ -12,7 +12,10 @@ const {
     CREATE_LABEL_FAILURE,
     DELETE_LABEL_START,
     DELETE_LABEL_SUCCESS,
-    DELETE_LABEL_FAILURE
+    DELETE_LABEL_FAILURE,
+    ADD_MOTHERS_START,
+    ADD_MOTHERS_SUCCESS,
+    ADD_MOTHERS_FAILURE,
 } = types;
 
 const initialState = {
@@ -21,7 +24,6 @@ const initialState = {
     isAuth: !!localStorage.getItem("token"),
     mothers: [],
     labels: [],
-
 };
 
 const mothersReducer = (state = initialState, {type, payload}) => {
@@ -99,6 +101,24 @@ const mothersReducer = (state = initialState, {type, payload}) => {
                 error: "",
             };
         case DELETE_LABEL_FAILURE:
+            return {
+                ...state,
+                isLoading: false,
+                error: payload,
+            };
+            case ADD_MOTHERS_START:
+            return {
+                ...state,
+                isLoading: true,
+                error: "",
+            };
+        case ADD_MOTHERS_SUCCESS:
+            return {
+                ...state,
+                isLoading: false,
+                error: "",
+            };
+        case ADD_MOTHERS_FAILURE:
             return {
                 ...state,
                 isLoading: false,
