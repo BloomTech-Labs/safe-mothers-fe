@@ -33,16 +33,23 @@ const Dashboard = props => {
     props.getMothers();
     
   }, []);
-  const DueNow = props => {
-    console.log(props.mothers)
-return ;
-};
-console.log(props.mothers.due_now)
+  const dueNow = (mothers) => {
+    let num = 0;
+    if(mothers){
+      mothers.map(mother => {
+              if(mother.due_now === 1){
+                num = num + 1;
+              }
+       });
+       return num;
+    }
+  };
+  
     return (
       
         <MainContainer className="mainContainer">
             <div className="cards">
-                <DashboardCard val1="5" val2="3" val3="4" cardState={MOTHER}/>
+                <DashboardCard val1={dueNow(props.mothers)} val2="3" val3="4" cardState={MOTHER}/>
                 <DashboardCard val1="1" val2="2" val3="1"  cardState={DRIVER}/>
             </div>
             <div className="board">
