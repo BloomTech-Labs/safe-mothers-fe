@@ -17,7 +17,7 @@ import {SearchWrapper} from './app-style';
 import {Container} from "./app-style";
 import DriversList from "./components/drivers/dashboard/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
-import FormikEditMother from "./components/mothers/form/MotherForm";
+import FormikMother from "./components/mothers/form/MotherForm";
 import FormikEditDriver from "./components/drivers/form/EditDriver";
 import {LINKS} from "./components/menubar/menu-utils";
 
@@ -97,7 +97,9 @@ function App(props) {
 
                                 <AuthRoute exact path="/mothers" component={MothersList}/>
                                 <AuthRoute path="/mothers/:id" component={SingleMotherView}/>
-                                <AuthRoute path="/edit-mother" component={FormikEditMother}/>
+
+                                <AuthRoute exact path="/mother-form" component={FormikMother}/>
+                                <AuthRoute path="/mother-form/:id" component={FormikMother}/>
 
                                 <AuthRoute exact path="/drivers" component={DriversList}/>
                                 <AuthRoute  path="/edit-driver" component={FormikEditDriver}/>

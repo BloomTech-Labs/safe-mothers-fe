@@ -12,7 +12,7 @@ export const interviewers = {
 export default function Interviewers(props) {
     return (
         <>
-            <option disabled selected value></option>
+            <option value=""> </option>
             <option value={interviewers.Mukalu_Mohamed}>Mukalu Mohamed</option>
             <option value={interviewers.Mikayla_Bryan}>Mikayla O’Bryan</option>
             <option value={interviewers.Barilaine_Joseph}>Barilaine Joseph Peter</option>

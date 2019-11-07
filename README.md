@@ -55,8 +55,8 @@ Safe Mother, Safe Babies is a non-profit organization whose goal is to increase 
 -    Mother can register her information using a phone with SMS capabilities
 -    feature two
 -    feature three
--    feature four
--    feature five
+
+
 
 ## Tech Stack
 
@@ -125,9 +125,11 @@ We chose these frameworks because:
 
 * **URL**
 
-  /auth/login
+
+  /login
 
 * **Method:**
+
 
     `POST`
   
