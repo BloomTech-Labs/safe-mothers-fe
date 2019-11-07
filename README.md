@@ -6,15 +6,21 @@
 
 # Safe Mothers Safe Babies
 
-1️⃣ You can find the deployed project at [🚫URL NAME GOES HERE](🚫copy and paste URL here).
+You can find the deployed project at:  
 
-## 4️⃣ Contributors
 
-|                                   [Aleksandra Foksman](https://github.com/AlexFox1777)                                    |                                    [Annique Nsabimana](https://github.com/AnniqueN)                                    |                                      [Blake Prouty](https://github.com/Prouty89)                                       |                                      [Chris Delfaus](https://github.com/ChrisDelf)                                      |                               [Christian Ubani](https://github.com/chikechris)                                | [Dennis Mercado](https://github.com/denmercs)                                                                             | [Jade E Lopez](https://github.com/jadeli1720)                                                                                        | [Jonathan Dorety](https://github.com/kyullog)                                                                         |
-| :-----------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777) | [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN) | [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89) | [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf) |         [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)          | [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs)    | [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)                                         | [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog) |
-|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AlexFox1777)                  |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnniqueN)                  |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Prouty89)                  |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ChrisDelf)                  |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chikechris)            | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)                                     | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)                                              | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)                                  |
-|       [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)       |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)      |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)      |      [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)      | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)         |
+Staging:   [staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/)    
+Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herokuapp.com/)
+                                    
+
+## Contributors
+
+
+|                                       [Aleksandra Foksman](https://github.com/AlexFox1777)                                        |                                       [Annique Nsabimana](https://github.com/AnniqueN)                                        |                                       [Blake Prouty](https://github.com/Prouty89)                                        |                                       [Chris Delfaus](https://github.com/ChrisDelf)                                        |                                       [Christian Ubani](https://github.com/chikechris)                                        |                                       [Dennis Mercado](https://github.com/denmercs)                                        |                                       [Jade E Lopez](https://github.com/jadeli1720)                                        |                                       [Jonathan Dorety](https://github.com/kyullog)                                        |
+
+|                      [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777)                       |                      [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN)                       |                      [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89)                       |                      [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf)                       |                      [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)                       |                      [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs)                       |                      [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)                       |                      [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog)                       |
+|                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AlexFox1777)                 |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnniqueN)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Prouty89)            |          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ChrisDelf)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/chikechris)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)             |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
 <br>
 <br>
@@ -23,7 +29,7 @@
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
+![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)[staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/).
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -35,59 +41,216 @@
 
 [Product Canvas](https://www.notion.so/SAFE-Mothers-fa66eb370c2b4a20a10f3f3159542c74)
 
-1️⃣ [UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
+[UX Design files](https://www.figma.com/file/gUEga1dX7l0CCPsthYSQr0/Labs17_Safe-Mothers%2C-Alexander-Vargas?node-id=192%3A14) 
 
-Safe Mother, Safe Babies is concerned with transporting mothers in labour to the proper facilities quickly and safely with a list of volunteer drivers Safe Mothers has entered into the database. The app specifically consists of several parts:
+
+
+Safe Mother, Safe Babies is a non-profit organization whose goal is to increase health facility access to pregnant mothers residing in Ugandan Villages. The organization relies on data collection of Mothers and volunteer drivers whose information is stored on a database and accessed for risk evaluation and SMS communication purposes. The app consists of several parts:
+
 
 - Administrative Dashboard that will display mother and driver data from the database.
 - Allow the user to perform CRUD operations on the available data
 - Give the user the ability to upload data
 - Interact and control the dispatch of drivers to mothers in need
 
-### 4️⃣ Key Features
+###  Key Features
 
-- feature one
-- feature two
-- feature three
-- feature four
-- feature five
 
-## 1️⃣ Tech Stack
+-    Mother can register her information using a phone with SMS capabilities
+-    feature two
+-    feature three
+-    feature four
+-    feature five
+
+
+## Tech Stack
 
 ### Front end built using:
 
-React and Redux
+React
 
 We chose these frameworks because:
 
 - Scalability
 - Ease of readability for the next team who builds on to this project
 
-🚫List the rest of the front end features and libraries in the same format as the framework above.
+- Vast selection of libraries to aid in accomplishing our goal
+- React's virtual DOM in ReactJS makes for faster development and better user experience
+- Allows us to specify various configurations and build reusable components
 
-#### Front end deployed to `🚫insert service here`
+## Libraries
+
+- axios
+- formik
+- yup
+- react-dom
+- react-redux
+- react-router-dom
+- react-scripts
+- redux-persist
+- redux-thunk
+
+
+# UI Design Libraries
+
+- grommet
+- grommet-icons
+- styled-components
+- priceline-design-system
+- react-inlinesvg
+
+#### Front end deployed to Heroku
 
 #### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
-- NodeJS
-- ExpressJS
-- KnexJS
 
-🚫 List the rest of the back end end features and libraries in the same format as the framework above
+#    NodeJS + ExpressJS
+
+- Allows for quick building of scalable network applications
+- REST API is predictable, and doesn't expose database architecture to FE
+- Clean and organized code using packages/middleware for validation, error handling, etc.
+
+## Libraries 
+
+
+- axios
+- bcryptjs
+- cors
+- dotenv
+- express
+- fuse. js
+- helmet
+- jsonwebtoken
+- knex
+- knex-cleaner
+- pg 
+- sqlite3
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication
 
-🚫Replace text below with a description of the API
+  Login a single user
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+* **URL**
 
-## 3️⃣ Misc API here
 
-🚫Replace text below with a description of the API
+  /login
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+* **Method:**
+
+
+    `POST`
+  
+
+* **Data Params**
+
+  `{password: " ", username: " "}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br /> 
+    **Content:** `{ error : "Admin is not registered" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const loginUser = (data, history) => {
+    return dispatch => {
+        dispatch({ type: LOGIN_START });
+        return axiosWithAuth()
+            .post("/auth/login", data)
+            .then(res => {
+                localStorage.setItem("token", res.data.token);
+                dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+                history.push("/dashboard");
+            })
+            .catch(err => {
+                dispatch({ type: LOGIN_FAILURE, payload: err.response })
+            });
+    };
+    ```
+
+
+## Registration
+
+  Register a single administrative user
+
+* **URL**
+
+  /admin
+
+* **Method:**
+
+    `POST`
+  
+
+* **Data Params**
+
+  `{first_name: " ", last_name: " ", password: " ", username: " "}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error adding new user" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const registerUser = data => dispatch => {
+    dispatch({ type: REGISTER_USER_START });
+    return axiosWithAuth()
+        .post("/auth/register", data)
+        .then(res => {
+            dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({type: REGISTER_USER_FAILURE, payload: err});
+        });
+    };
+    ```
+   Edit a registered administrative user.
+* **Method:**
+
+    `PUT`
+  
+* **Data Params**
+
+  `{first_name: " ", last_name: " ", password: " ", username: " "}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error adding new user" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const editUsers = (id, object) => dispatch => {
+    dispatch({type: EDIT_USERS_START});
+    axiosWithAuth()
+        .put(`/users/${id}`, object)
+        .then(res => {
+            dispatch({type: EDIT_USERS_SUCCESS, payload: object})
+        })
+        .catch(err => {
+            dispatch({type: EDIT_USERS_FAILURE, payload: err.response})
+        })
+    }
+    ```
+
 
 ## 3️⃣ Misc API here
 

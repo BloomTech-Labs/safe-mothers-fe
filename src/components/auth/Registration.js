@@ -78,6 +78,7 @@ const FormikRegistrationForm = withFormik({
     handleSubmit(values, formikBag) {
         formikBag.props.registerUser(values);
         formikBag.props.history.push("/dashboard");
+        console.log(registerUser)
     }
 })(RegistrationForm);
 
