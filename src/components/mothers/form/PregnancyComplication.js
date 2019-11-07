@@ -1,7 +1,7 @@
 import React from 'react';
 import {choices} from "./YesNoDontknowDeclin";
 
-const pregnancy_choices = {
+export const pregnancy_choices = {
     EXPERIENCED_WITH_THIS_PREGNANCY: 1,
     EXPERIENCED_WITH_PRIOR_PREGNANCY: 2,
     EXPERIENCED_WITH_BOTH: 3,

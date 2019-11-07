@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import FormikLabelForm from "./LabelForm";
 import {CustomBadge} from '../../reusableParts/accordion/label/label-style'
 // import {Modal} from 'pcln-modal';
-import {HIGHT_RISK} from "../mother-utils";
+import {HIGH_RISK} from "../mother-utils";
 import {getLabels, deleteLabel} from "../../../actions/mothersActions";
 
 
@@ -38,10 +38,10 @@ function LabelBadges(props) {
             <CustomBadge  width="12%" className="badge" color="secondary">
                 {entity.amt_saved ? entity.amt_saved : '$0'}
             </CustomBadge>}
-
-            {risk === HIGHT_RISK &&
+            {console.log("RISK ", risk)}
+            {risk === HIGH_RISK &&
             <CustomBadge width="12%" badgeColor="red" badgeText="white">
-                {HIGHT_RISK}
+                {HIGH_RISK}
             </CustomBadge>}
 {/*
             {labels && labels.map((label, index) =>

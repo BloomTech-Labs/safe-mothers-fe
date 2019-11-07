@@ -1,5 +1,7 @@
 import {marital_status, wives_number, education, phone_owner, carriers} from "./form/lists";
 import {choices} from "./form/YesNoDontknowDeclin";
+import {pregnancy_choices} from "./form/PregnancyComplication";
+import React from "react";
 
 export const NO_SEASON = "NO_SEASON";
 //RAIN SEASONS
@@ -8,11 +10,6 @@ export const RAIN_SEASON = "RAIN_SEASON";
 //DRY SEASONS
 export const DRY_SEASONS = ['12', '01', '06', '07'];
 export const DRY_SEASON = "DRY_SEASON";
-
-
-//RISK
-export const HIGHT_RISK = "high risk";
-export const NO_RISK = "no risk";
 
 export const defineRainSeason = (data) => {
     if (data) {
@@ -33,14 +30,6 @@ export const defineDrySeason = (data) => {
     }
     return ""
 };
-
-export function defineHighRisk(mother) {
-    if (mother.anemia || mother.malaria ||
-        mother.obstructed_labor || mother.malpresent ||
-        mother.placenta_previa || mother.other_complication
-    ) return HIGHT_RISK;
-    return NO_RISK;
-}
 
 export function defineDate() {
     let date = new Date();
@@ -93,9 +82,72 @@ export const defineOwnerPhone = (mother) => {
 export const defineCarrier = (mother) => {
     const carrier = mother.carrier;
     const filtered_carrier = carriers.filter((item, index) => (index + 1) === carrier);
-    if(filtered_carrier.length > 0) return filtered_carrier;
+    if (filtered_carrier.length > 0) return filtered_carrier;
     if (carrier === choices.OTHER) return mother.carrier_other;
     if (carrier === choices.IDN) return IDN;
     if (carrier === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
     return NO_DATA;
 };
+
+//High Risk
+
+export function defineHighRisk(risk) {
+    if (risk === pregnancy_choices.EXPERIENCED_WITH_THIS_PREGNANCY) return <p className="status-yes">"Exp w/ this
+        pregnancy"</p>;
+    if (risk === pregnancy_choices.EXPERIENCED_WITH_PRIOR_PREGNANCY) return <p className="status-yes">"Exp w/ prior
+        pregnancy"</p>;
+    if (risk === pregnancy_choices.EXPERIENCED_WITH_BOTH) return <p className="status-yes">"Exp w/ both"</p>;
+    return <p className="status-no">"Not experienced"</p>
+}
+
+export function yesNoIDN(item) {
+    if (item === choices.YES) return YES;
+    if (item === choices.NO) return NO;
+    if (item === choices.IDN) return IDN;
+    if (item === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
+    return NO_DATA;
+}
+
+export const returnNumberValue = (value) => {
+    if(typeof value === 'number') return  value;
+    return NO_DATA;
+};
+
+export const returnValue = (value) =>{
+    if(value){
+        return value.length > 0 ? value : NO_DATA;
+    }
+    return NO_DATA;
+};
+
+//Heigh Risk Label
+
+const risks = [
+    'anemia',
+    'malaria',
+    'obstructed_labor',
+    'malpresent',
+    'aph',
+    'pph',
+    'ret_placenta',
+    'placenta_previa',
+];
+
+//RISK
+export const HIGH_RISK = "high risk";
+export const NO_RISK = "no risk";
+
+export function highRisk(mother) {
+    const risk_array = risks.filter(item =>
+        (mother[item] === pregnancy_choices.EXPERIENCED_WITH_THIS_PREGNANCY ||
+            mother[item] === pregnancy_choices.EXPERIENCED_WITH_PRIOR_PREGNANCY ||
+            mother[item] === pregnancy_choices.EXPERIENCED_WITH_BOTH)
+    );
+    if (risk_array.length > 0) return HIGH_RISK;
+    if (mother.hx_stillbirth === choices.YES) return HIGH_RISK;
+    if (mother.no_stillbirths) return HIGH_RISK;
+    if (mother.other_complication === choices.YES) return HIGH_RISK;
+    if (mother.complication_specify === 'string' &&
+        mother.complication_specify.length > 0) return HIGH_RISK;
+    return NO_RISK;
+}

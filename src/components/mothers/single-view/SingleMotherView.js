@@ -238,7 +238,7 @@ function SingleMotherView(props) {
                             </div>
                             <div className="card increased">
                                 <span className="card-title">RISK</span>
-                                <HightRiskCard mother={mother}/>
+                                <HightRiskCard state={true} mother={mother}/>
                             </div>
                         </div>
                     </div>
