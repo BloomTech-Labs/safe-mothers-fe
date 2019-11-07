@@ -1,12 +1,11 @@
-import axios from 'axios';
 
-const api = process.env.REACT_APP_API_URL || "http://localhost:5000"
+import axios from 'axios';
 
 const axiosWithAuth = () => {
     const token = localStorage.getItem("token");
 
     return axios.create({
-        baseURL: api,
+        baseURL: "https://staging-be-labs17-safe.herokuapp.com/",
         headers: {
             "Content-Type": "application/json",
             Authorization: token
