@@ -8,7 +8,7 @@ const prior_choices = {
 export default function PriorComplication(props) {
     return (
         <>
-            <option disabled selected value></option>
+            <option value=""> </option>
             <option value={prior_choices.EXPERIENCED_WITH_PRIOR_PREGNANCY}>EXPERIENCED WITH PRIOR PREGNANCY</option>
             <option value={prior_choices.NOT_EXPERIENCED}>DID NOT EXPERIENCE WITH PRIOR PREGNANCY</option>
             <option value={choices.IDN}>I DON`T KNOW</option>

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
+import {NO_DATA} from "../mother-utils";
 
 export default function MedicalHistoryCard({mother}) {
     return (
@@ -14,12 +15,12 @@ export default function MedicalHistoryCard({mother}) {
                     <li>Infant death</li>
                 </ul>
                 <ul className="align-left values">
-                    <li>{mother.no_pg}</li>
-                    <li>{mother.no_birth}</li>
-                    <li>{mother.no_stillbirths}</li>
-                    <li>{mother.no_children}</li>
-                    <li>{mother.no_under5}</li>
-                    <li>{mother.no_childdeath}</li>
+                    <li>{mother.no_pg ? mother.no_pg : NO_DATA}</li>
+                    <li>{mother.no_birth ? mother.no_birth : NO_DATA}</li>
+                    <li>{mother.no_stillbirths ? mother.no_stillbirths : NO_DATA}</li>
+                    <li>{mother.no_children ? mother.no_children : NO_DATA}</li>
+                    <li>{mother.no_under5 ? mother.no_under5 : NO_DATA}</li>
+                    <li>{mother.no_childdeath ? mother.no_childdeath : NO_DATA}</li>
                 </ul>
             </div>
         </Card>
