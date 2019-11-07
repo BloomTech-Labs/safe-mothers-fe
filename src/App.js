@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import connect from "react-redux/es/connect/connect";
 
-import Registration from "./components/auth/Registration";
 import MenuBar from "./components/menubar/MenuBar";
 import Dashboard from './components/dashboard/Dashboard';
 import MothersList from './components/mothers/dashboard/MothersList';
@@ -85,7 +84,6 @@ function App(props) {
                 <Container>
                     <Router>
                         {/*<Route exact path="/login" component={FormikLoginForm}/>*/}
-                        {/*<Route exact path="/registration" component={Registration}/>*/}
                         {props.isAuth && <MenuBar/>}
                         <Switch>
                             <Route path="/login" component={FormikLoginForm}/>

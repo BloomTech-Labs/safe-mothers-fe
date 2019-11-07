@@ -126,13 +126,12 @@ We chose these frameworks because:
 
 * **URL**
 
-  /login
+  /auth/login
 
 * **Method:**
 
     `POST`
   
-
 * **Data Params**
 
   `{password: " ", username: " "}`
@@ -172,7 +171,7 @@ We chose these frameworks because:
 
 * **URL**
 
-  /admin
+  /auth/register
 
 * **Method:**
 
@@ -207,14 +206,21 @@ We chose these frameworks because:
         });
     };
     ```
+
+    ### Administrative user Update and Delete.
+
    Edit a registered administrative user.
 * **Method:**
 
     `PUT`
+
+* **URL**
+
+  /admin/:id
   
 * **Data Params**
 
-  `{first_name: " ", last_name: " ", password: " ", username: " "}`
+  `{first_name: " ", last_name: " ", username: " "}`
 
 * **Success Response:**
 
@@ -223,7 +229,7 @@ We chose these frameworks because:
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br /> 
-    **Content:** `{ error : "Error adding new user" }`
+    **Content:** `{ error : "Error updating new user" }`
 
 * **Sample Call:**
 
@@ -239,6 +245,41 @@ We chose these frameworks because:
             dispatch({type: EDIT_USERS_FAILURE, payload: err.response})
         })
     }
+    ```  
+    Delete a registered administrative user.
+* **Method:**
+
+    `DELETE`
+
+* **URL**
+
+  /users/:id
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: "User with :ID has been deleted"`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error deleting user" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const deleteUsers = (id) => dispatch => {
+    dispatch({type: DELETE_USERS_START});
+    axiosWithAuth().delete(`/users/${id}`)
+        .then(res => {
+
+            dispatch({type: DELETE_USERS_SUCCESS, payload: id})
+        })
+        .catch(err => {
+            dispatch({type: DELETE_USERS_FAILURE, payload: err.response})
+        })
+    };
     ```
 
 
