@@ -1187,54 +1187,44 @@ const FormikMother = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-          interviewer: Yup.number().required("Please choose something from the list"),
-          interviewer_other: Yup.string().required("Please fill the field"),
-          current_pg: Yup.number().required("Please choose something from the list"),
-          due_now: Yup.number().required("Please choose something from the list"),
-          deliver_elsewhere: Yup.number().required("Please choose something from the list"),
-          hx_cesarean: Yup.number().required("Please choose something from the list"),
-          hx_complication: Yup.number().required("Please choose something from the list"),
-          current_multip: Yup.number().required("Please choose something from the list"),
-          /*registration*/
-          name: Yup.string().required("Please fill the field"),
-          edd: Yup.string().required("Please fill the field"),
-          age: Yup.string().required("Please fill the field"),
-          village: Yup.number().required("Please choose something from the list"),
-          village_other: Yup.string().required("Please fill the field"),
-          own_phone: Yup.number().required("Please choose something from the list"),
-          other_phone: Yup.string().required("Please fill the field"),
-          phone_number: Yup.string().required("Please fill the field"),
-          carrier: Yup.number().required("Please choose something from the list"),
-          owner_phone: Yup.number().required("Please choose something from the list"),
-          owner_phone_other: Yup.string().required("Please fill the field"),
-          carrier_other: Yup.string().required("Please fill the field"),
-          want_education: Yup.number().required("Please choose something from the list"),
+        interviewer: Yup.number().required("Please choose something from the list"),
+        current_pg: Yup.number().required("Please choose something from the list"),
+        due_now: Yup.number().required("Please choose something from the list"),
+        deliver_elsewhere: Yup.number().required("Please choose something from the list"),
+        hx_cesarean: Yup.number().required("Please choose something from the list"),
+        hx_complication: Yup.number().required("Please choose something from the list"),
+        current_multip: Yup.number().required("Please choose something from the list"),
+        /*registration*/
+        name: Yup.string().required("Please fill the field"),
+        edd: Yup.string().required("Please fill the field"),
+        age: Yup.string().required("Please fill the field"),
+        village: Yup.number().required("Please choose something from the list"),
+        own_phone: Yup.number().required("Please choose something from the list"),
+        other_phone: Yup.string().required("Please fill the field"),
+        phone_number: Yup.string().required("Please fill the field"),
+        carrier: Yup.number().required("Please choose something from the list"),
+        owner_phone: Yup.number().required("Please choose something from the list"),
+        want_education: Yup.number().required("Please choose something from the list"),
     }),
     handleSubmit(values, {props}) {
         let chosen_supplies = supplies_items.filter(item => typeof values[item] === 'number').map(item => values[item]);
         if (typeof values.other_supply === 'number') chosen_supplies = [...chosen_supplies, values.other_supply];
-        if(chosen_supplies.length > 0){
+        if (chosen_supplies.length > 0) {
             values.name_supplies = chosen_supplies.join(" ");
         }
         let mother = {};
         for (let property  in values) {
-            console.log("key name ", property, "property = ", values[property], " ;", " type = ", typeof values[property]);
             if (typeof values[property] === 'string' && values[property].length > 0) mother[property] = values[property];
             if (typeof values[property] === 'number') mother[property] = values[property];
         }
 
         if (props.match.params.id) {
-            console.log("UPDATE", values.id);
-            console.log("values", values);
             props.updateMother(values.id, values);
             props.history.push("/mothers");
         } else {
-            console.log("ADD");
             props.addMother(mother);
             props.history.push("/mothers");
         }
-      /*  console.log("MOTHER ", mother);
-        console.log("values ", values);*/
     }
 })(MotherForm);
 
