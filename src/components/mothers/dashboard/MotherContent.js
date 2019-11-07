@@ -1,9 +1,9 @@
 import React from 'react';
 import {Divider} from "pcln-design-system";
-import {Content} from "../reusableParts/accordion/content/content-style";
-import HighRiskCard from "./cards/HightRiskCard";
-import MedicalHistoryCard from "./cards/MedicalHistoryCard";
-import ContactsCard from "./cards/ContactsCard";
+import {Content} from "../../reusableParts/accordion/content/content-style";
+import HighRiskCard from "../cards/HightRiskCard";
+import MedicalHistoryCard from "../cards/MedicalHistoryCard";
+import ContactsCard from "../cards/ContactsCard";
 import {withRouter} from "react-router-dom";
 
 function MotherContent(props) {
@@ -24,7 +24,7 @@ function MotherContent(props) {
                     </div>
                     <div className="card">
                         <span className="title">High risk</span>
-                        <HighRiskCard mother={mother}/>
+                        <HighRiskCard state={false} mother={mother}/>
                     </div>
                    {/* <div className="see-more" onClick={() => props.history.push(`/mothers/${mother.id}`)}><p>See
                         more</p>

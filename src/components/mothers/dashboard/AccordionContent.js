@@ -1,5 +1,5 @@
 import React from 'react';
-import MotherContent from '../MotherContent';
+import MotherContent from './MotherContent';
 import {StyledContents} from "../../reusableParts/accordion/content/content-style";
 import {villages} from "../form/lists";
 import {defineEducation, defineMaritalStatus, defineWifeOrder, NO, YES} from "../mother-utils";

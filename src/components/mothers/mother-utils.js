@@ -1,4 +1,4 @@
-import {marital_status, wives_number, education} from "./form/lists";
+import {marital_status, wives_number, education, phone_owner, carriers} from "./form/lists";
 import {choices} from "./form/YesNoDontknowDeclin";
 
 export const NO_SEASON = "NO_SEASON";
@@ -50,7 +50,7 @@ export function defineDate() {
 //Personal info
 const DECLINES_TO_ANSWER = "Decline to answer";
 const IDN = "I don`t know";
-const NO_DATA = 'N/A';
+export const NO_DATA = 'N/A';
 export const YES = "Yes";
 export const NO = "No";
 
@@ -74,8 +74,28 @@ export const defineWifeOrder = (mother) => {
 export const defineEducation = (mother) => {
     const education_level = mother.education;
     const level = education.filter((item, index) => (index + 1) === education_level);
-    if(level.length > 0) return level;
-    if(education_level === choices.IDN) return IDN;
-    if(education_level === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
+    if (level.length > 0) return level;
+    if (education_level === choices.IDN) return IDN;
+    if (education_level === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
+    return NO_DATA;
+};
+
+//Contact info
+
+export const defineOwnerPhone = (mother) => {
+    const owner_phone = mother.owner_phone;
+    const owner = phone_owner.filter((item, index) => (index + 1) === owner_phone);
+    if (owner.length > 0) return owner;
+    if (owner_phone === choices.OTHER) return mother.owner_phone_other;
+    return NO_DATA;
+};
+
+export const defineCarrier = (mother) => {
+    const carrier = mother.carrier;
+    const filtered_carrier = carriers.filter((item, index) => (index + 1) === carrier);
+    if(filtered_carrier.length > 0) return filtered_carrier;
+    if (carrier === choices.OTHER) return mother.carrier_other;
+    if (carrier === choices.IDN) return IDN;
+    if (carrier === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
     return NO_DATA;
 };

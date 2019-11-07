@@ -1,7 +1,8 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
 
-export default function HighRiskCard({mother}) {
+export default function HighRiskCard({mother, state}) {
+
     return (
         <Card>
             <div className="card-content ">
@@ -12,12 +13,13 @@ export default function HighRiskCard({mother}) {
                     <li>Obstructed labor</li>
                     <li>Malpresentation</li>
                     <li>Hemorrhage</li>
-                  <div className="list-break">
-                    <li>Retained placenta</li>
-                    <li>Placenta previa</li>
-                    <li>Stillbirth</li>
-                    <li>Other complication</li>
-                  </div>
+                    {state &&
+                    <div className="list-break">
+                        <li>Retained placenta</li>
+                        <li>Placenta previa</li>
+                        <li>Stillbirth</li>
+                        <li>Other complication</li>
+                    </div>}
                 </ul>
                 <ul className="align-left values high-risk-card">
                     <li>{true ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
@@ -37,18 +39,21 @@ export default function HighRiskCard({mother}) {
                         : <p className="status-no">NO</p>}
                     </li>
                     <li>{false ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
-                  <div className="list-break-values">
-                    <li>{false ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
-                    <li>{mother.placenta_previa
-                        ? <p className="status-yes">YES</p>
-                        : <p className="status-no">NO</p>}
-                    </li>
-                    <li>{true ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
-                    <li>{mother.other_complication
-                        ? <p className="status-yes">YES</p>
-                        : <p className="status-no">NO</p>}
-                    </li>
-                  </div>
+                    {state &&
+                    <div className="list-break-values">
+                        <li>{false ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
+                        <li>{mother.placenta_previa
+                            ? <p className="status-yes">YES</p>
+                            : <p className="status-no">NO</p>}
+                        </li>
+                        <li>{true ? <p className="status-yes">YES</p> : <p className="status-no">NO</p>}</li>
+                        <li>{mother.other_complication
+                            ? <p className="status-yes">YES</p>
+                            : <p className="status-no">NO</p>}
+                        </li>
+                    </div>
+                    }
+
                 </ul>
             </div>
         </Card>

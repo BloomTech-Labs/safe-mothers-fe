@@ -478,6 +478,7 @@ function MotherForm(props) {
                                             <p className="errormessage">{props.errors.carrier}</p>
                                         )}
                                     </label>
+
                                     {/*carrier_other*/}
                                     {props.values.carrier === choices.OTHER &&
                                     <label className="error-holder">
@@ -485,8 +486,8 @@ function MotherForm(props) {
                                         {props.touched.carrier_other && props.errors.carrier_other && (
                                             <p className="errormessage">{props.errors.carrier_other}</p>
                                         )}
-                                    </label>
-                                    }
+                                    </label>}
+
                                     {/*owner_phone*/}
                                     <label className="error-holder">
                                         <Field component="select" className="regular-input input" name="owner_phone"
