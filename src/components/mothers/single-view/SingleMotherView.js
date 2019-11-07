@@ -8,11 +8,75 @@ import HightRiskCard from '../cards/HightRiskCard';
 import MedicalHistoryCard from '../cards/MedicalHistoryCard';
 import SuppliesForPregnancyCard from '../cards/SuppliesForPregnancyCard';
 
-import SVG from 'react-inlinesvg/lib/index';
+import { SVGBtn } from '../../reusableParts/form-items';
 import Close from '../../reusableParts/resources/Close.svg';
 import Edit from '../../reusableParts/resources/Edit.svg';
 import {Button} from "../../reusableParts/form-items";
 
+
+function SingleMotherView(props) {
+    const id = props.match.params.id;
+    const singleMother = props.mothers.filter(mother => `${mother.id}` === id);
+    return (
+        <>
+            {singleMother && singleMother.map(mother => (
+                <StyledPageView className="single-page-view">
+                    <div className="banner">
+                        <h1 className="banner-title">{mother.name}</h1>
+                    <div className="btn-container">
+                        <Button onClick={() => props.history.push(`/mother-form/${id}`)} bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1" >
+                            EDIT<SVGBtn bg="#1337F1" className="edit-svg" src={Edit}/>
+                        </Button>
+                        <Button bgOnHover="#db4343" bg="#EB5757" color="white">
+                            DELETE<SVGBtn bg="#ffffff" className="del-svg" src={Close}/>
+                        </Button>
+                    </div>
+                    </div>
+                    <div className="card-container">
+                        <div className="grid-top">
+                            <div className="card reduced">
+                                <span className="card-title">PERSONAL</span>
+                                <PersonalCard mother={mother}/>
+                            </div>
+                            <div className="card reduced">
+                                <span className="card-title">CONTACTS</span>
+                                <ContactsCard mother={mother}/>
+                            </div>
+                        </div>
+                        <div className="grid-bottom">
+                            <div className="card increased">
+                                <span className="card-title">FINANCE AND INSURANCE</span>
+                                <FinanceAndInsuranceCard mother={mother}/>
+                            </div>
+                            <div className="card centered">
+                                <span className="card-title">SUPPLIES</span>
+                                <SuppliesForPregnancyCard mother={mother}/>
+                            </div>
+                            <div className="card increased">
+                                <span className="card-title">MEDICAL HISTORY</span>
+                                <MedicalHistoryCard mother={mother}/>
+                            </div>
+                            <div className="card increased">
+                                <span className="card-title">RISK</span>
+                                <HightRiskCard state={true} mother={mother}/>
+                            </div>
+                        </div>
+                    </div>
+                </StyledPageView>
+
+            ))
+            }
+        </>
+    )
+}
+
+const mapStateToProps = state => {
+    return {
+        mothers: state.mothersReducer.mothers
+    };
+};
+
+export default connect(mapStateToProps, {})(SingleMotherView);
 
 const StyledPageView = styled.div` 
     font-size: 16px;
@@ -87,7 +151,7 @@ const StyledPageView = styled.div`
     .values{
         width: 50%;
         padding: 0;
-        color: black;
+        color: grey;
         @media (max-width: 1024px){
             margin-left: 65px;
             padding-left: 3%;
@@ -229,68 +293,3 @@ const StyledPageView = styled.div`
         }
     }
 `;
-
-
-function SingleMotherView(props) {
-    const id = props.match.params.id;
-    const singleMother = props.mothers.filter(mother => `${mother.id}` === id);
-    return (
-        <>
-            {singleMother && singleMother.map(mother => (
-                <StyledPageView className="single-page-view">
-                    <div className="banner">
-                        <h1 className="banner-title">{mother.name}</h1>
-                    <div className="btn-container">
-                        <Button bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1">
-                            EDIT<SVG className="edit-svg" src={Edit}/>
-                        </Button>
-                        <Button bgOnHover="#db4343" bg="#EB5757" color="white">
-                            DELETE<SVG className="del-svg" src={Close}/>
-                        </Button>
-                    </div>
-                    </div>
-                    <div className="card-container">
-                        <div className="grid-top">
-                            <div className="card reduced">
-                                <span className="card-title">PERSONAL</span>
-                                <PersonalCard mother={mother}/>
-                            </div>
-                            <div className="card reduced">
-                                <span className="card-title">CONTACTS</span>
-                                <ContactsCard mother={mother}/>
-                            </div>
-                        </div>
-                        <div className="grid-bottom">
-                            <div className="card increased">
-                                <span className="card-title">FINANCE AND INSURANCE</span>
-                                <FinanceAndInsuranceCard mother={mother}/>
-                            </div>
-                            <div className="card centered">
-                                <span className="card-title">SUPPLIES</span>
-                                <SuppliesForPregnancyCard mother={mother}/>
-                            </div>
-                            <div className="card increased">
-                                <span className="card-title">MEDICAL HISTORY</span>
-                                <MedicalHistoryCard mother={mother}/>
-                            </div>
-                            <div className="card increased">
-                                <span className="card-title">RISK</span>
-                                <HightRiskCard mother={mother}/>
-                            </div>
-                        </div>
-                    </div>
-                </StyledPageView>
-
-            ))
-            }
-        </>
-    )
-}
-
-const mapStateToProps = state => {
-    return {
-        mothers: state.mothersReducer.mothers
-    };
-};
-
-export default connect(mapStateToProps, {})(SingleMotherView);

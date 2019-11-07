@@ -65,7 +65,6 @@ export const place_deliver = [
     "TRADITIONAL",
 ];
 
-
 export const transport_type = [
     "WALKING",
     "BICYCLE TAXI",
@@ -76,3 +75,62 @@ export const transport_type = [
     "AUTOCAR MY HOUSEHOLD OWNS",
     "SAFE MOTORCYCLE AMBULANCE",
 ];
+
+export const supplies_items = [
+    "mama_kit",
+    "mackintosh",
+    "razor",
+    "pad",
+    "cotton",
+    "soap",
+    "gloves",
+    "medication",
+    'baby_clothes',
+    'blanket',
+    'sheets',
+];
+
+export const education = [
+    "SOME PRIMARY",
+    "PRIMARY",
+    "SOME SECONDARY",
+    "SECONDARY",
+    "UNIVERSITY OR HIGHER"
+];
+
+export const decision_maker = [
+    "RESPONDENT",
+    "SPOUSE PARTNER",
+    "RESPONDENT AND SPOUSE PARTNER JOINTLY"
+];
+
+export const marital_status = [
+    "NEVER MARRIED/NEVER LIVED WITH A MAN AS IF MARRIED",
+    "CURRENTLY MARRIED",
+    "LIVING AS MARRIED",
+    "MARRIED BUT SEPARATED",
+    "DIVORCED",
+    'WIDOWED',
+];
+
+export const wives_number = [
+    "ONE",
+    "TWO",
+    "THREE",
+    "FOUR",
+];
+
+export const wife_rank = [
+    'FIRST WIFE',
+    'SECOND WIFE',
+    'THIRD WIFE',
+    'FOURTH WIFE',
+];
+
+export const insurance = [
+    'COMMUNITY-BASED HEALTH INSURANCE',
+    'PRIVATE COMMERCIAL HEALTH INSURANCE'
+];
+
+
+

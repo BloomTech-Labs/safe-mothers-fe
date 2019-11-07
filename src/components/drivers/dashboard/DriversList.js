@@ -4,7 +4,7 @@ import {getDrivers} from "../../../actions/driversActions";
 import {Accordion, AccordionPanel, Box} from "grommet/es6";
 import AccordionLabel from "./AccordionLabel";
 import AccordionContent from "./AccordionContent";
-
+import AddEntityBtn from "../../reusableParts/AddEntityBtn";
 
 const DriversList = (props) => {
     const {drivers} = props;
@@ -16,41 +16,37 @@ const DriversList = (props) => {
 
     return (
         <>
-            {console.log("DRIVERS ", drivers)}
-            <Box>
+            <AddEntityBtn name="Add Driver" history={props.history} path={"/edit-driver"}/>
+            <Accordion className="accordion"
+                       animate={true}
+                       multiple={false}
+                       margin='small'
+                       background='white'
+            >
+                {
+                    drivers &&
+                    drivers.map((driver, index) => (
+                        <>
+                            {driver.name &&
+                            <AccordionPanel key={index}
 
-                <Accordion className="accordion"
-                           animate={true}
-                           multiple={false}
-                           margin='small'
-                           background='white'
-                >
-                    {
-                        drivers &&
-                        drivers.map((driver, index) => (
-                            <>
-                                {driver.name &&
-                                <AccordionPanel key={index}
 
-                                         
-                                                label={<AccordionLabel  driver={driver}/>}>
+                                            label={<AccordionLabel driver={driver}/>}>
 
-                                    <Box background='white'><AccordionContent driver={driver}/> </Box>
-                                </AccordionPanel>
-                                }
-                            </>
-                        ))
-                    }
-                </Accordion>
-            </Box>
-
+                                <Box background='white'><AccordionContent driver={driver}/> </Box>
+                            </AccordionPanel>
+                            }
+                        </>
+                    ))
+                }
+            </Accordion>
         </>
     )
 };
 
 const mapStateToProps = state => {
     return {
-         drivers: state.driversReducer.drivers,
+        drivers: state.driversReducer.drivers,
 
     }
 };
