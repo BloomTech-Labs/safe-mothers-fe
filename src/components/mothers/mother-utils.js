@@ -12,16 +12,23 @@ export const HIGHT_RISK = "high risk";
 export const NO_RISK = "no risk";
 
 export const defineRainSeason = (data) => {
-    const convertedData = data.split('-');
-    const month = convertedData[1];
-    if (RAIN_SEASONS.indexOf(month) !== -1) return RAIN_SEASON;
-    return NO_SEASON;
+    if (data) {
+        const convertedData = data.split('-');
+        const month = convertedData[1];
+        if (RAIN_SEASONS.indexOf(month) !== -1) return RAIN_SEASON;
+        return NO_SEASON;
+    }
+    return ""
 };
+
 export const defineDrySeason = (data) => {
-    const convertedData = data.split('-');
-    const month = convertedData[1];
-    if (DRY_SEASONS.indexOf(month) !== -1) return DRY_SEASON;
-    return NO_SEASON;
+    if (data) {
+        const convertedData = data.split('-');
+        const month = convertedData[1];
+        if (DRY_SEASONS.indexOf(month) !== -1) return DRY_SEASON;
+        return NO_SEASON;
+    }
+    return ""
 };
 
 export function defineHighRisk(mother) {

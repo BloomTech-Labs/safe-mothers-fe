@@ -1,6 +1,6 @@
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
 
-🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by.  Make sure to delete the numbers by the end of Labs.
+🚫 The numbers 1️⃣ through 5️⃣ next to each item represent the week that part of the docs needs to be completed by. Make sure to delete the numbers by the end of Labs.
 
 🚫 Each student has a required minimum number of meaningful PRs each week per the rubric. Contributing to docs does NOT count as a PR to meet your weekly requirements.
 
@@ -14,6 +14,7 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
                                     
 
 ## Contributors
+
 
 |                                       [Aleksandra Foksman](https://github.com/AlexFox1777)                                        |                                       [Annique Nsabimana](https://github.com/AnniqueN)                                        |                                       [Blake Prouty](https://github.com/Prouty89)                                        |                                       [Chris Delfaus](https://github.com/ChrisDelf)                                        |                                       [Christian Ubani](https://github.com/chikechris)                                        |                                       [Dennis Mercado](https://github.com/denmercs)                                        |                                       [Jade E Lopez](https://github.com/jadeli1720)                                        |                                       [Jonathan Dorety](https://github.com/kyullog)                                        |
 
@@ -43,21 +44,24 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
 [UX Design files](https://www.figma.com/file/gUEga1dX7l0CCPsthYSQr0/Labs17_Safe-Mothers%2C-Alexander-Vargas?node-id=192%3A14) 
 
 
+
 Safe Mother, Safe Babies is a non-profit organization whose goal is to increase health facility access to pregnant mothers residing in Ugandan Villages. The organization relies on data collection of Mothers and volunteer drivers whose information is stored on a database and accessed for risk evaluation and SMS communication purposes. The app consists of several parts:
 
--    Administrative Dashboard that will display mother and driver data from the database.
--    Allow the user to perform CRUD operations on the available data
--    Give the user the ability to upload data
--    Interact and control the dispatch of drivers to mothers in need
 
+- Administrative Dashboard that will display mother and driver data from the database.
+- Allow the user to perform CRUD operations on the available data
+- Give the user the ability to upload data
+- Interact and control the dispatch of drivers to mothers in need
 
 ###  Key Features
+
 
 -    Mother can register her information using a phone with SMS capabilities
 -    feature two
 -    feature three
 -    feature four
 -    feature five
+
 
 ## Tech Stack
 
@@ -69,6 +73,7 @@ We chose these frameworks because:
 
 - Scalability
 - Ease of readability for the next team who builds on to this project
+
 - Vast selection of libraries to aid in accomplishing our goal
 - React's virtual DOM in ReactJS makes for faster development and better user experience
 - Allows us to specify various configurations and build reusable components
@@ -85,6 +90,7 @@ We chose these frameworks because:
 - redux-persist
 - redux-thunk
 
+
 # UI Design Libraries
 
 - grommet
@@ -97,6 +103,7 @@ We chose these frameworks because:
 
 #### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
+
 #    NodeJS + ExpressJS
 
 - Allows for quick building of scalable network applications
@@ -104,6 +111,7 @@ We chose these frameworks because:
 - Clean and organized code using packages/middleware for validation, error handling, etc.
 
 ## Libraries 
+
 
 - axios
 - bcryptjs
@@ -126,9 +134,11 @@ We chose these frameworks because:
 
 * **URL**
 
+
   /login
 
 * **Method:**
+
 
     `POST`
   
@@ -260,16 +270,7 @@ In order for the app to function correctly, the user must set up their own envir
 
 🚫These are just examples, replace them with the specifics for your app
 
-    *  REACT_APP_apiKey - this is your Google API key, which can be generated in the Google Cloud Console
-    *  REACT_APP_authDomain - when you set up your Firebase project, this information will be in the dashboard
-    *  REACT_APP_databaseURL - in the Firebase dashboard
-    *  REACT_APP_projectID - in the Firebase dashboard
-    *  REACT_APP_storageBucket - in the Firebase dashboard
-    *  REACT_APP_messagingSenderId - in the Firebase dashboard
-    *  REACT_APP_stripe_API - this is your public Stripe API key, generated in the Stripe dashboard
-    *  REACT_APP_backendURL - optional for your local development server
-    *  REACT_APP_clientid - this is the Stripe_connect clientID, generated in Stripe_connect settings
-    *  REACT_APP_stripe_plan - this is the ID for a second Stripe subscription plan, generated under Stripe products
+    *  REACT_APP_API_URL place the base URL of the back-end server
 
 # 5️⃣ Content Licenses
 
@@ -304,12 +305,13 @@ When contributing to this repository, please first discuss the change you wish t
 Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 ## Issue/Bug Request
-   
- **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
- - Check first to see if your issue has already been reported.
- - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
- - Create a live example of the problem.
- - Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes,  where you believe the issue is originating from, and any potential solutions you have considered.
+
+**If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
+
+- Check first to see if your issue has already been reported.
+- Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
+- Create a live example of the problem.
+- Submit a detailed bug report including your environment & browser, steps to reproduce the issue, actual and expected outcomes, where you believe the issue is originating from, and any potential solutions you have considered.
 
 ### Feature Requests
 
