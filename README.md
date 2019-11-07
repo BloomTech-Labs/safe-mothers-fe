@@ -59,7 +59,7 @@ Safe Mother, Safe Babies is a non-profit organization whose goal is to increase 
 -    feature four
 -    feature five
 
-## 1️⃣ Tech Stack
+## Tech Stack
 
 ### Front end built using:
 
@@ -120,18 +120,127 @@ We chose these frameworks because:
 
 # APIs
 
-## 2️⃣ Authentication API here
+## Authentication
 
-🚫Replace text below with a description of the API
+  Login a single user
 
-Water's like me. It's laaazy ... Boy, it always looks for the easiest way to do things A little happy sunlight shining through there. Let all these little things happen. Don't fight them. Learn to use them. Even the worst thing we can do here is good.
+* **URL**
+
+  /login
+
+* **Method:**
+
+    `POST`
+  
+
+* **Data Params**
+
+  `{password: " ", username: " "}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 404 NOT FOUND <br /> 
+    **Content:** `{ error : "Admin is not registered" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const loginUser = (data, history) => {
+    return dispatch => {
+        dispatch({ type: LOGIN_START });
+        return axiosWithAuth()
+            .post("/auth/login", data)
+            .then(res => {
+                localStorage.setItem("token", res.data.token);
+                dispatch({ type: LOGIN_SUCCESS, payload: res.data });
+                history.push("/dashboard");
+            })
+            .catch(err => {
+                dispatch({ type: LOGIN_FAILURE, payload: err.response })
+            });
+    };
+    ```
 
 
-## 3️⃣ Misc API here
+## Registration
 
-🚫Replace text below with a description of the API
+  Register a single administrative user
 
-You can do anything your heart can imagine. In life you need colors. This is where you take out all your hostilities and frustrations. It's better than kicking the puppy dog around and all that so. I'm sort of a softy, I couldn't shoot Bambi except with a camera. Trees get lonely too, so we'll give him a little friend. We'll lay all these little funky little things in there.
+* **URL**
+
+  /admin
+
+* **Method:**
+
+    `POST`
+  
+
+* **Data Params**
+
+  `{first_name: " ", last_name: " ", password: " ", username: " "}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error adding new user" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const registerUser = data => dispatch => {
+    dispatch({ type: REGISTER_USER_START });
+    return axiosWithAuth()
+        .post("/auth/register", data)
+        .then(res => {
+            dispatch({ type: REGISTER_USER_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            dispatch({type: REGISTER_USER_FAILURE, payload: err});
+        });
+    };
+    ```
+   Edit a registered administrative user.
+* **Method:**
+
+    `PUT`
+  
+* **Data Params**
+
+  `{first_name: " ", last_name: " ", password: " ", username: " "}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error adding new user" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const editUsers = (id, object) => dispatch => {
+    dispatch({type: EDIT_USERS_START});
+    axiosWithAuth()
+        .put(`/users/${id}`, object)
+        .then(res => {
+            dispatch({type: EDIT_USERS_SUCCESS, payload: object})
+        })
+        .catch(err => {
+            dispatch({type: EDIT_USERS_FAILURE, payload: err.response})
+        })
+    }
+    ```
+
 
 ## 3️⃣ Misc API here
 
