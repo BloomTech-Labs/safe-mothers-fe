@@ -856,12 +856,14 @@ function MotherForm(props) {
                                         <option value={choices.OTHER}>OTHER</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
                                     </Field>}
+
                                     {/*no_wives_other*/}
                                     {props.values.no_wives === choices.OTHER &&
                                     <Field className="regular-input input"
                                            type="text"
                                            name="no_wives_other"
                                     />}
+
                                     {/*wife_order*/}
                                     <Field component="select" className="regular-input input" name="wife_order"
                                            onChange={(e) => resetValue("wife_order", e.target.value, "wife_order_other", choices.OTHER)}>
