@@ -15,7 +15,7 @@ import {Button} from "../../reusableParts/form-items";
 
 
 const StyledPageView = styled.div` 
-    font-size: 16px;
+    font-size: 18px;
     background: white;
     
     ul {
@@ -25,29 +25,22 @@ const StyledPageView = styled.div`
     li{
         margin-bottom: 1%;
     }
-
-    .btn-container{
-        display: flex;
-        align-content: center;
-        min-width: 350px;
-    }
     
     .banner{
-        justify-content: space-between;
+        align-items: center;
         display: flex; 
         align-content: center;
         @media (max-width: 1024px){
            align-items: center;
-           justify-content: space-around;
         }
     }
     
     .banner-title{
         text-align: left;
-        min-width: 30%;
+        padding-right: 20%;
         @media (max-width: 1024px){
-            white-space: nowrap;
             text-align: center;
+            padding-left: 40%;
             padding-right: 10%;
         }
     }
@@ -66,16 +59,9 @@ const StyledPageView = styled.div`
         padding: 0;
         margin: 0;
         @media (max-width: 1024px){
-            text-align: left;
+            text-align: right;
         }
-
     }
-        .high-risk-card{
-            p{
-            margin-top: 0%;
-            margin-bottom: 0%;
-            }
-        }
     
     .values{
         align-content: flex-end;
@@ -104,6 +90,25 @@ const StyledPageView = styled.div`
         }
     }
     
+    .align-right.values.high-risk-card{
+        align-content: flex-start;
+        width: 50%;
+        margin-top: 0;
+        padding: 0;
+        margin-bottom: 0;
+        @media (max-width: 1024px){
+        } 
+        p{
+            margin-bottom: 0;
+            text-align: left;
+            margin-top: 0;
+        }
+    
+        @media (max-width: 1024px){
+            text-align: center;
+            margin-left: 2%;
+        }
+    }
     
     .card-container{
         display: flex; 
@@ -116,24 +121,15 @@ const StyledPageView = styled.div`
             text-align: center;
         }
         .card-title{
-
             font-weight: bold;
             text-align: left;
             @media (max-width: 1024px){
-                align-items: stretch;
-                text-align: center;
-                background: #f2f8ff;
-                width: 90%;
-                margin: auto;
-                height: 30px;
-                padding-top: 6px;
-             }
+                border-bottom: 1px solid black;
+            }
         }
     }
     
     .reduced {
-        display: flex;
-        flex-direction: column;
         width: 50%;
         @media (max-width: 1024px){
             width: 100%;
@@ -141,34 +137,21 @@ const StyledPageView = styled.div`
     }
     
     .centered{
-        display: flex;
-        flex-direction: column;
         text-align: center;
-        align-content: center;
         li{
-            text-align:center;
-        }
-        ul{
-            text-align:center;
-            width: 100%;
+            text-align:center
         }
         .card-title{
-            text-align: center;
+            padding-right: 20%;
         }
         @media (max-width: 1024px) {
             text-align: center;
-            width: 100%;
+            padding-right: 0;
         }
     }
     
     .increased {
         width: 125%;
-        display: flex;
-        flex-direction: column;
-
-        @media (max-width: 1024px) {
-            width: 100%;
-        }
     }
     
     .grid-top{
@@ -200,12 +183,10 @@ const StyledPageView = styled.div`
         margin-bottom: 2%;
         
         @media (max-width: 1024px) {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
+            display: block;
+            width: 80%;
             text-align: center;
             align-content: center;
-            justify-content: center;
         }
         
         li{
@@ -224,14 +205,12 @@ function SingleMotherView(props) {
                 <StyledPageView className="single-page-view">
                     <div className="banner">
                         <h1 className="banner-title">{mother.name}</h1>
-                    <div className="btn-container">
-                        <Button bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1">
+                        <Button onClick={() => props.history.push(`/mother-form/${id}`)} bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1" >
                             EDIT<SVG className="edit-svg" src={Edit}/>
                         </Button>
                         <Button bgOnHover="#db4343" bg="#EB5757" color="white">
                             DELETE<SVG className="del-svg" src={Close}/>
                         </Button>
-                    </div>
                     </div>
                     <div className="card-container">
                         <div className="grid-top">
@@ -259,7 +238,7 @@ function SingleMotherView(props) {
                             </div>
                             <div className="card increased">
                                 <span className="card-title">RISK</span>
-                                <HightRiskCard mother={mother}/>
+                                <HightRiskCard state={true} mother={mother}/>
                             </div>
                         </div>
                     </div>

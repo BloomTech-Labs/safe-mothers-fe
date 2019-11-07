@@ -5,12 +5,19 @@ const {
     GET_MOTHERS_START,
     GET_MOTHERS_SUCCESS,
     GET_MOTHERS_FAILURE,
+
+    GET_MOTHER_START,
+    GET_MOTHER_SUCCESS,
+    GET_MOTHER_FAILURE,
+
     ADD_MOTHERS_START,
     ADD_MOTHERS_SUCCESS,
     ADD_MOTHERS_FAILURE,
-    UPDATE_MOTHERS_START,
-    UPDATE_MOTHERS_SUCCESS,
-    UPDATE_MOTHERS_FAILURE,
+
+    UPDATE_MOTHER_START,
+    UPDATE_MOTHER_SUCCESS,
+    UPDATE_MOTHER_FAILURE,
+
     DELETE_MOTHERS_START,
     DELETE_MOTHERS_SUCCESS,
     DELETE_MOTHERS_FAILURE,
@@ -35,33 +42,43 @@ export const getMothers = () => dispatch => {
         .catch(error => dispatch({type: GET_MOTHERS_FAILURE, payload: error}))
 };
 
-export const addMothers = mothers => dispatch => {
-            dispatch({ type: ADD_MOTHERS_START });
-            axiosWithAuth()
-              .post('/mothers/auth/register', mothers)
-              .then(res => dispatch({ type: ADD_MOTHERS_SUCCESS }))
-              .catch(err => dispatch({ type: ADD_MOTHERS_FAILURE, payload: err.response }));
-          };
-        
+export const getMother = (id) => dispatch => {
+    dispatch({type: GET_MOTHER_START});
+    axiosWithAuth()
+        .get(`/mothers/${id}`)
+        .then(res => {
+            dispatch({type: GET_MOTHER_SUCCESS, payload: res.data[0]})
+        })
+        .catch(error => dispatch({type: GET_MOTHER_FAILURE, payload: error}))
+};
+
+export const addMother = mothers => dispatch => {
+    dispatch({type: ADD_MOTHERS_START});
+    axiosWithAuth()
+        .post('/mothers/auth/register', mothers)
+        .then(res => dispatch({type: ADD_MOTHERS_SUCCESS}))
+        .catch(err => dispatch({type: ADD_MOTHERS_FAILURE, payload: err.response}));
+};
+
+export const updateMother = (id, mother) => dispatch => {
+    dispatch({type: UPDATE_MOTHER_START});
+    axiosWithAuth()
+        .put(`/mothers/${id}`, mother)
+        .then(res => dispatch({type: UPDATE_MOTHER_SUCCESS, payload: mother}))
+        .catch(err =>
+            dispatch({type: UPDATE_MOTHER_FAILURE, payload: err.response}),
+        );
+};
+
 export const deleteMothers = id => dispatch => {
-            dispatch({ type: DELETE_MOTHERS_START });
-            axiosWithAuth()
-              .delete(`/${id}`)
-              .then(res => dispatch({ type: DELETE_MOTHERS_SUCCESS }))
-              .catch(err =>
-                dispatch({ type: DELETE_MOTHERS_FAILURE, payload: err.response }),
-              );
-          };
-        
-export const updateMothers = (id, update) => dispatch => {
-            dispatch({ type: UPDATE_MOTHERS_START });
-            axiosWithAuth()
-              .put(`/${id}`, update)
-              .then(res => dispatch({ type: UPDATE_MOTHERS_SUCCESS }))
-              .catch(err =>
-                dispatch({ type: UPDATE_MOTHERS_FAILURE, payload: err.response }),
-              );
-          };
+    dispatch({type: DELETE_MOTHERS_START});
+    axiosWithAuth()
+        .delete(`/${id}`)
+        .then(res => dispatch({type: DELETE_MOTHERS_SUCCESS}))
+        .catch(err =>
+            dispatch({type: DELETE_MOTHERS_FAILURE, payload: err.response}),
+        );
+};
 
 
 export const createLabel = (values) => dispatch => {
@@ -85,7 +102,7 @@ export const getLabels = (id) => dispatch => {
         .catch(error => dispatch({type: GET_LABELS_FAILURE, payload: error}))
 };
 
-export const deleteLabel = (id) => dispatch =>{
+export const deleteLabel = (id) => dispatch => {
     dispatch({type: DELETE_LABEL_START});
     axiosWithAuth()
         .delete(`/labels/${id}`)

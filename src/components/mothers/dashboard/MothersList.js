@@ -4,8 +4,7 @@ import {getMothers} from '../../../actions/mothersActions';
 import {Accordion, AccordionPanel, Box} from 'grommet';
 import AccordionLabel from './AccordionLabel';
 import AccordionContent from './AccordionContent';
-import {defineHighRisk} from "../mother-utils";
-import settingsReducer from "../../../reducers/settingsReducer";
+import {highRisk} from "../mother-utils";
 import AddEntityBtn from "../../reusableParts/AddEntityBtn";
 
 
@@ -20,7 +19,7 @@ const Mothers = props => {
         <>
         {console.log(mothers)}
             <Box>
-                <AddEntityBtn name="Add Mother" history={props.history} path={"/edit-mother"} />
+                <AddEntityBtn name="Add Mother" history={props.history} path={"/mother-form"}/>
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}
@@ -33,7 +32,7 @@ const Mothers = props => {
                             <>
                                 {mother.name &&
                                 <AccordionPanel key={index}
-                                                label={<AccordionLabel risk={defineHighRisk(mother)} mother={mother}/>}>
+                                                label={<AccordionLabel risk={highRisk(mother)} mother={mother}/>}>
                                     <Box background='white'><AccordionContent mother={mother}/> </Box>
                                 </AccordionPanel>
                                 }
