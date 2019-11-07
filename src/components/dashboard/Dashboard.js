@@ -41,9 +41,8 @@ console.log(props.mothers.due_now)
     return (
       
         <MainContainer className="mainContainer">
-           {props.mothers.map((mother, i)=>
-            <div key= {i}className="cards">
-                <DashboardCard val1={mother.due_now}  val2="3" val3="4" cardState={MOTHER}/>
+            <div className="cards">
+                <DashboardCard val1="5" val2="3" val3="4" cardState={MOTHER}/>
                 <DashboardCard val1="1" val2="2" val3="1"  cardState={DRIVER}/>
             </div>)}
             <div className="board">
