@@ -15,8 +15,10 @@ import {Button} from "../../reusableParts/form-items";
 
 
 const StyledPageView = styled.div` 
-    font-size: 18px;
+    font-size: 16px;
     background: white;
+    max-width: 1500px;
+    margin: 50px auto;
     
     ul {
         margin: 0;
@@ -25,23 +27,36 @@ const StyledPageView = styled.div`
     li{
         margin-bottom: 1%;
     }
+    .btn-container{
+        display: flex;
+        align-content: center;
+        min-width: 350px;
+        margin-top: 15px;
+        @media (max-width: 1024px){
+            justify-content: center;
+        }
+    }
     
     .banner{
-        align-items: center;
+        justify-content: space-between;
+        margin-left: 30px;
         display: flex; 
         align-content: center;
         @media (max-width: 1024px){
            align-items: center;
+           flex-direction: column;
+           margin: 0 auto;
+           justify-content: space-around;
         }
     }
     
     .banner-title{
         text-align: left;
-        padding-right: 20%;
+        min-width: 30%;
         @media (max-width: 1024px){
+            white-space: nowrap;
             text-align: center;
-            padding-left: 40%;
-            padding-right: 10%;
+           
         }
     }
     
@@ -59,16 +74,22 @@ const StyledPageView = styled.div`
         padding: 0;
         margin: 0;
         @media (max-width: 1024px){
-            text-align: right;
+            text-align: left;
         }
     }
+        .high-risk-card{
+            p{
+            margin-top: 0%;
+            margin-bottom: 0%;
+            }
+        }
     
     .values{
-        align-content: flex-end;
         width: 50%;
         padding: 0;
         color: black;
         @media (max-width: 1024px){
+            margin-left: 65px;
             padding-left: 3%;
             color: black;
             text-align: left;
@@ -77,6 +98,9 @@ const StyledPageView = styled.div`
     
     .align-center.values{
         text-align: left;
+        @media (max-width: 1024px){
+            margin: 0 auto;
+        }
     }
     
     .align-right{
@@ -85,30 +109,12 @@ const StyledPageView = styled.div`
         text-align: left;
         padding: 0;
         @media (max-width: 1024px){
+            margin: 0 auto;
             text-align: right;
-            margin-right: 2%;
+            
         }
     }
     
-    .align-right.values.high-risk-card{
-        align-content: flex-start;
-        width: 50%;
-        margin-top: 0;
-        padding: 0;
-        margin-bottom: 0;
-        @media (max-width: 1024px){
-        } 
-        p{
-            margin-bottom: 0;
-            text-align: left;
-            margin-top: 0;
-        }
-    
-        @media (max-width: 1024px){
-            text-align: center;
-            margin-left: 2%;
-        }
-    }
     
     .card-container{
         display: flex; 
@@ -124,37 +130,60 @@ const StyledPageView = styled.div`
             font-weight: bold;
             text-align: left;
             @media (max-width: 1024px){
-                border-bottom: 1px solid black;
-            }
+                align-items: stretch;
+                text-align: center;
+                background: #f2f8ff;
+                width: 90%;
+                margin: auto;
+                height: 30px;
+                padding-top: 6px;
+             }
         }
     }
     
     .reduced {
+        display: flex;
+        flex-direction: column;
         width: 50%;
+        margin-left: 30px;
         @media (max-width: 1024px){
+            margin-left: 0px;
             width: 100%;
         }
     }
     
     .centered{
+        display: flex;
+        flex-direction: column;
         text-align: center;
+        align-content: center;
         li{
-            text-align:center
+            text-align:center;
+        }
+        ul{
+            text-align:center;
+            width: 100%;
         }
         .card-title{
-            padding-right: 20%;
+            text-align: center;
         }
         @media (max-width: 1024px) {
             text-align: center;
-            padding-right: 0;
+            width: 100%;
         }
     }
     
     .increased {
         width: 125%;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 1024px) {
+            width: 100%;
+        }
     }
     
     .grid-top{
+        margin-left: 30px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
@@ -163,6 +192,7 @@ const StyledPageView = styled.div`
         align-items: stretch;
         text-align: left;    
         @media (max-width: 1024px) {
+            margin-left: 0px;
             display: block;
             width: 100%;
             text-align: center;
@@ -173,6 +203,7 @@ const StyledPageView = styled.div`
     }
     
     .grid-bottom{
+        margin-left: 30px;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: 1fr;
@@ -181,12 +212,16 @@ const StyledPageView = styled.div`
         align-items: stretch;
         text-align: left;
         margin-bottom: 2%;
+
         
         @media (max-width: 1024px) {
-            display: block;
-            width: 80%;
+            display: flex;
+            flex-direction: column;
+            margin-left: 0px;
+            width: 100%;
             text-align: center;
             align-content: center;
+            justify-content: center;
         }
         
         li{
@@ -205,12 +240,14 @@ function SingleMotherView(props) {
                 <StyledPageView className="single-page-view">
                     <div className="banner">
                         <h1 className="banner-title">{mother.name}</h1>
+                    <div className="btn-container">
                         <Button bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1">
                             EDIT<SVG className="edit-svg" src={Edit}/>
                         </Button>
                         <Button bgOnHover="#db4343" bg="#EB5757" color="white">
                             DELETE<SVG className="del-svg" src={Close}/>
                         </Button>
+                    </div>
                     </div>
                     <div className="card-container">
                         <div className="grid-top">

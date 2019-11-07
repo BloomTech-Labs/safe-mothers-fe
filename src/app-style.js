@@ -40,8 +40,7 @@ export const Container = styled.div`
 `;
 
 export const SearchWrapper = styled.div`
-    width: 95%;
-    //delete matgin top
+    max-width: 1500px;
     margin: 50px auto;
     
     .search {
