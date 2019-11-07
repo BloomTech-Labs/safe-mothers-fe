@@ -19,7 +19,7 @@ const Mothers = props => {
     return (
         <>
             <Box>
-                <AddEntityBtn name="Add Mother" history={props.history} path={"/edit-mother"} />
+                <AddEntityBtn name="Add Mother" history={props.history} path={"/mother-form"} />
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}

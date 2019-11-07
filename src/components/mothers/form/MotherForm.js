@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from "yup";
 import {Button, FormItems} from "../../reusableParts/form-items";
@@ -7,7 +7,6 @@ import SVG from 'react-inlinesvg/lib/index';
 import Pregnant from '../resources/Pregnant.svg';
 import YesNoDontknowDeclin, {choices} from "./YesNoDontknowDeclin";
 import CheckBox from "./CheckBox";
-import {defineDate} from "../mother-utils";
 import Select from "./Select";
 import {
     carriers,
@@ -23,7 +22,7 @@ import PregnancyComplication from "./PregnancyComplication";
 import PriorComplication from "./PriorComplication";
 import Interviewers, {interviewers} from "./Interviewers";
 import {connect} from "react-redux";
-import {addMothers} from "../../../actions/mothersActions";
+import {addMother, getMother, updateMother} from "../../../actions/mothersActions";
 import {Link} from "react-router-dom";
 
 const StyledMotherForm = styled.div`
@@ -122,7 +121,6 @@ const StyledMotherForm = styled.div`
     }
   
     .input{ }
-
     .label-value{
         text-align: left;
         width: 33%;
@@ -184,12 +182,36 @@ const StyledMotherForm = styled.div`
         left: 100%;
         margin-left: -1.4em;
     }
-
 `;
 
 function MotherForm(props) {
     const [supplies, setSuppliesForPregnancy] = useState(false);
     const [amtSaved, setAmtSaved] = useState(false);
+
+    /*   useEffect(() => {
+           const id = props.match.params.id;
+           if (id) props.getMother(id);
+           console.log("STEP 1: ", id)
+       }, [props.match.params.id]);*/
+
+    useEffect(() => {
+        const id = props.match.params.id;
+        if (id) {
+            const filtered_mother = props.mothers.filter(mother => `${mother.id}` === id);
+            const signle_mother = filtered_mother[0];
+            console.log("FILTERED ", filtered_mother);
+            console.log("STEP 2 ", props.match.params.id);
+            let mother = {};
+            for (let property  in signle_mother) {
+                if (typeof signle_mother[property] === 'string' && signle_mother[property].length > 0) mother[property] = signle_mother[property];
+                if (typeof signle_mother[property] === 'number') mother[property] = signle_mother[property];
+            }
+            // props.resetForm();
+            props.setValues(mother);
+        } else {
+            props.resetForm();
+        }
+    }, []);
 
     const handleSupplies = (name, value) => {
         if (typeof props.values[name] === 'number') {
@@ -212,7 +234,7 @@ function MotherForm(props) {
                     <Form className="form-contents position-form">
 
                         <div className="header-personal">
-                           {/* <p className="arrow">
+                            {/* <p className="arrow">
                                 <Link to="/">&#8592;</Link>
                             </p>*/}
                             <h2 className="personal-name">{"Nancy Whitemoon"}</h2>
@@ -223,7 +245,7 @@ function MotherForm(props) {
                                 <Button color="white" bgOnHover="#db4343" bg="#EB5757">Delete</Button>
                             </div>
                             <div className="back">
-                                <p onClick={() => props.history.push("/mothers")} >Back</p>
+                                <p onClick={() => props.history.push("/mothers")}>Back</p>
                             </div>
                         </div>
 
@@ -246,10 +268,10 @@ function MotherForm(props) {
                                 <div className="column">
                                     {/*interviewer*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="interviewer"
-                                                onChange={(e) => resetValue("interviewer", e.target.value, "interviewer_other", interviewers.Other)}>
+                                        <Field component="select" className="regular-input input" name="interviewer"
+                                               onChange={(e) => resetValue("interviewer", e.target.value, "interviewer_other", interviewers.Other)}>
                                             <Interviewers/>
-                                        </select>
+                                        </Field>
                                         {props.touched.interviewer && props.errors.interviewer && (
                                             <p className="errormessage">{props.errors.interviewer}</p>
                                         )}
@@ -267,10 +289,10 @@ function MotherForm(props) {
 
                                     {/*current_pg*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="current_pg"
-                                                onChange={(e) => props.setFieldValue("current_pg", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="current_pg"
+                                               onChange={(e) => props.setFieldValue("current_pg", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={false}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.current_pg && props.errors.current_pg && (
                                             <p className="errormessage">{props.errors.current_pg}</p>
                                         )}
@@ -278,10 +300,10 @@ function MotherForm(props) {
 
                                     {/*due_now*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="due_now"
-                                                onChange={(e) => props.setFieldValue("due_now", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="due_now"
+                                               onChange={(e) => props.setFieldValue("due_now", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.due_now && props.errors.due_now && (
                                             <p className="errormessage">{props.errors.due_now}</p>
                                         )}
@@ -289,10 +311,11 @@ function MotherForm(props) {
 
                                     {/*deliver_elsewhere*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="deliver_elsewhere"
-                                                onChange={(e) => props.setFieldValue("deliver_elsewhere", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input"
+                                               name="deliver_elsewhere"
+                                               onChange={(e) => props.setFieldValue("deliver_elsewhere", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.deliver_elsewhere && props.errors.deliver_elsewhere && (
                                             <p className="errormessage">{props.errors.deliver_elsewhere}</p>
                                         )}
@@ -300,10 +323,10 @@ function MotherForm(props) {
 
                                     {/*hx_cesarean*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="hx_cesarean"
-                                                onChange={(e) => props.setFieldValue("hx_cesarean", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="hx_cesarean"
+                                               onChange={(e) => props.setFieldValue("hx_cesarean", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.hx_cesarean && props.errors.hx_cesarean && (
                                             <p className="errormessage">{props.errors.hx_cesarean}</p>
                                         )}
@@ -311,10 +334,10 @@ function MotherForm(props) {
 
                                     {/*hx_complication*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="hx_complication"
-                                                onChange={(e) => props.setFieldValue("hx_complication", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="hx_complication"
+                                               onChange={(e) => props.setFieldValue("hx_complication", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.hx_complication && props.errors.hx_complication && (
                                             <p className="errormessage">{props.errors.hx_complication}</p>
                                         )}
@@ -322,10 +345,10 @@ function MotherForm(props) {
 
                                     {/*current_multip*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="current_multip"
-                                                onChange={(e) => props.setFieldValue("current_multip", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="current_multip"
+                                               onChange={(e) => props.setFieldValue("current_multip", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.current_multip && props.errors.current_multip && (
                                             <p className="errormessage">{props.errors.current_multip}</p>
                                         )}
@@ -374,11 +397,11 @@ function MotherForm(props) {
 
                                     {/*village*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="village"
-                                                onChange={(e) => resetValue("village", e.target.value, "village_other", choices.OTHER)}>
+                                        <Field component="select" className="regular-input input" name="village"
+                                               onChange={(e) => resetValue("village", e.target.value, "village_other", choices.OTHER)}>
                                             <Select list={villages}/>
                                             <option value="97">Other</option>
-                                        </select>
+                                        </Field>
                                         {props.touched.village && props.errors.village && (
                                             <p className="errormessage">{props.errors.village}</p>
                                         )}
@@ -414,10 +437,10 @@ function MotherForm(props) {
                                 <div className="column">
                                     {/*own_phone*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="own_phone"
-                                                onChange={(e) => props.setFieldValue("own_phone", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="own_phone"
+                                               onChange={(e) => props.setFieldValue("own_phone", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={false}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.own_phone && props.errors.own_phone && (
                                             <p className="errormessage">{props.errors.own_phone}</p>
                                         )}
@@ -425,10 +448,10 @@ function MotherForm(props) {
 
                                     {/*other_phone*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="other_phone"
-                                                onChange={(e) => props.setFieldValue("other_phone", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="other_phone"
+                                               onChange={(e) => props.setFieldValue("other_phone", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={false}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.other_phone && props.errors.other_phone && (
                                             <p className="errormessage">{props.errors.other_phone}</p>
                                         )}
@@ -444,18 +467,17 @@ function MotherForm(props) {
 
                                     {/*carrier*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="carrier"
-                                                onChange={(e) => resetValue("carrier", e.target.value, "carrier_other", choices.OTHER)}>
+                                        <Field component="select" className="regular-input input" name="carrier"
+                                               onChange={(e) => resetValue("carrier", e.target.value, "carrier_other", choices.OTHER)}>
                                             <Select list={carriers}/>
                                             <option value={choices.OTHER}>Other</option>
                                             <option value={choices.IDN}>Don`t know</option>
                                             <option value={choices.DECLINES_TO_ANSWER}>Decline to answer</option>
-                                        </select>
+                                        </Field>
                                         {props.touched.carrier && props.errors.carrier && (
                                             <p className="errormessage">{props.errors.carrier}</p>
                                         )}
                                     </label>
-
                                     {/*carrier_other*/}
                                     {props.values.carrier === choices.OTHER &&
                                     <label className="error-holder">
@@ -465,19 +487,17 @@ function MotherForm(props) {
                                         )}
                                     </label>
                                     }
-
                                     {/*owner_phone*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="owner_phone"
-                                                onChange={(e) => resetValue("owner_phone", e.target.value, "owner_phone_other", choices.OTHER)}>
+                                        <Field component="select" className="regular-input input" name="owner_phone"
+                                               onChange={(e) => resetValue("owner_phone", e.target.value, "owner_phone_other", choices.OTHER)}>
                                             <Select list={phone_owner}/>
                                             <option value={choices.OTHER}>Other</option>
-                                        </select>
+                                        </Field>
                                         {props.touched.owner_phone && props.errors.owner_phone && (
                                             <p className="errormessage">{props.errors.owner_phone}</p>
                                         )}
                                     </label>
-
                                     {/*owner_phone_other*/}
                                     {props.values.owner_phone === choices.OTHER &&
                                     <label className="error-holder">
@@ -487,13 +507,12 @@ function MotherForm(props) {
                                         )}
                                     </label>
                                     }
-
                                     {/*want_education*/}
                                     <label className="error-holder">
-                                        <select className="regular-input input" name="want_education"
-                                                onChange={(e) => props.setFieldValue("want_education", parseInt(e.target.value))}>
+                                        <Field component="select" className="regular-input input" name="want_education"
+                                               onChange={(e) => props.setFieldValue("want_education", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={false}/>
-                                        </select>
+                                        </Field>
                                         {props.touched.want_education && props.errors.want_education && (
                                             <p className="errormessage">{props.errors.want_education}</p>
                                         )}
@@ -501,10 +520,8 @@ function MotherForm(props) {
                                 </div>
                             </div>
                         </div>
-
                         {/*second line*/}
                         <div className="inline">
-
                             {/*complications - ready*/}
                             <div className="label-value inline">
                                 <ul>
@@ -526,76 +543,63 @@ function MotherForm(props) {
                                     }
                                 </ul>
                                 <div className="column">
-
                                     {/*complications_note*/}
-
                                     {/*anemia*/}
-                                    <select className="regular-input input" name="anemia"
-                                            onChange={(e) => props.setFieldValue("anemia", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="anemia"
+                                           onChange={(e) => props.setFieldValue("anemia", parseInt(e.target.value))}>
                                         <PregnancyComplication/>
-                                    </select>
-
+                                    </Field>
                                     {/*malaria*/}
-                                    <select className="regular-input input" name="malaria"
-                                            onChange={(e) => props.setFieldValue("malaria", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="malaria"
+                                           onChange={(e) => props.setFieldValue("malaria", parseInt(e.target.value))}>
                                         <PregnancyComplication/>
-                                    </select>
-
+                                    </Field>
                                     {/*obstructed_labor*/}
-                                    <select className="regular-input input" name="obstructed_labor"
-                                            onChange={(e) => props.setFieldValue("obstructed_labor", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="obstructed_labor"
+                                           onChange={(e) => props.setFieldValue("obstructed_labor", parseInt(e.target.value))}>
                                         <PriorComplication name={"obstructed_labor"}/>
-                                    </select>
-
+                                    </Field>
                                     {/*malpresent*/}
-                                    <select className="regular-input input" name="malpresent"
-                                            onChange={(e) => props.setFieldValue("malpresent", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="malpresent"
+                                           onChange={(e) => props.setFieldValue("malpresent", parseInt(e.target.value))}>
                                         <PriorComplication  {...props} name={"malpresent"}/>
-                                    </select>
-
+                                    </Field>
                                     {/*aph*/}
-                                    <select className="regular-input input" name="aph"
-                                            onChange={(e) => props.setFieldValue("aph", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="aph"
+                                           onChange={(e) => props.setFieldValue("aph", parseInt(e.target.value))}>
                                         <PregnancyComplication/>
-                                    </select>
-
+                                    </Field>
                                     {/*pph*/}
-                                    <select className="regular-input input" name="pph"
-                                            onChange={(e) => props.setFieldValue("pph", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="pph"
+                                           onChange={(e) => props.setFieldValue("pph", parseInt(e.target.value))}>
                                         <PriorComplication/>
-                                    </select>
-
+                                    </Field>
                                     {/*ret_placenta*/}
-                                    <select className="regular-input input" name="ret_placenta"
-                                            onChange={(e) => props.setFieldValue("ret_placenta", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="ret_placenta"
+                                           onChange={(e) => props.setFieldValue("ret_placenta", parseInt(e.target.value))}>
                                         <PriorComplication/>
-                                    </select>
-
+                                    </Field>
                                     {/*placenta_previa*/}
-                                    <select className="regular-input input" name="placenta_previa"
-                                            onChange={(e) => props.setFieldValue("placenta_previa", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="placenta_previa"
+                                           onChange={(e) => props.setFieldValue("placenta_previa", parseInt(e.target.value))}>
                                         <PregnancyComplication/>
-                                    </select>
-
+                                    </Field>
                                     {/*hx_stillbirth*/}
-                                    <select className="regular-input input" name="hx_stillbirth"
-                                            onChange={(e) => resetValue("hx_stillbirth", e.target.value, "no_stillbirths", choices.YES)}>
+                                    <Field component="select" className="regular-input input" name="hx_stillbirth"
+                                           onChange={(e) => resetValue("hx_stillbirth", e.target.value, "no_stillbirths", choices.YES)}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
-
+                                    </Field>
                                     {/*no_stillbirths*/}
                                     {props.values.hx_stillbirth === choices.YES &&
                                     <Field className="regular-input input"
                                            type="number"
                                            name="no_stillbirths"
                                     />}
-
                                     {/*other_complication*/}
-                                    <select className="regular-input input" name="other_complication"
-                                            onChange={(e) => resetValue("other_complication", e.target.value, "complication_specify", choices.YES)}>
+                                    <Field component="select" className="regular-input input" name="other_complication"
+                                           onChange={(e) => resetValue("other_complication", e.target.value, "complication_specify", choices.YES)}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
-
+                                    </Field>
                                     {/*complication_specify*/}
                                     {props.values.other_complication === choices.YES &&
                                     <Field className="regular-input input"
@@ -604,7 +608,6 @@ function MotherForm(props) {
                                     />}
                                 </div>
                             </div>
-
                             {/*Birth Preparedness - ready*/}
                             <div className="label-value inline">
                                 <ul>
@@ -624,72 +627,64 @@ function MotherForm(props) {
                                     }
                                 </ul>
                                 <div className="column">
-
                                     {/*BP_note - ASK WHAT IT IS */}
-
                                     {/*no_anc*/}
-                                    <select className="regular-input input" name="no_anc"
-                                            onChange={(e) => props.setFieldValue("no_anc", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="no_anc"
+                                           onChange={(e) => props.setFieldValue("no_anc", parseInt(e.target.value))}>
                                         <Select list={number_anc}/>
                                         <option value={choices.NO}>ZERO VISITS (NO ANC)</option>
                                         <option value={choices.IDN}>DON'T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
-                                    </select>
-
+                                    </Field>
                                     {/*deliver_place*/}
-                                    <select className="regular-input input" name="deliver_place"
-                                            onChange={(e) => resetValue("deliver_place", e.target.value, "deliver_place_other", choices.OTHER)}>
+                                    <Field component="select" className="regular-input input" name="deliver_place"
+                                           onChange={(e) => resetValue("deliver_place", e.target.value, "deliver_place_other", choices.OTHER)}>
                                         <Select list={place_deliver}/>
                                         <option value={choices.IDN}>DON'T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
                                         <option value={choices.OTHER}>OTHER</option>
-                                    </select>
-
+                                    </Field>
                                     {/*deliver_place_other*/}
                                     {props.values.deliver_place === choices.OTHER &&
                                     <Field className="regular-input input"
                                            type="text"
                                            name="deliver_place_other"
                                     />}
-
                                     {/*deliver_specific - ASK WHAT IT IS */}
-
                                     {/*plan_transport*/}
-                                    <select className="regular-input input" name="plan_transport "
-                                            onChange={(e) => resetValue("plan_transport", e.target.value, "plan_transport_other", choices.OTHER)}>
+                                    <Field component="select" className="regular-input input" name="plan_transport"
+                                           onChange={(e) => resetValue("plan_transport", e.target.value, "plan_transport_other", choices.OTHER)}>
                                         <Select list={transport_type}/>
                                         <option value={choices.IDN}>DON'T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
                                         <option value={choices.OTHER}>OTHER</option>
-                                    </select>
-
+                                    </Field>
                                     {/*plan_transport_other*/}
                                     {props.values.plan_transport === choices.OTHER &&
                                     <Field className="regular-input input"
                                            type="text"
                                            name="plan_transport_other"
                                     />}
-
                                     {/*purchase_supplies*/}
-                                    <select className="regular-input input" name="purchase_supplies"
-                                            onChange={(e) => {
-                                                console.log("choise ", e.target.value);
-                                                props.setFieldValue("purchase_supplies", parseInt(e.target.value));
-                                                if (parseInt(e.target.value) === choices.YES) setSuppliesForPregnancy(true);
-                                                if (parseInt(e.target.value) === choices.NO || parseInt(e.target.value) === choices.IDN || parseInt(e.target.value) === choices.DECLINES_TO_ANSWER) setSuppliesForPregnancy(false);
-                                            }}>
-                                        <option disabled selected value></option>
+                                    <Field component="select" className="regular-input input" name="purchase_supplies"
+                                           onChange={(e) => {
+                                               console.log("choise ", e.target.value);
+                                               props.setFieldValue("purchase_supplies", parseInt(e.target.value));
+                                               if (parseInt(e.target.value) === choices.YES) setSuppliesForPregnancy(true);
+                                               if (parseInt(e.target.value) === choices.NO || parseInt(e.target.value) === choices.IDN || parseInt(e.target.value) === choices.DECLINES_TO_ANSWER) setSuppliesForPregnancy(false);
+                                           }}>
+                                        <option value=""></option>
                                         <option value={choices.YES}>YES</option>
                                         <option value={choices.NO}>NO</option>
                                         <option value={choices.IDN}>I DON`T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
-                                    </select>
+                                    </Field>
 
                                     {/*saving_money*/}
-                                    <select className="regular-input input" name="saving_money"
-                                            onChange={(e) => resetValue("saving_money", e.target.value, "amt_saved", choices.YES)}>
+                                    <Field component="select" className="regular-input input" name="saving_money"
+                                           onChange={(e) => resetValue("saving_money", e.target.value, "amt_saved", choices.YES)}>
                                         <YesNoDontknowDeclin/>
-                                    </select>
+                                    </Field>
 
                                     {/*amt_saved*/}
                                     {props.values.saving_money === choices.YES &&
@@ -787,28 +782,29 @@ function MotherForm(props) {
                                 <div className="column">
 
                                     {/*attend_school*/}
-                                    <select className="regular-input input" name="attend_school"
-                                            onChange={(e) => resetValue("attend_school", e.target.value, "education", choices.YES)}>
+                                    {console.log("attend_school ", props.values.attend_school)}
+                                    <Field component="select" className="regular-input input" name="attend_school"
+                                           onChange={(e) => resetValue("attend_school", e.target.value, "education", choices.YES)}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
+                                    </Field>
 
                                     {/*education*/}
                                     {props.values.attend_school === choices.YES &&
-                                    <select className="regular-input input" name="education"
-                                            onChange={(e) => props.setFieldValue("education", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="education"
+                                           onChange={(e) => props.setFieldValue("education", parseInt(e.target.value))}>
                                         <Select list={education}/>
                                         <option value={choices.IDN}>I DON`T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>}
+                                    </Field>}
 
                                     {/*money_control*/}
-                                    <select className="regular-input input" name="money_control"
-                                            onChange={(e) => props.setFieldValue("money_control", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="money_control"
+                                           onChange={(e) => props.setFieldValue("money_control", parseInt(e.target.value))}>
                                         <Select list={decision_maker}/>
                                         <option value={choices.SMB}>SOMEONE ELSE</option>
                                         <option value={choices.IDN}>I DON`T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>
+                                    </Field>
 
                                     {/*total_house*/}
                                     <Field className="regular-input input"
@@ -817,12 +813,12 @@ function MotherForm(props) {
                                     />
 
                                     {/*marital_status*/}
-                                    <select className="regular-input input" name="marital_status"
-                                            onChange={(e) => resetValue("marital_status", e.target.value, "marital_status_other", choices.OTHER)}>
+                                    <Field component="select" className="regular-input input" name="marital_status"
+                                           onChange={(e) => resetValue("marital_status", e.target.value, "marital_status_other", choices.OTHER)}>
                                         <Select list={marital_status}/>
                                         <option value={choices.OTHER}>OTHER</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>
+                                    </Field>
 
                                     {/*marital_status_other*/}
                                     {props.values.marital_status === choices.OTHER &&
@@ -832,50 +828,48 @@ function MotherForm(props) {
                                     />}
 
                                     {/*spouse_school*/}
-                                    <select className="regular-input input" name="spouse_school"
-                                            onChange={(e) => resetValue("spouse_school", e.target.value, "spouse_education", choices.YES)}>
+                                    <Field component="select" className="regular-input input" name="spouse_school"
+                                           onChange={(e) => resetValue("spouse_school", e.target.value, "spouse_education", choices.YES)}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
+                                    </Field>
 
                                     {/*spouse_education*/}
                                     {props.values.spouse_school === choices.YES &&
-                                    <select className="regular-input input" name="spouse_education"
-                                            onChange={(e) => props.setFieldValue("spouse_education", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="spouse_education"
+                                           onChange={(e) => props.setFieldValue("spouse_education", parseInt(e.target.value))}>
                                         <Select list={education}/>
                                         <option value={choices.IDN}>I DON`T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>}
+                                    </Field>}
 
                                     {/*polygamy*/}
-                                    <select className="regular-input input" name="polygamy"
-                                            onChange={(e) => resetValue("polygamy", e.target.value, "no_wives", choices.YES)}>
+                                    <Field component="select" className="regular-input input" name="polygamy"
+                                           onChange={(e) => resetValue("polygamy", e.target.value, "no_wives", choices.YES)}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
+                                    </Field>
 
                                     {/*no_wives*/}
                                     {props.values.polygamy === choices.YES &&
-                                    <select className="regular-input input" name="no_wives"
-                                            onChange={(e) => resetValue("no_wives", e.target.value, "no_wives_other", choices.OTHER)}>
+                                    <Field component="select" className="regular-input input" name="no_wives"
+                                           onChange={(e) => resetValue("no_wives", e.target.value, "no_wives_other", choices.OTHER)}>
                                         <Select list={wives_number}/>
                                         <option value={choices.OTHER}>OTHER</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>}
-
+                                    </Field>}
                                     {/*no_wives_other*/}
                                     {props.values.no_wives === choices.OTHER &&
                                     <Field className="regular-input input"
                                            type="text"
                                            name="no_wives_other"
                                     />}
-
                                     {/*wife_order*/}
-                                    <select className="regular-input input" name="wife_order"
-                                            onChange={(e) => resetValue("wife_order", e.target.value, "wife_order_other", choices.OTHER)}>
+                                    <Field component="select" className="regular-input input" name="wife_order"
+                                           onChange={(e) => resetValue("wife_order", e.target.value, "wife_order_other", choices.OTHER)}>
                                         <Select list={wife_rank}/>
                                         <option value={choices.OTHER}>OTHER</option>
                                         <option value={choices.IDN}>DON`T KNOW`</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>
+                                    </Field>
 
                                     {/*wife_order_other*/}
                                     {props.values.no_wives === choices.OTHER &&
@@ -883,52 +877,43 @@ function MotherForm(props) {
                                            type="text"
                                            name="wife_order_other"
                                     />}
-
                                     {/*FINANCE AND INSURANCE*/}
                                     {/*insurance*/}
-                                    <select className="regular-input input" name="insurance"
-                                            onChange={(e) => resetValue("insurance", e.target.value, "insurance_type", choices.YES)}>
+                                    <Field component="select" className="regular-input input" name="insurance"
+                                           onChange={(e) => resetValue("insurance", e.target.value, "insurance_type", choices.YES)}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
-
+                                    </Field>
                                     {/*insurance_type*/}
                                     {props.values.insurance === choices.YES &&
-                                    <select className="regular-input input" name="insurance_type"
-                                            onChange={(e) => resetValue("insurance_type", e.target.value, "insurance_type_other", choices.OTHER)}>
+                                    <Field component="select" className="regular-input input" name="insurance_type"
+                                           onChange={(e) => resetValue("insurance_type", e.target.value, "insurance_type_other", choices.OTHER)}>
                                         <Select list={wife_rank}/>
                                         <option value={choices.OTHER}>OTHER</option>
                                         <option value={choices.IDN}>DON`T KNOW`</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </select>}
-
+                                    </Field>}
                                     {/*insurance_type_other*/}
                                     {props.values.insurance === choices.OTHER &&
                                     <Field className="regular-input input"
                                            type="text"
                                            name="insurance_type_other"
                                     />}
-
                                     {/*insurance_CBO - ASK WHAT IT IS*/}
                                     {/*insurance_private -ASK WHAT IT IS*/}
                                     {/*insurance_other -ASK WHAT IT IS*/}
-
                                     {/*sell_asset*/}
-                                    <select className="regular-input input" name="sell_asset"
-                                            onChange={(e) => props.setFieldValue("sell_asset", parseInt(e.target.value))}>
+                                    <Field component="select" className="regular-input input" name="sell_asset"
+                                           onChange={(e) => props.setFieldValue("sell_asset", parseInt(e.target.value))}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
-
+                                    </Field>
                                     {/*Conclusions*/}
-
                                     {/*notes*/}
                                     <Field className="regular-input input"
                                            type="text"
                                            name="notes"
                                     />
-
                                 </div>
                             </div>
-
                             {/*Pregnancy_History -ready*/}
                             <div className="label-value inline">
                                 <ul>
@@ -944,27 +929,22 @@ function MotherForm(props) {
                                 </ul>
                                 <div className="column">
                                     {/*PH_note - ASK WHAT IT IS*/}
-
                                     {/*no_pg*/}
                                     <Field className="regular-input input"
                                            type="number"
                                            name="no_pg"
-
                                     />
                                     {props.touched.no_pg && props.errors.no_pg && (
                                         <p className="error-message">{props.errors.no_pg}</p>
                                     )}
-
                                     {/*no_birth*/}
                                     <Field className="regular-input input"
                                            type="number"
                                            name="no_birth"
-
                                     />
                                     {props.touched.no_birth && props.errors.no_birth && (
                                         <p className="error-message">{props.errors.no_birth}</p>
                                     )}
-
                                     {/*no_children*/}
                                     <Field className="regular-input input"
                                            type="number"
@@ -976,23 +956,20 @@ function MotherForm(props) {
                                     {props.touched.no_children && props.errors.no_children && (
                                         <p className="error-message">{props.errors.no_children}</p>
                                     )}
-
                                     {/*no_under5*/}
                                     {(typeof props.values.no_children === 'number' && props.values.no_children > 0) &&
                                     <Field className="regular-input input"
                                            type="number"
                                            name="no_under5"
                                     />}
-
                                     {/*hx_childdeath*/}
-                                    <select className="regular-input input" name="hx_childdeath"
-                                            onChange={(e) => {
-                                                props.setFieldValue("hx_childdeath", parseInt(e.target.value));
-                                                props.setFieldValue("no_childdeath", 0)
-                                            }}>
+                                    <Field component="select" className="regular-input input" name="hx_childdeath"
+                                           onChange={(e) => {
+                                               props.setFieldValue("hx_childdeath", parseInt(e.target.value));
+                                               props.setFieldValue("no_childdeath", 0)
+                                           }}>
                                         <YesNoDontknowDeclin state={true}/>
-                                    </select>
-
+                                    </Field>
                                     {/*no_childdeath*/}
                                     {props.values.hx_childdeath === choices.YES &&
                                     <Field className="regular-input input"
@@ -1000,12 +977,9 @@ function MotherForm(props) {
                                            name="no_childdeath"
                                     />
                                     }
-
                                 </div>
                             </div>
-
                         </div>
-
                     </Form>
                 </StyledMotherForm>
             </FormItems>
@@ -1013,15 +987,13 @@ function MotherForm(props) {
     );
 }
 
-
-const FormikEditMother = withFormik({
+const FormikMother = withFormik({
     mapPropsToValues(
         {
             /*identification*/
             survey_day,
             interviewer,
             interviewer_other,
-
             /*introduction*/
             current_pg,
             due_now,
@@ -1029,7 +1001,6 @@ const FormikEditMother = withFormik({
             hx_cesarean,
             hx_complication,
             current_multip,
-
             /*registration*/
             name,
             edd,
@@ -1044,7 +1015,6 @@ const FormikEditMother = withFormik({
             owner_phone_other,
             carrier_other,
             want_education,
-
             /*complications*/
             complications_note,
             anemia,
@@ -1059,7 +1029,6 @@ const FormikEditMother = withFormik({
             no_stillbirths,
             other_complication,
             complication_specify,
-
             /*Birth_Preparedness*/
             BP_note,
             no_anc,
@@ -1068,7 +1037,6 @@ const FormikEditMother = withFormik({
             deliver_specific,
             plan_transport,
             plan_transport_other,
-
             purchase_supplies,
             /*name_supplies - is added in handle submit*/
             supplies_other,
@@ -1087,7 +1055,6 @@ const FormikEditMother = withFormik({
             saving_money,
             amt_saved,
             amt_saved_range,
-
             /*Pregnancy_History*/
             PH_note,
             no_pg,
@@ -1096,7 +1063,6 @@ const FormikEditMother = withFormik({
             no_under5,
             hx_childdeath,
             no_childdeath,
-
             /*Demographics*/
             attend_school,
             education,
@@ -1118,17 +1084,14 @@ const FormikEditMother = withFormik({
             insurance_private,
             insurance_other,
             sell_asset,
-
             /*Conclusions*/
             notes,
-
         }) {
         return {
             /*identification*/
             survey_day: survey_day || '',
             interviewer: interviewer || '',
             interviewer_other: interviewer_other || '',
-
             /*introduction*/
             current_pg: current_pg || '',
             due_now: due_now || '',
@@ -1136,7 +1099,6 @@ const FormikEditMother = withFormik({
             hx_cesarean: hx_cesarean || '',
             hx_complication: hx_complication || '',
             current_multip: current_multip || '',
-
             /*registration*/
             name: name || '',
             edd: edd || '',
@@ -1151,7 +1113,6 @@ const FormikEditMother = withFormik({
             owner_phone_other: owner_phone_other || '',
             carrier_other: carrier_other || '',
             want_education: want_education || '',
-
             /*complications*/
             complications_note: complications_note || '',
             anemia: anemia || '',
@@ -1166,7 +1127,6 @@ const FormikEditMother = withFormik({
             no_stillbirths: no_stillbirths || '',
             other_complication: other_complication || '',
             complication_specify: complication_specify || '',
-
             /*Birth_Preparedness*/
             BP_note: BP_note || '',
             no_anc: no_anc || '',
@@ -1175,7 +1135,6 @@ const FormikEditMother = withFormik({
             deliver_specific: deliver_specific || '',
             plan_transport: plan_transport || '',
             plan_transport_other: plan_transport_other || '',
-
             purchase_supplies: purchase_supplies || '',
             /*name_supplies - is added in handle submit*/
             supplies_other: supplies_other || '',
@@ -1194,7 +1153,6 @@ const FormikEditMother = withFormik({
             saving_money: saving_money || '',
             amt_saved: amt_saved || '',
             amt_saved_range: amt_saved_range || '',
-
             /*Pregnancy_History*/
             PH_note: PH_note || '',
             no_pg: no_pg || '',
@@ -1203,7 +1161,6 @@ const FormikEditMother = withFormik({
             no_under5: no_under5 || '',
             hx_childdeath: hx_childdeath || '',
             no_childdeath: no_childdeath || '',
-
             /*Demographics*/
             attend_school: attend_school || '',
             education: education || '',
@@ -1225,53 +1182,65 @@ const FormikEditMother = withFormik({
             insurance_private: insurance_private || '',
             insurance_other: insurance_other || '',
             sell_asset: sell_asset || '',
-
             /*Conclusions*/
             notes: notes || '',
         };
     },
-
     validationSchema: Yup.object().shape({
-        interviewer: Yup.number().required("Please choose something from the list"),
-        interviewer_other: Yup.string().required("Please fill the field"),
-        current_pg: Yup.number().required("Please choose something from the list"),
-        due_now: Yup.number().required("Please choose something from the list"),
-        deliver_elsewhere: Yup.number().required("Please choose something from the list"),
-        hx_cesarean: Yup.number().required("Please choose something from the list"),
-        hx_complication: Yup.number().required("Please choose something from the list"),
-        current_multip: Yup.number().required("Please choose something from the list"),
-        /*registration*/
-        name: Yup.string().required("Please fill the field"),
-        edd: Yup.string().required("Please fill the field"),
-        age: Yup.string().required("Please fill the field"),
-        village: Yup.number().required("Please choose something from the list"),
-        village_other: Yup.string().required("Please fill the field"),
-        own_phone: Yup.number().required("Please choose something from the list"),
-        other_phone: Yup.string().required("Please fill the field"),
-        phone_number: Yup.string().required("Please fill the field"),
-        carrier: Yup.number().required("Please choose something from the list"),
-        owner_phone: Yup.number().required("Please choose something from the list"),
-        owner_phone_other: Yup.string().required("Please fill the field"),
-        carrier_other: Yup.string().required("Please fill the field"),
-        want_education: Yup.number().required("Please choose something from the list"),
+          interviewer: Yup.number().required("Please choose something from the list"),
+          interviewer_other: Yup.string().required("Please fill the field"),
+          current_pg: Yup.number().required("Please choose something from the list"),
+          due_now: Yup.number().required("Please choose something from the list"),
+          deliver_elsewhere: Yup.number().required("Please choose something from the list"),
+          hx_cesarean: Yup.number().required("Please choose something from the list"),
+          hx_complication: Yup.number().required("Please choose something from the list"),
+          current_multip: Yup.number().required("Please choose something from the list"),
+          /*registration*/
+          name: Yup.string().required("Please fill the field"),
+          edd: Yup.string().required("Please fill the field"),
+          age: Yup.string().required("Please fill the field"),
+          village: Yup.number().required("Please choose something from the list"),
+          village_other: Yup.string().required("Please fill the field"),
+          own_phone: Yup.number().required("Please choose something from the list"),
+          other_phone: Yup.string().required("Please fill the field"),
+          phone_number: Yup.string().required("Please fill the field"),
+          carrier: Yup.number().required("Please choose something from the list"),
+          owner_phone: Yup.number().required("Please choose something from the list"),
+          owner_phone_other: Yup.string().required("Please fill the field"),
+          carrier_other: Yup.string().required("Please fill the field"),
+          want_education: Yup.number().required("Please choose something from the list"),
     }),
-
     handleSubmit(values, {props}) {
         let chosen_supplies = supplies_items.filter(item => typeof values[item] === 'number').map(item => values[item]);
         if (typeof values.other_supply === 'number') chosen_supplies = [...chosen_supplies, values.other_supply];
-        values.name_supplies = chosen_supplies.join(" ");
+        if(chosen_supplies.length > 0){
+            values.name_supplies = chosen_supplies.join(" ");
+        }
         let mother = {};
         for (let property  in values) {
             console.log("key name ", property, "property = ", values[property], " ;", " type = ", typeof values[property]);
             if (typeof values[property] === 'string' && values[property].length > 0) mother[property] = values[property];
             if (typeof values[property] === 'number') mother[property] = values[property];
         }
-        props.addMothers(mother);
-        console.log("MOTHER ", mother);
-        console.log("values ", values);
+
+        if (props.match.params.id) {
+            console.log("UPDATE", values.id);
+            console.log("values", values);
+            props.updateMother(values.id, values);
+            props.history.push("/mothers");
+        } else {
+            console.log("ADD");
+            props.addMother(mother);
+            props.history.push("/mothers");
+        }
+      /*  console.log("MOTHER ", mother);
+        console.log("values ", values);*/
     }
 })(MotherForm);
 
-
-export default connect(null, {addMothers})(FormikEditMother);
-
+const mapStateToProps = state => {
+    return {
+        mothers: state.mothersReducer.mothers,
+    }
+};
+export default connect(mapStateToProps, {updateMother, addMother})(FormikMother);

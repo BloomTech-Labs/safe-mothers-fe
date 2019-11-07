@@ -205,7 +205,7 @@ function SingleMotherView(props) {
                 <StyledPageView className="single-page-view">
                     <div className="banner">
                         <h1 className="banner-title">{mother.name}</h1>
-                        <Button bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1">
+                        <Button onClick={() => props.history.push(`/mother-form/${id}`)} bgOnHover="#d8e6f6" bg="#e7f0fa" color="#1337F1" >
                             EDIT<SVG className="edit-svg" src={Edit}/>
                         </Button>
                         <Button bgOnHover="#db4343" bg="#EB5757" color="white">

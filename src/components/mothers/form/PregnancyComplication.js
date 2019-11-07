@@ -10,7 +10,7 @@ const pregnancy_choices = {
 export default function PregnancyComplication(props) {
     return (
         <>
-            <option disabled selected value></option>
+            <option value=""> </option>
             <option value={pregnancy_choices.EXPERIENCED_WITH_THIS_PREGNANCY}>EXPERIENCED WITH THIS PREGNANCY</option>
             <option value={pregnancy_choices.EXPERIENCED_WITH_PRIOR_PREGNANCY}>EXPERIENCED WITH PRIOR PREGNANCY</option>
             <option value={pregnancy_choices.EXPERIENCED_WITH_BOTH}>EXPERIENCED WITH BOTH PREGNANCIES</option>
