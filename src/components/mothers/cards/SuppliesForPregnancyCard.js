@@ -4,7 +4,7 @@ import {Card} from "../../reusableParts/accordion/content/content-style";
 export default function SuppliesForPregnancyCard({mother}) {
     return (
         <Card>
-                <ul className="align-center values">
+                <ul className="supply-values">
                     <li>{mother.mama_kit}</li>
                     <li>{mother.mackintosh}</li>
                     <li>{mother.razor}</li>

@@ -1,0 +1,27 @@
+import React from 'react';
+import {Card} from "../../reusableParts/accordion/content/content-style";
+
+export default function Demographics({mother}) {
+    return (
+        <Card>
+            <div className="card-content">
+                <ul className="fields">
+                    <li>Number Of Pregnancies</li>
+                    <li>Number of Births</li>
+                    <li>Living Children</li>
+                    <li>Children Under Five</li>
+                    <li>Infant Death</li>
+                    <li>Number of Children Lost</li>
+                </ul>
+                <ul className="values">
+                    <li>{mother.no_pg}</li>
+                    <li>{mother.no_birth}</li>
+                    <li>{mother.no_children}</li>
+                    <li>{mother.no_under5}</li>
+                    <li>{mother.hx_childdeath}</li>
+                    <li>{mother.no_childDeath}</li>
+                </ul>
+            </div>
+        </Card>
+    )
+}

@@ -6,7 +6,7 @@ export default function MedicalHistoryCard({mother}) {
     return (
         <Card>
             <div className="card-content">
-                <ul className="align-left">
+                <ul className="fields">
                     <li>Number of pregnancies</li>
                     <li>Number of birth</li>
                     <li>Had twins or more</li>
@@ -14,7 +14,7 @@ export default function MedicalHistoryCard({mother}) {
                     <li>Children under five</li>
                     <li>Infant death</li>
                 </ul>
-                <ul className="align-left values">
+                <ul className="values">
                     <li>{mother.no_pg ? mother.no_pg : NO_DATA}</li>
                     <li>{mother.no_birth ? mother.no_birth : NO_DATA}</li>
                     <li>{mother.no_stillbirths ? mother.no_stillbirths : NO_DATA}</li>

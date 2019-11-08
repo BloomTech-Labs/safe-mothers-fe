@@ -6,12 +6,12 @@ export default function ContactsCard({mother}) {
     return (
         <Card>
             <div className="card-content">
-                <ul className="align-left">
+                <ul className="fields">
                     <li>Phone Owner:</li>
                     <li>Phone Carrier:</li>
                     <li>Phone Number:</li>
                 </ul>
-                <ul className="align-left values">
+                <ul className="values">
                     <li>{defineOwnerPhone(mother)}</li>
                     <li>{defineCarrier(mother)}</li>
                     <li>{mother.phone_number ? mother.phone_number : NO_DATA}</li>
