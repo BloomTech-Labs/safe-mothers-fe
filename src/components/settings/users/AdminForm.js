@@ -15,8 +15,9 @@ const AdminForm = props => {
     }, [props.admin]);
 
     const handleCancel = () => {
-        props.setFormState(!props.formState);
+        props.setFormState(false);
         props.setAdmin({
+                id: '',
                 first_name: '',
                 last_name: '',
                 username: ''
@@ -108,12 +109,15 @@ const FormikAdminForm = withFormik({
         return Yup.object().shape(schema);
     },
 
-    handleSubmit(values, {props}) {
+    handleSubmit(values, {props, resetForm}) {
         if (props.formState) {
             props.editUsers(props.admin.id, values);
-            props.setFormState(!props.formState);
+            resetForm();
+            props.setFormState(false);
+
         } else {
             props.createUser(values);
+            resetForm();
         }
     }
 })(AdminForm);

@@ -58,7 +58,7 @@ export const createUser = data => dispatch => {
     return axiosWithAuth()
         .post("/auth/register", data)
         .then(res => {
-            dispatch({ type: CREATE_USER_SUCCESS, payload: data });
+            dispatch({ type: CREATE_USER_SUCCESS, payload: res.data });
         })
         .catch(err => {
             dispatch({type: CREATE_USER_FAILURE, payload: err});

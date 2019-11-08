@@ -1,4 +1,4 @@
-import {marital_status, wives_number, education, phone_owner, carriers} from "./form/lists";
+import {marital_status, wives_number, education, phone_owner, carriers, villages} from "./form/lists";
 import {choices} from "./form/YesNoDontknowDeclin";
 import {pregnancy_choices} from "./form/PregnancyComplication";
 import React from "react";
@@ -49,6 +49,12 @@ export const defineMaritalStatus = (mother) => {
     if (mother.marital_status === choices.OTHER) return mother.marital_status_other;
     if (mother.marital_status === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
     return NO_DATA;
+};
+
+export const defineVillage = (mother) =>{
+    const village = villages.filter((item, index) => (index + 1) === mother.village);
+    if(village.length > 0 ) return village;
+
 };
 
 export const defineWifeOrder = (mother) => {

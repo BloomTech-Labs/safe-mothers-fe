@@ -9,8 +9,9 @@ import {FormItems} from "../../reusableParts/form-items";
 import SVG from 'react-inlinesvg/lib/index';
 import Cry from "../resources/Group.svg";
 import {BadgeLimit} from "../mother-style";
+import {defineMothersLabels} from "./LabelBadges";
 
-function LabelForm(props) {
+function LabelForm(props, {labels, mother}) {
     const defineColor = (color, darkColor, textColor) => {
         props.setValues({ label_name: props.values.label_name, color: color, dark_color: darkColor, text_color: textColor})
     };
@@ -18,7 +19,7 @@ function LabelForm(props) {
     return (
         <>
             <FormItems>
-                {props.labels.length < 4 ?
+                {0 < 4 ?
                     <Form className="form-contents">
                         <label>
                             Label name:
@@ -77,7 +78,7 @@ const FormikLabelForm = withFormik({
     }),
 
     handleSubmit(values, {props}) {
-        values.mother_id = props.mother_id;
+        values.mother_id = props.mother.id;
         props.createLabel(values);
 
     }
