@@ -54,7 +54,8 @@ export const defineMaritalStatus = (mother) => {
 export const defineVillage = (mother) =>{
     const village = villages.filter((item, index) => (index + 1) === mother.village);
     if(village.length > 0 ) return village;
-
+    if(mother.village === choices.OTHER) return mother.village_other;
+    return NO_DATA;
 };
 
 export const defineWifeOrder = (mother) => {

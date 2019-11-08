@@ -8,26 +8,29 @@ import {getLabels, deleteLabel} from "../../../actions/mothersActions";
 import Add from '../resources/Add.svg';
 import CloseCircle from '../../reusableParts/resources/CloseCircle.svg'
 import {SVGBtn} from "../../reusableParts/form-items";
+import {BadgeLimit} from "../mother-style";
+import SVG from "react-inlinesvg";
+import Cry from "../resources/Group.svg";
 
 export const LABEL_LIMIT = 4;
 
-export const defineMothersLabels = (labels, mother) => {
-    console.log("LABELS ", labels);
-    const labels_array = labels.filter(item =>{
-        console.log("item.mother_id ", item.mother_id, " mother.id ", mother.id, "; ",  item.mother_id === mother.id);
-        return item.mother_id === mother.id});
-    console.log("LABELS OF SPECIFIC MOTHER ", labels);
-    return 0;
-        // return labels.filter(item => item.mother_id === mother.id)
+export function defineMothersLabels (labels, mother) {
+        if (labels) {
+            const labels_array = labels.filter(item => {
+                return item.mother_id === mother.id
+            });
+            return labels_array;
+        }
+        return [];
     }
-;
+
 
 function LabelBadges(props) {
     const {entity, risk, labels} = props;
     const [active, setActive] = useState(false);
 
     useEffect(() => {
-        props.getLabels(entity.id);
+        props.getLabels();
     }, []);
 
     const modal = event => {
@@ -74,16 +77,23 @@ function LabelBadges(props) {
                     </CustomBadge>
                 }
             })}
-
+            {console.log("defineMothersLabels(labels, entity) ", defineMothersLabels(labels, entity).length < LABEL_LIMIT)}
             <Modal
                 width={[1, "440px"]}
                 enableOverflow
                 isOpen={active}
                 className="modal"
                 onClose={(e) => modal(e)}>
-                {defineMothersLabels(labels, entity) < LABEL_LIMIT &&
+                {(defineMothersLabels(labels, entity).length < LABEL_LIMIT) &&
                 <h2 className="modal-title">Create badge</h2>}
-                <FormikLabelForm modal={modal} labels={labels} mother={entity}/>
+                {(defineMothersLabels(labels, entity).length < LABEL_LIMIT) ?
+                    <FormikLabelForm modal={modal} labels={labels} mother={entity} />
+                    :
+                    <BadgeLimit>
+                        <SVG className="limit-icon" src={Cry}/>
+                        <p className="limit-text">You can`t create more than 4 labels on one mother</p>
+                    </BadgeLimit>
+                }
             </Modal>
             <SVGBtn className="add-icon" onClick={(e) => modal(e)} src={Add} bg="#5bdf72" bgOnHover="#44c25a"/>
         </div>

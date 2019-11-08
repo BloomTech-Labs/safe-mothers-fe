@@ -9,55 +9,53 @@ import {FormItems} from "../../reusableParts/form-items";
 import SVG from 'react-inlinesvg/lib/index';
 import Cry from "../resources/Group.svg";
 import {BadgeLimit} from "../mother-style";
-import {defineMothersLabels} from "./LabelBadges";
+import {defineMothersLabels, LABEL_LIMIT} from "./LabelBadges";
 
-function LabelForm(props, {labels, mother}) {
+function LabelForm(props, {mother}) {
     const defineColor = (color, darkColor, textColor) => {
-        props.setValues({ label_name: props.values.label_name, color: color, dark_color: darkColor, text_color: textColor})
+        props.setValues({
+            label_name: props.values.label_name,
+            color: color,
+            dark_color: darkColor,
+            text_color: textColor
+        })
     };
 
     return (
         <>
             <FormItems>
-                {0 < 4 ?
-                    <Form className="form-contents">
-                        <label>
-                            Label name:
-                            <Field className="regular-input"
-                                   type="text"
-                                   name="label_name"
-                                   placeholder="Type phrase here"
-                            />
-                        </label>
-                        {props.touched.label_name && props.errors.label_name && (
-                            <p className="error-message">{props.errors.label_name}</p>
-                        )}
+                <Form className="form-contents">
+                    <label>
+                        Label name:
                         <Field className="regular-input"
                                type="text"
-                               name="color"
-                               placeholder="Type color here"
+                               name="label_name"
+                               placeholder="Type phrase here"
                         />
-                        <Field className="regular-input hidden-input"
-                               type="text"
-                               name="dark_color"
-                               placeholder="Type color here"
-                        />
-                        <Field className="regular-input hidden-input"
-                               type="text"
-                               name="text_color"
-                               placeholder="Type color here"
-                        />
-                        <ColorPicker defineColor={defineColor}/>
-                        <div className="btn-container">
-                            <button onClick={(e) => props.modal(e)} className="submit-btn" type="submit">CREATE</button>
-                        </div>
-                    </Form>
-                    :
-                    <BadgeLimit>
-                        <SVG className="limit-icon" src={Cry}/>
-                        <p className="limit-text">You can`t create more than 4 labels on one mother</p>
-                    </BadgeLimit>
-                }
+                    </label>
+                    {props.touched.label_name && props.errors.label_name && (
+                        <p className="error-message">{props.errors.label_name}</p>
+                    )}
+                    <Field className="regular-input"
+                           type="text"
+                           name="color"
+                           placeholder="Type color here"
+                    />
+                    <Field className="regular-input hidden-input"
+                           type="text"
+                           name="dark_color"
+                           placeholder="Type color here"
+                    />
+                    <Field className="regular-input hidden-input"
+                           type="text"
+                           name="text_color"
+                           placeholder="Type color here"
+                    />
+                    <ColorPicker defineColor={defineColor}/>
+                    <div className="btn-container">
+                        <button onClick={(e) => props.modal(e)} className="submit-btn" type="submit">CREATE</button>
+                    </div>
+                </Form>
             </FormItems>
         </>
     )
