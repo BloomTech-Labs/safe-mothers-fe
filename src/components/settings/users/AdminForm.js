@@ -6,7 +6,9 @@ import {FormItems, Button} from "../../reusableParts/form-items";
 import {SettingsForm} from "../setting-style";
 import {editUsers, createUser} from '../../../actions/adminActions'
 
+
 const AdminForm = props => {
+
 
     useEffect(() => {
         if (!Array.isArray(props.admin)) {
@@ -112,6 +114,7 @@ const FormikAdminForm = withFormik({
         if (props.formState) {
             props.editUsers(props.admin.id, values);
             props.setFormState(!props.formState);
+        
         } else {
             props.createUser(values);
         }

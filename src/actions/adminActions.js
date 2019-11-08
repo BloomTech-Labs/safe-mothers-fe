@@ -1,4 +1,5 @@
 import axiosWithAuth from '../utilities/axiosWithAuth'
+import {Mixpanel} from '../utilities/mixpanel/Mixpanel'
 import {types} from './index'
 
 const {
@@ -34,6 +35,7 @@ export const editUsers = (id, object) => dispatch => {
     axiosWithAuth()
         .put(`/users/${id}`, object)
         .then(res => {
+           
             dispatch({type: EDIT_USERS_SUCCESS, payload: object})
         })
         .catch(err => {
@@ -45,10 +47,11 @@ export const deleteUsers = (id) => dispatch => {
     dispatch({type: DELETE_USERS_START});
     axiosWithAuth().delete(`/users/${id}`)
         .then(res => {
-
+            Mixpanel.track('sucessful delete')
             dispatch({type: DELETE_USERS_SUCCESS, payload: id})
         })
         .catch(err => {
+            Mixpanel.track('DeleteError', {'id': id})
             dispatch({type: DELETE_USERS_FAILURE, payload: err.response})
         })
 };
@@ -58,9 +61,11 @@ export const createUser = data => dispatch => {
     return axiosWithAuth()
         .post("/auth/register", data)
         .then(res => {
+            Mixpanel.track('sucessful addition')
             dispatch({ type: CREATE_USER_SUCCESS, payload: data });
         })
         .catch(err => {
+            Mixpanel.track('create user error')
             dispatch({type: CREATE_USER_FAILURE, payload: err});
         })
 };
