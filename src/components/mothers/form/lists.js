@@ -30,7 +30,7 @@ export const villages = [
     'Buganza',
     'Kiringa "A"',
     'Kiringa "B"',
-    'Nawandgaiza 1'
+    'Nawandgaiza 1',
 ];
 
 export const carriers = [
@@ -49,7 +49,7 @@ export const phone_owner = [
     "NEIGHBOR'S PHONE",
 ];
 
-export const  number_anc = [
+export const number_anc = [
     "ONE VISIT",
     "TWO VISITS",
     "THREE VISITS",
@@ -132,5 +132,26 @@ export const insurance = [
     'PRIVATE COMMERCIAL HEALTH INSURANCE'
 ];
 
+export const notes = {
+    pregnancy: "Are you currently pregnant?",
+    due_date: "Is your due date in the next month?",
+    deliver_elsewhere: "Has a doctor midwife told you that you should deliver this baby in Bugono HC IV or the Iganga Hospital?",
+    hx_cesarean: "Have you ever had a cesarean section?",
+    hx_complication: "If you have given birth before, did you experience any complications during delivery or problems that required emergent medical treatment at a health centre?",
+    current_multip: "Are you currently pregnant with more than one baby, that is with twins or triplets?",
 
+    obstructed_labor: "Obstructed labor, that is, being told that the baby was stuck in the birth canal and needed help from a medical provider to be removed.",
+    malpresent: "Malpresentation, that is, when a part other than the baby's head faces down during labor and delivery.",
+    aph: "Antepartum hemorrhage, that is, excessive bleeding before the birth of a baby",
+    pph: "Postpartum hemorrhage, that is, excessive bleeding after the birth of a baby",
+    ret_placenta: "Retained placenta, that is, where a piece of the placenta remains inside the uterus and must be removed by a medical provider",
+    placenta_previa: "Placenta previa, where the placenta sits in between the baby's body and the opening where the baby comes out",
+    hx_stillbirth: "Have you ever had a stillbirth, that is where the baby was born not alive?",
+    no_stillbirths: "How many stillbirths have you had?",
+    other_complication: "Have you been told that you had any other complications in any pregnancy that I have not asked you about?",
+    deliver_place: "In what location would you like to deliver this baby?",
+    deliver_place_other: "What is the name of the specific health facility where you would like to deliver your baby?",
+    plan_transport: "Before today, how did you expect to reach this location, that is what type of transport would you likely use?",
+    saving_money: "Have you saved any money to use for expenses related to this pregnancy or birth, such as supplies, transport, or emergencies?",
+};
 
