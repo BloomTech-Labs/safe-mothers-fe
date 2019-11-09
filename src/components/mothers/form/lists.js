@@ -153,5 +153,20 @@ export const notes = {
     deliver_place_other: "What is the name of the specific health facility where you would like to deliver your baby?",
     plan_transport: "Before today, how did you expect to reach this location, that is what type of transport would you likely use?",
     saving_money: "Have you saved any money to use for expenses related to this pregnancy or birth, such as supplies, transport, or emergencies?",
+    attend_school: "Have you ever attended school?",
+    education: "What is the highest level of school you completed?",
+    money_control: "Who usually decides how the money you earn will be used: you, your (SPOUSE/PARTNER), you and your (SPOUSE/PARTNER) jointly, or someone else?",
+    total_house: "How many people live in your household, that is, how many people do you share your meals with on a daily basis?",
+    marital_status: "What is your marital status?",
+    spouse_school: "Did your (CURRENT/LAST) (HUSBAND/PARTNER) ever attend school?",
+    spouse_education: "What is the highest level of school your partner completed?",
+    polygamy: "Does/did your (HUSBAND/PARTNER) have other wives or does he live with other women as if married?",
+    no_wives: "Including yourself, how many wives or live-with partners does/did your (HUSBAND/PARTNER) have?",
+    no_wives_other: "SPECIFY NUMBER OF WIVES/LIVE-WITH PARTNERS",
+    wife_order: "Are/were you the first, second…. wife/live-in partner?",
+    wife_order_other: "TYPE THE ORDER. FOR EXAMPLE, IF THE RESPONDENT WAS THE FIFTH OF SIX WIVES, YOU WOULD TYPE 'FIFTH'.",
+
 };
+
+
 

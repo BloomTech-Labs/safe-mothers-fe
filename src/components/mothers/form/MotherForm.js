@@ -214,6 +214,12 @@ function MotherForm(props) {
                 if (typeof signle_mother[property] === 'number') mother[property] = signle_mother[property];
             }
             // props.resetForm();
+            //
+
+           /* mother.name_supplies.split(' ').map((item) => {
+                mother[supplies_items[item]] = mother[supplies_items[item]];
+            });*/
+
             props.setValues(mother);
         } else {
             props.resetForm();
@@ -778,7 +784,7 @@ function MotherForm(props) {
                             </div>
 
                             {/*Pop up with supplies*/}
-                            {supplies &&
+                            {props.values.purchase_supplies === choices.YES &&
                             <div className="label-value inline">
                                 <ul className="column-checkboxes">
                                     <span className="column-title form-title">Supplies</span>
@@ -797,29 +803,34 @@ function MotherForm(props) {
                                 </ul>
                                 <div className="column column-checkboxes">
                                     {/*data holders for supplies*/}
-                                    {supplies_items.map((item, index) =>
+                                    {/*{supplies_items.map((item, index) =>
                                         <Field key={index} type="text" className="hidden-input" name={item}/>
                                     )}
                                     <Field type="text" className="hidden-input" name="supplies_other"/>
-                                    <Field type="text" className="hidden-input" name="supplies_decline_to_answer"/>
+                                    <Field type="text" className="hidden-input" name="supplies_decline_to_answer"/>*/}
 
                                     {/*checkboxes for supplies*/}
+
+
                                     {supplies_items.map((item, index) =>
-                                        <CheckBox key={index} field={
-                                            <Field className="toggle-check-input"
-                                                   onClick={() => handleSupplies(item, index + 1)}
-                                                   type="checkbox"
-                                            />
-                                        }/>
+                                        <Field component="select" className="regular-input input" name={item}
+                                               onClick={(e) => {
+                                                   props.setFieldValue("name_supplies", props.values.name_supplies.concat(` ${index + 1}`));
+                                                   if(e.target.value === choices.YES) props.setFieldValue(item, choices.YES);
+                                                   if(e.target.value === choices.NO) props.setFieldValue(item, choices.NO);
+                                               }}>
+                                            <YesNoDontknowDeclin state={false}/>
+                                        </Field>
                                     )}
 
                                     {/*OTHER = 97*/}
-                                    <CheckBox field={
+                                    {/*<CheckBox field={
                                         <Field className="toggle-check-input"
-                                               onClick={() => handleSupplies("other_supply", choices.OTHER)}
+                                               onClick={() => props.setFieldValue("name_supplies", props.values.name_supplies.concat(' 97'))}
                                                type="checkbox"
+                                               name="supplies_other"
                                         />
-                                    }/>
+                                    }/>*/}
                                 </div>
                             </div>}
                         </div>
@@ -862,42 +873,57 @@ function MotherForm(props) {
 
                                     {/*attend_school*/}
                                     {console.log("attend_school ", props.values.attend_school)}
-                                    <Field component="select" className="regular-input input" name="attend_school"
-                                           onChange={(e) => resetValue("attend_school", e.target.value, "education", choices.YES)}>
-                                        <YesNoDontknowDeclin state={true}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="attend_school"
+                                               onChange={(e) => resetValue("attend_school", e.target.value, "education", choices.YES)}>
+                                            <YesNoDontknowDeclin state={true}/>
+                                        </Field>
+                                        <Tooltip tip={notes.attend_school}/>
+                                    </label>
 
                                     {/*education*/}
                                     {props.values.attend_school === choices.YES &&
-                                    <Field component="select" className="regular-input input" name="education"
-                                           onChange={(e) => props.setFieldValue("education", parseInt(e.target.value))}>
-                                        <Select list={education}/>
-                                        <option value={choices.IDN}>I DON`T KNOW</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </Field>}
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="education"
+                                               onChange={(e) => props.setFieldValue("education", parseInt(e.target.value))}>
+                                            <Select list={education}/>
+                                            <option value={choices.IDN}>I DON`T KNOW</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.education}/>
+                                    </label>}
 
                                     {/*money_control*/}
-                                    <Field component="select" className="regular-input input" name="money_control"
-                                           onChange={(e) => props.setFieldValue("money_control", parseInt(e.target.value))}>
-                                        <Select list={decision_maker}/>
-                                        <option value={choices.SMB}>SOMEONE ELSE</option>
-                                        <option value={choices.IDN}>I DON`T KNOW</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="money_control"
+                                               onChange={(e) => props.setFieldValue("money_control", parseInt(e.target.value))}>
+                                            <Select list={decision_maker}/>
+                                            <option value={choices.SMB}>SOMEONE ELSE</option>
+                                            <option value={choices.IDN}>I DON`T KNOW</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.money_control}/>
+                                    </label>
 
                                     {/*total_house*/}
-                                    <Field className="regular-input input"
-                                           type="number"
-                                           name="total_house"
-                                    />
+                                    <label>
+                                        <Field className="regular-input input"
+                                               type="number"
+                                               name="total_house"
+                                        />
+                                        <Tooltip tip={notes.total_house}/>
+                                    </label>
 
                                     {/*marital_status*/}
-                                    <Field component="select" className="regular-input input" name="marital_status"
-                                           onChange={(e) => resetValue("marital_status", e.target.value, "marital_status_other", choices.OTHER)}>
-                                        <Select list={marital_status}/>
-                                        <option value={choices.OTHER}>OTHER</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="marital_status"
+                                               onChange={(e) => resetValue("marital_status", e.target.value, "marital_status_other", choices.OTHER)}>
+                                            <Select list={marital_status}/>
+                                            <option value={choices.OTHER}>OTHER</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.marital_status}/>
+                                    </label>
 
                                     {/*marital_status_other*/}
                                     {props.values.marital_status === choices.OTHER &&
@@ -907,58 +933,80 @@ function MotherForm(props) {
                                     />}
 
                                     {/*spouse_school*/}
-                                    <Field component="select" className="regular-input input" name="spouse_school"
-                                           onChange={(e) => resetValue("spouse_school", e.target.value, "spouse_education", choices.YES)}>
-                                        <YesNoDontknowDeclin state={true}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="spouse_school"
+                                               onChange={(e) => resetValue("spouse_school", e.target.value, "spouse_education", choices.YES)}>
+                                            <YesNoDontknowDeclin state={true}/>
+                                        </Field>
+                                        <Tooltip tip={notes.spouse_school}/>
+                                    </label>
 
                                     {/*spouse_education*/}
                                     {props.values.spouse_school === choices.YES &&
-                                    <Field component="select" className="regular-input input" name="spouse_education"
-                                           onChange={(e) => props.setFieldValue("spouse_education", parseInt(e.target.value))}>
-                                        <Select list={education}/>
-                                        <option value={choices.IDN}>I DON`T KNOW</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </Field>}
+                                    <label>
+                                        <Field component="select" className="regular-input input"
+                                               name="spouse_education"
+                                               onChange={(e) => props.setFieldValue("spouse_education", parseInt(e.target.value))}>
+                                            <Select list={education}/>
+                                            <option value={choices.IDN}>I DON`T KNOW</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.spouse_education}/>
+                                    </label>}
 
                                     {/*polygamy*/}
-                                    <Field component="select" className="regular-input input" name="polygamy"
-                                           onChange={(e) => resetValue("polygamy", e.target.value, "no_wives", choices.YES)}>
-                                        <YesNoDontknowDeclin state={true}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="polygamy"
+                                               onChange={(e) => resetValue("polygamy", e.target.value, "no_wives", choices.YES)}>
+                                            <YesNoDontknowDeclin state={true}/>
+                                        </Field>
+                                        <Tooltip tip={notes.polygamy}/>
+                                    </label>
 
                                     {/*no_wives*/}
                                     {props.values.polygamy === choices.YES &&
-                                    <Field component="select" className="regular-input input" name="no_wives"
-                                           onChange={(e) => resetValue("no_wives", e.target.value, "no_wives_other", choices.OTHER)}>
-                                        <Select list={wives_number}/>
-                                        <option value={choices.OTHER}>OTHER</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </Field>}
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="no_wives"
+                                               onChange={(e) => resetValue("no_wives", e.target.value, "no_wives_other", choices.OTHER)}>
+                                            <Select list={wives_number}/>
+                                            <option value={choices.OTHER}>OTHER</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.no_wives}/>
+                                    </label>}
 
                                     {/*no_wives_other*/}
                                     {props.values.no_wives === choices.OTHER &&
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="no_wives_other"
-                                    />}
+                                    <label>
+                                        <Field className="regular-input input"
+                                               type="text"
+                                               name="no_wives_other"
+                                        />
+                                        <Tooltip tip={notes.no_wives_other}/>
+                                    </label>}
 
                                     {/*wife_order*/}
-                                    <Field component="select" className="regular-input input" name="wife_order"
-                                           onChange={(e) => resetValue("wife_order", e.target.value, "wife_order_other", choices.OTHER)}>
-                                        <Select list={wife_rank}/>
-                                        <option value={choices.OTHER}>OTHER</option>
-                                        <option value={choices.IDN}>DON`T KNOW`</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="wife_order"
+                                               onChange={(e) => resetValue("wife_order", e.target.value, "wife_order_other", choices.OTHER)}>
+                                            <Select list={wife_rank}/>
+                                            <option value={choices.OTHER}>OTHER</option>
+                                            <option value={choices.IDN}>DON`T KNOW`</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINE TO ANSWER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.wife_order}/>
+                                    </label>
 
                                     {/*wife_order_other*/}
                                     {props.values.no_wives === choices.OTHER &&
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="wife_order_other"
-                                    />}
-                                    {/*FINANCE AND INSURANCE*/}
+                                    <label>
+                                        <Field className="regular-input input"
+                                               type="text"
+                                               name="wife_order_other"
+                                        />
+                                        <Tooltip tip={notes.wife_order_other}/>
+                                    </label>}
+                                    {/*FINANCE AND INSURANCE -WANTS FIX*/}
                                     {/*insurance*/}
                                     <Field component="select" className="regular-input input" name="insurance"
                                            onChange={(e) => resetValue("insurance", e.target.value, "insurance_type", choices.YES)}>
@@ -1119,7 +1167,7 @@ const FormikMother = withFormik({
             plan_transport,
             plan_transport_other,
             purchase_supplies,
-            /*name_supplies - is added in handle submit*/
+            name_supplies,
             supplies_other,
             mama_kit,
             mackintosh,
@@ -1217,6 +1265,7 @@ const FormikMother = withFormik({
             plan_transport: plan_transport || '',
             plan_transport_other: plan_transport_other || '',
             purchase_supplies: purchase_supplies || '',
+            name_supplies: name_supplies || '',
             /*name_supplies - is added in handle submit*/
             supplies_other: supplies_other || '',
             mama_kit: mama_kit || '',
@@ -1268,44 +1317,45 @@ const FormikMother = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        interviewer: Yup.number().required("Please choose something from the list"),
-        current_pg: Yup.number().required("Please choose something from the list"),
-        due_now: Yup.number().required("Please choose something from the list"),
-        deliver_elsewhere: Yup.number().required("Please choose something from the list"),
-        hx_cesarean: Yup.number().required("Please choose something from the list"),
-        hx_complication: Yup.number().required("Please choose something from the list"),
-        current_multip: Yup.number().required("Please choose something from the list"),
-        /*registration*/
-        name: Yup.string().required("Please fill the field"),
-        edd: Yup.string().required("Please fill the field"),
-        age: Yup.string().required("Please fill the field"),
-        village: Yup.number().required("Please choose something from the list"),
-        own_phone: Yup.number().required("Please choose something from the list"),
-        other_phone: Yup.string().required("Please fill the field"),
-        phone_number: Yup.string().required("Please fill the field"),
-        carrier: Yup.number().required("Please choose something from the list"),
-        owner_phone: Yup.number().required("Please choose something from the list"),
-        want_education: Yup.number().required("Please choose something from the list"),
+        /*   interviewer: Yup.number().required("Please choose something from the list"),
+           current_pg: Yup.number().required("Please choose something from the list"),
+           due_now: Yup.number().required("Please choose something from the list"),
+           deliver_elsewhere: Yup.number().required("Please choose something from the list"),
+           hx_cesarean: Yup.number().required("Please choose something from the list"),
+           hx_complication: Yup.number().required("Please choose something from the list"),
+           current_multip: Yup.number().required("Please choose something from the list"),
+           /!*registration*!/
+           name: Yup.string().required("Please fill the field"),
+           edd: Yup.string().required("Please fill the field"),
+           age: Yup.string().required("Please fill the field"),
+           village: Yup.number().required("Please choose something from the list"),
+           own_phone: Yup.number().required("Please choose something from the list"),
+           other_phone: Yup.string().required("Please fill the field"),
+           phone_number: Yup.string().required("Please fill the field"),
+           carrier: Yup.number().required("Please choose something from the list"),
+           owner_phone: Yup.number().required("Please choose something from the list"),
+           want_education: Yup.number().required("Please choose something from the list"),*/
     }),
     handleSubmit(values, {props}) {
-        let chosen_supplies = supplies_items.filter(item => typeof values[item] === 'number').map(item => values[item]);
-        if (typeof values.other_supply === 'number') chosen_supplies = [...chosen_supplies, values.other_supply];
-        if (chosen_supplies.length > 0) {
-            values.name_supplies = chosen_supplies.join(" ");
-        }
+        /* let chosen_supplies = supplies_items.filter(item => typeof values[item] === 'number').map(item => values[item]);
+         if (typeof values.other_supply === 'number') chosen_supplies = [...chosen_supplies, values.other_supply];
+         if (chosen_supplies.length > 0) {
+             values.name_supplies = chosen_supplies.join(" ");
+         }*/
         let mother = {};
         for (let property  in values) {
             if (typeof values[property] === 'string' && values[property].length > 0) mother[property] = values[property];
             if (typeof values[property] === 'number') mother[property] = values[property];
         }
 
-        if (props.match.params.id) {
-            props.updateMother(values.id, values);
-            props.history.push("/mothers");
-        } else {
-            props.addMother(mother);
-            props.history.push("/mothers");
-        }
+         if (props.match.params.id) {
+             props.updateMother(values.id, values);
+             props.history.push("/mothers");
+         } else {
+             props.addMother(mother);
+             props.history.push("/mothers");
+         }
+        console.log("VALUES ", mother)
     }
 })(MotherForm);
 
