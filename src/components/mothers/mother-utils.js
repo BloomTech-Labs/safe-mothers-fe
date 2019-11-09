@@ -197,9 +197,6 @@ export function defineDecisionMaker(money_control) {
 }
 
 
-//Birth preparedness
-
-
 
 
 

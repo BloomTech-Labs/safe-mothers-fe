@@ -20,7 +20,7 @@ export default function Demographics({mother}) {
                     <li>{returnNumberValue(mother.no_children)}</li>
                     <li>{returnNumberValue(mother.no_under5)}</li>
                     <li>{yesNoIDN(mother.hx_childdeath)}</li>
-                    <li>{returnNumberValue(mother.no_childDeath)}</li>
+                    <li>{returnNumberValue(mother.no_childdeath)}</li>
                 </ul>
             </div>
         </Card>

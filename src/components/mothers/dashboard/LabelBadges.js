@@ -54,7 +54,7 @@ function LabelBadges(props) {
     return (
         <div className="inline-badges">
             {entity.amt_saved > 0 &&
-            <CustomBadge width="12%" className="badge" color="secondary">
+            <CustomBadge width="12%" badgeColor="#32CD32" badgeText="white" className="badge" color="secondary">
                 {entity.amt_saved ? entity.amt_saved : '$0'}
             </CustomBadge>}
             {risk === HIGH_RISK &&
@@ -77,7 +77,6 @@ function LabelBadges(props) {
                     </CustomBadge>
                 }
             })}
-            {console.log("defineMothersLabels(labels, entity) ", defineMothersLabels(labels, entity).length < LABEL_LIMIT)}
             <Modal
                 width={[1, "440px"]}
                 enableOverflow
