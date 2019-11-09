@@ -17,12 +17,13 @@ const Banner = props => {
           onClick={() => props.history.push(path)}
           bgOnHover="#d8e6f6"
           bg="#e7f0fa"
+          height="30px"
           color="#1337F1"
         >
           EDIT
           <SVGBtn bg="#1337F1" className="edit-svg" src={Edit} />
         </Button>
-        <Button bgOnHover="#db4343" bg="#EB5757" color="white">
+        <Button bgOnHover="#db4343" height="30px" bg="#EB5757" color="white">
           DELETE
           <SVGBtn bg="#ffffff" className="del-svg" src={Close} />
         </Button>
