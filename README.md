@@ -10,7 +10,6 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
 
 ## Contributors
 
-
 |                                       [Aleksandra Foksman](https://github.com/AlexFox1777)                                        |                                       [Annique Nsabimana](https://github.com/AnniqueN)                                        |                                       [Blake Prouty](https://github.com/Prouty89)                                        |                                       [Chris Delfaus](https://github.com/ChrisDelf)                                        |                                       [Christian Ubani](https://github.com/chikechris)                                        |                                       [Dennis Mercado](https://github.com/denmercs)                                        |                                       [Jade E Lopez](https://github.com/jadeli1720)                                        |                                       [Jonathan Dorety](https://github.com/kyullog)                                        |
 
 |                      [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777)                       |                      [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN)                       |                      [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89)                       |                      [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf)                       |                      [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)                       |                      [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs)                       |                      [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)                       |                      [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog)                       |
@@ -39,9 +38,7 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
 [UX Design files](https://www.figma.com/file/gUEga1dX7l0CCPsthYSQr0/Labs17_Safe-Mothers%2C-Alexander-Vargas?node-id=192%3A14) 
 
 
-
 Safe Mother, Safe Babies is a non-profit organization whose goal is to increase health facility access to pregnant mothers residing in Ugandan Villages. The organization relies on data collection of Mothers and volunteer drivers whose information is stored on a database and accessed for risk evaluation and SMS communication purposes. The app consists of several parts:
-
 
 - Administrative Dashboard that will display mother and driver data from the database.
 - Allow the user to perform CRUD operations on the available data
@@ -50,12 +47,10 @@ Safe Mother, Safe Babies is a non-profit organization whose goal is to increase 
 
 ###  Key Features
 
-
 -    Mother can register her information using a phone with SMS capabilities
 -    feature two
 -    feature three
--    feature four
--    feature five
+
 
 
 ## Tech Stack
@@ -68,7 +63,6 @@ We chose these frameworks because:
 
 - Scalability
 - Ease of readability for the next team who builds on to this project
-
 - Vast selection of libraries to aid in accomplishing our goal
 - React's virtual DOM in ReactJS makes for faster development and better user experience
 - Allows us to specify various configurations and build reusable components
@@ -85,7 +79,6 @@ We chose these frameworks because:
 - redux-persist
 - redux-thunk
 
-
 # UI Design Libraries
 
 - grommet
@@ -98,7 +91,6 @@ We chose these frameworks because:
 
 #### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
-
 #    NodeJS + ExpressJS
 
 - Allows for quick building of scalable network applications
@@ -106,7 +98,6 @@ We chose these frameworks because:
 - Clean and organized code using packages/middleware for validation, error handling, etc.
 
 ## Libraries 
-
 
 - axios
 - bcryptjs
@@ -137,7 +128,6 @@ We chose these frameworks because:
 
     `POST`
   
-
 * **Data Params**
 
   `{password: " ", username: " "}`
@@ -177,7 +167,7 @@ We chose these frameworks because:
 
 * **URL**
 
-  /admin
+  /auth/register
 
 * **Method:**
 
@@ -212,14 +202,21 @@ We chose these frameworks because:
         });
     };
     ```
+
+    ### Administrative user Update and Delete.
+
    Edit a registered administrative user.
 * **Method:**
 
     `PUT`
+
+* **URL**
+
+  /admin/:id
   
 * **Data Params**
 
-  `{first_name: " ", last_name: " ", password: " ", username: " "}`
+  `{first_name: " ", last_name: " ", username: " "}`
 
 * **Success Response:**
 
@@ -228,7 +225,7 @@ We chose these frameworks because:
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br /> 
-    **Content:** `{ error : "Error adding new user" }`
+    **Content:** `{ error : "Error updating new user" }`
 
 * **Sample Call:**
 
@@ -244,6 +241,41 @@ We chose these frameworks because:
             dispatch({type: EDIT_USERS_FAILURE, payload: err.response})
         })
     }
+    ```  
+    Delete a registered administrative user.
+* **Method:**
+
+    `DELETE`
+
+* **URL**
+
+  /users/:id
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: "User with :ID has been deleted"`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error deleting user" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const deleteUsers = (id) => dispatch => {
+    dispatch({type: DELETE_USERS_START});
+    axiosWithAuth().delete(`/users/${id}`)
+        .then(res => {
+
+            dispatch({type: DELETE_USERS_SUCCESS, payload: id})
+        })
+        .catch(err => {
+            dispatch({type: DELETE_USERS_FAILURE, payload: err.response})
+        })
+    };
     ```
 
 
