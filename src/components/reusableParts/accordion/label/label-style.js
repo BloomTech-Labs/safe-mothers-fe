@@ -15,6 +15,14 @@ export const StyledLabel = styled.div`
         padding-top: 0;
         padding-bottom: 0;
     }
+    
+    .add-icon{
+        margin-left: 2%;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+        height: 1%;
+    };
+    
     .name{
         width: 20%; 
         text-align: left;
@@ -87,31 +95,6 @@ export const StyledLabel = styled.div`
         border-radius: 5px; !important
     }
      
-    .add-btn{
-        margin-left: 2%;
-        position: relative;
-        border-radius: 50%;
-        height: 28px;
-        width: 28px;
-        border: none;
-        outline: none;
-        background: ${props => props.theme.primary.gray};
-        &:hover{
-            background: gray;
-            .add-icon{ 
-                color: white;
-            }
-        }
-    }
-    
-    .add-icon{ 
-        color: black;
-        position: absolute;
-        font-size: 30px; 
-        top: -32%;
-        left: 20%;
-    }
-     
     p{
         justify-content: space-between;
         width: 33%;
@@ -146,40 +129,13 @@ export const CustomBadge = styled.div`
     color:  ${props => props.badgeText}
     width: ${props => props.width}
     height: 100%;
-    padding-top: 0.5%;
-    padding-bottom: 0.5%;
+    padding-top: ${props => props.top ? props.top : '0.5%'};
+    padding-bottom: ${props => props.bottom ? props.bottom : '0.5%'};
+    padding-left: ${props => props.left ? props.left : '0'};
+    padding-right: ${props => props.right ? props.right : '0'};
     position: relative;
-    
     @media (max-width: 950px) {
         width: 50px;
         font-size: 0.6rem;
     }
-    
-    .delete-badge{
-        border: none;
-        background: ${props => props.badgeDark};
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;    
-        color:  ${props => props.badgeText}
-        width: 25%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: absolute;
-        padding-bottom: 7%;
-        left: 77%;
-        height: 100%;
-    
-       &:hover{
-            width: 25%;
-            filter: brightness(85%);
-       }
-       .delete-icon{
-            position: absolute;
-            top: 5%;
-       }
-    }
-    
-    
-    
 `;

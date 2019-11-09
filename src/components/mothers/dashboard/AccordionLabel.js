@@ -29,7 +29,7 @@ function AccordionLabel(props) {
             <>
                 <span className="name"><SVG onClick={() => props.history.push(`/mothers/${mother.id}`)} className="see-more" src={SeeMore}/>{mother.name}</span>
                 <LabelBadges entity={mother} risk={risk}/>
-                <LabelStatus icon={Born} text={"Delivered"}/>
+                <LabelStatus />
                 <div className="icon-container">
                     {rain_season === RAIN_SEASON && <SVG src={Rain} className="icon responsive-icon"/>}
                     {dry_season === DRY_SEASON && <SVG src={Sun} className="icon responsive-icon"/>}

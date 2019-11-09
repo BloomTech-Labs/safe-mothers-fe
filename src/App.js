@@ -2,7 +2,6 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import connect from "react-redux/es/connect/connect";
 
-import Registration from "./components/auth/Registration";
 import MenuBar from "./components/menubar/MenuBar";
 import Dashboard from './components/dashboard/Dashboard';
 import MothersList from './components/mothers/dashboard/MothersList';
@@ -52,16 +51,16 @@ export const theme = {
         gray: "#C4C4C4",
     },
     darkPalette: {
-        red: "#cb1818",
+        red: "#b21414",
         blue: "#0d26a8",
         yellow: "#ffc008",
-        lightPink: "#ffb2b0",
-        orange: "#ff8100",
-        deepPink: "#df0080",
-        green: "#008a00",
-        black: "#02366b",
-        plum: "#eea2ff",
-        rebeccaPurple: "#5f0095",
+        lightPink: "#f37f83",
+        orange: "#c47019",
+        deepPink: "#c50074",
+        green: "#006400",
+        black: "#0454a7",
+        plum: "#d993e7",
+        rebeccaPurple: "#47006e",
         gray: "#979797",
     }
 };
@@ -85,7 +84,6 @@ function App(props) {
                 <Container>
                     <Router>
                         {/*<Route exact path="/login" component={FormikLoginForm}/>*/}
-                        {/*<Route exact path="/registration" component={Registration}/>*/}
                         {props.isAuth && <MenuBar/>}
                         <Switch>
                             <Route path="/login" component={FormikLoginForm}/>

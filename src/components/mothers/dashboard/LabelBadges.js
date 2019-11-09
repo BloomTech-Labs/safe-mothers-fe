@@ -2,9 +2,27 @@ import React, {useState, useEffect} from 'react';
 import {connect} from "react-redux";
 import FormikLabelForm from "./LabelForm";
 import {CustomBadge} from '../../reusableParts/accordion/label/label-style'
-// import {Modal} from 'pcln-modal';
+import {Modal} from 'pcln-modal';
 import {HIGH_RISK} from "../mother-utils";
 import {getLabels, deleteLabel} from "../../../actions/mothersActions";
+import Add from '../resources/Add.svg';
+import CloseCircle from '../../reusableParts/resources/CloseCircle.svg'
+import {SVGBtn} from "../../reusableParts/form-items";
+import {BadgeLimit} from "../mother-style";
+import SVG from "react-inlinesvg";
+import Cry from "../resources/Group.svg";
+
+export const LABEL_LIMIT = 4;
+
+export function defineMothersLabels (labels, mother) {
+        if (labels) {
+            const labels_array = labels.filter(item => {
+                return item.mother_id === mother.id
+            });
+            return labels_array;
+        }
+        return [];
+    }
 
 
 function LabelBadges(props) {
@@ -12,7 +30,7 @@ function LabelBadges(props) {
     const [active, setActive] = useState(false);
 
     useEffect(() => {
-        // props.getLabels(entity.id);
+        props.getLabels();
     }, []);
 
     const modal = event => {
@@ -23,6 +41,7 @@ function LabelBadges(props) {
             setActive(!active);
         }
     };
+
     const deleteLabel = (event, label) => {
         if (event) {
             event.stopPropagation();
@@ -35,47 +54,55 @@ function LabelBadges(props) {
     return (
         <div className="inline-badges">
             {entity.amt_saved > 0 &&
-            <CustomBadge  width="12%" className="badge" color="secondary">
+            <CustomBadge width="12%" className="badge" color="secondary">
                 {entity.amt_saved ? entity.amt_saved : '$0'}
             </CustomBadge>}
-            {console.log("RISK ", risk)}
             {risk === HIGH_RISK &&
             <CustomBadge width="12%" badgeColor="red" badgeText="white">
                 {HIGH_RISK}
             </CustomBadge>}
-{/*
-            {labels && labels.map((label, index) =>
-                <CustomBadge key={index}
-                             badgeColor={label.color}
-                             badgeText={label.text_color}
-                             badgeDark={label.dark_color}
-                >
-                    {label.label_name}
-                    <div onClick={(e) => deleteLabel(e, label)} className="delete-badge"><span
-                        className="delete-icon">&#215;</span>
-                    </div>
-                </CustomBadge>)}
 
+            {labels && labels.map((label, index) => {
+                if (entity.id === label.mother_id) {
+                    return <CustomBadge key={index}
+                                        left={"1%"}
+                                        right={"0.2%"}
+                                        top={"0.1%"}
+                                        bottom={"0.1%"}
+                                        badgeColor={label.color}
+                                        badgeText={label.text_color}
+                                        badgeDark={label.dark_color}>
+                        {label.label_name}
+                        <SVGBtn onClick={(e) => deleteLabel(e, label)} bg={label.dark_color} src={CloseCircle}/>
+                    </CustomBadge>
+                }
+            })}
+            {console.log("defineMothersLabels(labels, entity) ", defineMothersLabels(labels, entity).length < LABEL_LIMIT)}
             <Modal
                 width={[1, "440px"]}
                 enableOverflow
                 isOpen={active}
                 className="modal"
                 onClose={(e) => modal(e)}>
-                {props.labels.length < 4 && <h2 className="modal-title">Create badge</h2>}
-                <FormikLabelForm modal={modal} mother_id={entity.id}/>
+                {(defineMothersLabels(labels, entity).length < LABEL_LIMIT) &&
+                <h2 className="modal-title">Create badge</h2>}
+                {(defineMothersLabels(labels, entity).length < LABEL_LIMIT) ?
+                    <FormikLabelForm modal={modal} labels={labels} mother={entity} />
+                    :
+                    <BadgeLimit>
+                        <SVG className="limit-icon" src={Cry}/>
+                        <p className="limit-text">You can`t create more than 4 labels on one mother</p>
+                    </BadgeLimit>
+                }
             </Modal>
-
-            <div className="add-btn" onClick={(e) => modal(e)}>
-                <span className="add-icon">&#43;</span>
-            </div>*/}
+            <SVGBtn className="add-icon" onClick={(e) => modal(e)} src={Add} bg="#5bdf72" bgOnHover="#44c25a"/>
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        // labels: state.mothersReducer.labels
+        labels: state.mothersReducer.labels
     };
 };
 

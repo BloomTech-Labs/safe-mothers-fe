@@ -16,7 +16,7 @@ import {
     transport_type,
     villages,
     supplies_items,
-    education, decision_maker, marital_status, wives_number, wife_rank
+    education, decision_maker, marital_status, wives_number, wife_rank, notes
 } from "./lists";
 import PregnancyComplication from "./PregnancyComplication";
 import PriorComplication from "./PriorComplication";
@@ -24,6 +24,7 @@ import Interviewers, {interviewers} from "./Interviewers";
 import {connect} from "react-redux";
 import {addMother, getMother, updateMother} from "../../../actions/mothersActions";
 import {Link} from "react-router-dom";
+import Tooltip from "../../reusableParts/Tooltip";
 
 const StyledMotherForm = styled.div`
     width: 100%;
@@ -104,6 +105,7 @@ const StyledMotherForm = styled.div`
   
     .column{
         padding: 1%;
+        width: 60%;
     }
     
     .column-checkboxes{
@@ -182,6 +184,11 @@ const StyledMotherForm = styled.div`
         left: 100%;
         margin-left: -1.4em;
     }
+    
+    label{
+        display: flex;
+        position: relative;
+    }
 `;
 
 function MotherForm(props) {
@@ -257,7 +264,7 @@ function MotherForm(props) {
                                     <span className="column-title form-title">Introduction</span>
                                     <li>Interviewer</li>
                                     {props.values.interviewer === interviewers.Other &&
-                                    <li>Name of the Interviewer</li>}
+                                    <li>Specify interviewer</li>}
                                     <li>Pregnancy</li>
                                     <li>Due date</li>
                                     <li>Deliver in Iganga Hospital</li>
@@ -268,10 +275,12 @@ function MotherForm(props) {
                                 <div className="column">
                                     {/*interviewer*/}
                                     <label className="error-holder">
+
                                         <Field component="select" className="regular-input input" name="interviewer"
                                                onChange={(e) => resetValue("interviewer", e.target.value, "interviewer_other", interviewers.Other)}>
                                             <Interviewers/>
                                         </Field>
+                                        <Tooltip tip="Type your interviewer"/>
                                         {props.touched.interviewer && props.errors.interviewer && (
                                             <p className="errormessage">{props.errors.interviewer}</p>
                                         )}
@@ -293,6 +302,7 @@ function MotherForm(props) {
                                                onChange={(e) => props.setFieldValue("current_pg", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={false}/>
                                         </Field>
+                                        <Tooltip tip={notes.pregnancy}/>
                                         {props.touched.current_pg && props.errors.current_pg && (
                                             <p className="errormessage">{props.errors.current_pg}</p>
                                         )}
@@ -304,6 +314,7 @@ function MotherForm(props) {
                                                onChange={(e) => props.setFieldValue("due_now", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
                                         </Field>
+                                        <Tooltip tip={notes.due_date}/>
                                         {props.touched.due_now && props.errors.due_now && (
                                             <p className="errormessage">{props.errors.due_now}</p>
                                         )}
@@ -316,6 +327,7 @@ function MotherForm(props) {
                                                onChange={(e) => props.setFieldValue("deliver_elsewhere", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
                                         </Field>
+                                        <Tooltip tip={notes.deliver_elsewhere}/>
                                         {props.touched.deliver_elsewhere && props.errors.deliver_elsewhere && (
                                             <p className="errormessage">{props.errors.deliver_elsewhere}</p>
                                         )}
@@ -327,6 +339,7 @@ function MotherForm(props) {
                                                onChange={(e) => props.setFieldValue("hx_cesarean", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
                                         </Field>
+                                        <Tooltip tip={notes.hx_cesarean}/>
                                         {props.touched.hx_cesarean && props.errors.hx_cesarean && (
                                             <p className="errormessage">{props.errors.hx_cesarean}</p>
                                         )}
@@ -338,6 +351,7 @@ function MotherForm(props) {
                                                onChange={(e) => props.setFieldValue("hx_complication", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
                                         </Field>
+                                        <Tooltip tip={notes.hx_complication}/>
                                         {props.touched.hx_complication && props.errors.hx_complication && (
                                             <p className="errormessage">{props.errors.hx_complication}</p>
                                         )}
@@ -349,6 +363,7 @@ function MotherForm(props) {
                                                onChange={(e) => props.setFieldValue("current_multip", parseInt(e.target.value))}>
                                             <YesNoDontknowDeclin state={true}/>
                                         </Field>
+                                        <Tooltip tip={notes.current_multip}/>
                                         {props.touched.current_multip && props.errors.current_multip && (
                                             <p className="errormessage">{props.errors.current_multip}</p>
                                         )}
@@ -537,70 +552,114 @@ function MotherForm(props) {
                                     <li>Placenta Previa</li>
                                     <li>Stillbirth</li>
                                     {props.values.hx_stillbirth === choices.YES &&
-                                    <li>How many stillbirth</li>}
+                                    <li>Number of stillbirths</li>}
                                     <li>Other complications</li>
                                     {props.values.other_complication === choices.YES &&
-                                    <li>Name of the complication</li>
+                                    <li>Specify complications</li>
                                     }
                                 </ul>
                                 <div className="column">
+
                                     {/*complications_note*/}
+
                                     {/*anemia*/}
                                     <Field component="select" className="regular-input input" name="anemia"
                                            onChange={(e) => props.setFieldValue("anemia", parseInt(e.target.value))}>
                                         <PregnancyComplication/>
+
                                     </Field>
+
                                     {/*malaria*/}
                                     <Field component="select" className="regular-input input" name="malaria"
                                            onChange={(e) => props.setFieldValue("malaria", parseInt(e.target.value))}>
                                         <PregnancyComplication/>
                                     </Field>
+
                                     {/*obstructed_labor*/}
-                                    <Field component="select" className="regular-input input" name="obstructed_labor"
-                                           onChange={(e) => props.setFieldValue("obstructed_labor", parseInt(e.target.value))}>
-                                        <PriorComplication name={"obstructed_labor"}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input"
+                                               name="obstructed_labor"
+                                               onChange={(e) => props.setFieldValue("obstructed_labor", parseInt(e.target.value))}>
+                                            <PriorComplication name={"obstructed_labor"}/>
+                                        </Field>
+                                        <Tooltip tip={notes.obstructed_labor}/>
+                                    </label>
+
                                     {/*malpresent*/}
-                                    <Field component="select" className="regular-input input" name="malpresent"
-                                           onChange={(e) => props.setFieldValue("malpresent", parseInt(e.target.value))}>
-                                        <PriorComplication  {...props} name={"malpresent"}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="malpresent"
+                                               onChange={(e) => props.setFieldValue("malpresent", parseInt(e.target.value))}>
+                                            <PriorComplication  {...props} name={"malpresent"}/>
+                                        </Field>
+                                        <Tooltip tip={notes.malpresent}/>
+                                    </label>
+
                                     {/*aph*/}
-                                    <Field component="select" className="regular-input input" name="aph"
-                                           onChange={(e) => props.setFieldValue("aph", parseInt(e.target.value))}>
-                                        <PregnancyComplication/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="aph"
+                                               onChange={(e) => props.setFieldValue("aph", parseInt(e.target.value))}>
+                                            <PregnancyComplication/>
+                                        </Field>
+                                        <Tooltip tip={notes.aph}/>
+                                    </label>
+
                                     {/*pph*/}
-                                    <Field component="select" className="regular-input input" name="pph"
-                                           onChange={(e) => props.setFieldValue("pph", parseInt(e.target.value))}>
-                                        <PriorComplication/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="pph"
+                                               onChange={(e) => props.setFieldValue("pph", parseInt(e.target.value))}>
+                                            <PriorComplication/>
+                                        </Field>
+                                        <Tooltip tip={notes.pph}/>
+                                    </label>
+
                                     {/*ret_placenta*/}
-                                    <Field component="select" className="regular-input input" name="ret_placenta"
-                                           onChange={(e) => props.setFieldValue("ret_placenta", parseInt(e.target.value))}>
-                                        <PriorComplication/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="ret_placenta"
+                                               onChange={(e) => props.setFieldValue("ret_placenta", parseInt(e.target.value))}>
+                                            <PriorComplication/>
+                                        </Field>
+                                        <Tooltip tip={notes.ret_placenta}/>
+                                    </label>
+
                                     {/*placenta_previa*/}
-                                    <Field component="select" className="regular-input input" name="placenta_previa"
-                                           onChange={(e) => props.setFieldValue("placenta_previa", parseInt(e.target.value))}>
-                                        <PregnancyComplication/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="placenta_previa"
+                                               onChange={(e) => props.setFieldValue("placenta_previa", parseInt(e.target.value))}>
+                                            <PregnancyComplication/>
+                                        </Field>
+                                        <Tooltip tip={notes.placenta_previa}/>
+                                    </label>
+
                                     {/*hx_stillbirth*/}
-                                    <Field component="select" className="regular-input input" name="hx_stillbirth"
-                                           onChange={(e) => resetValue("hx_stillbirth", e.target.value, "no_stillbirths", choices.YES)}>
-                                        <YesNoDontknowDeclin state={true}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="hx_stillbirth"
+                                               onChange={(e) => resetValue("hx_stillbirth", e.target.value, "no_stillbirths", choices.YES)}>
+                                            <YesNoDontknowDeclin state={true}/>
+                                        </Field>
+                                        <Tooltip tip={notes.hx_stillbirth}/>
+                                    </label>
+
                                     {/*no_stillbirths*/}
                                     {props.values.hx_stillbirth === choices.YES &&
-                                    <Field className="regular-input input"
-                                           type="number"
-                                           name="no_stillbirths"
-                                    />}
+                                    <label>
+                                        <Field className="regular-input input"
+                                               type="number"
+                                               name="no_stillbirths"
+                                        />
+                                        <Tooltip tip={notes.no_stillbirths}/>
+                                    </label>
+                                    }
+
                                     {/*other_complication*/}
-                                    <Field component="select" className="regular-input input" name="other_complication"
-                                           onChange={(e) => resetValue("other_complication", e.target.value, "complication_specify", choices.YES)}>
-                                        <YesNoDontknowDeclin state={true}/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input"
+                                               name="other_complication"
+                                               onChange={(e) => resetValue("other_complication", e.target.value, "complication_specify", choices.YES)}>
+                                            <YesNoDontknowDeclin state={true}/>
+                                        </Field>
+                                        <Tooltip tip={notes.other_complication}/>
+                                    </label>
+
                                     {/*complication_specify*/}
                                     {props.values.other_complication === choices.YES &&
                                     <Field className="regular-input input"
@@ -616,11 +675,11 @@ function MotherForm(props) {
                                     <li>Antenatal Care Visits</li>
                                     <li>Location Of Delivery</li>
                                     {props.values.deliver_place === choices.OTHER &&
-                                    <li>Name of the location</li>
+                                    <li>Specify location</li>
                                     }
                                     <li>Method Of Arriving</li>
                                     {props.values.plan_transport === choices.OTHER &&
-                                    <li>Other transport</li>}
+                                    <li>Specify transport</li>}
                                     <li>Purchase supplies</li>
                                     <li>Money Saved</li>
                                     {props.values.saving_money === choices.YES &&
@@ -628,7 +687,9 @@ function MotherForm(props) {
                                     }
                                 </ul>
                                 <div className="column">
+
                                     {/*BP_note - ASK WHAT IT IS */}
+
                                     {/*no_anc*/}
                                     <Field component="select" className="regular-input input" name="no_anc"
                                            onChange={(e) => props.setFieldValue("no_anc", parseInt(e.target.value))}>
@@ -637,29 +698,43 @@ function MotherForm(props) {
                                         <option value={choices.IDN}>DON'T KNOW</option>
                                         <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
                                     </Field>
+
                                     {/*deliver_place*/}
-                                    <Field component="select" className="regular-input input" name="deliver_place"
-                                           onChange={(e) => resetValue("deliver_place", e.target.value, "deliver_place_other", choices.OTHER)}>
-                                        <Select list={place_deliver}/>
-                                        <option value={choices.IDN}>DON'T KNOW</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
-                                        <option value={choices.OTHER}>OTHER</option>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="deliver_place"
+                                               onChange={(e) => resetValue("deliver_place", e.target.value, "deliver_place_other", choices.OTHER)}>
+                                            <Select list={place_deliver}/>
+                                            <option value={choices.IDN}>DON'T KNOW</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                            <option value={choices.OTHER}>OTHER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.deliver_place}/>
+                                    </label>
+
                                     {/*deliver_place_other*/}
                                     {props.values.deliver_place === choices.OTHER &&
-                                    <Field className="regular-input input"
-                                           type="text"
-                                           name="deliver_place_other"
-                                    />}
+                                    <label>
+                                        <Field className="regular-input input"
+                                               type="text"
+                                               name="deliver_place_other"
+                                        />
+                                        <Tooltip tip={notes.deliver_place_other}/>
+                                    </label>}
+
                                     {/*deliver_specific - ASK WHAT IT IS */}
+
                                     {/*plan_transport*/}
-                                    <Field component="select" className="regular-input input" name="plan_transport"
-                                           onChange={(e) => resetValue("plan_transport", e.target.value, "plan_transport_other", choices.OTHER)}>
-                                        <Select list={transport_type}/>
-                                        <option value={choices.IDN}>DON'T KNOW</option>
-                                        <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
-                                        <option value={choices.OTHER}>OTHER</option>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="plan_transport"
+                                               onChange={(e) => resetValue("plan_transport", e.target.value, "plan_transport_other", choices.OTHER)}>
+                                            <Select list={transport_type}/>
+                                            <option value={choices.IDN}>DON'T KNOW</option>
+                                            <option value={choices.DECLINES_TO_ANSWER}>DECLINES TO ANSWER</option>
+                                            <option value={choices.OTHER}>OTHER</option>
+                                        </Field>
+                                        <Tooltip tip={notes.plan_transport}/>
+                                    </label>
+
                                     {/*plan_transport_other*/}
                                     {props.values.plan_transport === choices.OTHER &&
                                     <Field className="regular-input input"
@@ -682,10 +757,13 @@ function MotherForm(props) {
                                     </Field>
 
                                     {/*saving_money*/}
-                                    <Field component="select" className="regular-input input" name="saving_money"
-                                           onChange={(e) => resetValue("saving_money", e.target.value, "amt_saved", choices.YES)}>
-                                        <YesNoDontknowDeclin/>
-                                    </Field>
+                                    <label>
+                                        <Field component="select" className="regular-input input" name="saving_money"
+                                               onChange={(e) => resetValue("saving_money", e.target.value, "amt_saved", choices.YES)}>
+                                            <YesNoDontknowDeclin/>
+                                        </Field>
+                                        <Tooltip tip={notes.saving_money}/>
+                                    </label>
 
                                     {/*amt_saved*/}
                                     {props.values.saving_money === choices.YES &&
