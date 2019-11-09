@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
-import {defineCarrier, defineOwnerPhone, NO_DATA} from "../mother-utils";
+import {defineCarrier, defineOwnerPhone, defineVillage, NO_DATA, yesNoIDN} from "../mother-utils";
 
 export default function PersonalCard({mother}) {
     return (
@@ -20,13 +20,13 @@ export default function PersonalCard({mother}) {
                     <ul className="values">
                         <li>{mother.edd ? mother.edd : 'N/A'}</li>
                         <li>{mother.age ? mother.age : 'N/A'}</li>            
-                        <li>{mother.villiage ? mother.villiage : 'N/A'}</li>
-                        <li>{mother.own_phone ? mother.own_phone : 'N/A'}</li>
+                        <li>{defineVillage(mother)}</li>
+                        <li>{yesNoIDN(mother.own_phone)}</li>
                         <li>{mother.phone_number ? mother.phone_number : NO_DATA}</li>
                         <li>{defineCarrier(mother)}</li>
-                        <li>{mother.other_phone ? mother.other_phone : 'N/A'}</li>
+                        <li>{yesNoIDN(mother.other_phone)}</li>
                         <li>{defineOwnerPhone(mother)}</li>
-                        <li>{mother.want_education ? mother.want_education : 'N/A'}</li>
+                        <li>{yesNoIDN(mother.want_education)}</li>
                     </ul>
             </div>
         </Card>

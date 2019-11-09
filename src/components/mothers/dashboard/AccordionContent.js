@@ -31,7 +31,7 @@ export default function AccordionContent(props) {
                             <li>{defineMaritalStatus(mother)}</li>
                             <li>{defineWifeOrder(mother)}</li>
                             {/*<li>{mother.attend_school ? mother.attend_school : 'N/A'}</li>*/}
-                            <li>{defineEducation(mother)}</li>
+                            <li>{defineEducation(mother.education)}</li>
                             <li>{mother.current_pg === choices.YES ? YES : NO}</li>
                             <li>{mother.edd ? mother.edd : 'N/A'}</li>
                             <li>{defineVillage(mother)}</li>

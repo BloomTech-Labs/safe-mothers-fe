@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
-import {NO_DATA} from "../mother-utils";
+import {defineInterviewer, NO_DATA, YES, yesNoIDN} from "../mother-utils";
 
 export default function Introduction({mother}) {
     return (
@@ -16,13 +16,13 @@ export default function Introduction({mother}) {
                     <li>Twins Pregnancy</li>
                 </ul>
                 <ul className="values">
-                    <li>{mother.interviewer ? mother.interviewer: NO_DATA}</li>
-                    <li>{mother.current_pg ? mother.current_pg : NO_DATA}</li>
-                    <li>{mother.due_now ? mother.due_now : NO_DATA}</li>
-                    <li>{mother.deliver_elsewhere ? mother.deliver_elsewhere : NO_DATA}</li>
-                    <li>{mother.hx_cesarean ? mother.hx_cesarean : NO_DATA}</li>
-                    <li>{mother.hx_complication ? mother.hx_complication : NO_DATA}</li>
-                    <li>{mother.current_multip ? mother.current_multip : NO_DATA}</li>
+                    <li>{defineInterviewer(mother)}</li>
+                    <li>{mother.current_pg ? YES : NO_DATA}</li>
+                    <li>{yesNoIDN(mother.due_now)}</li>
+                    <li>{yesNoIDN(mother.deliver_elsewhere)}</li>
+                    <li>{yesNoIDN(mother.hx_cesarean)}</li>
+                    <li>{yesNoIDN(mother.hx_complication)}</li>
+                    <li>{yesNoIDN(mother.current_multip)}</li>
                 </ul>
             </div>
         </Card>

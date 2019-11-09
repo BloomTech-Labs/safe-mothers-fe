@@ -898,8 +898,8 @@ function MotherForm(props) {
                                         <li>Specify insurance</li>}
                                         {props.values.insurance === choices.YES &&
                                         <>
-                                            <li>{insurance[0]}</li>
-                                            <li>{insurance[1]}</li>
+                                            <li>Community-based insurance</li>
+                                            <li>Private commercial insurance</li>
                                             <li>Insurance other</li>
                                         </>
                                         }
@@ -1406,14 +1406,14 @@ const FormikMother = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        /*   interviewer: Yup.number().required("Please choose something from the list"),
+           interviewer: Yup.number().required("Please choose something from the list"),
            current_pg: Yup.number().required("Please choose something from the list"),
            due_now: Yup.number().required("Please choose something from the list"),
            deliver_elsewhere: Yup.number().required("Please choose something from the list"),
            hx_cesarean: Yup.number().required("Please choose something from the list"),
            hx_complication: Yup.number().required("Please choose something from the list"),
            current_multip: Yup.number().required("Please choose something from the list"),
-           /!*registration*!/
+           /*registration*/
            name: Yup.string().required("Please fill the field"),
            edd: Yup.string().required("Please fill the field"),
            age: Yup.string().required("Please fill the field"),
@@ -1423,7 +1423,7 @@ const FormikMother = withFormik({
            phone_number: Yup.string().required("Please fill the field"),
            carrier: Yup.number().required("Please choose something from the list"),
            owner_phone: Yup.number().required("Please choose something from the list"),
-           want_education: Yup.number().required("Please choose something from the list"),*/
+           want_education: Yup.number().required("Please choose something from the list"),
     }),
     handleSubmit(values, {props, resetForm}) {
         let mother = {};
@@ -1436,15 +1436,15 @@ const FormikMother = withFormik({
             const suplies = array_supplies.filter((item, index) => array_supplies.indexOf(item) === index).join(' ');
             mother.name_supplies = suplies;
         }
-        /*   if (props.match.params.id) {
-               props.updateMother(values.id, values);
+           if (props.match.params.id) {
+               props.updateMother(values.id, mother);
                resetForm();
                props.history.push("/mothers");
            } else {
                props.addMother(mother);
                resetForm();
                props.history.push("/mothers");
-           }*/
+           }
         console.log("VALUES ", mother)
     }
 })(MotherForm);

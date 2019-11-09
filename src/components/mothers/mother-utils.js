@@ -1,7 +1,8 @@
-import {marital_status, wives_number, education, phone_owner, carriers, villages} from "./form/lists";
+import {marital_status, wives_number, education, phone_owner, carriers, villages, decision_maker} from "./form/lists";
 import {choices} from "./form/YesNoDontknowDeclin";
 import {pregnancy_choices} from "./form/PregnancyComplication";
 import React from "react";
+import {interviewers} from "./form/Interviewers";
 
 export const NO_SEASON = "NO_SEASON";
 //RAIN SEASONS
@@ -36,6 +37,30 @@ export function defineDate() {
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 }
 
+//Reusable functions
+
+export const defineBasicValue = (list, value, value2) => {
+    const filtered_list = list.filter((item, index) => (index + 1) === value);
+    if (filtered_list.length > 0) return filtered_list;
+    if (value === choices.OTHER) return returnValue(value2);
+    if (value === choices.IDN) return IDN;
+    if (value === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
+    return NO_DATA;
+};
+
+export const returnNumberValue = (value) => {
+    if(typeof value === 'number') return  value;
+    return NO_DATA;
+};
+
+export const returnValue = (value) =>{
+    if(value){
+        return value.length > 0 ? value : NO_DATA;
+    }
+    return NO_DATA;
+};
+
+
 //Personal info
 const DECLINES_TO_ANSWER = "Decline to answer";
 const IDN = "I don`t know";
@@ -46,7 +71,7 @@ export const NO = "No";
 export const defineMaritalStatus = (mother) => {
     const status = marital_status.filter((item, index) => (index + 1) === mother.marital_status);
     if (status.length > 0) return status;
-    if (mother.marital_status === choices.OTHER) return mother.marital_status_other;
+    if (mother.marital_status === choices.OTHER) return returnValue(mother.marital_status_other);
     if (mother.marital_status === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
     return NO_DATA;
 };
@@ -67,8 +92,8 @@ export const defineWifeOrder = (mother) => {
     return NO_DATA;
 };
 
-export const defineEducation = (mother) => {
-    const education_level = mother.education;
+export const defineEducation = (schooled) => {
+    const education_level = schooled;
     const level = education.filter((item, index) => (index + 1) === education_level);
     if (level.length > 0) return level;
     if (education_level === choices.IDN) return IDN;
@@ -115,18 +140,6 @@ export function yesNoIDN(item) {
     return NO_DATA;
 }
 
-export const returnNumberValue = (value) => {
-    if(typeof value === 'number') return  value;
-    return NO_DATA;
-};
-
-export const returnValue = (value) =>{
-    if(value){
-        return value.length > 0 ? value : NO_DATA;
-    }
-    return NO_DATA;
-};
-
 //Heigh Risk Label
 
 const risks = [
@@ -158,3 +171,35 @@ export function highRisk(mother) {
         mother.complication_specify.length > 0) return HIGH_RISK;
     return NO_RISK;
 }
+
+//Introduction
+
+export function defineInterviewer(mother) {
+    if (mother.interviewer === interviewers.Mukalu_Mohamed) return "Mukalu Mohamed";
+    if (mother.interviewer === interviewers.Mikayla_Bryan) return "Mikayla O’Bryan";
+    if (mother.interviewer === interviewers.Barilaine_Joseph) return "Barilaine Joseph Peter";
+    if (mother.interviewer === interviewers.Tatumwa_Desmond_Benjamine) return "Tatumwa Desmond Benjamine";
+    if (mother.interviewer === interviewers.Ssemambo_Peter_Mumbya) return "Ssemambo Peter Mumbya";
+    if (mother.interviewer === interviewers.Other) return "Other";
+    return NO_DATA;
+}
+
+//Demographics
+
+
+export function defineDecisionMaker(money_control) {
+    const money_decision_maker = decision_maker.filter((item, index) => (index + 1) === money_control);
+    if (money_decision_maker.length > 0) return money_decision_maker;
+    if (money_control === choices.SMB) return "SOMEONE ELSE";
+    if (money_control === choices.IDN) return IDN;
+    if (money_control === choices.DECLINES_TO_ANSWER) return DECLINES_TO_ANSWER;
+    return NO_DATA;
+}
+
+
+//Birth preparedness
+
+
+
+
+
