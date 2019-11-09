@@ -6,6 +6,7 @@ import { SVGBtn } from '../reusableParts/form-items';
 import Close from '../reusableParts/resources/Close.svg';
 import Edit from '../reusableParts/resources/Edit.svg';
 import {Button} from "../reusableParts/form-items"
+import {withRouter} from "react-router-dom";
 
 const Banner = props => {
     const {person, path} = props;
@@ -35,7 +36,7 @@ const Banner = props => {
   );
 };
 
-export default Banner;
+export default withRouter(Banner);
 
 
 export const StyledBanner = styled.div `
