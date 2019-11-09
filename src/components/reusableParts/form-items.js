@@ -68,7 +68,8 @@ export const Button = styled.div`
         text-transform: uppercase;
         font-size: 16px;
         background: ${props => props.bg}
-        height: 48px;
+        height: 30px;
+        font-weight: bold;
         width: 25%;
         min-width: 20px;
         border: none;
