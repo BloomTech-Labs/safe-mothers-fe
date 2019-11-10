@@ -20,7 +20,7 @@ function SingleMotherView(props) {
         <>
             {singleMother && singleMother.map(mother => (
                 <StyledPageView className="single-page-view">
-                    <Banner person= {mother} path={`/mother-form/${id}`}  />
+                    <Banner back={"/mothers"} person= {mother.name} path={`/mother-form/${id}`}  />
                     <div className="card-container">
                         <div className="grid-top">
                             <div className="card">
