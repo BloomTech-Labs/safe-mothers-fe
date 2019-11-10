@@ -33,6 +33,7 @@ export const StyledPageView = styled.div`
         text-align: left;
         margin-right: 20px;
         color: #85a1c1;
+        text-transform: lowercase;
 
         p{
             margin-top: 0px;
@@ -63,7 +64,7 @@ export const StyledPageView = styled.div`
 
     .card-content{
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
     }
 
     .card-title{
@@ -74,6 +75,10 @@ export const StyledPageView = styled.div`
         @media (max-width: 1024px) {
             text-decoration: none;
             background: #e7f0fa;
+            height: 30px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
         }
 
     }
