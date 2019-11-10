@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
 import ConfirmDelete from '../reusableParts/ConfirmDelete';
@@ -10,32 +10,64 @@ import {withRouter} from "react-router-dom";
 
 const Banner = props => {
     const {person, path, state, back} = props;
-    return (
-        <StyledBanner>
-            <h1 className="banner-title">{person}</h1>
-            <div className="btn-container">
-                {!state &&
-                <Button
-                    onClick={() => props.history.push(path)}
-                    bgOnHover="#d8e6f6"
-                    bg="#e7f0fa"
-                    height="30px"
-                    color="#1337F1"
-                >
-                    EDIT
-                    <SVGBtn bg="#1337F1" className="edit-svg" src={Edit}/>
-                </Button>
-                }
-                {state &&
-                <button className="submit-btn" type="submit">Save</button>
-                }
+    const [scrollY, setScrollY] = useState(0);
+    const [position, setPosition] = useState(-60);
 
-                <Button bgOnHover="#db4343" height="30px" bg="#EB5757" color="white">
-                    DELETE
-                    <SVGBtn bg="#ffffff" className="del-svg" src={Close}/>
-                </Button>
-                <div className="back">
-                    <p onClick={() => props.history.push(back)}>Back</p>
+    function logit() {
+
+        if(scrollY > 120 && scrollY < 180){
+            setPosition((window.pageYOffset - 120) + (-60))
+        }
+        if(scrollY > 180){
+            setPosition(0);
+        }
+        if(scrollY < 120){
+            setPosition(-60);
+        }
+        setScrollY(window.pageYOffset);
+    }
+
+    useEffect(() => {
+        function watchScroll() {
+            window.addEventListener("scroll", logit);
+        }
+
+        watchScroll();
+        // Remove listener (like componentWillUnmount)
+        return () => {
+            window.removeEventListener("scroll", logit);
+        };
+    });
+
+
+    return (
+        <StyledBanner position={scrollY} banner_position={position}>
+            <div className="banner">
+                <h1 className="banner-title">{person}</h1>
+                <div className="btn-container">
+                    {!state &&
+                    <Button
+                        onClick={() => props.history.push(path)}
+                        bgOnHover="#d8e6f6"
+                        bg="#e7f0fa"
+                        height="30px"
+                        color="#1337F1"
+                    >
+                        EDIT
+                        <SVGBtn bg="#1337F1" className="edit-svg" src={Edit}/>
+                    </Button>
+                    }
+                    {state &&
+                    <button className="submit-btn" type="submit">Save</button>
+                    }
+
+                    <Button bgOnHover="#db4343" height="30px" bg="#EB5757" color="white">
+                        DELETE
+                        <SVGBtn bg="#ffffff" className="del-svg" src={Close}/>
+                    </Button>
+                    <div className="back">
+                        <p onClick={() => props.history.push(back)}>Back</p>
+                    </div>
                 </div>
             </div>
         </StyledBanner>
@@ -46,13 +78,27 @@ export default withRouter(Banner);
 
 
 export const StyledBanner = styled.div`
-    align-items: center;
-    height: 60px;
-    display: flex; 
-    justify-content: space-between;
-    text-align: center;
-    color: white;
-    background: #282E74;
+    .banner{
+        align-items: center;
+        height: 60px;
+        display: flex; 
+        justify-content: space-between;
+        text-align: center;
+        color: white;
+        background: #282E74;
+        z-index: 10;
+        width: 102%;
+        right: -11px;
+    /*    animation-fill-mode: forwards; 
+        transition: 0.5s;*/
+        position: ${props => props.position > 120 ? "fixed" : "absolute"};
+        top: ${props =>{
+            if(props.position > 120 && props.position < 179) return `${props.banner_position}px`;
+            if(props.position > 180) return "0px";
+            return "60px";
+        }};
+    }
+    
     @media (max-width: 1024px){
         height: 60px;
        

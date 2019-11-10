@@ -6,15 +6,10 @@ import SVG from 'react-inlinesvg/lib/index';
 import Sun from '../resources/Sun.svg';
 import Rain from '../resources/Rain.svg';
 
-//SVG paths for mother states
-import Pregnant from '../resources/Pregnant.svg';
-import Baby from '../resources/Baby.svg';
-import Born from '../resources/Born.svg';
 import SeeMore from '../../reusableParts/resources/eye.svg'
 
 import {defineRainSeason, defineDrySeason, RAIN_SEASON, DRY_SEASON} from "../mother-utils";
 import LabelBadges from "./LabelBadges";
-import LabelStatus from "../../reusableParts/accordion/label/LabelStatus";
 import LabelDate from "../../reusableParts/accordion/label/LabelDate";
 import {withRouter} from "react-router-dom";
 
@@ -29,7 +24,6 @@ function AccordionLabel(props) {
             <>
                 <span className="name"><SVG onClick={() => props.history.push(`/mothers/${mother.id}`)} className="see-more" src={SeeMore}/>{mother.name}</span>
                 <LabelBadges entity={mother} risk={risk}/>
-                <LabelStatus />
                 <div className="icon-container">
                     {rain_season === RAIN_SEASON && <SVG src={Rain} className="icon responsive-icon"/>}
                     {dry_season === DRY_SEASON && <SVG src={Sun} className="icon responsive-icon"/>}

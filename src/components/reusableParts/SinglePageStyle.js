@@ -6,7 +6,6 @@ export const StyledPageView = styled.div`
     max-width: 1500px;
     margin: 50px auto;
     border: 1.5px solid #EEEEEF;
-
         .edit-svg{
             color:white;
         }
