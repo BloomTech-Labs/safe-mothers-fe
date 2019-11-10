@@ -10,18 +10,7 @@ export const StyledPageView = styled.div`
         .edit-svg{
             color:white;
         }
-    .back{
-            width: 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            cursor: pointer;
-            p{
-                font-size: 1rem;
-                text-transform: uppercase;       
-            }
-        }
+  
     }
 
     .fields{

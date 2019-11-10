@@ -1,12 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from "yup";
-import {Button, FormItems} from "../../reusableParts/form-items";
+import {FormItems} from "../../reusableParts/form-items";
 import styled from 'styled-components';
-import SVG from 'react-inlinesvg/lib/index';
-import Pregnant from '../resources/Pregnant.svg';
 import YesNoDontknowDeclin, {choices} from "./YesNoDontknowDeclin";
-import CheckBox from "./CheckBox";
 import Select from "./Select";
 import {
     carriers,
@@ -23,66 +20,17 @@ import PriorComplication from "./PriorComplication";
 import Interviewers, {interviewers} from "./Interviewers";
 import {connect} from "react-redux";
 import {addMother, getMother, updateMother} from "../../../actions/mothersActions";
-import {Link} from "react-router-dom";
 import Tooltip from "../../reusableParts/Tooltip";
+import Banner from "../../reusableParts/Banner";
 
 const StyledMotherForm = styled.div`
     width: 100%;    
+    
     ul{
       position: relative;
       @media(max-width: 1024px){
           padding: 0;
       }
-    }
-    
-    .header-personal{
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        margin-bottom: 50px;
-        width: 100%;
-        position: relative;
-    }
-    
-    .arrow{
-        position: absolute;
-        bottom: 26px;
-        width: 6%;
-        left: 0;
-        font-size: 35px;
-        height: 40px;
-    }
-    
-    .personal-name{
-        width: 20%;
-        font-weight: bold;
-        line-height: 16px;
-        text-align: left;
-        white-space: nowrap;
-    }
-    
-    .status{
-      width: 40%;
-    }
-    
-    .btn-container{
-        width: 30%;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-    }
-    
-    .back{
-        width: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-weight: bold;
-        cursor: pointer;
-        p{
-            font-size: 1rem;
-            text-transform: uppercase;       
-        }
     }
     
     .form-title{
@@ -106,9 +54,7 @@ const StyledMotherForm = styled.div`
       margin-top: 60px;
       background: white;
       border: 1.5px solid #EEEEEF;
-      padding-top: 30px;
-      padding-left: 1%;
-      padding-right: 1%;
+      padding-top: 0;
     }
     
     .inline{
@@ -144,65 +90,8 @@ const StyledMotherForm = styled.div`
             margin: auto;
         }
     }
-    
-    .toggle-check-container{
-        position: relative;
-        margin-bottom: 13px;
-    }
-    
-    .toggle-check-input {
-        position: absolute;
-        top: 1px;
-        left: 10px;
-        opacity: 0;
-    }
-    
-    .toggle-check-text {
-        display: inline-block;
-        position: relative;
-        text-transform: uppercase;
-        background: #CCC;
-        padding: 0.25em 0.5em 0.25em 2em;
-        border-radius: 1em;
-        min-width: 2em;
-        color: #FFF;
-        cursor: pointer;
-        transition: background-color 0.15s;
-    }
-    
-    .toggle-check-text:after {
-        content: ' ';
-        display: block;
-        background: #FFF;
-        width: 1.1em;
-        height: 1.1em;
-        border-radius: 1em;
-        position: absolute;
-        left: 0.3em;
-        top: 0.25em;
-        transition: 1s;
-    }
-    
-    .toggle-check-text:before {
-        content: 'No';
-    }
-    
-    .toggle-check-input:checked ~ .toggle-check-text {
-        background: #8ad869;
-        padding-left: 0.5em;
-        padding-right: 2em;
-    }
-    
-    .toggle-check-input:checked ~ .toggle-check-text:before {
-        content: 'Yes';
-    }
-    
-    .toggle-check-input:checked ~ .toggle-check-text:after {
-        left: 100%;
-        margin-left: -1.4em;
-    }
-    
-    label{
+      
+     label{
         display: flex;
         position: relative;
     }
@@ -240,21 +129,8 @@ function MotherForm(props) {
                 <StyledMotherForm>
                     <Form className="form-contents position-form">
 
-                        <div className="header-personal">
-                            {/* <p className="arrow">
-                                <Link to="/">&#8592;</Link>
-                            </p>*/}
-                            <h2 className="personal-name">{"Nancy Whitemoon"}</h2>
-                            <SVG src={Pregnant}/>
-                            <div className="status"></div>
-                            <div className="btn-container">
-                                <button className="submit-btn" type="submit">Save</button>
-                                <Button color="white" bgOnHover="#db4343" bg="#EB5757">Delete</Button>
-                            </div>
-                            <div className="back">
-                                <p onClick={() => props.history.push("/mothers")}>Back</p>
-                            </div>
-                        </div>
+                        {/*NAVBAR*/}
+                        <Banner back={"/mothers"} person={props.values.name} state={true}/>
 
                         {/*first line*/}
                         <div className="inline row">
@@ -867,6 +743,7 @@ function MotherForm(props) {
                         </div>
 
                         {/*third line*/}
+
                         <div className="inline row">
 
                             {/*Demographics*/}
@@ -1406,24 +1283,24 @@ const FormikMother = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-           interviewer: Yup.number().required("Please choose something from the list"),
-           current_pg: Yup.number().required("Please choose something from the list"),
-           due_now: Yup.number().required("Please choose something from the list"),
-           deliver_elsewhere: Yup.number().required("Please choose something from the list"),
-           hx_cesarean: Yup.number().required("Please choose something from the list"),
-           hx_complication: Yup.number().required("Please choose something from the list"),
-           current_multip: Yup.number().required("Please choose something from the list"),
-           /*registration*/
-           name: Yup.string().required("Please fill the field"),
-           edd: Yup.string().required("Please fill the field"),
-           age: Yup.string().required("Please fill the field"),
-           village: Yup.number().required("Please choose something from the list"),
-           own_phone: Yup.number().required("Please choose something from the list"),
-           other_phone: Yup.string().required("Please fill the field"),
-           phone_number: Yup.string().required("Please fill the field"),
-           carrier: Yup.number().required("Please choose something from the list"),
-           owner_phone: Yup.number().required("Please choose something from the list"),
-           want_education: Yup.number().required("Please choose something from the list"),
+        interviewer: Yup.number().required("Please choose something from the list"),
+        current_pg: Yup.number().required("Please choose something from the list"),
+        due_now: Yup.number().required("Please choose something from the list"),
+        deliver_elsewhere: Yup.number().required("Please choose something from the list"),
+        hx_cesarean: Yup.number().required("Please choose something from the list"),
+        hx_complication: Yup.number().required("Please choose something from the list"),
+        current_multip: Yup.number().required("Please choose something from the list"),
+        /*registration*/
+        name: Yup.string().required("Please fill the field"),
+        edd: Yup.string().required("Please fill the field"),
+        age: Yup.string().required("Please fill the field"),
+        village: Yup.number().required("Please choose something from the list"),
+        own_phone: Yup.number().required("Please choose something from the list"),
+        other_phone: Yup.string().required("Please fill the field"),
+        phone_number: Yup.string().required("Please fill the field"),
+        carrier: Yup.number().required("Please choose something from the list"),
+        owner_phone: Yup.number().required("Please choose something from the list"),
+        want_education: Yup.number().required("Please choose something from the list"),
     }),
     handleSubmit(values, {props, resetForm}) {
         let mother = {};
@@ -1436,15 +1313,15 @@ const FormikMother = withFormik({
             const suplies = array_supplies.filter((item, index) => array_supplies.indexOf(item) === index).join(' ');
             mother.name_supplies = suplies;
         }
-           if (props.match.params.id) {
-               props.updateMother(values.id, mother);
-               resetForm();
-               props.history.push("/mothers");
-           } else {
-               props.addMother(mother);
-               resetForm();
-               props.history.push("/mothers");
-           }
+        if (props.match.params.id) {
+            props.updateMother(values.id, mother);
+            resetForm();
+            props.history.push("/mothers");
+        } else {
+            props.addMother(mother);
+            resetForm();
+            props.history.push("/mothers");
+        }
         console.log("VALUES ", mother)
     }
 })(MotherForm);
