@@ -1,11 +1,6 @@
 import React from 'react';
 import {StyledLabel} from '../../reusableParts/accordion/label/label-style';
-import LabelStatus from "../../reusableParts/accordion/label/LabelStatus";
 import LabelDate from "../../reusableParts/accordion/label/LabelDate";
-
-import Fix from '../resources/Active.svg';
-import Learn from '../resources/Active.svg';
-import Active from '../resources/Active.svg';
 
 import LabelBadges from "./LabelBadges";
 import {Rating, ratings} from "../driver-style";
@@ -16,7 +11,6 @@ function AccordionLabel(props) {
         <StyledLabel>
             <span className="name">{driver.name}</span>
             <LabelBadges entity={driver}/>
-            <LabelStatus icon={Active} text={"On duty"}/>
             <div className="icon-container">
                 <Rating className="responsive-icon" bg={ratings[driver.reliability]}>{driver.reliability}.0</Rating>
             </div>

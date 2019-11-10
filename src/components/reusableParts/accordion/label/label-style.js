@@ -17,14 +17,27 @@ export const StyledLabel = styled.div`
     }
     
     .add-icon{
-        margin-left: 2%;
-        padding-top: 0.5%;
-        padding-bottom: 0.5%;
-        height: 1%;
+        @media (max-width: 700px) {
+            height: 15px;
+            width: 15px;
+        }
+    };
+    
+    .hide{
+         @media (max-width: 600px) {
+            display: none;
+        }
+    }
+    
+    .add-icon-container{
+        height: 100%;
+        display: flex;
+        align-items: center;
     };
     
     .name{
-        width: 20%; 
+        width: 15%; 
+        min-width: 15%;
         text-align: left;
         padding-left: 1%;
         white-space: nowrap;
@@ -43,8 +56,9 @@ export const StyledLabel = styled.div`
     .inline-badges{
         display: flex;
         justify-content: flex-start;
+        align-items: center;
         margin: 0 20px;
-        width: 55%; 
+        width: 65%; 
     }
     
     .inline{
@@ -56,20 +70,7 @@ export const StyledLabel = styled.div`
           justify-content: flex-end;
         }
     }
-    
-    .status-icon{
-        width: 40%;
-        height: 40%;
-    }
-     
-    .status-text{
-        white-space: nowrap;
-        padding-left: 5%;
-        @media (max-width: 700px) {
-          display: none;
-        }
-    }     
-     
+             
     .icon-container{
         width: 8%;
         height: 8%;
@@ -120,22 +121,33 @@ export const CustomBadge = styled.div`
     font-family: 'Asap', sans-serif;
     white-space: nowrap;
     text-transform: uppercase;
-    margin-left: 2%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background:  ${props => props.badgeColor}
+    width: ${props => props.width};
+    min-width: ${props => props.min_width};
+    margin: 1% 1%;
+    padding: 0.5% 0.1% 0.5% 0.5%;
+    
+    background:  ${props => props.badgeColor};
     border-radius: 20px;
-    color:  ${props => props.badgeText}
-    width: ${props => props.width}
-    height: 100%;
-    padding-top: ${props => props.top ? props.top : '0.5%'};
-    padding-bottom: ${props => props.bottom ? props.bottom : '0.5%'};
-    padding-left: ${props => props.left ? props.left : '0'};
-    padding-right: ${props => props.right ? props.right : '0'};
-    position: relative;
-    @media (max-width: 950px) {
-        width: 50px;
-        font-size: 0.6rem;
+    color:  ${props => props.badgeText};
+    @media (max-width: 950px) { 
+        font-size: 0.5rem;
     }
+    .label-icon{
+       height: 20px;
+       width: 20px;
+        @media (max-width: 950px) {
+            height: 12px;
+            width: 12px;
+        }
+   }
+   
+   .badge-content{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+   }
 `;
+

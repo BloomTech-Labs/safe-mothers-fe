@@ -30,6 +30,19 @@ const StyledMotherForm = styled.div`
       position: relative;
       @media(max-width: 1024px){
           padding: 0;
+          li{
+            padding-bottom: 40px;
+            white-space: nowrap;
+            padding-top: 10px;
+          }
+      }
+      @media(max-width: 1400px){
+          padding: 0;
+          li{
+            padding-bottom: 40px;
+            white-space: nowrap;
+            padding-top: 9px;
+          }
       }
     }
     
