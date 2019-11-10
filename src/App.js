@@ -88,11 +88,11 @@ function App(props) {
                         <Switch>
                             <Route path="/login" component={FormikLoginForm}/>
                             <SearchWrapper>
-                               <div className="searchContainer">
+                              {/* <div className="searchContainer">
                                     <p className="searchLabel">SEARCH FOR KEYWORDS</p>
                                     <Search className="searchIcon"/>
                                     <input type="text" className="search"/>
-                                </div>
+                                </div>*/}
                                 <AuthRoute path="/dashboard" component={Dashboard}/>
 
                                 <AuthRoute exact path="/mothers" component={MothersList}/>
