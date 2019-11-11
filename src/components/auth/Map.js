@@ -8,7 +8,8 @@ const Container = styled.div`
     justify-items: center;
     display: flex;
     justify-content: center;
-    top: 17%;
+    top: 0;
+    bottom: 0;
     padding: 100px;
     width: 60%;
 `;

@@ -68,9 +68,10 @@ export const Button = styled.div`
         text-transform: uppercase;
         font-size: 16px;
         background: ${props => props.bg}
-        height:${props => props.height ? props.height : '48px'};
+        height: ${props => props.height ? props.height : '48px'};
         font-weight: bold;
-        width: 25%;
+        width: ${props => props.width ? props.width : '25%'};
+        cursor: pointer;
         min-width: 20px;
         border: none;
         border-radius: 2px;

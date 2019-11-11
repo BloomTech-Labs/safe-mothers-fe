@@ -21,7 +21,7 @@ import Interviewers, {interviewers} from "./Interviewers";
 import {connect} from "react-redux";
 import {addMother, getMother, updateMother} from "../../../actions/mothersActions";
 import Tooltip from "../../reusableParts/Tooltip";
-import Banner from "../../reusableParts/Banner";
+import Banner from "../../reusableParts/banner/Banner";
 
 const StyledMotherForm = styled.div`
     width: 100%;    
