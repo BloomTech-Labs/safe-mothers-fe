@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledPageView = styled.div` 
     font-size: 16px;
     background: white;
+    margin-top: 50px;
     max-width: 1500px;
     margin: 50px auto;
     border: 1.5px solid #EEEEEF;
@@ -12,48 +13,62 @@ export const StyledPageView = styled.div`
   
     }
 
-    .fields{
-        text-align: left;
-        margin-right: 10px;
-    }
-
-    .values{
-        text-align: left;
-        margin-right: 20px;
-        color: #85a1c1;
-        text-transform: lowercase;
-
-        p{
-            margin-top: 0px;
-            margin-bottom: 0px;
-        }
-    }
-
     .list-break-values{
         color: #85a1c1; 
     }
 
     .supply-values{
         text-align: center;
+        padding-left: 0px;
         color: #85a1c1;
+        margin-right: 35px;
     }
 
+    .spv-card{
+        width: 100%;
+    }
 
     .card{
         display: flex;
-        
+        width: 100%;
+        align-items: flex-start;
+        align-content: space-between;
         flex-direction: column;
 
         @media (max-width: 1024px) {
             width: 100%;
             align-items: stretch;
         }
+        
+        .card-content{
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+        }
+        .fields{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            margin-right: 10px;
+        }
+    
+        .values{
+            text-align: center;
+            position: relative;
+          
+            color: #85a1c1;
+            text-transform: lowercase;
+            display: flex;
+            flex-direction: column;
+            align-content: flex-end;
+    
+            p{
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+        }
     }
 
-    .card-content{
-        display: flex;
-        justify-content: center;
-    }
 
     .card-title{
         font-weight: bold;
@@ -72,10 +87,10 @@ export const StyledPageView = styled.div`
     }
     
     .grid-top{
-       
         display: grid;
         border-bottom: 1.5px solid #F9FBFC;
         margin-top: 15px;
+        margin-left: 50px;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
         grid-column-gap: 0;
@@ -97,6 +112,7 @@ export const StyledPageView = styled.div`
     .grid-center{
         display: grid;
         margin-top: 15px;
+        margin-left: 50px;
         border-bottom: 1.5px solid #F9FBFC;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
@@ -116,6 +132,7 @@ export const StyledPageView = styled.div`
     .grid-bottom{
         display: grid;
         margin-top: 15px;
+        margin-left: 50px;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 1fr;
         grid-column-gap: 0;

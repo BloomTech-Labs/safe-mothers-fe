@@ -118,16 +118,20 @@ export const Content = styled.div`
 `;
 
 export const Card = styled.div`
+
+    width: 100%;
+
      li{
         margin-bottom: 15px;
         white-space: nowrap;
      }
       .card-content{
         display: flex;
+        width: 100%;
         justify-content: center;
         @media (max-width: 1024px) {
             justify-content: flex-start;
-            width: 40%;
+            width: 100%;
             margin: auto;
         }
      }
