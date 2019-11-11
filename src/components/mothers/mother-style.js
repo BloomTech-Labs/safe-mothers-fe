@@ -22,6 +22,7 @@ export const Palette = styled.div`
     .palette-label{
         font-size: 14px;
     }
+    
     .boxes{
         position: relative;
         width: 100%;
@@ -29,6 +30,7 @@ export const Palette = styled.div`
         display: flex;
         justify-content: center;
     }
+    
     .box{ 
         width: 10%;
         height: 35px; 
@@ -36,6 +38,7 @@ export const Palette = styled.div`
         position: relative;
         transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     } 
+    
     .color{
         height: 100%;
         width: 100%;
@@ -51,31 +54,38 @@ export const Palette = styled.div`
             box-shadow: 0px 0px 6px 0px rgba(91, 87, 87, 0.62);
         }
     }
+    
     .box1{
         background: ${props => props.theme.palette.red};     
         cursor: pointer;
     }
+    
     .box2{
         background:  ${props => props.theme.palette.blue};
         cursor: pointer;
     }
+    
     .box3{
         background:  ${props => props.theme.palette.yellow};
         cursor: pointer;
     }
+    
     .box4{
         background:  ${props => props.theme.palette.lightPink};
         cursor: pointer;
       
     }
+    
     .box5{
         background:  ${props => props.theme.palette.orange};
         cursor: pointer;
     }
+    
     .box6{
         background:  ${props => props.theme.palette.deepPink};
         cursor: pointer;
     }
+    
     .box7{
         background:  ${props => props.theme.palette.green};
         cursor: pointer;

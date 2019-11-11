@@ -5,7 +5,7 @@ import Close from '../../reusableParts/resources/Close.svg';
 import {SVGBtn} from "../../reusableParts/form-items";
 import {ADMIN} from "../settings-utils";
 import ConfirmDelete from "../../reusableParts/ConfirmDelete";
-import { Mixpanel } from '../../../utilities/mixpanel/Mixpanel';
+
 
 const Card = styled.div`
   margin: 1rem auto;

@@ -82,6 +82,7 @@ const mothersReducer = (state = initialState, {type, payload}) => {
                 error: payload,
                 isLoading: false
             };
+
         case UPDATE_MOTHER_START:
             return {
                 ...state,

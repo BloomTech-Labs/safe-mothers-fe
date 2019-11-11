@@ -132,7 +132,7 @@ export const Card = styled.div`
         }
      }
      
-     .align-left {
+     .fields {
         text-align: left;
         list-style-type: none; 
         padding-left: 0;
@@ -145,6 +145,7 @@ export const Card = styled.div`
     
     .values{
         padding-left: 3%;
+        text-align: left;
         @media (max-width: 1024px) {
             padding-left: 5%;
             width: 100%;
@@ -154,19 +155,5 @@ export const Card = styled.div`
     .list-break-values{
         color: black;
     }
-    
-      .align-right {
-        text-align: right;
-        list-style-type: none; 
-        @media (max-width: 1024px) {
-            text-align: left;
-            padding: 0;
-        }
-    };
-    
-    .align-center{
-        text-align: center;
-        list-style-type: none; 
-        padding: 0;
-    }
+
 `;

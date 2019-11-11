@@ -4,6 +4,7 @@ export const Container = styled.div`
     text-align: center;
     font-family: 'Asap', sans-serif;
     min-width: 500px;
+    height: 100vh;
     font-size: 0.8rem;
     background: #F9FBFC;
     color: #001833;
@@ -40,8 +41,7 @@ export const Container = styled.div`
 `;
 
 export const SearchWrapper = styled.div`
-    width: 95%;
-    //delete matgin top
+    max-width: 1500px;
     margin: 50px auto;
     
     .search {

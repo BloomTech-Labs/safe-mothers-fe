@@ -7,7 +7,7 @@ export default function HighRiskCard({mother, state}) {
     return (
         <Card>
             <div className="card-content ">
-                <ul className="align-left">
+                <ul className="fields">
                     <li>Anemia</li>
                     <li>Malaria</li>
                     <li>Obstructed labor</li>
@@ -15,7 +15,7 @@ export default function HighRiskCard({mother, state}) {
                     <li>Antepartum hemorrhage</li>
                     <li>Postpartum hemorrhage</li>
                     {state &&
-                    <div className="list-break">
+                    <div className="list-break-fields">
                         <li>Retained placenta</li>
                         <li>Placenta previa</li>
                         <li>Stillbirth</li>
@@ -24,7 +24,7 @@ export default function HighRiskCard({mother, state}) {
                         <li>Name of the complication</li>
                     </div>}
                 </ul>
-                <ul className="align-left values high-risk-card">
+                <ul className="values">
                     <li>{defineHighRisk(mother.anemia)}</li>
                     <li>{defineHighRisk(mother.malaria)}</li>
                     <li>{defineHighRisk(mother.obstructed_labor)}</li>
