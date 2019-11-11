@@ -1,0 +1,48 @@
+import React from 'react';
+import styled from 'styled-components';
+import {withRouter} from "react-router-dom";
+
+const StyledPopup = styled.div`
+    position: absolute;
+    top: 28px;
+    display: flex;
+    flex-direction: column;
+    .content{
+        width: 185px;
+        background: white;
+        border: 1.5px solid #e5e5e6;
+    }
+    .row{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 30px;
+        background: #FFFFFF;
+        padding-left: 5px;
+        cursor: pointer;
+        &:hover{
+            background: #fffa6a;
+        }
+    }
+`;
+function Popup(props) {
+    const {items} = props;
+
+    return (
+        <>
+            {items.length > 0 &&
+            <StyledPopup>
+                <div className="content">
+                    {items.map(item =>
+                        <div className="row" onClick={() =>props.history.push(`/mothers/${item.id}`)}>
+                            {item.name}
+                        </div>
+                    )}
+                </div>
+            </StyledPopup>
+            }
+        </>
+    )
+}
+
+export default withRouter(Popup);

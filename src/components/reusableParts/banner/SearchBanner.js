@@ -1,16 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import ConfirmDelete from '../ConfirmDelete';
-import {SVGBtn} from '../form-items';
-import Close from '../resources/Close.svg';
-import Edit from '../resources/Edit.svg';
 import {Button} from "../form-items"
 import {withRouter} from "react-router-dom";
 import {StyledBanner} from "./banner-style";
-import {Search} from "grommet-icons";
-import {SearchElement} from "./Search";
+import StyledSearch from "./Search";
 
 const SearchBanner = props => {
-    const {btn_name, title, path} = props;
+    const {btn_name, title, path, items} = props;
     const [scrollY, setScrollY] = useState(0);
     const [position, setPosition] = useState(-60);
 
@@ -56,14 +51,7 @@ const SearchBanner = props => {
                     >
                         {btn_name}
                     </Button>
-                    <SearchElement>
-                        <div className="searchContainer">
-                            {/*<p className="searchLabel">SEARCH FOR KEYWORDS</p>*/}
-                            <Search className="searchIcon"/>
-                            <input type="text" className="search" placeholder={"Type mother name"}/>
-                        </div>
-                    </SearchElement>
-
+                    <StyledSearch items={items}/>
                 </div>
             </div>
         </StyledBanner>
