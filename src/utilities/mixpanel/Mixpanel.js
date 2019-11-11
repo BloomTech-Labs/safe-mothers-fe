@@ -5,7 +5,7 @@ require('dotenv').config();
 
 mixpanel.init(process.env.REACT_APP_MIXPANEL_TOKEN)
 
-let env_check = process.env.NODE_ENV === 'development';
+let env_check = process.env.NODE_ENV === 'production';
 
 let actions = {
 
