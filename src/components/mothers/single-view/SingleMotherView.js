@@ -8,7 +8,7 @@ import HightRiskCard from '../cards/HightRiskCard';
 import SuppliesForPregnancyCard from '../cards/SuppliesForPregnancyCard';
 import Introduction from '../cards/Introduction';
 import PregnancyHistory from '../cards/PregnancyHistory';
-import Banner from '../../reusableParts/Banner';
+import Banner from '../../reusableParts/banner/Banner';
 
 import { StyledPageView } from '../../reusableParts/SinglePageStyle';
 

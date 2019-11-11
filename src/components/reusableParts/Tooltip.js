@@ -5,7 +5,7 @@ import {SVGBtn} from "./form-items";
 const StyledTooltip = styled.div`
     position: absolute;
     left: 100%;
-    bottom: 57px;
+    bottom: 26px;
     
     .tooltip-text {
         display: none;
