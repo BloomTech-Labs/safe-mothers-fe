@@ -1,4 +1,6 @@
 import axiosWithAuth from "../utilities/axiosWithAuth"
+
+
 import {types} from "./index";
 
 const {
@@ -74,7 +76,9 @@ export const deleteMothers = id => dispatch => {
     dispatch({type: DELETE_MOTHERS_START});
     axiosWithAuth()
         .delete(`/${id}`)
-        .then(res => dispatch({type: DELETE_MOTHERS_SUCCESS}))
+        .then(res =>{
+          
+             dispatch({type: DELETE_MOTHERS_SUCCESS})})
         .catch(err =>
             dispatch({type: DELETE_MOTHERS_FAILURE, payload: err.response}),
         );

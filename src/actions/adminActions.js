@@ -1,4 +1,5 @@
 import axiosWithAuth from '../utilities/axiosWithAuth'
+import {Mixpanel} from '../utilities/mixpanel/Mixpanel'
 import {types} from './index'
 
 const {
@@ -34,9 +35,11 @@ export const editUsers = (id, object) => dispatch => {
     axiosWithAuth()
         .put(`/users/${id}`, object)
         .then(res => {
+            Mixpanel.track('User Updated', { 'id': id}) 
             dispatch({type: EDIT_USERS_SUCCESS, payload: object})
         })
         .catch(err => {
+            Mixpanel.track('Error Editing User', { 'id': id })
             dispatch({type: EDIT_USERS_FAILURE, payload: err.response})
         })
 };
@@ -45,10 +48,11 @@ export const deleteUsers = (id) => dispatch => {
     dispatch({type: DELETE_USERS_START});
     axiosWithAuth().delete(`/users/${id}`)
         .then(res => {
-
+            Mixpanel.track('User deleted', {'id': id})
             dispatch({type: DELETE_USERS_SUCCESS, payload: id})
         })
         .catch(err => {
+            Mixpanel.track('User Delete Error', {'id': id})
             dispatch({type: DELETE_USERS_FAILURE, payload: err.response})
         })
 };
@@ -58,9 +62,11 @@ export const createUser = data => dispatch => {
     return axiosWithAuth()
         .post("/auth/register", data)
         .then(res => {
+            Mixpanel.track('User Created')
             dispatch({ type: CREATE_USER_SUCCESS, payload: res.data });
         })
         .catch(err => {
+            Mixpanel.track('Error Creating User')
             dispatch({type: CREATE_USER_FAILURE, payload: err});
         })
 };

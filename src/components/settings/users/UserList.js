@@ -6,6 +6,7 @@ import {SVGBtn} from "../../reusableParts/form-items";
 import {ADMIN} from "../settings-utils";
 import ConfirmDelete from "../../reusableParts/ConfirmDelete";
 
+
 const Card = styled.div`
   margin: 1rem auto;
   padding-right: 4%;
@@ -100,7 +101,8 @@ const UserList = (props) => {
                     </div>
                     <div className="icon-btn edit-container">
                         <SVGBtn bg="#07902d" bgOnHover="#027034" className='icon' src={Edit}
-                                onClick={() => updateAdmin()}/>
+                                onClick={() => updateAdmin()
+                                }/>
                     </div>
                 </div>
                 <div className='details-container'>
