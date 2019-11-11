@@ -1,25 +1,21 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
 import connect from "react-redux/es/connect/connect";
-
 import MenuBar from "./components/menubar/MenuBar";
 import Dashboard from './components/dashboard/Dashboard';
 import MothersList from './components/mothers/dashboard/MothersList';
 import Settings from './components/settings/Settings'
-
 import AuthRoute from "./utilities/privateRoute";
-
 import FormikLoginForm from './components/auth/Login';
 import {ThemeProvider} from 'pcln-design-system';
 import {Grommet} from 'grommet';
-import {Search} from "grommet-icons";
-import {SearchWrapper} from './app-style';
+import { Wrapper} from './app-style';
 import {Container} from "./app-style";
 import DriversList from "./components/drivers/dashboard/DriversList";
 import SingleMotherView from "./components/mothers/single-view/SingleMotherView";
 import FormikMother from "./components/mothers/form/MotherForm";
 import FormikEditDriver from "./components/drivers/form/EditDriver";
-import {LINKS} from "./components/menubar/menu-utils";
+
 
 export const theme = {
     primary: {
@@ -87,12 +83,7 @@ function App(props) {
                         {props.isAuth && <MenuBar/>}
                         <Switch>
                             <Route path="/login" component={FormikLoginForm}/>
-                            <SearchWrapper>
-                              {/* <div className="searchContainer">
-                                    <p className="searchLabel">SEARCH FOR KEYWORDS</p>
-                                    <Search className="searchIcon"/>
-                                    <input type="text" className="search"/>
-                                </div>*/}
+                            <Wrapper>
                                 <AuthRoute path="/dashboard" component={Dashboard}/>
 
                                 <AuthRoute exact path="/mothers" component={MothersList}/>
@@ -106,7 +97,7 @@ function App(props) {
 
                                 <AuthRoute path="/admin" component={Settings}/>
                                 <Route exact path="/"><Redirect to="/dashboard" /></Route>
-                            </SearchWrapper>
+                            </Wrapper>
                         </Switch>
                     </Router>
                 </Container>

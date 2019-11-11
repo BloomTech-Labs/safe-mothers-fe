@@ -4,7 +4,6 @@ import {SVGBtn} from "./form-items";
 import Add from './resources/Add.svg'
 
 const Button = styled.p`
-    .btn{
         white-space: nowrap;
         display: flex;
         align-items: center;
@@ -16,15 +15,20 @@ const Button = styled.p`
         height: 30px;
         border-radius: 50px;
         color: white;
-        width: 15%;
+        width: 35%;
+        .btn-name{
+            text-align: center;
+        }
         &:hover{
                background: rgb(37,153,37);
         }
-    }
 `;
 
 export default function AddEntityBtn({history, path, name}) {
     return (
-        <Button><div onClick={() => history.push(path)}> {name}</div><SVGBtn bg={"rgb(98,205,92)"} src={Add}/></Button>
+        <Button onClick={() => history.push(path)}>
+            <p className="btn-name">{name}</p>
+            <SVGBtn bg={"white"} src={Add}/>
+        </Button>
     )
 }
