@@ -57,7 +57,7 @@ function LabelBadges(props) {
                 {entity.amt_saved ? entity.amt_saved : '$0'}
             </CustomBadge>
             {risk === HIGH_RISK &&
-            <CustomBadge min_width="40px" width={"8%"} badgeColor="red" badgeText="white">
+            <CustomBadge min_width="40px" width={"8%"} badgeColor="red" badgeText="white" className="hide" >
                 {HIGH_RISK}
             </CustomBadge>}
 

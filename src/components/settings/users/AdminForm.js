@@ -54,21 +54,21 @@ const AdminForm = props => {
                                     <label className="error-holder">
                                         <Field className="regular-input" type="text" name="first_name"/>
                                         {props.touched.first_name && props.errors.first_name && (
-                                            <p className="errormessage">{props.errors.first_name }</p>
+                                            <p className="errormessage errormessage_positioning">{props.errors.first_name }</p>
                                         )}
                                     </label>
 
                                     <label className="error-holder">
                                         <Field className="regular-input" type="text" name="last_name"/>
                                         {props.touched.last_name && props.errors.last_name && (
-                                            <p className="errormessage">{props.errors.last_name}</p>
+                                            <p className="errormessage errormessage_positioning">{props.errors.last_name}</p>
                                         )}
                                     </label>
 
                                     <label className="error-holder">
                                         <Field className="regular-input" type="text" name="username"/>
                                         {props.touched.username && props.errors.username && (
-                                            <p className="errormessage">{props.errors.username}</p>
+                                            <p className="errormessage errormessage_positioning">{props.errors.username}</p>
                                         )}
                                     </label>
 
@@ -77,12 +77,10 @@ const AdminForm = props => {
                                     <label className="error-holder">
                                         <Field className="regular-input" type="password" name="password"/>
                                         {props.touched.password && props.errors.password && (
-                                            <p className="errormessage">{props.errors.password}</p>
+                                            <p className="errormessage errormessage_positioning">{props.errors.password}</p>
                                         )}
                                     </label>
                                     }
-
-
                                 </div>
                             </div>
                             <div className="btn-container">

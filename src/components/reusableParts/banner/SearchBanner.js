@@ -50,7 +50,6 @@ const SearchBanner = props => {
                         width="8%"
                         min_width="100px"
                         margin={"0"}
-                        // className="add-entity-btn"
                     >
                         {btn_name}
                     </Button>
