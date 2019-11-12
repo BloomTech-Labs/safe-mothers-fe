@@ -26,10 +26,18 @@ function SingleMotherView(props) {
                             <div className="card">
                                 <span className="card-title">INTRODUCTION</span>
                                 <Introduction mother={mother}/>
-                            </div>
-                            <div className="card">
                                 <span className="card-title">PERSONAL</span>
                                 <PersonalCard mother={mother}/>
+                                <span className="card-title">SUPPLIES</span>
+                                <SuppliesForPregnancyCard mother={mother}/>
+                            </div>
+                            <div className="card">
+                                <span className="card-title">RISK</span>
+                                <HightRiskCard state={true} mother={mother}/>
+                                <span className="card-title">BIRTH PREPAREDNESS</span>
+                                <BirthPreparedness mother={mother}/>
+                                <span className="card-title">PREGNANCY HISTORY</span>
+                                <PregnancyHistory mother={mother}/>
                             </div>
                             <div className="card">
                                 <span className="card-title">DEMOGRAPHICS</span>
@@ -38,22 +46,14 @@ function SingleMotherView(props) {
                         </div>
                         <div className="grid-center">
                             <div className="card">
-                                <span className="card-title">BIRTH PREPAREDNESS</span>
-                                <BirthPreparedness mother={mother}/>
                             </div>
                             <div className="card">
-                                <span className="card-title">RISK</span>
-                                <HightRiskCard state={true} mother={mother}/>
                             </div>
                             <div className="card">
-                                <span className="card-title">SUPPLIES</span>
-                                <SuppliesForPregnancyCard mother={mother}/>
                             </div>
                         </div>
                         <div className="grid-bottom">
                             <div className="card">
-                                <span className="card-title">PREGNACY HISTORY</span>
-                                <PregnancyHistory mother={mother}/>
                             </div>
                         </div>
                     </div>

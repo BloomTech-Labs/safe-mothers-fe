@@ -5,7 +5,7 @@ import {returnNumberValue, yesNoIDN} from "../mother-utils";
 export default function Demographics({mother}) {
     return (
         <Card>
-            <div className="card-content">
+            <div className="card-content single">
                 <ul className="fields">
                     <li>Number Of Pregnancies</li>
                     <li>Number of Births</li>
@@ -14,7 +14,7 @@ export default function Demographics({mother}) {
                     <li>Infant Death</li>
                     <li>Number of Children Lost</li>
                 </ul>
-                <ul className="values">
+                <ul className="supply-values">
                     <li>{returnNumberValue(mother.no_pg)}</li>
                     <li>{returnNumberValue(mother.no_birth)}</li>
                     <li>{returnNumberValue(mother.no_children)}</li>
