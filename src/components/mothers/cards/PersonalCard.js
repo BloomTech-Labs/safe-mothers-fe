@@ -5,7 +5,7 @@ import {defineCarrier, defineOwnerPhone, defineVillage, NO_DATA, yesNoIDN} from 
 export default function PersonalCard({mother}) {
     return (
         <Card>
-            <div className="card-content">
+            <div className="card-content single-space">
                     <ul className="fields">
                         <li>Expected Due Date</li>
                         <li>Age</li>

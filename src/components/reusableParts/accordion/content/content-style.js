@@ -54,7 +54,6 @@ export const StyledContents = styled.div`
 `;
 
 export const Content = styled.div`
-    position: relative; 
     display: flex;
     justify-content: center;
     margin-top: 25px; 
@@ -92,12 +91,18 @@ export const Content = styled.div`
         @media (max-width: 1024px) {
            text-align: center;
            background: #f2f8ff;
-           width: 90%;
+           width: 100%;
            margin: auto;
            height: 30px;
            padding-top: 6px;
         }
     }
+
+    p{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
     .status-no{
         color: #C4C4C4;
     }
@@ -130,8 +135,8 @@ export const Card = styled.div`
         width: 100%;
         justify-content: center;
         @media (max-width: 1024px) {
-            justify-content: flex-start;
-            width: 100%;
+            justify-content: center;
+            width: 50%;
             margin: auto;
         }
      }
