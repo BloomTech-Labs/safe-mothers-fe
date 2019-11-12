@@ -54,6 +54,7 @@ export const StyledContents = styled.div`
 `;
 
 export const Content = styled.div`
+    position: relative;
     display: flex;
     justify-content: center;
     margin-top: 25px; 
@@ -91,7 +92,7 @@ export const Content = styled.div`
         @media (max-width: 1024px) {
            text-align: center;
            background: #f2f8ff;
-           width: 100%;
+           width: 90%;
            margin: auto;
            height: 30px;
            padding-top: 6px;
@@ -124,7 +125,6 @@ export const Content = styled.div`
 
 export const Card = styled.div`
 
-    width: 100%;
 
      li{
         margin-bottom: 15px;
@@ -135,8 +135,8 @@ export const Card = styled.div`
         width: 100%;
         justify-content: center;
         @media (max-width: 1024px) {
-            justify-content: center;
-            width: 50%;
+            justify-content: flex-start;
+            width: 40%;
             margin: auto;
         }
      }
