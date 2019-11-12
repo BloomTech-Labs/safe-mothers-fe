@@ -49,11 +49,12 @@ const MainContainer = styled.div`
     const lateDueDay = (mothers) => {
       let num = 0;
 
-      const today = moment("YYYY-MM-DD");
+      const today = moment();
         if(mothers) {
           for (let mother of mothers) {
             let dueDate = moment(mother.edd, "YYYY-MM-DD");
-            if (dueDate.isBefore(today)) num = num + 1;
+            console.log("dueDate", dueDate, "today", today)
+            if (moment(dueDate).isBefore(today)) num = num + 1;
           }
           }
         return num;
