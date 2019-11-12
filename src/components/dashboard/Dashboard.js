@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import moment from "moment";
 import {getMothers} from '../../actions/mothersActions';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
@@ -18,38 +19,50 @@ const MainContainer = styled.div`
   .cards{
     width: 80%;
   }
-  // .rankingCard {
-  //   display: flex;
-  //   width: 50%;
-  //   height: 70%
-  //   justify-content: space-round;
-  //   align-content: center;
+  ${'' /* .rankingCard {
+     display: flex;
+     width: 50%;
+     height: 70%
+     justify-content: space-round;
+     align-content: center;
     
-  // }
+   } */}
 `;
 
-const Dashboard = props => {
-  useEffect(() => {
-    props.getMothers();
+  const Dashboard = props => {
+      useEffect(() => {
+        props.getMothers();
+      }, []);
+
+    const dueNow = (mothers) => {
+      let num = 0;
+      if(mothers){
+        for (let mother of mothers) {
+        if(mother.due_now === 1){
+          num = num + 1;
+        }
+         }
+        }
+        return num;
+      }
     
-  }, []);
-  const dueNow = (mothers) => {
-    let num = 0;
-    if(mothers){
-      mothers.map(mother => {
-              if(mother.due_now === 1){
-                num = num + 1;
-              }
-       });
-       return num;
-    }
+    const lateDueDay = (mothers) => {
+      let num = 0;
+
+      const today = moment("YYYY-MM-DD");
+        if(mothers) {
+          for (let mother of mothers) {
+            let dueDate = moment(mother.edd, "YYYY-MM-DD");
+            if (dueDate.isBefore(today)) num = num + 1;
+          }
+          }
+        return num;
   };
-  
-    return (
+return (
       
         <MainContainer className="mainContainer">
             <div className="cards">
-                <DashboardCard val1={dueNow(props.mothers)} val2="3" val3="4" cardState={MOTHER}/>
+                <DashboardCard val1={dueNow(props.mothers)} val2={lateDueDay(props.mothers)} val3="4" cardState={MOTHER}/>
                 <DashboardCard val1="1" val2="2" val3="1"  cardState={DRIVER}/>
             </div>
             <div className="board">
@@ -61,7 +74,8 @@ const Dashboard = props => {
 const mapStateToProps = state => {
   return {
       mothers: state.mothersReducer.mothers,
+      
   };
-};
-export default connect(mapStateToProps, {getMothers})
-(Dashboard);
+}
+export default connect(mapStateToProps, {getMothers})(Dashboard);
+

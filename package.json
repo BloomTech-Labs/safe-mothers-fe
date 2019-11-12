@@ -10,6 +10,7 @@
     "grommet": "^2.7.10",
     "grommet-icons": "^4.3.0",
     "mixpanel-browser": "^2.30.1",
+    "moment": "^2.24.0",
     "pcln-design-system": "^2.6.1",
     "pcln-modal": "^2.1.1",
     "react": "^16.10.2",
