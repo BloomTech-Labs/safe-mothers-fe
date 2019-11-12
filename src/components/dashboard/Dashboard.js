@@ -58,13 +58,27 @@ const MainContainer = styled.div`
           }
           }
         return num;
+
+  }
+  const availability = (drivers) => {
+          let num = 7;
+          if(drivers){
+            for (let drivers of drivers) {
+            if(drivers.availability === 1){
+              num = num + 1;
+            }
+             }
+            }
+            return num;
+    
+    
   };
 return (
       
         <MainContainer className="mainContainer">
             <div className="cards">
                 <DashboardCard val1={dueNow(props.mothers)} val2={lateDueDay(props.mothers)} val3="4" cardState={MOTHER}/>
-                <DashboardCard val1="1" val2="2" val3="1"  cardState={DRIVER}/>
+                <DashboardCard val1="1" val2={availability(props.drivers)} val3="1"  cardState={DRIVER}/>
             </div>
             <div className="board">
                 {/*Driver Rankings*/}
