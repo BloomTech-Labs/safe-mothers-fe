@@ -51,6 +51,18 @@ export const StyledBanner = styled.div`
                 width: 60%;
             }
     }
+    .search-container{
+          display: flex;
+          width: 100%;
+          justify-content: flex-end;
+          align-items: center;
+          margin-right: 1%;
+          margin-left: 2%;
+    }
+    
+    .add-entity-btn{
+        border: 1.5px solid #ebebeb;
+    }
     
     .back{
             width: 10%;

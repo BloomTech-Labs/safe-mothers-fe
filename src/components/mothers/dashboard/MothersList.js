@@ -17,7 +17,7 @@ const Mothers = props => {
 
     return (
         <>
-            <SearchBanner btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"}/>
+            <SearchBanner searchPath={"/mothers/"} btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"} items={mothers}/>
             <Box>
                 <Accordion className="accordion"
                            animate={true}

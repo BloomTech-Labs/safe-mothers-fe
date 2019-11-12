@@ -23,14 +23,14 @@ const LoginForm = (props) => {
                         <label>Username
                             <Field className="form-inputs" type="text" name="username"/>
                             {props.touched.username && props.errors.username && (
-                                <p className ="error-message">{props.errors.username}</p>
+                                <p className="error-message">{props.errors.username}</p>
                             )}
                         </label>
                         <label>Password
                             <Field className="form-inputs" type="password" name="password"/>
                             {props.touched.password && props.errors.password && (
-                            <p className ="error-message">{props.errors.password}</p>
-                        )}
+                                <p className="error-message">{props.errors.password}</p>
+                            )}
                         </label>
                         <div className="btn-container">
                             <Button className="submit-btn" color="primary" type="submit">Submit</Button>
