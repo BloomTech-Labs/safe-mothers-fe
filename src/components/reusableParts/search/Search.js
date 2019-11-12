@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 import {Search} from "grommet-icons/es6/index";
 import Popup from "./Popup";
+import {withRouter} from "react-router-dom";
 
 export const SearchElement = styled.div`
     .search {
@@ -36,30 +37,26 @@ export const SearchElement = styled.div`
 const StyledSearch = (props) => {
     const {items, searchPath} = props;
     const [suggestions, setSuggestions] = useState([]);
-    /*  RegExp.escape= function(s) {
-          return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-      };*/
     const handleSearch = (data) => {
-        console.log("data ", data);
         if (data.length > 0) {
-            const keyword = data.toLowerCase();
-            const pattern = `[A-Za-z.\s]*${keyword}[A-Za-z.\s]*`;
-            const matchRegex = new RegExp(pattern);
-            const filteredSuggestions = items.filter(item => matchRegex.test(item.name.toLowerCase()));
-            setSuggestions(filteredSuggestions);
-        }else setSuggestions([]);
+            const updatedList = items.filter(item => item.name.toLowerCase().search(data.toLowerCase()) !== -1);
+            setSuggestions(updatedList);
+        } else setSuggestions([]);
 
     };
     return (
         <SearchElement>
             <div className="searchContainer">
-                {/*<p className="searchLabel">SEARCH FOR KEYWORDS</p>*/}
                 <div>
-                    <input type="text"
-                           className="search"
-                           placeholder={"Search..."}
-                           onChange={(e) => handleSearch(e.target.value)}
-                    />
+                    <form onSubmit={() =>
+                        props.history.push(`${searchPath}${suggestions[0].id}`)
+                    }>
+                        <input type="text"
+                               className="search"
+                               placeholder={"Search..."}
+                               onChange={(e) => handleSearch(e.target.value)}
+                        />
+                    </form>
                 </div>
                 <Search className="searchIcon"/>
                 <Popup searchPath={searchPath} items={suggestions}/>
@@ -68,4 +65,4 @@ const StyledSearch = (props) => {
     )
 };
 
-export default StyledSearch;
+export default withRouter(StyledSearch);

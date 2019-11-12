@@ -5,6 +5,7 @@ import {Accordion, AccordionPanel, Box} from "grommet/es6";
 import AccordionLabel from "./AccordionLabel";
 import AccordionContent from "./AccordionContent";
 import SearchBanner from "../../reusableParts/banner/SearchBanner";
+import Header from "../../reusableParts/accordion/Header";
 
 const DriversList = (props) => {
     const {drivers} = props;
@@ -17,6 +18,7 @@ const DriversList = (props) => {
     return (
         <>
             <SearchBanner items={drivers} btn_name={"Add driver"} title={"Drivers"} path={"/edit-driver"}/>
+            <Header info={"Rating"}/>
             <Accordion className="accordion"
                        animate={true}
                        multiple={false}

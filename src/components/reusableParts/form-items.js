@@ -55,7 +55,12 @@ export const FormItems = styled.div`
     .errormessage{
         color: red;
         position: absolute;
-        bottom: 20px;
+        bottom: 22px;
+        left: 10px;
+    }
+    .errormessage_positioning{
+        bottom: -14px;
+        left: 15px;
     }
     
    .error-holder{
