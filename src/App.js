@@ -47,17 +47,17 @@ export const theme = {
         gray: "#C4C4C4",
     },
     darkPalette: {
-        red: "#b21414",
-        blue: "#0d26a8",
-        yellow: "#ffc008",
+        red: "#970c0c",
+        blue: "#102074",
+        yellow: "#ff9a00",
         lightPink: "#f37f83",
         orange: "#c47019",
-        deepPink: "#c50074",
+        deepPink: "#a70065",
         green: "#006400",
         black: "#0454a7",
-        plum: "#d993e7",
-        rebeccaPurple: "#47006e",
-        gray: "#979797",
+        plum: "#cb6ae7",
+        rebeccaPurple: "#3a0057",
+        gray: "#656565",
     }
 };
 

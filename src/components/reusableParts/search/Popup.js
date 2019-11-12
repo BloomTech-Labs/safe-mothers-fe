@@ -8,7 +8,7 @@ const StyledPopup = styled.div`
     display: flex;
     flex-direction: column;
     .content{
-        width: 185px;
+        width: 250px;
         background: white;
         border: 1.5px solid #e5e5e6;
     }
@@ -26,7 +26,7 @@ const StyledPopup = styled.div`
     }
 `;
 function Popup(props) {
-    const {items} = props;
+    const {items, searchPath} = props;
 
     return (
         <>
@@ -34,7 +34,7 @@ function Popup(props) {
             <StyledPopup>
                 <div className="content">
                     {items.map(item =>
-                        <div className="row" onClick={() =>props.history.push(`/mothers/${item.id}`)}>
+                        <div className="row" onClick={() =>props.history.push(`${searchPath}${item.id}`)}>
                             {item.name}
                         </div>
                     )}

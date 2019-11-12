@@ -85,4 +85,14 @@ export const Container = styled.div`
         top: -20px;
         left: 62%;
     }
+    
+    label{
+      position: relative;
+    }
+    
+    .error-message{
+      position: absolute;
+      top: 33%;
+      left: 5%;
+    }
 `;

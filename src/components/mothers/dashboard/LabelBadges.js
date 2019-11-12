@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import FormikLabelForm from "./LabelForm";
 import {CustomBadge} from '../../reusableParts/accordion/label/label-style'
 import {Modal} from 'pcln-modal';
-import {HIGH_RISK} from "../mother-utils";
+import {HIGH_RISK, lightenColor} from "../mother-utils";
 import {getLabels, deleteLabel} from "../../../actions/mothersActions";
 import Add from '../../reusableParts/resources/Add.svg';
 import CloseCircle from '../../reusableParts/resources/CloseCircle.svg'
@@ -69,7 +69,9 @@ function LabelBadges(props) {
                                         badgeDark={label.dark_color}>
                         <div className="badge-content">
                             {label.label_name}
-                            <SVGBtn className="label-icon" onClick={(e) => deleteLabel(e, label)} bg={label.dark_color}
+                            <SVGBtn bgOnHover={label.dark_color}
+                                    bg={`#${lightenColor(label.dark_color, 10)}`}
+                                    className="label-icon" onClick={(e) => deleteLabel(e, label)}
                                     src={CloseCircle}/>
                         </div>
                     </CustomBadge>

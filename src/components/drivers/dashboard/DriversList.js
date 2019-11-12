@@ -16,7 +16,7 @@ const DriversList = (props) => {
 
     return (
         <>
-            <SearchBanner btn_name={"Add driver"} title={"Drivers"} path={"/edit-driver"}/>
+            <SearchBanner items={drivers} btn_name={"Add driver"} title={"Drivers"} path={"/edit-driver"}/>
             <Accordion className="accordion"
                        animate={true}
                        multiple={false}

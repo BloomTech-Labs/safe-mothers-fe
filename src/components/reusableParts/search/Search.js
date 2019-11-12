@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
-import {Search} from "grommet-icons/es6";
+import {Search} from "grommet-icons/es6/index";
 import Popup from "./Popup";
 
 export const SearchElement = styled.div`
     .search {
-        width: 185px;
+        width: 250px;
         height: 30px;
         background: #FFFFFF;
         padding-left: 5px;
@@ -34,7 +34,7 @@ export const SearchElement = styled.div`
 `;
 
 const StyledSearch = (props) => {
-    const {items} = props;
+    const {items, searchPath} = props;
     const [suggestions, setSuggestions] = useState([]);
     /*  RegExp.escape= function(s) {
           return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
@@ -62,7 +62,7 @@ const StyledSearch = (props) => {
                     />
                 </div>
                 <Search className="searchIcon"/>
-                <Popup items={suggestions}/>
+                <Popup searchPath={searchPath} items={suggestions}/>
             </div>
         </SearchElement>
     )
