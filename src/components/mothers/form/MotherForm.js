@@ -166,7 +166,6 @@ function MotherForm(props) {
                                     <div className="column">
                                         {/*interviewer*/}
                                         <label className="error-holder">
-
                                             <Field component="select" className="regular-input input" name="interviewer"
                                                    onChange={(e) => resetValue("interviewer", e.target.value, "interviewer_other", interviewers.Other)}>
                                                 <Interviewers/>

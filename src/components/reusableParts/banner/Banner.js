@@ -47,10 +47,10 @@ const Banner = props => {
                     {!state &&
                     <Button
                         onClick={() => props.history.push(path)}
-                        bgOnHover="#d8e6f6"
-                        bg="#e7f0fa"
+                        bgOnHover={"#d8e6f6"}
+                        bg={"#e7f0fa"}
+                        color={"#4557dc"}
                         height="30px"
-                        color="#1337F1"
                     >
                         EDIT
                         <SVGBtn bg="#1337F1" className="edit-svg" src={Edit}/>

@@ -48,6 +48,7 @@ export const StyledLabel = styled.div`
         padding-right: 3%;
         fill: #ab7bff;
         width: 20%;
+        min-width: 20px;
         &:hover{
             fill: #d896ff;
         }
@@ -59,6 +60,9 @@ export const StyledLabel = styled.div`
         align-items: center;
         margin: 0 20px;
         width: 65%; 
+        @media (max-width: 900px) {
+            visibility: hidden;
+        }
     }
     
     .inline{

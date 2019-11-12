@@ -6,6 +6,7 @@ import AccordionLabel from './AccordionLabel';
 import AccordionContent from './AccordionContent';
 import {highRisk} from "../mother-utils";
 import SearchBanner from "../../reusableParts/banner/SearchBanner";
+import Header from "../../reusableParts/accordion/Header";
 
 
 const Mothers = props => {
@@ -17,8 +18,9 @@ const Mothers = props => {
 
     return (
         <>
-            <SearchBanner btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"}/>
+            <SearchBanner searchPath={"/mothers/"} btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"} items={mothers}/>
             <Box>
+                <Header info={"Season"}/>
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}

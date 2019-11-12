@@ -5,7 +5,7 @@ import {yesNoIDN, returnValue} from "../mother-utils";
 export default function SuppliesForPregnancyCard({mother}) {
     return (
         <Card>
-            <div className="card-content">
+            <div className="card-content single">
                 <ul className="fields">
                     <li>Mama kit</li>
                     <li>Mackintosh</li>

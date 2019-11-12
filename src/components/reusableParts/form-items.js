@@ -55,7 +55,12 @@ export const FormItems = styled.div`
     .errormessage{
         color: red;
         position: absolute;
-        bottom: 20px;
+        bottom: 22px;
+        left: 10px;
+    }
+    .errormessage_positioning{
+        bottom: -14px;
+        left: 15px;
     }
     
    .error-holder{
@@ -72,13 +77,13 @@ export const Button = styled.div`
         font-weight: bold;
         width: ${props => props.width ? props.width : '25%'};
         cursor: pointer;
-        min-width: 20px;
+        min-width:  ${props => props.min_width ? props.min_width : '20px'};
         border: none;
         border-radius: 2px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 2%;
+        margin: ${props => props.margin ? props.margin : '2%'};
         color:  ${props => props.color };
         &:hover {
             color:  ${props => props.colorOnHover};
