@@ -7,6 +7,7 @@ import {villages} from '../../mothers/form/lists';
 import Select from "../../mothers/form/Select";
 import {connect} from 'react-redux';
 import { addDrivers } from "../../../actions/driversActions";
+import Banner from "../../reusableParts/banner/Banner";
 
 
 const EditDriverForm = styled.div`
@@ -86,7 +87,11 @@ function EditDriver(props) {
             <FormItems>
                 <EditDriverForm>
                     <Form className="form-contents edit-form">
-                            <div className="label-value inline">
+
+                        {/*NAVBAR*/}
+                        <Banner back={"/drivers"} person={props.values.name} state={true}/>
+
+                        <div className="label-value inline">
                                 <ul>
                                     <span className="column-title edit-title">Create Driver</span>
                                     <li>Name</li>

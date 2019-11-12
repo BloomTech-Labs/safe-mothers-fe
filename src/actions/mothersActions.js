@@ -1,4 +1,6 @@
 import axiosWithAuth from "../utilities/axiosWithAuth"
+
+
 import {types} from "./index";
 
 const {
@@ -74,7 +76,9 @@ export const deleteMothers = id => dispatch => {
     dispatch({type: DELETE_MOTHERS_START});
     axiosWithAuth()
         .delete(`/${id}`)
-        .then(res => dispatch({type: DELETE_MOTHERS_SUCCESS}))
+        .then(res =>{
+          
+             dispatch({type: DELETE_MOTHERS_SUCCESS})})
         .catch(err =>
             dispatch({type: DELETE_MOTHERS_FAILURE, payload: err.response}),
         );
@@ -86,17 +90,18 @@ export const createLabel = (values) => dispatch => {
     axiosWithAuth()
         .post("/labels/", values)
         .then(res => {
+            console.log("label ", res);
             dispatch({type: CREATE_LABEL_SUCCESS, payload: res.data[0]})
         })
         .catch(error => dispatch({type: CREATE_LABEL_FAILURE, payload: error}))
-
 };
 
-export const getLabels = (id) => dispatch => {
+export const getLabels = () => dispatch => {
     dispatch({type: GET_LABELS_START});
     axiosWithAuth()
-        .get(`/labels/${id}`)
+        .get(`/labels/`)
         .then(res => {
+            console.log("response ", res.data);
             dispatch({type: GET_LABELS_SUCCESS, payload: res.data})
         })
         .catch(error => dispatch({type: GET_LABELS_FAILURE, payload: error}))

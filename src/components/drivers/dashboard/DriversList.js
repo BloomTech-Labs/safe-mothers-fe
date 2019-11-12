@@ -4,7 +4,7 @@ import {getDrivers} from "../../../actions/driversActions";
 import {Accordion, AccordionPanel, Box} from "grommet/es6";
 import AccordionLabel from "./AccordionLabel";
 import AccordionContent from "./AccordionContent";
-import AddEntityBtn from "../../reusableParts/AddEntityBtn";
+import SearchBanner from "../../reusableParts/banner/SearchBanner";
 
 const DriversList = (props) => {
     const {drivers} = props;
@@ -16,7 +16,7 @@ const DriversList = (props) => {
 
     return (
         <>
-            <AddEntityBtn name="Add Driver" history={props.history} path={"/edit-driver"}/>
+            <SearchBanner btn_name={"Add driver"} title={"Drivers"} path={"/edit-driver"}/>
             <Accordion className="accordion"
                        animate={true}
                        multiple={false}

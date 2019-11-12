@@ -1,5 +1,6 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
+import {returnNumberValue, yesNoIDN} from "../mother-utils";
 
 export default function Demographics({mother}) {
     return (
@@ -14,12 +15,12 @@ export default function Demographics({mother}) {
                     <li>Number of Children Lost</li>
                 </ul>
                 <ul className="values">
-                    <li>{mother.no_pg}</li>
-                    <li>{mother.no_birth}</li>
-                    <li>{mother.no_children}</li>
-                    <li>{mother.no_under5}</li>
-                    <li>{mother.hx_childdeath}</li>
-                    <li>{mother.no_childDeath}</li>
+                    <li>{returnNumberValue(mother.no_pg)}</li>
+                    <li>{returnNumberValue(mother.no_birth)}</li>
+                    <li>{returnNumberValue(mother.no_children)}</li>
+                    <li>{returnNumberValue(mother.no_under5)}</li>
+                    <li>{yesNoIDN(mother.hx_childdeath)}</li>
+                    <li>{returnNumberValue(mother.no_childdeath)}</li>
                 </ul>
             </div>
         </Card>

@@ -5,7 +5,7 @@ import {Accordion, AccordionPanel, Box} from 'grommet';
 import AccordionLabel from './AccordionLabel';
 import AccordionContent from './AccordionContent';
 import {highRisk} from "../mother-utils";
-import AddEntityBtn from "../../reusableParts/AddEntityBtn";
+import SearchBanner from "../../reusableParts/banner/SearchBanner";
 
 
 const Mothers = props => {
@@ -17,9 +17,8 @@ const Mothers = props => {
 
     return (
         <>
-        {console.log(mothers)}
+            <SearchBanner btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"}/>
             <Box>
-                <AddEntityBtn name="Add Mother" history={props.history} path={"/mother-form"}/>
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}
