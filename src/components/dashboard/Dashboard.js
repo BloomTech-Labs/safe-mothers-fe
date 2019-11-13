@@ -32,9 +32,10 @@ const MainContainer = styled.div`
 
 const Dashboard = props => {
   useEffect(() => {
-    props.getMothers();
     props.getDrivers();
-  }, []);
+    props.getMothers();
+  });
+
 
   const dueNow = mothers => {
     let num = 0;
