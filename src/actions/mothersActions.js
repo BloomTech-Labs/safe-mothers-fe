@@ -1,4 +1,5 @@
 import axiosWithAuth from "../utilities/axiosWithAuth"
+import { Mixpanel } from '../utilities/mixpanel/Mixpanel'
 
 
 import {types} from "./index";
@@ -58,18 +59,27 @@ export const addMother = mothers => dispatch => {
     dispatch({type: ADD_MOTHERS_START});
     axiosWithAuth()
         .post('/mothers/auth/register', mothers)
-        .then(res => dispatch({type: ADD_MOTHERS_SUCCESS}))
-        .catch(err => dispatch({type: ADD_MOTHERS_FAILURE, payload: err.response}));
+        .then(res => {
+            Mixpanel.track('Added Mother')
+            dispatch({ type: ADD_MOTHERS_SUCCESS }) 
+        } )
+        .catch(err => {
+            Mixpanel.track('Error Adding Mother')
+            dispatch({ type: ADD_MOTHERS_FAILURE, payload: err.response })
+        });
 };
 
 export const updateMother = (id, mother) => dispatch => {
     dispatch({type: UPDATE_MOTHER_START});
     axiosWithAuth()
         .put(`/mothers/${id}`, mother)
-        .then(res => dispatch({type: UPDATE_MOTHER_SUCCESS, payload: mother}))
-        .catch(err =>
-            dispatch({type: UPDATE_MOTHER_FAILURE, payload: err.response}),
-        );
+        .then(res =>{ 
+            Mixpanel.track('Updated Mother',{id:'id'})
+            dispatch({type: UPDATE_MOTHER_SUCCESS, payload: mother})})
+        .catch(err =>{
+            Mixpanel.track('Error Updating Mother', {id:id})
+            dispatch({type: UPDATE_MOTHER_FAILURE, payload: err.response})
+});
 };
 
 export const deleteMothers = id => dispatch => {
@@ -77,11 +87,12 @@ export const deleteMothers = id => dispatch => {
     axiosWithAuth()
         .delete(`/${id}`)
         .then(res =>{
-          
+            Mixpanel.track('Deleted Mother', {id:id})
              dispatch({type: DELETE_MOTHERS_SUCCESS})})
-        .catch(err =>
-            dispatch({type: DELETE_MOTHERS_FAILURE, payload: err.response}),
-        );
+        .catch(err =>{
+            Mixpanel.track('Error Deleting Mother', {id:id})
+            dispatch({type: DELETE_MOTHERS_FAILURE, payload: err.response})
+});
 };
 
 
@@ -91,9 +102,12 @@ export const createLabel = (values) => dispatch => {
         .post("/labels/", values)
         .then(res => {
             console.log("label ", res);
+            Mixpanel.track('Created Label')
             dispatch({type: CREATE_LABEL_SUCCESS, payload: res.data[0]})
         })
-        .catch(error => dispatch({type: CREATE_LABEL_FAILURE, payload: error}))
+        .catch(error => {
+            Mixpanel.track('Error Creating Label')
+            dispatch({type: CREATE_LABEL_FAILURE, payload: error})})
 };
 
 export const getLabels = () => dispatch => {
@@ -112,7 +126,10 @@ export const deleteLabel = (id) => dispatch => {
     axiosWithAuth()
         .delete(`/labels/${id}`)
         .then(res => {
+            Mixpanel.track('Deleted Label', {id:id})
             dispatch({type: DELETE_LABEL_SUCCESS, payload: id})
         })
-        .catch(error => dispatch({type: DELETE_LABEL_FAILURE, payload: error}))
+        .catch(error =>{ 
+            Mixpanel.track('Error Deleting Label', {id:id})
+            dispatch({type: DELETE_LABEL_FAILURE, payload: error})})
 };
