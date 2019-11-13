@@ -15,7 +15,7 @@ import Tooltip from "../../reusableParts/Tooltip";
 
 
 
-function EditDriver(props) {
+function DriverForm(props) {
   const resetValue = (name, value, name2, value2) => {
     props.setFieldValue(name, parseInt(value));
     if (value !== value2) {
@@ -25,7 +25,7 @@ function EditDriver(props) {
 
   return (
     <FormItems>
-      <EditDriverForm>
+      <DriverFormStyle>
         <Form className="form-contents edit-form">
           {/*NAVBAR*/}
           <Banner back={"/drivers"} person={props.values.name} state={true} />
@@ -69,8 +69,8 @@ function EditDriver(props) {
             <div className="column">
                 {/*driver_name*/}
                 <label className="error-holder">
-                    <Field className="regular-input"  type="text" name="name"/>
-                    {props.touched.name && props.errors.driver_name && (
+                    <Field className="regular-input"  type="text" name="driver_name"/>
+                    {props.touched.driver_name && props.errors.driver_name && (
                         <p className="errormessage">{props.errors.driver_name}</p>
                     )}
                 </label>
@@ -118,7 +118,7 @@ function EditDriver(props) {
                 {/*stage*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="stage"
-                    onChange={e => resetValue("stage", e.target.value, "stage_other", choices.OTHER)}>
+                    onChange={e => resetValue("stage", e.target.value, "parish_other", choices.OTHER)}>
                     <Select list={stage_code} />
                     <option value={choices.OTHER}>Other</option>
                     </Field>
@@ -126,12 +126,12 @@ function EditDriver(props) {
                     <p className="errormessage">{props.errors.stage}</p>
                     )}
                 </label>
-                {/*stage_other*/}
+                {/*parish_other*/}
                 {props.values.stage === choices.OTHER && (
                     <label className="error-holder">
-                    <Field className="regular-input" type="text" name="stage_other" />
-                    {props.touched.stage_other && props.errors.stage_other && (
-                        <p className="errormessage">{props.errors.stage_other}</p>
+                    <Field className="regular-input" type="text" name="parish_other" />
+                    {props.touched.parish_other && props.errors.parish_other && (
+                        <p className="errormessage">{props.errors.parish_other}</p>
                     )}
                     </label>
                 )}
@@ -145,7 +145,7 @@ function EditDriver(props) {
                 {/*carrier*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="carrier"
-                    onChange={e => resetValue("carrier", e.target.value, "carrier_other", choices.OTHER)}>
+                    onChange={e => resetValue("carrier", e.target.value, "carrier_2", choices.OTHER)}>
                     <Select list={carrier} />
                     <option value={choices.OTHER}>Other</option>
                     </Field>
@@ -153,12 +153,12 @@ function EditDriver(props) {
                     <p className="errormessage">{props.errors.carrier}</p>
                     )}
                 </label>
-                {/*carrier_other*/}
+                {/*carrier_2*/}
                 {props.values.carrier === choices.OTHER && (
                     <label className="error-holder">
-                    <Field className="regular-input" type="text" name="carrier_other" />
-                    {props.touched.carrier_other && props.errors.carrier_other && (
-                        <p className="errormessage">{props.errors.carrier_other}</p>
+                    <Field className="regular-input" type="text" name="carrier_2" />
+                    {props.touched.carrier_2 && props.errors.carrier_2 && (
+                        <p className="errormessage">{props.errors.carrier_2}</p>
                     )}
                     </label>
                 )}
@@ -228,13 +228,13 @@ function EditDriver(props) {
                 {/*number_kids*/}
                 {props.values.children === choices.YES &&
                     <label>
-                        <Field className="regular-input" type="integer" name="number_kids"/>                   
+                        <Field className="regular-input" type="number" name="number_kids"/>                   
                     </label>
                 }
                 {/*kid_info*/}
                 {props.values.children === choices.YES &&
                     <label>
-                        <Field className="regular-input" type="text" name="number_kids"/>                   
+                        <Field className="regular-input" type="text" name="kids_info"/>                   
                     </label>
                 }
                 {/*motivation*/}
@@ -268,23 +268,70 @@ function EditDriver(props) {
             </div>
           </div>
         </Form>
-      </EditDriverForm>
+      </DriverFormStyle>
     </FormItems>
   );
 }
 
 
-const FormikEditDriver = withFormik({
+const FormikDriverForm = withFormik({
     mapPropsToValues(
         {
+            driver_name,
             district,
             district_other,
+            subcounty,
+            subcounty_other,
+            stage,
+            parish_other,
+            phone,
+            carrier,
+            another_phone,
+            phone_2,
+            carrier_2,
+            //
+            latitude,
+            longitude,
+            //
+            own_boda,
+            boda_night,
+            transfers,
+            married,
+            children,
+            number_kids,
+            kids_info,
+            motivation,
+            background,
+            dream
             
         }) {
             return {
-                
+                driver_name: driver_name || '',
                 district: district || '',
                 district_other: district_other || '',
+                subcounty: subcounty || '',
+                subcounty_other: subcounty_other || '',
+                stage: stage || '',
+                parish_other: parish_other || '',
+                phone: phone || '',
+                carrier: carrier || '',
+                another_phone: another_phone || '',
+                phone_2: phone_2 || '',
+                carrier_2: carrier_2 || '',
+                //
+                latitude: latitude || 'qwer',
+                longitude: longitude || 'qwer',
+                //
+                own_boda: own_boda || '',
+                boda_night: boda_night || '',
+                transfers: transfers || '',
+                married: married || '',
+                children: children || '',
+                number_kids: number_kids || '',
+                kids_info: kids_info || '',
+                motivation: motivation || '',
+                background: background || '',
+                dream: dream || '',
             };
         },
         
@@ -294,20 +341,19 @@ const FormikEditDriver = withFormik({
         }),
         
         handleSubmit(values, {props}) {
-            // props.addDrivers({
-            //     district: values.district,
-            //     district_other: values,
-            //     village_id: parseInt(values.district_other),
-            //     lat: values.lat,
-            //     long: values.long
-            // })
-            console.log("values ", values);
+            let driver = {};
+            for (let property  in values) {
+                if (typeof values[property] === 'string' && values[property].length > 0) driver[property] = values[property];
+                if (typeof values[property] === 'number') driver[property] = values[property];
+            }
+            console.log("values ", driver);
+            props.addDrivers(driver);
         }
-    })(EditDriver);
+    })(DriverForm);
     
-    export default connect(null,{addDrivers})(FormikEditDriver);
+    export default connect(null,{addDrivers})(FormikDriverForm);
     
-    const EditDriverForm = styled.div`
+    const DriverFormStyle = styled.div`
         width: 100%;
         min-width: 718px;
         justify-content: center;
