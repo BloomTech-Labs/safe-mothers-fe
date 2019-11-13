@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import moment from "moment";
 import { getMothers } from "../../actions/mothersActions";
+import { getDrivers } from "../../actions/driversActions";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import DashboardCard from "./DashboardCard";
@@ -32,6 +33,7 @@ const MainContainer = styled.div`
 const Dashboard = props => {
   useEffect(() => {
     props.getMothers();
+    props.getDrivers();
   }, []);
 
   const dueNow = mothers => {
@@ -109,4 +111,4 @@ const mapStateToProps = state => {
     drivers: state.driversReducer.drivers
   };
 };
-export default connect(mapStateToProps, { getMothers })(Dashboard);
+export default connect(mapStateToProps, { getMothers, getDrivers })(Dashboard);
