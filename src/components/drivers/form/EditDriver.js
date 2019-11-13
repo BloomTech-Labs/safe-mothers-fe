@@ -9,8 +9,7 @@ import {connect} from 'react-redux';
 import { addDrivers } from "../../../actions/driversActions";
 import Banner from "../../reusableParts/banner/Banner";
 import YesNoDontknowDeclin, {choices} from "../../mothers/form/YesNoDontknowDeclin";
-import District, {district} from "./District";
-import {subcounty_code, district_code, stage_code} from "./List";
+import {subcounty_code, district_code, stage_code, carrier, boda_night} from "./List";
 
 import Tooltip from "../../reusableParts/Tooltip";
 
@@ -32,7 +31,6 @@ function EditDriver(props) {
           <Banner back={"/drivers"} person={props.values.name} state={true} />
           <div className="label-value inline">
             <ul>
-              <span className="column-title edit-title">Create Driver</span>
               <li>Name</li>
               <li>District</li>
               {props.values.district === choices.OTHER && (
@@ -43,14 +41,37 @@ function EditDriver(props) {
                 <li>Specify Subcounty</li>
               )}
               <li>Stage</li>
-              {props.values.stage === choices.OTHER && <li>Specify Parish</li>}
+              {props.values.stage === choices.OTHER && 
+                <li>Specify Parish</li>}
+              <li>Phone Number</li>
+              <li>Carrier</li>
+              {props.values.carrier === choices.OTHER && 
+                <li>Specify Carrier</li>}
+              <li>Owns another phone</li>
+              {props.values.another_phone === choices.YES &&
+                <li>Second Phone Number</li>
+                }
+              <li>Owns Boda</li>
+              <li>Has Boda at Night</li>
+              <li>Transport Count</li>
+              <li>Married</li>
+              <li>Has Children</li>
+              {props.values.children === choices.YES &&
+                <li>Number of Children</li>
+                }
+              {props.values.children === choices.YES &&
+                <li>Children Details</li>
+                }
+              <li>Motivation</li>
+              <li>Background</li>
+              <li>Dream for Future</li>
             </ul>
             <div className="column">
-                {/*name*/}
+                {/*driver_name*/}
                 <label className="error-holder">
-                    <Field className="regular-input" type="text" name="name"/>
-                    {props.touched.name && props.errors.name && (
-                        <p className="errormessage">{props.errors.name}</p>
+                    <Field className="regular-input"  type="text" name="name"/>
+                    {props.touched.name && props.errors.driver_name && (
+                        <p className="errormessage">{props.errors.driver_name}</p>
                     )}
                 </label>
                 {/*district*/}
@@ -97,7 +118,7 @@ function EditDriver(props) {
                 {/*stage*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="stage"
-                    onChange={e => resetValue("subcounty", e.target.value, "stage_other", choices.OTHER)}>
+                    onChange={e => resetValue("stage", e.target.value, "stage_other", choices.OTHER)}>
                     <Select list={stage_code} />
                     <option value={choices.OTHER}>Other</option>
                     </Field>
@@ -114,6 +135,130 @@ function EditDriver(props) {
                     )}
                     </label>
                 )}
+                {/*phone*/}
+                <label className="error-holder">
+                    <Field className="regular-input" type="text" name="phone"/>
+                    {props.touched.phone && props.errors.phone && (
+                        <p className="errormessage">{props.errors.phone}</p>
+                    )}
+                </label>
+                {/*carrier*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="carrier"
+                    onChange={e => resetValue("carrier", e.target.value, "carrier_other", choices.OTHER)}>
+                    <Select list={carrier} />
+                    <option value={choices.OTHER}>Other</option>
+                    </Field>
+                    {props.touched.carrier && props.errors.carrier && (
+                    <p className="errormessage">{props.errors.carrier}</p>
+                    )}
+                </label>
+                {/*carrier_other*/}
+                {props.values.carrier === choices.OTHER && (
+                    <label className="error-holder">
+                    <Field className="regular-input" type="text" name="carrier_other" />
+                    {props.touched.carrier_other && props.errors.carrier_other && (
+                        <p className="errormessage">{props.errors.carrier_other}</p>
+                    )}
+                    </label>
+                )}
+                {/*another_phone*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="another_phone"
+                        onChange={(e) => props.setFieldValue("another_phone", parseInt(e.target.value))}>
+                        <YesNoDontknowDeclin state={false}/>
+                    </Field>
+                    {props.touched.another_phone && props.errors.another_phone && (
+                        <p className="errormessage">{props.errors.another_phone}</p>
+                    )}
+                </label>
+                {/*phone_2*/}
+                {props.values.another_phone === choices.YES &&
+                    <label>
+                        <Field className="regular-input" type="text" name="phone_2"/>                   
+                    </label>
+                }
+                {/*own_boda*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="own_boda"
+                        onChange={(e) => props.setFieldValue("own_boda", parseInt(e.target.value))}>
+                        <YesNoDontknowDeclin state={false}/>
+                    </Field>
+                    {props.touched.own_boda && props.errors.own_boda && (
+                        <p className="errormessage">{props.errors.own_boda}</p>
+                    )}
+                </label>
+                {/*boda_night*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="boda_night"
+                    onChange={e => resetValue("boda_night", e.target.value)}>
+                    <Select list={boda_night} />
+                    </Field>
+                    {props.touched.carrier && props.errors.carrier && (
+                    <p className="errormessage">{props.errors.carrier}</p>
+                    )}
+                </label>
+                {/*transfers*/}
+                <label className="error-holder">
+                    <Field className="regular-input" type="number" name="transfers"/>
+                    {props.touched.transfers && props.errors.transfers && (
+                        <p className="errormessage">{props.errors.transfers}</p>
+                    )}
+                </label>
+                {/*married*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="married"
+                        onChange={(e) => props.setFieldValue("married", parseInt(e.target.value))}>
+                        <YesNoDontknowDeclin state={false}/>
+                    </Field>
+                    {props.touched.married && props.errors.married && (
+                        <p className="errormessage">{props.errors.married}</p>
+                    )}
+                </label>
+                {/*children*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="children"
+                        onChange={(e) => props.setFieldValue("children", parseInt(e.target.value))}>
+                        <YesNoDontknowDeclin state={false}/>
+                    </Field>
+                    {props.touched.children && props.errors.children && (
+                        <p className="errormessage">{props.errors.children}</p>
+                    )}
+                </label>
+                {/*number_kids*/}
+                {props.values.children === choices.YES &&
+                    <label>
+                        <Field className="regular-input" type="integer" name="number_kids"/>                   
+                    </label>
+                }
+                {/*kid_info*/}
+                {props.values.children === choices.YES &&
+                    <label>
+                        <Field className="regular-input" type="text" name="number_kids"/>                   
+                    </label>
+                }
+                {/*motivation*/}
+                <label className="error-holder">
+                    <Field className="regular-input"  type="text" name="motivation"/>
+                    {props.touched.motivation && props.errors.motivation && (
+                        <p className="errormessage">{props.errors.motivation}</p>
+                    )}
+                </label>
+                {/*background*/}
+                <label className="error-holder">
+                    <Field className="regular-input"  type="text" name="background"/>
+                    {props.touched.background && props.errors.background && (
+                        <p className="errormessage">{props.errors.background}</p>
+                    )}
+                </label>
+                {/*dream*/}
+                <label className="error-holder">
+                    <Field className="regular-input"  type="text" name="dream"/>
+                    {props.touched.dream && props.errors.dream && (
+                        <p className="errormessage">{props.errors.dream}</p>
+                    )}
+                </label>
+                
             </div>
             <div className="btn-container">
               {/*<Button color="white" nu="blue" >Save</Button>*/}
