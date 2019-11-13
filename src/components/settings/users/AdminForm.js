@@ -51,27 +51,36 @@ const AdminForm = props => {
                                     </ul>
                                 </div>
                                 <div>
-                                    <Field className="regular-input" type="text" name="first_name"/>
-                                    {props.touched.first_name && props.errors.firstName && (
-                                        <p className="errormessage">{props.errors.firstName}</p>
-                                    )}
+                                    <label className="error-holder">
+                                        <Field className="regular-input" type="text" name="first_name"/>
+                                        {props.touched.first_name && props.errors.first_name && (
+                                            <p className="errormessage errormessage_positioning">{props.errors.first_name }</p>
+                                        )}
+                                    </label>
 
-                                    <Field className="regular-input" type="text" name="last_name"/>
-                                    {props.touched.last_name && props.errors.last_name && (
-                                        <p className="errormessage">{props.errors.last_name}</p>
-                                    )}
+                                    <label className="error-holder">
+                                        <Field className="regular-input" type="text" name="last_name"/>
+                                        {props.touched.last_name && props.errors.last_name && (
+                                            <p className="errormessage errormessage_positioning">{props.errors.last_name}</p>
+                                        )}
+                                    </label>
 
-                                    <Field className="regular-input" type="text" name="username"/>
-                                    {props.touched.username && props.errors.username && (
-                                        <p className="errormessage">{props.errors.username}</p>
-                                    )}
+                                    <label className="error-holder">
+                                        <Field className="regular-input" type="text" name="username"/>
+                                        {props.touched.username && props.errors.username && (
+                                            <p className="errormessage errormessage_positioning">{props.errors.username}</p>
+                                        )}
+                                    </label>
+
 
                                     {!props.formState &&
-                                    <Field className="regular-input" type="password" name="password"/>}
-                                    {props.touched.password && props.errors.password && (
-                                        <p className="errormessage">{props.errors.password}</p>
-                                    )}
-
+                                    <label className="error-holder">
+                                        <Field className="regular-input" type="password" name="password"/>
+                                        {props.touched.password && props.errors.password && (
+                                            <p className="errormessage errormessage_positioning">{props.errors.password}</p>
+                                        )}
+                                    </label>
+                                    }
                                 </div>
                             </div>
                             <div className="btn-container">
@@ -99,14 +108,14 @@ const FormikAdminForm = withFormik({
         };
     },
 
-    validationSchema: props =>{
+    validationSchema: props => {
         const schema = {};
 
-        schema.first_name =  Yup.string().required("Please enter a first name");
+        schema.first_name = Yup.string().required("Please enter a first name");
         schema.last_name = Yup.string().required("Please enter a last name");
         schema.username = Yup.string().required("Please enter a username");
-        if(!props.formState){
-            schema.password =  Yup.string().required("Please enter a password");
+        if (!props.formState) {
+            schema.password = Yup.string().required("Please enter a password");
         }
         return Yup.object().shape(schema);
     },

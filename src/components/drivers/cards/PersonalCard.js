@@ -5,7 +5,7 @@ export default function PersonalCard() {
     return (
         <Card>
             <div className="card-content">
-                    <ul className="align-left">
+                    <ul className="fields">
                         <li>Name:</li>
                         <li>Marital Status:</li>
                         <li>Education:</li>
@@ -14,7 +14,7 @@ export default function PersonalCard() {
                         <li>Subcounty:</li>
                         <li>Parish:</li>
                     </ul>
-                    <ul className="align-left values">
+                    <ul className="values">
                         <li>30</li>
                         <li>Married</li>
                         <li>Yes</li>

@@ -5,14 +5,14 @@ export default function MotorcycleCard() {
     return (
         <Card>
             <div className="card-content">
-                <ul className="align-left">
+                <ul className="fields">
                     <li>Owns Vehicle:</li>
                     <li>Available at Night:</li>
                     <li>Worked for Mother-Boda:</li>
                     <li>Number of Drop-Offs:</li>
                     <li>Story:</li>
                 </ul>
-                <ul className="align-left values">
+                <ul className="values">
                     <li>Yes</li>
                     <li>Yes</li>
                     <li>Yes</li>

@@ -54,7 +54,7 @@ export const StyledContents = styled.div`
 `;
 
 export const Content = styled.div`
-    position: relative; 
+    position: relative;
     display: flex;
     justify-content: center;
     margin-top: 25px; 
@@ -98,6 +98,12 @@ export const Content = styled.div`
            padding-top: 6px;
         }
     }
+
+    p{
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    
     .status-no{
         color: #C4C4C4;
     }
@@ -118,12 +124,15 @@ export const Content = styled.div`
 `;
 
 export const Card = styled.div`
+
+
      li{
         margin-bottom: 15px;
         white-space: nowrap;
      }
       .card-content{
         display: flex;
+        width: 100%;
         justify-content: center;
         @media (max-width: 1024px) {
             justify-content: flex-start;

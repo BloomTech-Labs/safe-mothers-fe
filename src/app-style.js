@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     text-align: center;
     font-family: 'Asap', sans-serif;
-    min-width: 500px;
+    min-width: 520px;
     height: 100vh;
     font-size: 0.8rem;
     background: #F9FBFC;
