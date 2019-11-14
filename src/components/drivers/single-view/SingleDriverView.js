@@ -7,6 +7,7 @@ import MotorcycleCard from '../cards/MotorcycleCard';
 import ContactCard from '../cards/ContactCard';
 import AspirationCard from '../cards/AspirationCard';
 import Banner from '../../reusableParts/banner/Banner';
+import {deleteDriver} from '../../../actions/driversActions';
 
 import { StyledPageView } from '../../reusableParts/SinglePageStyle';
 
@@ -19,7 +20,7 @@ function SingleDriverView(props) {
         <>
             {singleDriver && singleDriver.map(driver => (
                 <StyledPageView className="single-page-view">
-                    <Banner back={"/drivers"} person= {driver.driver_name} path={`/driver-form/${id}`}  />
+                    <Banner back={"/drivers"} person= {driver.driver_name} path={`/driver-form/${id}`} delete={() => props.deleteDriver(id, props)}  />
                     <div className="card-container">
                         <div className="grid-top driver">
                             <div className="card">
@@ -55,4 +56,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {})(SingleDriverView);
+export default connect(mapStateToProps,{deleteDriver})(SingleDriverView);
