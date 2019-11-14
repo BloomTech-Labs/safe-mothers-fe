@@ -8,20 +8,20 @@ export default function HighRiskCard({mother, state}) {
         <Card>
             <div className="card-content ">
                 <ul className="fields">
-                    <li>Anemia</li>
-                    <li>Malaria</li>
-                    <li>Obstructed labor</li>
-                    <li>Malpresentation</li>
-                    <li>Antepartum hemorrhage</li>
-                    <li>Postpartum hemorrhage</li>
+                    <li>Anemia:</li>
+                    <li>Malaria:</li>
+                    <li>Obstructed labor:</li>
+                    <li>Malpresentation:</li>
+                    <li>Antepartum hemorrhage:</li>
+                    <li>Postpartum hemorrhage:</li>
                     {state &&
                     <div className="list-break-fields">
-                        <li>Retained placenta</li>
-                        <li>Placenta previa</li>
-                        <li>Stillbirth</li>
-                        <li>How many stillbirth</li>
-                        <li>Other complication</li>
-                        <li>Name of the complication</li>
+                        <li>Retained placenta:</li>
+                        <li>Placenta previa:</li>
+                        <li>Stillbirth:</li>
+                        <li>How many stillbirth:</li>
+                        <li>Other complication:</li>
+                        <li>Name of the complication:</li>
                     </div>}
                 </ul>
                 <ul className="values">

@@ -91,6 +91,7 @@ export const deleteMother = (id, props) => dispatch => {
         .then(res => {
             Mixpanel.track('Deleted Mother', {id: id});
             dispatch({type: DELETE_MOTHER_SUCCESS, payload: id})
+            props.history.push('/mothers')
         })
         .catch(err => {
             Mixpanel.track('Error Deleting Mother', {id: id});

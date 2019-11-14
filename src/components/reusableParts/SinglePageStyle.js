@@ -140,6 +140,35 @@ export const StyledPageView = styled.div`
         }
         
     }
+
+    .driver{
+        display: grid;
+        border-bottom: 1.5px solid #F9FBFC;
+        margin-top: 15px;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 30px;
+        grid-row-gap: 0;
+
+        @media (max-width: 1400px){
+            grid-column-gap: 15px;
+        }
+
+        @media (max-width: 1200px){
+            grid-column-gap: 5px;
+        }
+         
+        @media (max-width: 1024px) {
+            margin-left: 0px;
+            border-bottom: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+        }
+    }
     
     .grid-center{
         display: grid;

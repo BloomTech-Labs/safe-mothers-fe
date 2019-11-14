@@ -16,22 +16,22 @@ export default function Demographics({mother}) {
         <Card>
             <div className="card-content">
                 <ul className="fields">
-                    <li>Educated</li>
-                    <li>School Level</li>
-                    <li>Money decision maker</li>
-                    <li>Households</li>
-                    <li>Marital Status</li>
-                    <li>Partners Education</li>
-                    <li>Partners Education Level</li>
-                    <li>Polygamy</li>
-                    <li>Number of Wives</li>
-                    <li>Wife Order</li>
+                    <li>Educated:</li>
+                    <li>School Level:</li>
+                    <li>Money decision maker:</li>
+                    <li>Households:</li>
+                    <li>Marital Status:</li>
+                    <li>Partners Education:</li>
+                    <li>Partners Education Level:</li>
+                    <li>Polygamy:</li>
+                    <li>Number of Wives:</li>
+                    <li>Wife Order:</li>
                     <li>insurance</li>
-                    <li>Specified insurance</li>
-                    <li>Community-based insurance</li>
-                    <li>Private commercial insurance</li>
-                    <li>Insurance other</li>
-                    <li>Sell Assets</li>
+                    <li>Specified insurance:</li>
+                    <li>Community-based insurance:</li>
+                    <li>Private commercial insurance:</li>
+                    <li>Insurance other:</li>
+                    <li>Sell Assets:</li>
                 </ul>
                 <ul className="values">
                     <li>{yesNoIDN(mother.attend_school)}</li>

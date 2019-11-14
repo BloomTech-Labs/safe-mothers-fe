@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from "yup";
 import {Button, FormItems} from "../../reusableParts/form-items";
 import styled from 'styled-components';
 import {villages} from '../../mothers/form/lists';
 import Select from "../../mothers/form/Select";
+import SelectDriver from "../form/SelectDriver";
 import {connect} from 'react-redux';
-import { addDrivers } from "../../../actions/driversActions";
+import { addDriver, updateDriver } from "../../../actions/driversActions";
 import Banner from "../../reusableParts/banner/Banner";
 import YesNoDontknowDeclin from "./YesNoDontknowDeclin";
 import {choices} from "./driver-utils";
@@ -17,12 +18,30 @@ import Tooltip from "../../reusableParts/Tooltip";
 
 
 function DriverForm(props) {
-  const resetValue = (name, value, name2, value2) => {
-    props.setFieldValue(name, parseInt(value));
-    if (value !== value2) {
-      props.setFieldValue(name2, "");
-    }
-  };
+
+useEffect(() => {
+    const id = props.match.params.id;
+    console.log("DRIVER ID ", id);
+        if (id) {
+            const filtered_driver = props.drivers.filter(driver => `${driver.id}` === id);
+            const single_driver = filtered_driver[0];
+            let driver = {};
+            for (let property  in single_driver) {
+                if (typeof single_driver[property] === 'string' && single_driver[property].length > 0) driver[property] = single_driver[property];
+                if (typeof single_driver[property] === 'number') driver[property] = single_driver[property];
+            }
+            props.setValues(driver);
+        } else {
+            props.resetForm();
+        }
+    }, []);
+
+    const resetValue = (name, value, name2, value2) => {
+        props.setFieldValue(name, parseInt(value));
+        if (value !== value2) {
+            props.setFieldValue(name2, '');
+        }
+    };
 
   return (
     <FormItems>
@@ -146,15 +165,14 @@ function DriverForm(props) {
                 {/*carrier*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="carrier"
-                    onChange={e => resetValue("carrier", e.target.value, "carrier", choices.OTHER)}>
+                    onChange={e => props.setFieldValue ("carrier", e.target.value)}>
                     <Select list={carrier} />
-                    <option value={choices.OTHER}>Other</option>
                     </Field>
                     {props.touched.carrier && props.errors.carrier && (
                     <p className="errormessage">{props.errors.carrier}</p>
                     )}
                 </label>
-                {/*carrier_2*/}
+                {/* carrier_2
                 {props.values.carrier === choices.OTHER && (
                     <label className="error-holder">
                     <Field className="regular-input" type="text" name="carrier_2" />
@@ -162,7 +180,7 @@ function DriverForm(props) {
                         <p className="errormessage">{props.errors.carrier_2}</p>
                     )}
                     </label>
-                )}
+                )} */}
                 {/*another_phone*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="another_phone"
@@ -193,7 +211,7 @@ function DriverForm(props) {
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="boda_night"
                     onChange={e => resetValue("boda_night", e.target.value)}>
-                    <Select list={boda_night} />
+                    <SelectDriver list={boda_night} />
                     </Field>
                     {props.touched.boda_night && props.errors.boda_night && (
                     <p className="errormessage">{props.errors.boda_night}</p>
@@ -335,19 +353,34 @@ const FormikDriverForm = withFormik({
             
         }),
         
-        handleSubmit(values, {props}) {
+        handleSubmit(values, {props, resetForm}) {
             let driver = {};
             for (let property  in values) {
                 if (typeof values[property] === 'string' && values[property].length > 0) driver[property] = values[property];
                 if (typeof values[property] === 'number') driver[property] = values[property];
             }
+            if (props.match.params.id) {
+                props.updateDriver(values.id, driver);
+                resetForm();
+                props.history.push("/drivers");
+            } else {
+                props.addDriver(driver);
+                resetForm();
+                props.history.push("/drivers");
+            }
 
             console.log("values ", driver);
-            props.addDrivers(driver);
+            props.addDriver(driver);
         }
     })(DriverForm);
     
-    export default connect(null,{addDrivers})(FormikDriverForm);
+    const mapStateToProps = state => {
+        return {
+            drivers: state.driversReducer.drivers,
+        }
+    };
+
+    export default connect(mapStateToProps,{addDriver, updateDriver})(FormikDriverForm);
     
     const DriverFormStyle = styled.div`
         width: 100%;

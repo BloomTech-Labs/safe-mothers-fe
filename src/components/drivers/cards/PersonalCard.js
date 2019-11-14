@@ -18,8 +18,8 @@ export default function PersonalCard({driver}) {
                     <ul className="values">
                         <li>{yesNoIDN(driver.married)}</li>
                         <li>{ defineBasicValue(['Iganga'], driver.district, driver.district_other)}</li>
-                    <li>{ defineBasicValue(['Makuutu','Nawwandala'],driver.subcounty, driver.subcounty_other)}</li>
-                    <li>{ defineBasicValue(['Nabitende','Bugongo','Nawandala', 'Namusiisi', 'Itanda'],driver.stage, driver.parish_other)}</li>
+                        <li>{ defineBasicValue(['Makuutu','Nawwandala'],driver.subcounty, driver.subcounty_other)}</li>
+                        <li>{ defineBasicValue(['Nabitende','Bugongo','Nawandala', 'Namusiisi', 'Itanda'],driver.stage, driver.parish_other)}</li>
                         <br/>
                     </ul>
                 </div>

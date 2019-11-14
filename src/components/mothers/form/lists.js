@@ -43,10 +43,10 @@ export const carriers = [
 ];
 
 export const phone_owner = [
-    "RESPONDENT'S OWN PHONE",
+    "RESPONDENTS",
     "SPOUSE'S PHONE",
-    "OTHER FAMILY MEMBER'S PHONE",
-    "NEIGHBOR'S PHONE",
+    "OTHER FAMILY MEMBER",
+    "NEIGHBOR",
 ];
 
 export const number_anc = [
@@ -101,13 +101,13 @@ export const education = [
 export const decision_maker = [
     "RESPONDENT",
     "SPOUSE PARTNER",
-    "RESPONDENT AND SPOUSE PARTNER JOINTLY"
+    "JOINT"
 ];
 
 export const marital_status = [
-    "NEVER MARRIED/NEVER LIVED WITH A MAN AS IF MARRIED",
+    "NEVER MARRIED/ NO COHABITATION",
     "CURRENTLY MARRIED",
-    "LIVING AS MARRIED",
+    "COHABITATION",
     "MARRIED BUT SEPARATED",
     "DIVORCED",
     'WIDOWED',

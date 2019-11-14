@@ -20,7 +20,7 @@ export default function ContactCard({driver}) {
                 <ul className="values">
                     <li>{ driver.phone ? driver.phone: 'N/A'}</li>
                     <li>{ driver.phone_2 ? driver.phone_2: 'N/A'}</li>
-                    <li>{defineCarrier({driver})}</li>
+                    <li>{defineCarrier(driver)}</li>
                    
                 </ul>
             </div>

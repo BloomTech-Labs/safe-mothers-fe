@@ -7,8 +7,8 @@ export default function AspirationCard({driver}) {
             <div className="card-content">
                     <ul className="fields">
                         <li>Number of Children:</li>
-                        <li>Children Info:</li>
-                        <li>Reason for becomming a driver:</li>
+                        <li>Children Details:</li>
+                        <li>Driver Inspiration:</li>
                         <li>Dream for Future:</li>
                     
                     </ul>

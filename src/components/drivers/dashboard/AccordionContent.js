@@ -1,7 +1,8 @@
 import React from 'react';
 import {StyledContents} from '../../reusableParts/accordion/content/content-style';
 import DriverContent from './DriverContent';
-import {yesNoIDN} from "../form/driver-utils";
+import {yesNoIDN, defineBasicValue} from "../form/driver-utils";
+
 
 export default function AccordionContent(props) {
     const {driver} = props;
@@ -19,9 +20,9 @@ export default function AccordionContent(props) {
                     </ul>
                     <ul className="list-values">
                         <li>{yesNoIDN(driver.married)}</li>
-                        <li>{driver.district ? driver.district : 'N/A'}</li>
-                        <li>{driver.subcounty ? driver.subcounty : 'N/A'}</li>
-                        <li>{driver.stage ? driver.stage : 'N/A'}</li>
+                        <li>{ defineBasicValue(['Iganga'], driver.district, driver.district_other)}</li>
+                        <li>{ defineBasicValue(['Makuutu','Nawwandala'],driver.subcounty, driver.subcounty_other)}</li>
+                        <li>{ defineBasicValue(['Nabitende','Bugongo','Nawandala', 'Namusiisi', 'Itanda'],driver.stage, driver.parish_other)}</li>
                         <br/>
                     </ul>
                 </div>

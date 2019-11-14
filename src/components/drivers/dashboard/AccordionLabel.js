@@ -18,6 +18,7 @@ function AccordionLabel(props) {
             </div>
             <LabelDate date={"2019-12-19"}/>
         </StyledLabel>
+            
     )
 }
 

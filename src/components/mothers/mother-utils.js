@@ -133,12 +133,10 @@ export const defineCarrier = (mother) => {
 //High Risk
 
 export function defineHighRisk(risk) {
-    if (risk === pregnancy_choices.EXPERIENCED_WITH_THIS_PREGNANCY) return <p className="status-yes">"Exp w/ this
-        pregnancy"</p>;
-    if (risk === pregnancy_choices.EXPERIENCED_WITH_PRIOR_PREGNANCY) return <p className="status-yes">"Exp w/ prior
-        pregnancy"</p>;
-    if (risk === pregnancy_choices.EXPERIENCED_WITH_BOTH) return <p className="status-yes">"Exp w/ both"</p>;
-    return <p className="status-no">"Not experienced"</p>
+    if (risk === pregnancy_choices.EXPERIENCED_WITH_THIS_PREGNANCY) return <p className="status-yes">"Current"</p>;
+    if (risk === pregnancy_choices.EXPERIENCED_WITH_PRIOR_PREGNANCY) return <p className="status-yes">"Previous"</p>;
+    if (risk === pregnancy_choices.EXPERIENCED_WITH_BOTH) return <p className="status-yes">"Prior and Current"</p>;
+    return <p className="status-no">"No Experience"</p>
 }
 
 export function yesNoIDN(item) {
