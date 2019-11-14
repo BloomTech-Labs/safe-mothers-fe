@@ -1,4 +1,5 @@
 import axiosWithAuth from "../utilities/axiosWithAuth"
+import { Mixpanel } from '../utilities/mixpanel/Mixpanel';
 import {types} from "./index";
 
 const {
@@ -34,19 +35,25 @@ export const addDrivers = driver => dispatch => {
     axiosWithAuth()
         .post('/drivers/register/', driver)
         .then(res => {
+            Mixpanel.track('Added Driver')
             dispatch({type: ADD_DRIVERS_SUCCESS, payload: driver});
             console.log("res", res)
         })
-        .catch(err => dispatch({type: ADD_DRIVERS_FAILURE, payload: err.response}));
+        .catch(err => {
+            Mixpanel.track('Error Adding Driver')
+            dispatch({type: ADD_DRIVERS_FAILURE, payload: err.response})});
 };
 
 export const deleteDrivers = id => dispatch => {
     dispatch({type: DELETE_DRIVERS_START});
     axiosWithAuth()
         .delete(`/${id}`)
-        .then(res => dispatch({type: DELETE_DRIVERS_SUCCESS}))
-        .catch(err =>
-            dispatch({type: DELETE_DRIVERS_FAILURE, payload: err.response}),
+        .then(res =>{ 
+            Mixpanel.track('Deleted Driver', {id:id})
+            dispatch({type: DELETE_DRIVERS_SUCCESS})})
+        .catch(err =>{
+            Mixpanel.track('Error Deleting Driver', {id:id})
+            dispatch({type: DELETE_DRIVERS_FAILURE, payload: err.response})}
         );
 };
 
@@ -54,8 +61,11 @@ export const updateDrivers = (id, update) => dispatch => {
     dispatch({type: UPDATE_DRIVERS_START});
     axiosWithAuth()
         .put(`/${id}`, update)
-        .then(res => dispatch({type: UPDATE_DRIVERS_SUCCESS}))
-        .catch(err =>
-            dispatch({type: UPDATE_DRIVERS_FAILURE, payload: err.response}),
+        .then(res =>{ 
+            Mixpanel.track('Updated Driver', {id:id})
+            dispatch({type: UPDATE_DRIVERS_SUCCESS})})
+        .catch(err =>{
+            Mixpanel.track('Error Updating Driver', {id:id})
+            dispatch({type: UPDATE_DRIVERS_FAILURE, payload: err.response})}
         );
 };
