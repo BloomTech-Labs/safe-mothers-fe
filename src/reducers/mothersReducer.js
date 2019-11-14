@@ -13,6 +13,10 @@ const {
     UPDATE_MOTHER_SUCCESS,
     UPDATE_MOTHER_FAILURE,
 
+    DELETE_MOTHER_START,
+    DELETE_MOTHER_SUCCESS,
+    DELETE_MOTHER_FAILURE,
+
     GET_LABELS_START,
     GET_LABELS_SUCCESS,
     GET_LABELS_FAILURE,
@@ -69,7 +73,6 @@ const mothersReducer = (state = initialState, {type, payload}) => {
                 isLoading: true
             };
         case GET_MOTHER_SUCCESS:
-            console.log("MOTHER REDUCER ", payload);
             return {
                 ...state,
                 error: null,
@@ -98,6 +101,27 @@ const mothersReducer = (state = initialState, {type, payload}) => {
                 mothers: filtered_mothers,
             };
         case UPDATE_MOTHER_FAILURE:
+            return {
+                ...state,
+                error: payload,
+                isLoading: false
+            };
+
+            case DELETE_MOTHER_START:
+            return {
+                ...state,
+                error: null,
+                isLoading: true
+            };
+        case DELETE_MOTHER_SUCCESS:
+            const delete_mother_from_list = state.mothers.filter(mom => mom.id !== payload);
+            return {
+                ...state,
+                error: null,
+                isLoading: false,
+                mothers: delete_mother_from_list,
+            };
+        case DELETE_MOTHER_FAILURE:
             return {
                 ...state,
                 error: payload,
