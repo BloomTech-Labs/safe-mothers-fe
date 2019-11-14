@@ -59,11 +59,14 @@ const Banner = props => {
                     {state &&
                     <button className="submit-btn" type="submit">Save</button>
                     }
-
-                    <Button bgOnHover="#db4343" height="30px" bg="#EB5757" color="white">
+                    {!state &&
+                    <Button bgOnHover="#db4343" height="30px" bg="#EB5757"
+                            color="white"
+                            onClick={() => props.delete()}>
                         DELETE
                         <SVGBtn bg="#ffffff" className="del-svg" src={Close}/>
                     </Button>
+                    }
                     <div className="back">
                         <p onClick={() => props.history.push(back)}>Back</p>
                     </div>

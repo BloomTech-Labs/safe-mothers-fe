@@ -20,9 +20,10 @@ const {
     UPDATE_MOTHER_SUCCESS,
     UPDATE_MOTHER_FAILURE,
 
-    DELETE_MOTHERS_START,
-    DELETE_MOTHERS_SUCCESS,
-    DELETE_MOTHERS_FAILURE,
+    DELETE_MOTHER_START,
+    DELETE_MOTHER_SUCCESS,
+    DELETE_MOTHER_FAILURE,
+
     GET_LABELS_START,
     GET_LABELS_SUCCESS,
     GET_LABELS_FAILURE,
@@ -72,16 +73,17 @@ export const updateMother = (id, mother) => dispatch => {
         );
 };
 
-export const deleteMothers = id => dispatch => {
-    dispatch({type: DELETE_MOTHERS_START});
+export const deleteMother = (id, props) => dispatch => {
+    dispatch({type: DELETE_MOTHER_START});
     axiosWithAuth()
-        .delete(`/${id}`)
+        .delete(`/mothers/${id}`)
         .then(res =>{
-          
-             dispatch({type: DELETE_MOTHERS_SUCCESS})})
+            dispatch({type: DELETE_MOTHER_SUCCESS, payload: id});
+            props.history.push('/mothers')
+        })
         .catch(err =>
-            dispatch({type: DELETE_MOTHERS_FAILURE, payload: err.response}),
-        );
+            dispatch({type: DELETE_MOTHER_FAILURE, payload: err.response}),
+        )
 };
 
 

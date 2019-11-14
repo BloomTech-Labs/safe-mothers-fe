@@ -26,11 +26,11 @@ const StyledPopup = styled.div`
     }
 `;
 function Popup(props) {
-    const {items, searchPath} = props;
+    const {items, searchPath, isOpen} = props;
 
     return (
         <>
-            {items.length > 0 &&
+            {(isOpen && items.length > 0)&&
             <StyledPopup>
                 <div className="content">
                     {items.map(item =>
