@@ -25,7 +25,6 @@ export const StyledBanner = styled.div`
     @media (max-width: 1024px){
         align-items: center;
         flex-direction: row;
-        margin: 0 auto;
         justify-content: space-around;
     }
 

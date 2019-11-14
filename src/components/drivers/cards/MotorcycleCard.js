@@ -1,23 +1,19 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
 
-export default function MotorcycleCard() {
+export default function MotorcycleCard({driver}) {
     return (
         <Card>
             <div className="card-content">
                 <ul className="fields">
                     <li>Owns Vehicle:</li>
                     <li>Available at Night:</li>
-                    <li>Worked for Mother-Boda:</li>
                     <li>Number of Drop-Offs:</li>
-                    <li>Story:</li>
                 </ul>
                 <ul className="values">
-                    <li>Yes</li>
-                    <li>Yes</li>
-                    <li>Yes</li>
-                    <li>3</li>
-                    <li>In 2018...</li>
+                    <li>{driver.own_boda ? driver.own_boda: 'N/A'}</li>
+                    <li>{driver.boda_night ? driver.boda_night: 'N/A'}</li>
+                    <li>{driver.transfers ? driver.transfers: 'N/A'}</li>
                 </ul>
             </div>
         </Card>
