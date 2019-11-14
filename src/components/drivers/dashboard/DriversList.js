@@ -17,7 +17,7 @@ const DriversList = (props) => {
 
     return (
         <>
-            <SearchBanner items={drivers} btn_name={"Add driver"} title={"Drivers"} path={"/edit-driver"}/>
+            <SearchBanner items={drivers} btn_name={"Add driver"} title={"Drivers"} path={"/driver-form"}/>
             <Header info={"Rating"}/>
             <Accordion className="accordion"
                        animate={true}
@@ -29,7 +29,7 @@ const DriversList = (props) => {
                     drivers &&
                     drivers.map((driver, index) => (
                         <>
-                            {driver.name &&
+                            {driver.driver_name &&
                             <AccordionPanel key={index}
 
 
