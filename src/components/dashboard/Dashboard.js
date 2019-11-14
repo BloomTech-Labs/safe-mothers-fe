@@ -34,8 +34,7 @@ const Dashboard = props => {
   useEffect(() => {
     props.getDrivers();
     props.getMothers();
-  });
-
+  }, []);
 
   const dueNow = mothers => {
     let num = 0;
