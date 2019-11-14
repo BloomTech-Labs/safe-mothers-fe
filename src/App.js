@@ -96,7 +96,7 @@ function App(props) {
                                 <AuthRoute exact path="/drivers" component={DriversList}/>
                                 <AuthRoute  path="/drivers/:id" component={SingleDriverView}/>
 
-                                <AuthRoute  path="/driver-form" component={FormikDriverForm}/>
+                                <AuthRoute  exact path="/driver-form" component={FormikDriverForm}/>
                                 <AuthRoute  path="/driver-form/:id" component={FormikDriverForm}/>
 
                                 <AuthRoute path="/admin" component={Settings}/>

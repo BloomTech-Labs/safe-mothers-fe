@@ -30,7 +30,7 @@ function DriverForm(props) {
       <DriverFormStyle>
         <Form className="form-contents edit-form">
           {/*NAVBAR*/}
-          <Banner back={"/drivers"} person={props.values.name} state={true} />
+          <Banner back={"/drivers"} person={props.values.driver_name} state={true} {...props} />
           <div className="label-value inline">
             <ul>
               <li>Name</li>
