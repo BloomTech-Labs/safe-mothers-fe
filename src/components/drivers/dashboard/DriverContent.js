@@ -1,11 +1,6 @@
 import React from 'react';
 import {Divider} from "pcln-design-system";
 import {Content} from "../../reusableParts/accordion/content/content-style";
-/*import {Content} from './mother-style'
-import HighRiskCard from "./cards/HightRiskCard";
-import MedicalHistoryCard from "./cards/MedicalHistoryCard";
-import ContactsCard from "./cards/ContactsCard";*/
-import {withRouter} from "react-router-dom";
 import AspirationCard from "../cards/AspirationCard"
 import ContactsCard from "../cards/ContactCard";
 import MotorcycleCard from "../cards/MotorcycleCard";
@@ -30,8 +25,6 @@ function DriverContent(props) {
                         <span className="title">Motorcycle</span>
                         <MotorcycleCard driver ={driver}/>
                     </div>
-                   <div className="see-more" onClick={() => props.history.push(`/drivers/${driver.id}`)}><p>See
-                        more</p></div>
                 </>
                 }
             </Content>
@@ -39,4 +32,4 @@ function DriverContent(props) {
     )
 }
 
-export default withRouter(DriverContent);
+export default DriverContent;

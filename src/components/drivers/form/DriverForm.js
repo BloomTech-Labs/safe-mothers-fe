@@ -5,6 +5,7 @@ import {Button, FormItems} from "../../reusableParts/form-items";
 import styled from 'styled-components';
 import {villages} from '../../mothers/form/lists';
 import Select from "../../mothers/form/Select";
+import SelectDriver from "../form/SelectDriver";
 import {connect} from 'react-redux';
 import { addDrivers } from "../../../actions/driversActions";
 import Banner from "../../reusableParts/banner/Banner";
@@ -146,15 +147,14 @@ function DriverForm(props) {
                 {/*carrier*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="carrier"
-                    onChange={e => resetValue("carrier", e.target.value, "carrier", choices.OTHER)}>
+                    onChange={e => props.setFieldValue ("carrier", e.target.value)}>
                     <Select list={carrier} />
-                    <option value={choices.OTHER}>Other</option>
                     </Field>
                     {props.touched.carrier && props.errors.carrier && (
                     <p className="errormessage">{props.errors.carrier}</p>
                     )}
                 </label>
-                {/*carrier_2*/}
+                {/* carrier_2
                 {props.values.carrier === choices.OTHER && (
                     <label className="error-holder">
                     <Field className="regular-input" type="text" name="carrier_2" />
@@ -162,7 +162,7 @@ function DriverForm(props) {
                         <p className="errormessage">{props.errors.carrier_2}</p>
                     )}
                     </label>
-                )}
+                )} */}
                 {/*another_phone*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="another_phone"
@@ -193,7 +193,7 @@ function DriverForm(props) {
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="boda_night"
                     onChange={e => resetValue("boda_night", e.target.value)}>
-                    <Select list={boda_night} />
+                    <SelectDriver list={boda_night} />
                     </Field>
                     {props.touched.boda_night && props.errors.boda_night && (
                     <p className="errormessage">{props.errors.boda_night}</p>

@@ -21,7 +21,7 @@ export const boda_night = [
     "RARELY (1 NIGHT PER WEEK)",
     "ONLY SOMETIMES (2-4 NIGHTS PER WEEK)",
     "MOST OF THE TIME (5-6 NIGHTS PER WEEK)",
-    "ALL OF THE TIME (7 NIGHTS PER WEEK)"
+    "ALL OF THE TIME (7 NIGHTS PER WEEK)",
 ]
 
 export const carrier = [
@@ -31,6 +31,7 @@ export const carrier = [
     "UTL",
     "Smile",
     "K2",
+    "Other",
 ];
 
 

@@ -44,18 +44,6 @@ function SingleMotherView(props) {
                                 <Demographics mother={mother}/>
                             </div>
                         </div>
-                        <div className="grid-center">
-                            <div className="card">
-                            </div>
-                            <div className="card">
-                            </div>
-                            <div className="card">
-                            </div>
-                        </div>
-                        <div className="grid-bottom">
-                            <div className="card">
-                            </div>
-                        </div>
                     </div>
                 </StyledPageView>
 
