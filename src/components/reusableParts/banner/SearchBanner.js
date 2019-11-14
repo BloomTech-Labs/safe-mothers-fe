@@ -5,7 +5,7 @@ import {StyledBanner} from "./banner-style";
 import StyledSearch from "../search/Search";
 
 const SearchBanner = props => {
-    const {btn_name, title, path, items, searchPath} = props;
+    const {btn_name, title, path, items, searchPath, name} = props;
     const [scrollY, setScrollY] = useState(0);
     const [position, setPosition] = useState(-60);
 
@@ -53,7 +53,7 @@ const SearchBanner = props => {
                     >
                         {btn_name}
                     </Button>
-                    <StyledSearch searchPath={searchPath} items={items}/>
+                    <StyledSearch searchPath={searchPath} items={items} name={name}/>
                 </div>
             </div>
         </StyledBanner>

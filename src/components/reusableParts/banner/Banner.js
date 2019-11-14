@@ -59,6 +59,13 @@ const Banner = props => {
                     {state &&
                     <button className="submit-btn" type="submit">Save</button>
                     }
+                    {state &&
+                    <Button bgOnHover={"#dbac1f"} height="30px" bg={"#ebd355"}
+                            color="white"
+                            onClick={() => props.resetForm()}>
+                       RESET
+                    </Button>
+                    }
                     {!state &&
                     <Button bgOnHover="#db4343" height="30px" bg="#EB5757"
                             color="white"

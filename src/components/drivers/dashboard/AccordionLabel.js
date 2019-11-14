@@ -9,7 +9,7 @@ function AccordionLabel(props) {
     const {driver} = props;
     return (
         <StyledLabel>
-            <span className="name">{driver.name}</span>
+            <span className="name">{driver.driver_name}</span>
             <LabelBadges entity={driver}/>
             <div className="icon-container">
                 <Rating className="responsive-icon" bg={ratings[driver.reliability]}>{driver.reliability}.0</Rating>

@@ -143,7 +143,7 @@ function MotherForm(props) {
                     <Form className="form-contents position-form">
 
                         {/*NAVBAR*/}
-                        <Banner back={"/mothers"} person={props.values.name} state={true} />
+                        <Banner back={"/mothers"} person={props.values.name} state={true} {...props} />
 
                         {/*first line*/}
                         <div className="inline row">
@@ -156,8 +156,8 @@ function MotherForm(props) {
                                         <li>Interviewer</li>
                                         {props.values.interviewer === interviewers.Other &&
                                         <li>Specify interviewer</li>}
-                                        <li>Pregnancy</li>
-                                        <li>Due date</li>
+                                        <li>Pregnant</li>
+                                        <li>Due within 30 days</li>
                                         <li>Deliver in Iganga Hospital</li>
                                         <li>Cesarean section</li>
                                         <li>Complications during delivery</li>

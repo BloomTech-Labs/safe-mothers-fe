@@ -18,7 +18,7 @@ const Mothers = props => {
 
     return (
         <>
-            <SearchBanner searchPath={"/mothers/"} btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"} items={mothers}/>
+            <SearchBanner searchPath={"/mothers/"} name={"name"} btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"} items={mothers}/>
             <Box>
                 <Header info={"Season"}/>
                 <Accordion className="accordion"
@@ -49,6 +49,7 @@ const Mothers = props => {
 const mapStateToProps = state => {
     return {
         mothers: state.mothersReducer.mothers,
+
     };
 };
 
