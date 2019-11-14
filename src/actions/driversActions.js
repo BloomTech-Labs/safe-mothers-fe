@@ -44,7 +44,7 @@ export const addDriver = driver => dispatch => {
             dispatch({type: ADD_DRIVERS_FAILURE, payload: err.response})});
 };
 
-export const deleteDriver = (props, id) => dispatch => {
+export const deleteDriver = ( id, props) => dispatch => {
     dispatch({type: DELETE_DRIVERS_START});
     axiosWithAuth()
         .delete(`/drivers/${id}`)
