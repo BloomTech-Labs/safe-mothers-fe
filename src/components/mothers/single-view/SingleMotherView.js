@@ -11,6 +11,7 @@ import PregnancyHistory from '../cards/PregnancyHistory';
 import Banner from '../../reusableParts/banner/Banner';
 
 import { StyledPageView } from '../../reusableParts/SinglePageStyle';
+import {deleteMother} from "../../../actions/mothersActions";
 
 
 function SingleMotherView(props) {
@@ -20,7 +21,7 @@ function SingleMotherView(props) {
         <>
             {singleMother && singleMother.map(mother => (
                 <StyledPageView className="single-page-view">
-                    <Banner back={"/mothers"} person= {mother.name} path={`/mother-form/${id}`}  />
+                    <Banner back={"/mothers"} person= {mother.name} path={`/mother-form/${id}`}  delete={() => props.deleteMother(id, props)}/>
                     <div className="card-container">
                         <div className="grid-top">
                             <div className="card">
@@ -59,5 +60,5 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps, {})(SingleMotherView);
+export default connect(mapStateToProps, {deleteMother})(SingleMotherView);
 

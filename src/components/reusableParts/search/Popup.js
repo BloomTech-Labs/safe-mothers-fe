@@ -26,16 +26,16 @@ const StyledPopup = styled.div`
     }
 `;
 function Popup(props) {
-    const {items, searchPath} = props;
+    const {items, searchPath, isOpen, name} = props;
 
     return (
         <>
-            {items.length > 0 &&
+            {(isOpen && items.length > 0)&&
             <StyledPopup>
                 <div className="content">
                     {items.map(item =>
                         <div className="row" onClick={() =>props.history.push(`${searchPath}${item.id}`)}>
-                            {item.name}
+                            {item[name]}
                         </div>
                     )}
                 </div>
