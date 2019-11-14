@@ -18,9 +18,9 @@ export const loginUser = (data, history) => {
       .post('/auth/login', data)
       .then(res => {
         localStorage.setItem('token', res.data.token);
+        Mixpanel.track('Login Success');
         dispatch({ type: LOGIN_SUCCESS, payload: res.data });
         history.push('/dashboard');
-        Mixpanel.track('Login Success');
       })
       .catch(err => {
         Mixpanel.track('Login Error');
