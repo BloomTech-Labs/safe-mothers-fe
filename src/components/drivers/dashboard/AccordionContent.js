@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyledContents} from '../../reusableParts/accordion/content/content-style';
 import DriverContent from './DriverContent';
+import {yesNoIDN} from "../form/driver-utils";
 
 export default function AccordionContent(props) {
     const {driver} = props;
@@ -10,23 +11,17 @@ export default function AccordionContent(props) {
             <div className="card">
                 <div className="att-list">
                     <ul className="list">
-                        <li>Name:</li>
                         <li>Marital Status:</li>
-                        <li>Education:</li>
-                        <li>Education Level:</li>
                         <li>District:</li>
                         <li>Subcounty:</li>
                         <li>Parish:</li>
                         <br/>
                     </ul>
                     <ul className="list-values">
-                        <li>{driver.name}</li>
-                        <li>Married</li>
-                        <li>Yes</li>
-                        <li>School</li>
-                        <li>Iganga</li>
-                        <li>Nawandala</li>
-                        <li>Bugono Stage</li>
+                        <li>{yesNoIDN(driver.married)}</li>
+                        <li>{driver.district ? driver.district : 'N/A'}</li>
+                        <li>{driver.subcounty ? driver.subcounty : 'N/A'}</li>
+                        <li>{driver.stage ? driver.stage : 'N/A'}</li>
                         <br/>
                     </ul>
                 </div>

@@ -8,7 +8,8 @@ import Select from "../../mothers/form/Select";
 import {connect} from 'react-redux';
 import { addDrivers } from "../../../actions/driversActions";
 import Banner from "../../reusableParts/banner/Banner";
-import YesNoDontknowDeclin, {choices} from "../../mothers/form/YesNoDontknowDeclin";
+import YesNoDontknowDeclin from "./YesNoDontknowDeclin";
+import {choices} from "./driver-utils";
 import {subcounty_code, district_code, stage_code, carrier, boda_night} from "./List";
 
 import Tooltip from "../../reusableParts/Tooltip";
@@ -145,7 +146,7 @@ function DriverForm(props) {
                 {/*carrier*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="carrier"
-                    onChange={e => resetValue("carrier", e.target.value, "carrier_2", choices.OTHER)}>
+                    onChange={e => resetValue("carrier", e.target.value, "carrier", choices.OTHER)}>
                     <Select list={carrier} />
                     <option value={choices.OTHER}>Other</option>
                     </Field>
@@ -194,8 +195,8 @@ function DriverForm(props) {
                     onChange={e => resetValue("boda_night", e.target.value)}>
                     <Select list={boda_night} />
                     </Field>
-                    {props.touched.carrier && props.errors.carrier && (
-                    <p className="errormessage">{props.errors.carrier}</p>
+                    {props.touched.boda_night && props.errors.boda_night && (
+                    <p className="errormessage">{props.errors.boda_night}</p>
                     )}
                 </label>
                 {/*transfers*/}
@@ -234,7 +235,7 @@ function DriverForm(props) {
                 {/*kid_info*/}
                 {props.values.children === choices.YES &&
                     <label>
-                        <Field className="regular-input" type="text" name="kids_info"/>                   
+                        <Field className="regular-input" type="text" name="kid_info"/>                   
                     </label>
                 }
                 {/*motivation*/}
@@ -259,12 +260,6 @@ function DriverForm(props) {
                     )}
                 </label>
                 
-            </div>
-            <div className="btn-container">
-              {/*<Button color="white" nu="blue" >Save</Button>*/}
-              <button className="submit-btn" type="submit">
-                CREATE
-              </button>
             </div>
           </div>
         </Form>
@@ -299,7 +294,7 @@ const FormikDriverForm = withFormik({
             married,
             children,
             number_kids,
-            kids_info,
+            kid_info,
             motivation,
             background,
             dream
@@ -328,7 +323,7 @@ const FormikDriverForm = withFormik({
                 married: married || '',
                 children: children || '',
                 number_kids: number_kids || '',
-                kids_info: kids_info || '',
+                kid_info: kid_info || '',
                 motivation: motivation || '',
                 background: background || '',
                 dream: dream || '',
@@ -346,6 +341,7 @@ const FormikDriverForm = withFormik({
                 if (typeof values[property] === 'string' && values[property].length > 0) driver[property] = values[property];
                 if (typeof values[property] === 'number') driver[property] = values[property];
             }
+
             console.log("values ", driver);
             props.addDrivers(driver);
         }
@@ -355,13 +351,15 @@ const FormikDriverForm = withFormik({
     
     const DriverFormStyle = styled.div`
         width: 100%;
-        min-width: 718px;
         justify-content: center;
-        
+        background: white;
+        border: 1.5px solid #EEEEEF;
+        margin: 0;
         
         .form-contents{
             display: flex;
             justify-content: center;
+            margin: 0;
         }
         
         ul{
@@ -419,7 +417,9 @@ const FormikDriverForm = withFormik({
             min-width: 360px;
         }
         @media(max-width:1024px){
-         width: 70%;      
+         width: 70%;
+         display: flex;
+         justify-content: flex-start;      
         }
       }
     `;
