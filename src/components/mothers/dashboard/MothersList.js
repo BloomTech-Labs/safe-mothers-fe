@@ -49,6 +49,7 @@ const Mothers = props => {
 const mapStateToProps = state => {
     return {
         mothers: state.mothersReducer.mothers,
+
     };
 };
 
