@@ -11,7 +11,7 @@ import { addDriver, updateDriver } from "../../../actions/driversActions";
 import Banner from "../../reusableParts/banner/Banner";
 import YesNoDontknowDeclin from "./YesNoDontknowDeclin";
 import {choices} from "./driver-utils";
-import {subcounty_code, district_code, stage_code, carrier, boda_night} from "./List";
+import {subcounty_code, district_code, stage_code, carrier, boda_night, reliability_code} from "./List";
 
 import Tooltip from "../../reusableParts/Tooltip";
 
@@ -71,6 +71,10 @@ useEffect(() => {
               {props.values.another_phone === choices.YES &&
                 <li>Second Phone Number</li>
                 }
+              <li>Reliability</li> 
+              <li>Longitude</li>
+              <li>Latitude</li>
+              <li>Owns Boda</li>  
               <li>Owns Boda</li>
               <li>Has Boda at Night</li>
               <li>Transport Count</li>
@@ -82,8 +86,8 @@ useEffect(() => {
               {props.values.children === choices.YES &&
                 <li>Children Details</li>
                 }
-              <li>Motivation</li>
-              <li>Background</li>
+              <li>Driver Inspiration</li>
+              <li>Delivery Story</li>
               <li>Dream for Future</li>
             </ul>
             <div className="column">
@@ -172,15 +176,18 @@ useEffect(() => {
                     <p className="errormessage">{props.errors.carrier}</p>
                     )}
                 </label>
-                {/* carrier_2
+                {/* carrier_2 */}
                 {props.values.carrier === choices.OTHER && (
                     <label className="error-holder">
-                    <Field className="regular-input" type="text" name="carrier_2" />
+                    <Field component="select" className="regular-input" name="carrier_2" 
+                    onChange={e => props.setFieldValue ("carrier_2", e.target.value)}>
+                    <Select list={carrier} />    
+                    </Field> 
                     {props.touched.carrier_2 && props.errors.carrier_2 && (
                         <p className="errormessage">{props.errors.carrier_2}</p>
                     )}
                     </label>
-                )} */}
+                )}
                 {/*another_phone*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="another_phone"
@@ -197,6 +204,30 @@ useEffect(() => {
                         <Field className="regular-input" type="text" name="phone_2"/>                   
                     </label>
                 }
+                {/*reliability*/}
+                <label className="error-holder">
+                    <Field component="select" className="regular-input" name="reliability"
+                    onChange={e => resetValue("reliability", e.target.value)}>
+                    <Select list={reliability_code} />
+                    </Field>
+                    {props.touched.reliability && props.errors.reliability && (
+                    <p className="errormessage">{props.errors.reliability}</p>
+                    )}
+                </label>
+                {/*latitude*/}
+                <label className="error-holder">
+                    <Field className="regular-input"  type="text" name="latitude"/>
+                    {props.touched.latitude && props.errors.latitude && (
+                        <p className="errormessage">{props.errors.latitude}</p>
+                    )}
+                </label>
+                    {/*longitude*/}
+                <label className="error-holder">
+                    <Field className="regular-input"  type="text" name="longitude"/>
+                    {props.touched.longitude && props.errors.longitude && (
+                        <p className="errormessage">{props.errors.longitude}</p>
+                    )}
+                </label>
                 {/*own_boda*/}
                 <label className="error-holder">
                     <Field component="select" className="regular-input" name="own_boda"
@@ -263,11 +294,11 @@ useEffect(() => {
                         <p className="errormessage">{props.errors.motivation}</p>
                     )}
                 </label>
-                {/*background*/}
+                {/*story*/}
                 <label className="error-holder">
-                    <Field className="regular-input"  type="text" name="background"/>
-                    {props.touched.background && props.errors.background && (
-                        <p className="errormessage">{props.errors.background}</p>
+                    <Field className="regular-input"  type="text" name="story"/>
+                    {props.touched.story && props.errors.story && (
+                        <p className="errormessage">{props.errors.story}</p>
                     )}
                 </label>
                 {/*dream*/}
@@ -302,10 +333,9 @@ const FormikDriverForm = withFormik({
             another_phone,
             phone_2,
             carrier_2,
-            //
+            reliability,
             latitude,
             longitude,
-            //
             own_boda,
             boda_night,
             transfers,
@@ -314,7 +344,7 @@ const FormikDriverForm = withFormik({
             number_kids,
             kid_info,
             motivation,
-            background,
+            story,
             dream
             
         }) {
@@ -331,10 +361,9 @@ const FormikDriverForm = withFormik({
                 another_phone: another_phone || '',
                 phone_2: phone_2 || '',
                 carrier_2: carrier_2 || '',
-                //
-                latitude: latitude || 'qwer',
-                longitude: longitude || 'qwer',
-                //
+                reliability: reliability || '',
+                latitude: latitude || '',
+                longitude: longitude || '',
                 own_boda: own_boda || '',
                 boda_night: boda_night || '',
                 transfers: transfers || '',
@@ -343,7 +372,7 @@ const FormikDriverForm = withFormik({
                 number_kids: number_kids || '',
                 kid_info: kid_info || '',
                 motivation: motivation || '',
-                background: background || '',
+                story: story || '',
                 dream: dream || '',
             };
         },

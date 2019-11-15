@@ -12,6 +12,14 @@ export const subcounty_code = [
     "Nawandala"
 ]
 
+export const reliability_code = [
+    1, 
+    2,
+    3,
+    4,
+    5
+]
+
 export const district_code = [
     "Iganga"
 ]

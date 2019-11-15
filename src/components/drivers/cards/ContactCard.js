@@ -14,7 +14,6 @@ export default function ContactCard({driver}) {
                     <li>Primary Phone:</li>
                     <li>Secondary Phone:</li>
                     <li>Carrier:</li>
-
                 </ul>
 
                 <ul className="values">

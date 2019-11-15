@@ -57,7 +57,6 @@ export const Content = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
-    margin-top: 25px; 
     margin-left: 3%;
     margin-right: 4%;
     width: 70%;

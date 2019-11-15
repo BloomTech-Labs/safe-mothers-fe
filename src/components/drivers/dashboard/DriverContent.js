@@ -18,7 +18,7 @@ function DriverContent(props) {
                         <AspirationCard driver ={driver} />
                     </div>
                     <div className="card">
-                        <span className="title">Contacts</span>
+                        <span className="title">Contact</span>
                         <ContactsCard driver ={driver}/>
                     </div>
                     <div className="card">
