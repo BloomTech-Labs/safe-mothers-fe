@@ -1,16 +1,20 @@
-
-import axios from 'axios';
+import axios from "axios";
+require("dotenv").config();
 
 const axiosWithAuth = () => {
-    const token = localStorage.getItem("token");
-
-    return axios.create({
-        baseURL: "https://staging-be-labs17-safe.herokuapp.com",
-        headers: {
-            "Content-Type": "application/json",
-            Authorization: token
-        }
-    });
+  const token = localStorage.getItem("token");
+  // retrieve API base url from .env
+  console.log("react ", process.env);
+  const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  console.log(apiUrl);
+  return axios.create({
+    // sets base url, and authorization headers with each axios request
+    baseURL: apiUrl,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: token
+    }
+  });
 };
 
 export default axiosWithAuth;

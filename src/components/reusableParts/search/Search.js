@@ -39,11 +39,12 @@ const StyledSearch = (props) => {
     const [suggestions, setSuggestions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const handleSearch = (data) => {
+        console.log("drivers ", items);
         if (data.length > 0 && items.length > 0) {
             const keyword_part1 = new RegExp(`^${data}`, 'i');
-            const updatedList_part1 = items.sort().filter(item => item[`${name}`].toLowerCase().search(keyword_part1) !== -1);
+            const updatedList_part1 = items.sort().filter(item => { if(item[name]){ return item[name].toLowerCase().search(keyword_part1) !== -1 }});
             const keyword_part2 = new RegExp(`${data}`, 'i');
-            const updatedList_part2 = items.sort().filter(item => item[`${name}`].toLowerCase().search(keyword_part2) !== -1);
+            const updatedList_part2 = items.sort().filter(item =>{if(item[name]){ return item[name].toLowerCase().search(keyword_part2) !== -1}});
             const full_name = updatedList_part1.concat(updatedList_part2);
             setSuggestions(updatedList_part1.concat(updatedList_part2).filter((item,index) => full_name.indexOf(item) === index));
         } else setSuggestions([]);
