@@ -25,7 +25,6 @@ export default function AccordionContent(props) {
                             <li>Village:</li>
                             <br/>
                         </ul>
-                        {console.log("mother ", mother.village)}
                         <ul className="list-values">
                             <li>{mother.age ? mother.age : 'N/A'}</li>
                             <li>{defineMaritalStatus(mother)}</li>

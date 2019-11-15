@@ -44,7 +44,7 @@ const driversReducer = (state = initialState, {type, payload}) => {
                 error: payload,
                 isLoading: false
             };
-            case ADD_DRIVERS_START:
+        case ADD_DRIVERS_START:
             return {
                 ...state,
                 error: null,
@@ -62,17 +62,19 @@ const driversReducer = (state = initialState, {type, payload}) => {
                 error: payload,
                 isLoading: false
             };
-            case UPDATE_DRIVERS_START:
+        case UPDATE_DRIVERS_START:
             return {
                 ...state,
                 error: null,
                 isLoading: true
             };
         case UPDATE_DRIVERS_SUCCESS:
+            const filtered_drivers = state.drivers.map(driver=> driver.id === payload.id ? payload : driver);
             return {
                 ...state,
                 error: null,
                 isLoading: false,
+                drivers: filtered_drivers,
             };
         case UPDATE_DRIVERS_FAILURE:
             return {
@@ -80,14 +82,14 @@ const driversReducer = (state = initialState, {type, payload}) => {
                 error: payload,
                 isLoading: false
             };
-            case DELETE_DRIVERS_START:
+        case DELETE_DRIVERS_START:
             return {
                 ...state,
                 error: null,
                 isLoading: true
             };
         case DELETE_DRIVERS_SUCCESS:
-                const delete_driver_from_list = state.drivers.filter(driver => driver.id !== payload);
+            const delete_driver_from_list = state.drivers.filter(driver => driver.id !== payload);
             return {
                 ...state,
                 error: null,
@@ -102,7 +104,7 @@ const driversReducer = (state = initialState, {type, payload}) => {
             };
         default:
             return state;
-        }
+    }
 };
 
 export default driversReducer;

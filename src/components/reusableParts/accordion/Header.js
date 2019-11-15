@@ -10,9 +10,12 @@ const StyledHeader = styled.div`
         padding-right: 3%;
     }  
     .header-name{
-        width: 70%;
+        width: 14%;
         text-align: left;
         margin: 0 2%;
+        @media (max-width: 900px) {
+            width: 70%;
+        }
     }
     .header-info{
         width: 5%;
@@ -28,8 +31,12 @@ const StyledHeader = styled.div`
             text-align: right;
         }
         @media (min-width: 850px) {
-                width: 11%;
-                text-align: right;
+            width: 11%;
+            text-align: right;
+        }
+        @media (min-width: 900px) {
+            width: 5%;
+            text-align: center;
         }
     }
     .acc-data{
@@ -59,13 +66,22 @@ const StyledHeader = styled.div`
                 text-align: center;
         }
     }
+     
+    .label-name{
+        width: 63%;
+        text-align: left;
+         @media (max-width: 900px) {
+                display: none;
+        }
+    }
 `;
 
 export default function Header(props) {
-    const {info} = props;
+    const {info, label} = props;
     return(
         <StyledHeader>
             <div className="header-name">Name</div>
+            <div className="label-name">{label}</div>
             <div className="header-info">{info}</div>
             <div className="acc-data">Data</div>
         </StyledHeader>

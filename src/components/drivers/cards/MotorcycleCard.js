@@ -1,7 +1,8 @@
 import React from 'react';
 import {Card} from "../../reusableParts/accordion/content/content-style";
-import {yesNoIDN} from "../form/driver-utils";
-import {availableNight} from "../form/driver-utils";
+import {availableNight, yesNoIDN} from "../form/driver-utils";
+
+
 
 export default function MotorcycleCard({driver}) {
     return (

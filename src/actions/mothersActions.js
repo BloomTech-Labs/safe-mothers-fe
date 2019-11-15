@@ -56,13 +56,14 @@ export const getMother = (id) => dispatch => {
         .catch(error => dispatch({type: GET_MOTHER_FAILURE, payload: error}))
 };
 
-export const addMother = mothers => dispatch => {
+export const addMother = (mothers, props) => dispatch => {
     dispatch({type: ADD_MOTHERS_START});
     axiosWithAuth()
         .post('/mothers/auth/register', mothers)
         .then(res => {
             Mixpanel.track('Added Mother');
-            dispatch({type: ADD_MOTHERS_SUCCESS})
+            dispatch({type: ADD_MOTHERS_SUCCESS});
+            props.history.push(`/mothers`);
         })
         .catch(err => {
             Mixpanel.track('Error Adding Mother');
@@ -70,13 +71,14 @@ export const addMother = mothers => dispatch => {
         });
 };
 
-export const updateMother = (id, mother) => dispatch => {
+export const updateMother = (id, mother, props) => dispatch => {
     dispatch({type: UPDATE_MOTHER_START});
     axiosWithAuth()
         .put(`/mothers/${id}`, mother)
         .then(res => {
             Mixpanel.track('Updated Mother', {id: 'id'});
-            dispatch({type: UPDATE_MOTHER_SUCCESS, payload: mother})
+            dispatch({type: UPDATE_MOTHER_SUCCESS, payload: mother});
+            props.history.push(`/mothers/${id}`);
         })
         .catch(err => {
             Mixpanel.track('Error Updating Mother', {id: id});
@@ -90,7 +92,7 @@ export const deleteMother = (id, props) => dispatch => {
         .delete(`/mothers/${id}`)
         .then(res => {
             Mixpanel.track('Deleted Mother', {id: id});
-            dispatch({type: DELETE_MOTHER_SUCCESS, payload: id})
+            dispatch({type: DELETE_MOTHER_SUCCESS, payload: id});
             props.history.push('/mothers')
         })
         .catch(err => {

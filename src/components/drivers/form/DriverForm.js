@@ -48,7 +48,7 @@ useEffect(() => {
       <DriverFormStyle>
         <Form className="form-contents edit-form">
           {/*NAVBAR*/}
-          <Banner back={"/drivers"} person={props.values.driver_name} state={true} {...props} />
+          <Banner back={props.match.params.id ? `/drivers/${props.match.params.id}` : '/drivers'} person={props.values.driver_name} state={true} {...props} />
           <div className="label-value inline">
             <ul>
               <li>Name</li>
@@ -360,17 +360,12 @@ const FormikDriverForm = withFormik({
                 if (typeof values[property] === 'number') driver[property] = values[property];
             }
             if (props.match.params.id) {
-                props.updateDriver(values.id, driver);
+                props.updateDriver(values.id, driver, props);
                 resetForm();
-                props.history.push("/drivers");
             } else {
-                props.addDriver(driver);
+                props.addDriver(driver, props);
                 resetForm();
-                props.history.push("/drivers");
             }
-
-            console.log("values ", driver);
-            props.addDriver(driver);
         }
     })(DriverForm);
     
