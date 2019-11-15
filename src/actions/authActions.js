@@ -5,6 +5,7 @@ const {
   LOGIN_START,
   LOGIN_SUCCESS,
   LOGIN_FAILURE,
+  ERROR_CLEAN,
   REGISTER_USER_START,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAILURE,
@@ -24,7 +25,8 @@ export const loginUser = (data, history) => {
       })
       .catch(err => {
         Mixpanel.track('Login Error');
-        dispatch({ type: LOGIN_FAILURE, payload: err.response });
+        dispatch({ type: LOGIN_FAILURE, payload: err.response.data.message });
+        console.log("Err",( typeof err.response.data.message))
       });
   };
 };
@@ -41,6 +43,11 @@ export const registerUser = data => dispatch => {
       Mixpanel.track('Login Failed');
       dispatch({ type: REGISTER_USER_FAILURE, payload: err });
     });
+};
+
+export const errorClean = () => {
+ return dispatch => 
+  dispatch({ type: ERROR_CLEAN});
 };
 
 export const logout = () => {

@@ -4,10 +4,15 @@ import * as Yup from "yup";
 import {connect} from "react-redux";
 import {FormItems, Button} from "../../reusableParts/form-items";
 import {SettingsForm} from "../setting-style";
-import {editUsers, createUser} from '../../../actions/adminActions'
+import {editUsers, createUser, errorClean} from '../../../actions/adminActions'
+import Errors from "../../reusableParts/Errors";
 
 
 const AdminForm = props => {
+
+    useEffect(() => {
+        props.errorClean();
+    }, [props.values])
 
 
     useEffect(() => {
@@ -33,11 +38,13 @@ const AdminForm = props => {
             <FormItems>
                 <SettingsForm>
                     <div className="form-container">
+                        {console.log(props.err)}
                         {!props.formState ?
                             <h1 className="title">Add Administrator</h1>
                             :
                             <h1 className="title">Edit Administrator</h1>
                         }
+                        <Errors errMsg = {props.err}  />
                         <Form>
                             <div className="inline">
                                 <div className="labels">
@@ -133,8 +140,12 @@ const FormikAdminForm = withFormik({
     }
 })(AdminForm);
 
+const mapStateToProps = state =>{
+    console.log(state)
+    return {
+        err: state.settingsReducer.error
+    };
+};
 
-export default connect(
-    null,
-    {createUser, editUsers}
-)(FormikAdminForm);
+
+export default connect(mapStateToProps,{createUser, editUsers, errorClean})(FormikAdminForm);

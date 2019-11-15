@@ -4,6 +4,7 @@ import User from './users/User'
 import styled from "styled-components";
 import {ContentContainer} from "./setting-style";
 
+
 const Card = styled.div`
   display: flex;
   justify-content: center;
