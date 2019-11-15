@@ -5,6 +5,7 @@ const {
     LOGIN_START,
     LOGIN_SUCCESS,
     LOGIN_FAILURE,
+    ERROR_CLEAN,
 
 } = types;
 
@@ -14,7 +15,7 @@ const initialState = {
     isAuth: !!localStorage.getItem("token"),
     isLoading: false,
     isSuccess: false,
-    errors: null,
+    error: "",
 };
 
 const authReducer = (state = initialState, {type, payload}) => {
@@ -36,10 +37,16 @@ const authReducer = (state = initialState, {type, payload}) => {
                 isSuccess: true,
             };
         case LOGIN_FAILURE:
+            console.log("AUTH REDUCER ", payload);
             return {
                 ...state,
                 isLoading: false,
-                errors: payload
+                error: payload
+            };
+        case ERROR_CLEAN:
+            return {
+                ...state,
+                error:  ''
             };
         case LOGOUT:
             return {

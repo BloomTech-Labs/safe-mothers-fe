@@ -16,6 +16,8 @@ export default function AccordionContent(props) {
                         <li>District:</li>
                         <li>Subcounty:</li>
                         <li>Parish:</li>
+                        <li>Latitude:</li>
+                        <li>Longitude:</li>
                         <br/>
                     </ul>
                     <ul className="list-values">
@@ -23,6 +25,8 @@ export default function AccordionContent(props) {
                         <li>{ defineBasicValue(['Iganga'], driver.district, driver.district_other)}</li>
                         <li>{ defineBasicValue(['Makuutu','Nawwandala'],driver.subcounty, driver.subcounty_other)}</li>
                         <li>{ defineBasicValue(['Nabitende','Bugongo','Nawandala', 'Namusiisi', 'Itanda'],driver.stage, driver.parish_other)}</li>
+                        <li>{ driver.latitude ? driver.latitude: 'N/A'}</li>
+                        <li>{ driver.longitude ? driver.longitude: 'N/A'}</li>
                         <br/>
                     </ul>
                 </div>

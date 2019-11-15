@@ -13,11 +13,12 @@ const {
     CREATE_USER_START,
     CREATE_USER_SUCCESS,
     CREATE_USER_FAILURE,
+    ERROR_CLEAN,
 } = types;
 
 const initialState = {
     isLoading: false,
-    error: null,
+    error: "",
     users: [],
 };
 
@@ -98,10 +99,16 @@ const settingsReducer = (state = initialState, {type, payload}) => {
                 error: "",
             };
         case CREATE_USER_FAILURE:
+                console.log("REDUCE", payload)
             return {
                 ...state,
                 isLoading: false,
                 error: payload,
+            };
+        case ERROR_CLEAN:
+            return {
+                ...state,
+                error: "",
             };
 
         default:

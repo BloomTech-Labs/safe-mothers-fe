@@ -5,7 +5,6 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     background: #282E74;
-    
     .map {
         width: 60%; 
         @media (max-width: 1024px) {
@@ -34,6 +33,7 @@ export const Container = styled.div`
     }
     
     .form-contents{
+        position: relative;
         font-family: 'Asap', sans-serif;
         display: flex;
         align-items: center;

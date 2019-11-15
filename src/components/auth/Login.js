@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Form, Field, withFormik} from 'formik/dist/index';
 import * as Yup from 'yup';
 import {connect} from 'react-redux';
-import {loginUser} from '../../actions/authActions';
+import {loginUser, errorClean} from '../../actions/authActions';
 import Logo from './WhatsApp Image 2019-10-20 at 5.31 1.svg'
 import SVG from 'react-inlinesvg/lib/index';
 import {Container} from './auth-style'
 import {Button} from 'pcln-design-system'
 import Map from "./Map";
+import Errors from "../reusableParts/Errors";
+
 
 const LoginForm = (props) => {
+
+    useEffect(() => {
+        props.errorClean();
+    }, [props.values])
+    
+
+
     return (
         <>
             <Container className="container">
@@ -20,6 +29,8 @@ const LoginForm = (props) => {
                     <SVG className="svg-logo" src={Logo}/>
                     <Form className="form-contents">
                         <h1>Login</h1>
+                        <Errors errMsg = {props.error} />
+                        {console.log("BINGO", props.errors)}
                         <label>Username
                             <Field className="form-inputs" type="text" name="username"/>
                             {props.touched.username && props.errors.username && (
@@ -63,13 +74,13 @@ const FormikLoginForm = withFormik({
 
 const mapStateToProps = state => {
     return {
-        token: state.token
-
+        token: state.authReducer.token,
+        error: state.authReducer.error
     };
 };
 
 
 export default connect(
     mapStateToProps,
-    {loginUser}
+    {loginUser, errorClean}
 )(FormikLoginForm);

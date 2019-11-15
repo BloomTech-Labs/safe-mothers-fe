@@ -15,6 +15,7 @@ const {
   CREATE_USER_START,
   CREATE_USER_SUCCESS,
   CREATE_USER_FAILURE,
+  ERROR_CLEAN,
 } = types;
 
 export const getUsers = () => dispatch => {
@@ -25,7 +26,8 @@ export const getUsers = () => dispatch => {
       dispatch({ type: GET_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: GET_USERS_FAILURE, payload: err.response });
+      dispatch({ type: GET_USERS_FAILURE, payload: err.response.data.message });
+      console.log("GET", err.response)
     });
 };
 
@@ -39,7 +41,8 @@ export const editUsers = (id, object) => dispatch => {
     })
     .catch(err => {
       Mixpanel.track('Error Editing User', { id: id });
-      dispatch({ type: EDIT_USERS_FAILURE, payload: err.response });
+      dispatch({ type: EDIT_USERS_FAILURE, payload: err.response.data.message });
+      console.log("UPDATE", err.response)
     });
 };
 
@@ -53,7 +56,8 @@ export const deleteUsers = id => dispatch => {
     })
     .catch(err => {
       Mixpanel.track('User Delete Error', { id: id });
-      dispatch({ type: DELETE_USERS_FAILURE, payload: err.response });
+      dispatch({ type: DELETE_USERS_FAILURE, payload: err.response.data.message });
+      console.log("DEL", err.response)
     });
 };
 
@@ -63,10 +67,16 @@ export const createUser = data => dispatch => {
     .post('/auth/register', data)
     .then(res => {
       Mixpanel.track('User Created');
-      dispatch({ type: CREATE_USER_SUCCESS, payload: res.data });
+      dispatch({ type: CREATE_USER_SUCCESS, payload: res.data.message });
     })
     .catch(err => {
       Mixpanel.track('Error Creating User');
-      dispatch({ type: CREATE_USER_FAILURE, payload: err });
+      dispatch({ type: CREATE_USER_FAILURE, payload: err.response.data.message});
+      console.log("CREATE", err.response.data.message)
     });
 };
+
+export const errorClean = () => {
+  return dispatch => 
+   dispatch({ type: ERROR_CLEAN});
+ };
