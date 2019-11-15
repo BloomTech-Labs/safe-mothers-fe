@@ -13,10 +13,10 @@ function AccordionLabel(props) {
         <StyledLabel>
             <span className="name"><SVG onClick={() => props.history.push(`/drivers/${driver.id}`)} className="see-more" src={SeeMore}/>{driver.driver_name}</span>
             <LabelBadges entity={driver}/>
-            <div className="icon-container">
-                <Rating className="responsive-icon" bg={ratings[driver.reliability]}>{driver.reliability}.0</Rating>
+            <LabelDate date={""}/>
+            <div className="icon-container rating">
+                 <Rating className="responsive-icon" bg={ratings[driver.reliability]}>{driver.reliability}.0</Rating>
             </div>
-            <LabelDate date={"2019-12-19"}/>
         </StyledLabel>
             
     )

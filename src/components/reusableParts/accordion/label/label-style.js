@@ -78,6 +78,34 @@ export const StyledLabel = styled.div`
     .icon-container{
         width: 8%;
         height: 8%;
+        @media (max-width: 600px) {
+          margin-right: 13%;
+        }
+         @media (min-width: 600px ) and (max-width: 900px) {
+          margin-right: 10%;
+        }
+    }
+    
+    .rating{
+        @media (max-width: 900px) {
+            margin: 0 4% 0 1%;
+        }
+        @media (min-width: 600px ) and (max-width: 700px) {
+            margin: 0 2% 0 1%;
+        }
+        @media (min-width: 700px ) and (max-width: 770px) {
+            margin: 0 1% 0 8%;
+        }
+        @media (min-width: 770px ) and (max-width: 900px) {
+            margin: 0 1% 0 6%;
+        } 
+        @media (min-width: 901px ) and (max-width: 1100px) {
+            margin:0 0 0 1%;
+        }
+        @media (min-width: 1100px ) {
+            width: 7%;
+            margin: 0;
+        }
     }
     
     .icon{
@@ -87,9 +115,6 @@ export const StyledLabel = styled.div`
     }
     
     .responsive-icon{
-        @media (max-width: 730px) {
-            display: none;
-        }
         @media (max-width: 850px) {
             margin-left: 40%;
         }

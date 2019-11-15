@@ -37,9 +37,9 @@ export const SearchElement = styled.div`
 const StyledSearch = (props) => {
     const {items, searchPath, name} = props;
     const [suggestions, setSuggestions] = useState([]);
+    const field = React.createRef();
     const [isOpen, setIsOpen] = useState(false);
     const handleSearch = (data) => {
-        console.log("drivers ", items);
         if (data.length > 0 && items.length > 0) {
             const keyword_part1 = new RegExp(`^${data}`, 'i');
             const updatedList_part1 = items.sort().filter(item => { if(item[name]){ return item[name].toLowerCase().search(keyword_part1) !== -1 }});
@@ -48,6 +48,11 @@ const StyledSearch = (props) => {
             const full_name = updatedList_part1.concat(updatedList_part2);
             setSuggestions(updatedList_part1.concat(updatedList_part2).filter((item,index) => full_name.indexOf(item) === index));
         } else setSuggestions([]);
+    };
+
+    const handleFocus = () => {
+        console.log("");
+        field.current.focus();
     };
 
     return (
@@ -60,6 +65,7 @@ const StyledSearch = (props) => {
                         <input type="text"
                                className="search"
                                placeholder={"Search..."}
+                               ref={field}
                                onChange={(e) => handleSearch(e.target.value)}
                                onFocus={() => setIsOpen(true)}
                                onBlur={() => setIsOpen(false)}
@@ -67,7 +73,7 @@ const StyledSearch = (props) => {
                     </form>
                 </div>
                 <Search className="searchIcon"/>
-                <Popup name={name} searchPath={searchPath} isOpen={isOpen} items={suggestions}/>
+                <Popup field={handleFocus} name={name} searchPath={searchPath} isOpen={isOpen} items={suggestions}/>
             </div>
         </SearchElement>
     )

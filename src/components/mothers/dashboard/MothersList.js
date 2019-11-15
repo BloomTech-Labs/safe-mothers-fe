@@ -20,7 +20,7 @@ const Mothers = props => {
         <>
             <SearchBanner searchPath={"/mothers/"} name={"name"} btn_name={"Add mother"} title={"Mothers"} path={"/mother-form"} items={mothers}/>
             <Box>
-                <Header info={"Season"} label={"Savings"}/>
+                <Header info={"Season"} label={"Savings"} label2={"Due date"}/>
                 <Accordion className="accordion"
                            animate={true}
                            multiple={false}
