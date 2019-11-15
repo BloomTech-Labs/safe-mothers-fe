@@ -1,7 +1,5 @@
 import React from 'react';
 import {connect} from "react-redux";
-import styled from "styled-components";
-
 import PersonalCard from '../cards/PersonalCard';
 import MotorcycleCard from '../cards/MotorcycleCard';
 import ContactCard from '../cards/ContactCard';
@@ -10,8 +8,6 @@ import Banner from '../../reusableParts/banner/Banner';
 import {deleteDriver} from '../../../actions/driversActions';
 
 import { StyledPageView } from '../../reusableParts/SinglePageStyle';
-
-
 
 function SingleDriverView(props) {
     const id = props.match.params.id;

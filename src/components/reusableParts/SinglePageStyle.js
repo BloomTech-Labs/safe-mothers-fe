@@ -93,7 +93,6 @@ export const StyledPageView = styled.div`
         }
     }
 
-
     .card-title{
         font-weight: bold;
         text-align: center;
@@ -190,6 +189,7 @@ export const StyledPageView = styled.div`
         
     
     }
+    
     .grid-bottom{
         display: grid;
         margin-top: 15px;

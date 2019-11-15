@@ -143,7 +143,7 @@ function MotherForm(props) {
                     <Form className="form-contents position-form">
 
                         {/*NAVBAR*/}
-                        <Banner back={"/mothers"} person={props.values.name} state={true} {...props} />
+                        <Banner back={props.match.params.id ? `/mothers/${props.match.params.id}` : '/mothers'} person={props.values.name} state={true} {...props} />
 
                         {/*first line*/}
                         <div className="inline row">
@@ -1326,15 +1326,12 @@ const FormikMother = withFormik({
             mother.name_supplies = suplies;
         }
         if (props.match.params.id) {
-            props.updateMother(values.id, mother);
+            props.updateMother(values.id, mother, props);
             resetForm();
-            props.history.push("/mothers");
         } else {
-            props.addMother(mother);
+            props.addMother(mother, props);
             resetForm();
-            props.history.push("/mothers");
         }
-        console.log("VALUES ", mother)
     }
 })(MotherForm);
 
