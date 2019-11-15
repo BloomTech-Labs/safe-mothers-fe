@@ -26,7 +26,7 @@ const StyledPopup = styled.div`
     }
 `;
 function Popup(props) {
-    const {items, searchPath, isOpen, name} = props;
+    const {items, searchPath, isOpen, name, field} = props;
 
     return (
         <>
@@ -34,7 +34,15 @@ function Popup(props) {
             <StyledPopup>
                 <div className="content">
                     {items.map(item =>
-                        <div className="row" onClick={() =>props.history.push(`${searchPath}${item.id}`)}>
+                        <div className="row" onMouseDown={(e)=>{
+                            e.preventDefault();
+                            e.stopPropagation();
+                            field();
+                        }}
+                             onClick={() => {
+                            props.history.push(`${searchPath}${item.id}`)
+
+                        }}>
                             {item[name]}
                         </div>
                     )}
