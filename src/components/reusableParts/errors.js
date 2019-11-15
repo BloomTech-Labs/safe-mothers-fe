@@ -18,9 +18,10 @@ const Error = (props) => {
 export default Error;
 
 const StyledError = styled.div`
-    background: red;
+    background: #EB5757;
     color: white;
     z-index: 50;
+    border-radius: 2px;
     height: 48px;
     width: 60%;
 
