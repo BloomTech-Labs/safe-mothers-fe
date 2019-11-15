@@ -18,52 +18,31 @@ const StyledHeader = styled.div`
         }
     }
     .header-info{
-        width: 5%;
-         @media (max-width: 730px) {
-            display: none;
-        }
-        @media (min-width: 730px) {
-            width: 14%;
-            text-align: right;
-        }
-        @media (min-width: 769px) {
-            width: 12%;
-            text-align: right;
-        }
-        @media (min-width: 850px) {
-            width: 11%;
-            text-align: right;
-        }
-        @media (min-width: 900px) {
-            width: 5%;
-            text-align: center;
+        width: 7%;
+        margin: 0 -2%;
+        @media (min-width: 1100px ) {
+            width: 9%;
         }
     }
     .acc-data{
-        width: 23%; 
-        @media (min-width: 500px) {
-            width: 15%;
-            text-align: right;
-        }  
-        @media (min-width: 600px) {
-            width: 17%;
-            text-align: right;
-        }  
-        @media (min-width: 700px) {
-            width: 19%;
-            text-align: right;
-        }  
-         @media (min-width: 731px) {
-             width: 6%;
-             text-align: center;
+        width: 12%; 
+        white-space: nowrap;
+        margin: 0 8%; 
+        @media (min-width: 600px ) and (max-width: 700px) {
+            margin: 0 1% 0 6%;
         }
-         @media (min-width: 769px) {
-            width: 5%;
-            text-align: right;
+        @media (min-width: 700px ) and (max-width: 770px) {
+            margin: 0 1% 0 8%;
         }
-        @media (min-width: 850px) {
-                width: 8%;
-                text-align: center;
+        @media (min-width: 770px ) and (max-width: 900px) {
+            margin: 0 1% 0 6%;
+        } 
+        @media (min-width: 901px ) and (max-width: 1100px) {
+            margin: 0 0 0 0;
+        }
+        @media (min-width: 1100px ) {
+            width: 7%;
+            margin: 0;
         }
     }
      
@@ -73,17 +52,18 @@ const StyledHeader = styled.div`
          @media (max-width: 900px) {
                 display: none;
         }
+        
     }
 `;
 
 export default function Header(props) {
-    const {info, label} = props;
-    return(
+    const {info, label, label2} = props;
+    return (
         <StyledHeader>
             <div className="header-name">Name</div>
             <div className="label-name">{label}</div>
             <div className="header-info">{info}</div>
-            <div className="acc-data">Data</div>
+            <div className="acc-data">{label2}</div>
         </StyledHeader>
     )
 }
