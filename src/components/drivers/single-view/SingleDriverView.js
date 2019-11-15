@@ -11,6 +11,7 @@ import { StyledPageView } from '../../reusableParts/SinglePageStyle';
 
 function SingleDriverView(props) {
     const id = props.match.params.id;
+
     const singleDriver = props.drivers.filter(driver => `${driver.id}` === id);
     return (
         <>
