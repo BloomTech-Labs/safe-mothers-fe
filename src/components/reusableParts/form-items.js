@@ -29,6 +29,10 @@ export const FormItems = styled.div`
         }
     }
     
+    .date{
+        color: red;
+    }
+    
     .hidden-input {
         display: none;
     }
