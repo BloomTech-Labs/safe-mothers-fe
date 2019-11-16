@@ -15,7 +15,7 @@ export default function YesNoDontknowDeclin(props) {
     return (
         <>
             <>
-                <option value=""> </option>
+            <option value=""> </option>
                 <option value={choices.YES}>YES</option>
                 <option value={choices.NO}>NO</option>
                 {
