@@ -79,9 +79,9 @@ const Card = styled.div`
 `;
 
 const UserList = (props) => {
+  console.log(props)
     const {admin, handleDelete, setAdmin, setFormState} = props;
     const {id, first_name, last_name, username} = admin;
-
     const updateAdmin = () => {
         setAdmin({
             id: admin.id,
