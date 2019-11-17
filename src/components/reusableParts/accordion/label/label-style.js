@@ -157,19 +157,24 @@ export const CustomBadge = styled.div`
     min-width: ${props => props.min_width};
     margin: 1% 1%;
     padding: 0.5% 0.1% 0.5% 0.5%;
-    
+    max-height: 25px;
     background:  ${props => props.badgeColor};
     border-radius: 20px;
     color:  ${props => props.badgeText};
-    @media (max-width: 950px) { 
-        font-size: 0.5rem;
+    font-size: 0.5rem;
+    
+    @media (min-width: 1000px) and(max-width: 1250px) { 
+        font-size: 0.6rem;
+    }
+    @media (min-width: 1250px) { 
+        font-size: 0.7rem;
     }
     .label-icon{
-       height: 20px;
-       width: 20px;
-        @media (max-width: 950px) {
+        height: 20px;
+        width: 28px;
+        @media (max-width: 1300px) {
             height: 12px;
-            width: 12px;
+            width: 15px;
         }
    }
    

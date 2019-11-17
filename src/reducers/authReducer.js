@@ -37,7 +37,6 @@ const authReducer = (state = initialState, {type, payload}) => {
                 isSuccess: true,
             };
         case LOGIN_FAILURE:
-            console.log("AUTH REDUCER ", payload);
             return {
                 ...state,
                 isLoading: false,

@@ -23,7 +23,6 @@ const StyledTooltip = styled.div`
         opacity: 0;
         transition: opacity 0.3s;
     }
-
     .tooltip-text::after {
         content: "";
         position: absolute;
@@ -41,7 +40,6 @@ const StyledTooltip = styled.div`
           opacity: 1;
         }
     }
-
 `;
 
 export default function Tooltip({tip}) {

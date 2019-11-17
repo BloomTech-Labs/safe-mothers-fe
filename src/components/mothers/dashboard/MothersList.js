@@ -7,6 +7,7 @@ import AccordionContent from './AccordionContent';
 import {highRisk} from "../mother-utils";
 import SearchBanner from "../../reusableParts/banner/SearchBanner";
 import Header from "../../reusableParts/accordion/Header";
+import Tooltip from "../../reusableParts/Tooltip";
 
 
 const Mothers = props => {

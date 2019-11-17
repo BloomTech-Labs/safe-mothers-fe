@@ -75,6 +75,7 @@ export const FormItems = styled.div`
 
 export const Button = styled.div`
         text-transform: uppercase;
+        white-space: nowrap;
         font-size: 16px;
         background: ${props => props.bg}
         height: ${props => props.height ? props.height : '48px'};
