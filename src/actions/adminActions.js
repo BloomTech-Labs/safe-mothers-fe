@@ -1,6 +1,6 @@
 import axiosWithAuth from '../utilities/axiosWithAuth';
 import { Mixpanel } from '../utilities/mixpanel/Mixpanel';
-import { types } from './index';
+import {ERROR, types} from './index';
 
 const {
   GET_USERS_START,
@@ -26,8 +26,7 @@ export const getUsers = () => dispatch => {
       dispatch({ type: GET_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: GET_USERS_FAILURE, payload: err.response.data.message });
-      console.log("GET", err.response)
+      dispatch({ type: GET_USERS_FAILURE, payload: err.response.data.message ? err.response.data.message : ERROR });
     });
 };
 
@@ -41,8 +40,7 @@ export const editUsers = (id, object) => dispatch => {
     })
     .catch(err => {
       Mixpanel.track('Error Editing User', { id: id });
-      dispatch({ type: EDIT_USERS_FAILURE, payload: err.response.data.message });
-      console.log("UPDATE", err.response)
+      dispatch({ type: EDIT_USERS_FAILURE, payload: err.response.data.message ? err.response.data.message : ERROR });
     });
 };
 
@@ -56,8 +54,7 @@ export const deleteUsers = id => dispatch => {
     })
     .catch(err => {
       Mixpanel.track('User Delete Error', { id: id });
-      dispatch({ type: DELETE_USERS_FAILURE, payload: err.response.data.message });
-      console.log("DEL", err.response)
+      dispatch({ type: DELETE_USERS_FAILURE, payload: err.response.data.message ? err.response.data.message : ERROR });
     });
 };
 
@@ -67,12 +64,11 @@ export const createUser = data => dispatch => {
     .post('/auth/register', data)
     .then(res => {
       Mixpanel.track('User Created');
-      dispatch({ type: CREATE_USER_SUCCESS, payload: res.data.message });
+      dispatch({ type: CREATE_USER_SUCCESS, payload: res.data});
     })
     .catch(err => {
       Mixpanel.track('Error Creating User');
-      dispatch({ type: CREATE_USER_FAILURE, payload: err.response.data.message});
-      console.log("CREATE", err.response.data.message)
+      dispatch({ type: CREATE_USER_FAILURE, payload: err.response.data.message ? err.response.data.message : ERROR });
     });
 };
 

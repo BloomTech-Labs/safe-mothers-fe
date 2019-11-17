@@ -24,8 +24,10 @@ import Tooltip from "../../reusableParts/Tooltip";
 import Banner from "../../reusableParts/banner/Banner";
 
 const StyledMotherForm = styled.div`
-    width: 100%;    
-    
+    width: 100%;
+    li{
+        padding-bottom:49px;
+    }    
     ul{
       position: relative;
       @media(max-width: 1024px){
@@ -112,7 +114,7 @@ const StyledMotherForm = styled.div`
 
 function MotherForm(props) {
     const [amtSaved, setAmtSaved] = useState(false);
-
+    const ERROR_REQUIRED = "Required";
     useEffect(() => {
         const id = props.match.params.id;
         if (id) {
@@ -153,15 +155,15 @@ function MotherForm(props) {
                                 <span className="column-title form-title">Introduction</span>
                                 <div className="inline">
                                     <ul>
-                                        <li>Interviewer</li>
+                                        <li>* Interviewer</li>
                                         {props.values.interviewer === interviewers.Other &&
-                                        <li>Specify interviewer</li>}
-                                        <li>Pregnant</li>
-                                        <li>Due within 30 days</li>
-                                        <li>Deliver in Iganga Hospital</li>
-                                        <li>Cesarean section</li>
-                                        <li>Complications during delivery</li>
-                                        <li>Twins pregnancy</li>
+                                        <li>* Specify interviewer</li>}
+                                        <li>* Pregnant</li>
+                                        <li>* Due within 30 days</li>
+                                        <li>* Deliver in Iganga Hospital</li>
+                                        <li>* Cesarean section</li>
+                                        <li>* Complications during delivery</li>
+                                        <li>* Twins pregnancy</li>
                                     </ul>
                                     <div className="column">
                                         {/*interviewer*/}
@@ -172,7 +174,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip="Who conducted this interview?"/>
                                             {props.touched.interviewer && props.errors.interviewer && (
-                                                <p className="errormessage">{props.errors.interviewer}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -181,7 +183,7 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="interviewer_other"/>
                                             {props.touched.interviewer_other && props.errors.interviewer_other && (
-                                                <p className="errormessage">{props.errors.interviewer_other}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
                                         }
@@ -194,7 +196,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip={notes.pregnancy}/>
                                             {props.touched.current_pg && props.errors.current_pg && (
-                                                <p className="errormessage">{props.errors.current_pg}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -206,7 +208,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip={notes.due_date}/>
                                             {props.touched.due_now && props.errors.due_now && (
-                                                <p className="errormessage">{props.errors.due_now}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -219,7 +221,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip={notes.deliver_elsewhere}/>
                                             {props.touched.deliver_elsewhere && props.errors.deliver_elsewhere && (
-                                                <p className="errormessage">{props.errors.deliver_elsewhere}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -231,7 +233,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip={notes.hx_cesarean}/>
                                             {props.touched.hx_cesarean && props.errors.hx_cesarean && (
-                                                <p className="errormessage">{props.errors.hx_cesarean}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -243,7 +245,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip={notes.hx_complication}/>
                                             {props.touched.hx_complication && props.errors.hx_complication && (
-                                                <p className="errormessage">{props.errors.hx_complication}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -255,7 +257,7 @@ function MotherForm(props) {
                                             </Field>
                                             <Tooltip tip={notes.current_multip}/>
                                             {props.touched.current_multip && props.errors.current_multip && (
-                                                <p className="errormessage">{props.errors.current_multip}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -268,12 +270,12 @@ function MotherForm(props) {
                                 <span className="column-title form-title">Personal</span>
                                 <div className="inline">
                                     <ul>
-                                        <li>Name</li>
-                                        <li>Expected due date</li>
-                                        <li>Age</li>
-                                        <li>Village</li>
+                                        <li>* Name</li>
+                                        <li>* Expected due date</li>
+                                        <li>* Age</li>
+                                        <li>* Village</li>
                                         {props.values.village === choices.OTHER &&
-                                        <li>Name of the village</li>
+                                        <li>* Name of the village</li>
                                         }
                                     </ul>
                                     <div className="column">
@@ -282,23 +284,20 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="name"/>
                                             {props.touched.name && props.errors.name && (
-                                                <p className="errormessage">{props.errors.name}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
                                         {/*edd*/}
                                         <label className="error-holder">
-                                            <Field className="regular-input" type="date" name="edd"/>
-                                            {props.touched.edd && props.errors.edd && (
-                                                <p className="errormessage">{props.errors.edd}</p>
-                                            )}
+                                            <Field className={"regular-input " + ((props.touched.edd && props.errors.edd ) ? "date":"")} type="date" name="edd"/>
                                         </label>
 
                                         {/*age*/}
                                         <label className="error-holder">
                                             <Field className="regular-input" type="number" name="age"/>
                                             {props.touched.age && props.errors.age && (
-                                                <p className="errormessage">{props.errors.age}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -310,7 +309,7 @@ function MotherForm(props) {
                                                 <option value="97">Other</option>
                                             </Field>
                                             {props.touched.village && props.errors.village && (
-                                                <p className="errormessage">{props.errors.village}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -319,7 +318,7 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="village_other"/>
                                             {props.touched.village_other && props.errors.village_other && (
-                                                <p className="errormessage">{props.errors.village_other}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>}
 
@@ -331,17 +330,17 @@ function MotherForm(props) {
                             <div className="label-value">
                                 <div className="inline">
                                     <ul>
-                                        <li>Own phone</li>
-                                        <li>Other phone</li>
-                                        <li>Phone number</li>
-                                        <li>Carrier</li>
+                                        <li>* Own phone</li>
+                                        <li>* Other phone</li>
+                                        <li>* Phone number</li>
+                                        <li>* Carrier</li>
                                         {props.values.carrier === choices.OTHER &&
-                                        <li>Name of the carrier</li>
+                                        <li>* Name of the carrier</li>
                                         }
-                                        <li>Phone owner</li>
+                                        <li>* Phone owner</li>
                                         {props.values.owner_phone === choices.OTHER &&
-                                        <li>Name of the phone owner</li>}
-                                        <li>Want education</li>
+                                        <li>* Name of the phone owner</li>}
+                                        <li>* Want education</li>
                                     </ul>
                                     <div className="column">
                                         {/*own_phone*/}
@@ -351,7 +350,7 @@ function MotherForm(props) {
                                                 <YesNoDontknowDeclin state={false}/>
                                             </Field>
                                             {props.touched.own_phone && props.errors.own_phone && (
-                                                <p className="errormessage">{props.errors.own_phone}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -362,7 +361,7 @@ function MotherForm(props) {
                                                 <YesNoDontknowDeclin state={false}/>
                                             </Field>
                                             {props.touched.other_phone && props.errors.other_phone && (
-                                                <p className="errormessage">{props.errors.other_phone}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -370,7 +369,7 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="phone_number"/>
                                             {props.touched.phone_number && props.errors.phone_number && (
-                                                <p className="errormessage">{props.errors.phone_number}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -384,7 +383,7 @@ function MotherForm(props) {
                                                 <option value={choices.DECLINES_TO_ANSWER}>Decline to answer</option>
                                             </Field>
                                             {props.touched.carrier && props.errors.carrier && (
-                                                <p className="errormessage">{props.errors.carrier}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
 
@@ -393,7 +392,7 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="carrier_other"/>
                                             {props.touched.carrier_other && props.errors.carrier_other && (
-                                                <p className="errormessage">{props.errors.carrier_other}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>}
 
@@ -405,7 +404,7 @@ function MotherForm(props) {
                                                 <option value={choices.OTHER}>Other</option>
                                             </Field>
                                             {props.touched.owner_phone && props.errors.owner_phone && (
-                                                <p className="errormessage">{props.errors.owner_phone}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
                                         {/*owner_phone_other*/}
@@ -413,7 +412,7 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="owner_phone_other"/>
                                             {props.touched.owner_phone_other && props.errors.owner_phone_other && (
-                                                <p className="errormessage">{props.errors.owner_phone_other}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
                                         }
@@ -424,7 +423,7 @@ function MotherForm(props) {
                                                 <YesNoDontknowDeclin state={false}/>
                                             </Field>
                                             {props.touched.want_education && props.errors.want_education && (
-                                                <p className="errormessage">{props.errors.want_education}</p>
+                                                <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}
                                         </label>
                                     </div>
@@ -1295,26 +1294,27 @@ const FormikMother = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        interviewer: Yup.number().required("Please choose something from the list"),
-        current_pg: Yup.number().required("Please choose something from the list"),
-        due_now: Yup.number().required("Please choose something from the list"),
-        deliver_elsewhere: Yup.number().required("Please choose something from the list"),
-        hx_cesarean: Yup.number().required("Please choose something from the list"),
-        hx_complication: Yup.number().required("Please choose something from the list"),
-        current_multip: Yup.number().required("Please choose something from the list"),
+        interviewer: Yup.number().required("Please choose an option"),
+        current_pg: Yup.number().required("Please choose yes or no"),
+        due_now: Yup.number().required("Please choose an option"),
+        deliver_elsewhere: Yup.number().required("Please choose a hospital"),
+        hx_cesarean: Yup.number().required("Please choose an option"),
+        hx_complication: Yup.number().required("Please choose an option"),
+        current_multip: Yup.number().required("Please choose an option"),
         /*registration*/
-        name: Yup.string().required("Please fill the field"),
-        edd: Yup.string().required("Please fill the field"),
-        age: Yup.string().required("Please fill the field"),
-        village: Yup.number().required("Please choose something from the list"),
-        own_phone: Yup.number().required("Please choose something from the list"),
-        other_phone: Yup.string().required("Please fill the field"),
-        phone_number: Yup.string().required("Please fill the field"),
-        carrier: Yup.number().required("Please choose something from the list"),
-        owner_phone: Yup.number().required("Please choose something from the list"),
-        want_education: Yup.number().required("Please choose something from the list"),
+        name: Yup.string().required("Please type a name"),
+        //the below code gets in the way
+        edd: Yup.string().required("Please choose a date"),
+        age: Yup.string().required("Please choose an age"),
+        village: Yup.number().required("Please choose a village"),
+        own_phone: Yup.number().required("Please choose yes or no"),
+        other_phone: Yup.string().required("Please choose yes or no"),
+        phone_number: Yup.string().required("Please type in a phone number"),
+        carrier: Yup.number().required("Please choose a Carrier"),
+        owner_phone: Yup.number().required("Please choose an option"),
+        want_education: Yup.number().required("Please choose yes or no"),
     }),
-    handleSubmit(values, {props, resetForm}) {
+    handleSubmit(values, {props}) {
         let mother = {};
         for (let property  in values) {
             if (typeof values[property] === 'string' && values[property].length > 0) mother[property] = values[property];
@@ -1327,10 +1327,8 @@ const FormikMother = withFormik({
         }
         if (props.match.params.id) {
             props.updateMother(values.id, mother, props);
-            resetForm();
         } else {
             props.addMother(mother, props);
-            resetForm();
         }
     }
 })(MotherForm);
