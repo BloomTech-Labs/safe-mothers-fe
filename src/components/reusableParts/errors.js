@@ -18,15 +18,19 @@ const Error = (props) => {
 export default Error;
 
 const StyledError = styled.div`
-    background: #EB5757;
+    background: #fcf0f0;
     color: white;
     z-index: 50;
     border-radius: 2px;
     height: 48px;
     width: 60%;
+    border-left: 5px solid #f50505;
+    margin-bottom: 17px;
+    
 
     .error-holder{
         width: 100%;
+        color: red;
         height: 25px;
         display: flex;
         justify-content: center;
