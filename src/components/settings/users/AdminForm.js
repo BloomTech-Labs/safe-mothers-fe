@@ -38,14 +38,13 @@ const AdminForm = props => {
             <FormItems>
                 <SettingsForm>
                     <div className="form-container">
-                        {console.log(props.err)}
                         {!props.formState ?
                             <h1 className="title">Add Administrator</h1>
                             :
                             <h1 className="title">Edit Administrator</h1>
                         }
-                        <Errors errMsg = {props.err}  />
-                        <Form>
+
+                        <Form> <Errors errMsg = {props.err}  />
                             <div className="inline">
                                 <div className="labels">
                                     <ul>

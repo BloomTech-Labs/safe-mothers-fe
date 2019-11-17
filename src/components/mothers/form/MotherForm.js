@@ -290,10 +290,7 @@ function MotherForm(props) {
 
                                         {/*edd*/}
                                         <label className="error-holder">
-                                            <Field className={"regular-input " + (props.touched.edd ? "date":"")} type="date" name="edd"/>
-                                            {props.touched.edd && props.errors.edd && (
-                                                <p className="errormessage">{props.errors.edd}</p>
-                                            )}
+                                            <Field className={"regular-input " + ((props.touched.edd && props.errors.edd ) ? "date":"")} type="date" name="edd"/>
                                         </label>
 
                                         {/*age*/}
@@ -1307,7 +1304,7 @@ const FormikMother = withFormik({
         /*registration*/
         name: Yup.string().required("Please type a name"),
         //the below code gets in the way
-        // edd: Yup.string().required("Please choose a date"),
+        edd: Yup.string().required("Please choose a date"),
         age: Yup.string().required("Please choose an age"),
         village: Yup.number().required("Please choose a village"),
         own_phone: Yup.number().required("Please choose yes or no"),
@@ -1317,7 +1314,7 @@ const FormikMother = withFormik({
         owner_phone: Yup.number().required("Please choose an option"),
         want_education: Yup.number().required("Please choose yes or no"),
     }),
-    handleSubmit(values, {props, resetForm}) {
+    handleSubmit(values, {props}) {
         let mother = {};
         for (let property  in values) {
             if (typeof values[property] === 'string' && values[property].length > 0) mother[property] = values[property];
@@ -1330,10 +1327,8 @@ const FormikMother = withFormik({
         }
         if (props.match.params.id) {
             props.updateMother(values.id, mother, props);
-            resetForm();
         } else {
             props.addMother(mother, props);
-            resetForm();
         }
     }
 })(MotherForm);

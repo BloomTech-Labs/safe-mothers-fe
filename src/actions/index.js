@@ -79,3 +79,5 @@ export const types = {
 
 
 };
+
+export const ERROR = "error";
