@@ -57,7 +57,7 @@ const AdminForm = props => {
                                         }
                                     </ul>
                                 </div>
-                                <div>
+                                <div classname="values">
                                     <label className="error-holder">
                                         <Field className="regular-input" type="text" name="first_name"/>
                                         {props.touched.first_name && props.errors.first_name && (

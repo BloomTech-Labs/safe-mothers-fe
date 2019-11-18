@@ -15,7 +15,7 @@ export const FormItems = styled.div`
     .regular-input{
         margin-left: 1%;
         min-width: 20px;
-        margin-bottom: 20px;
+        margin-bottom: 28px;
         outline: none;
         
         width: 100%;

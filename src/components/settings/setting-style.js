@@ -29,6 +29,7 @@ export const SettingsForm = styled.div`
         width: 30%;
         margin-right: 3%;
     }
+
     ul{
      padding: 0;
     }
@@ -41,7 +42,7 @@ export const SettingsForm = styled.div`
 
     .settings{
         width: 100%
-        overflow: hidden;
+        margin-left: 3px;
         display: flex; 
         justify-content: center;
         text-align: center;
