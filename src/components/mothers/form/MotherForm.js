@@ -172,7 +172,7 @@ function MotherForm(props) {
                                                    onChange={(e) => resetValue("interviewer", e.target.value, "interviewer_other", interviewers.Other)}>
                                                 <Interviewers/>
                                             </Field>
-                                            <Tooltip tip="Type your interviewer"/>
+                                            <Tooltip tip="Who conducted this interview?"/>
                                             {props.touched.interviewer && props.errors.interviewer && (
                                                 <p className="errormessage">{ERROR_REQUIRED}</p>
                                             )}

@@ -44,7 +44,8 @@ const AdminForm = props => {
                             <h1 className="title">Edit Administrator</h1>
                         }
 
-                        <Form> <Errors errMsg = {props.err}  />
+                        <Form> 
+                            <Errors errMsg = {props.err}  />
                             <div className="inline">
                                 <div className="labels">
                                     <ul>
