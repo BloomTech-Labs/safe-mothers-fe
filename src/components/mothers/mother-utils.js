@@ -149,7 +149,7 @@ export function yesNoIDN(item) {
 
 //Heigh Risk Label
 
-const risks = [
+export const risks = [
     'anemia',
     'malaria',
     'obstructed_labor',

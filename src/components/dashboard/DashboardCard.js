@@ -7,7 +7,7 @@ import {MOTHER} from "./dashboard-utils";
 import {withRouter} from "react-router-dom";
 
 export const CardContent = styled.div`
-    margin: 2%;
+    margin: 0 0 3% 0;
     padding-bottom: 2%;
     display: flex;
     align-items: center;
@@ -15,13 +15,16 @@ export const CardContent = styled.div`
     background: white;
     white-space: nowrap;
     cursor: pointer;
+    &:hover{
+        border: 1.5px solid #a1d5ff;
+    }
   
     .icon{
       width: 50%;
       fill: blue;
     }
     .grid-item{
-        width: 33%;
+        width: 30%;
     }
      .icon-container{
         display: flex;
@@ -37,7 +40,7 @@ export const CardContent = styled.div`
 `;
 
 const DashboardCard = props => {
-    const {cardState, val1, val2, val3} = props;
+    const {cardState, val1, val2, val3, val4} = props;
     return (
         <CardContent
             onClick={() => props.history.push(`/${cardState}`)}>
@@ -57,10 +60,14 @@ const DashboardCard = props => {
                     <h1>{val2}</h1>
                     <p>{cardState === MOTHER ? "Late Due Day" : "Active Drivers"}</p>
                 </div>
-                {/* <div className="grid-item">
+                 <div className="grid-item">
                     <h1>{val3}</h1>
                     <p>{cardState === MOTHER ? "High Risk" : "Active 5 Stars"}</p>
-                </div> */}
+                </div>
+                <div className="grid-item">
+                    <h1>{val4}</h1>
+                    <p>{cardState === MOTHER ? "All mothers" : "All drivers"}</p>
+                </div>
             </div>
         </CardContent>
     );

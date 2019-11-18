@@ -10,6 +10,7 @@ import SVG from 'react-inlinesvg/lib/index';
 import Cry from "../resources/Group.svg";
 import {BadgeLimit} from "../mother-style";
 import {defineMothersLabels, LABEL_LIMIT} from "./LabelBadges";
+import Errors from "../../reusableParts/Errors";
 
 function LabelForm(props, {mother}) {
     const defineColor = (color, darkColor, textColor) => {
@@ -25,7 +26,10 @@ function LabelForm(props, {mother}) {
         <>
             <FormItems>
                 <Form className="form-contents">
-                    <label>
+                      {props.touched.label_name && props.errors.label_name && (
+                          <Errors errMsg = {props.errors.label_name}  />
+                        )}
+                    <label className="error-holder">
                         Label name:
                         <Field className="regular-input"
                                type="text"
@@ -33,10 +37,8 @@ function LabelForm(props, {mother}) {
                                placeholder="Type phrase here"
                         />
                     </label>
-                    {props.touched.label_name && props.errors.label_name && (
-                        <p className="error-message">{props.errors.label_name}</p>
-                    )}
-                    <Field className="regular-input"
+
+                    <Field className="regular-input hidden-input"
                            type="text"
                            name="color"
                            placeholder="Type color here"
@@ -53,7 +55,7 @@ function LabelForm(props, {mother}) {
                     />
                     <ColorPicker defineColor={defineColor}/>
                     <div className="btn-container">
-                        <button onClick={(e) => props.modal(e)} className="submit-btn" type="submit">CREATE</button>
+                        <button className="submit-btn" type="submit">CREATE</button>
                     </div>
                 </Form>
             </FormItems>
@@ -66,7 +68,7 @@ const FormikLabelForm = withFormik({
         return {
             label_name: label_name || '',
             color: color || 'black',
-            dark_color: dark_color || 'red',
+            dark_color: dark_color || '#0454a7',
             text_color: text_color || 'white',
         };
     },
@@ -75,9 +77,10 @@ const FormikLabelForm = withFormik({
         label_name: Yup.string().max(10).required('Please enter a label_name'),
     }),
 
-    handleSubmit(values, {props}) {
+    handleSubmit(values, {props}, e) {
         values.mother_id = props.mother.id;
         props.createLabel(values);
+        props.modal(e);
 
     }
 })(LabelForm);

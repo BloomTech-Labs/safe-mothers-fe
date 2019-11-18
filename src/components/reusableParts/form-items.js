@@ -6,6 +6,9 @@ export const FormItems = styled.div`
         padding-bottom: 48px;
         white-space: nowrap;
     }
+    .labels{
+       width: 100% !important;
+    }
     
     .inline{
         display: flex;
