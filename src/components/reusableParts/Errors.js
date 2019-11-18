@@ -6,7 +6,7 @@ const Error = (props) => {
     return(
         <>
             {( typeof errMsg === 'string' && errMsg.length > 0) && 
-                <StyledError className= "regular settings">
+                <StyledError className= "regular settings labels">
                 <p className="error-holder" >{errMsg} </p>
                 </StyledError>
             }
@@ -26,16 +26,16 @@ const StyledError = styled.div`
     width: 60%;
     border-left: 5px solid #f50505;
     margin-bottom: 17px;
-    
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        
     .error-holder{
         width: 100%;
         color: red;
         height: 25px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         white-space: nowrap;
         padding: 0 3px;
+        margin: 0;
     }
 `

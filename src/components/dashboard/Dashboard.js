@@ -6,19 +6,16 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import DashboardCard from "./DashboardCard";
 
-import { DRIVER, MOTHER } from "./dashboard-utils";
+import {defineBestDrivers, defineHighRisk, DRIVER, MOTHER} from "./dashboard-utils";
 
 const MainContainer = styled.div`
   display: flex;
   justify-content: space-around;
   overflow: hidden;
   align-items: center;
-  .board {
-    width: 30%;
-    margin: 20px;
-  }
+  margin: 0;
   .cards {
-    width: 80%;
+    width: 85%;
   }
   ${"" /* .rankingCard {
      display: flex;
@@ -91,17 +88,18 @@ const Dashboard = props => {
         <DashboardCard
           val1={dueNow(props.mothers)}
           val2={lateDueDay(props.mothers)}
-          val3="4"
+          val3={defineHighRisk(props.mothers)}
+          val4={props.mothers.length > 0 ? props.mothers.length : "No mothers"}
           cardState={MOTHER}
         />
         <DashboardCard
           val1={recent(props.drivers)}
           val2={availability(props.drivers)}
-          val3="1"
+          val3={defineBestDrivers(props.drivers)}
+          val4={props.drivers.length > 0 ? props.drivers.length : "No drivers"}
           cardState={DRIVER}
         />
       </div>
-      <div className="board">{/*Driver Rankings*/}</div>
     </MainContainer>
   );
 };
