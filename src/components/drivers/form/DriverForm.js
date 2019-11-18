@@ -92,7 +92,7 @@ function DriverForm(props) {
                         <div className="column">
                             {/*driver_name*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="driver_name"/>
+                                <Field className="driver-input" type="text" name="driver_name"/>
                                 {props.touched.driver_name && props.errors.driver_name && (
                                     <p className="errormessage  errormessage_positioning">{ERROR_REQUIRED}</p>
                                 )}
@@ -100,7 +100,7 @@ function DriverForm(props) {
                             {/*district*/}
                             <label className="error-holder">
                                 <Field
-                                    component="select" className="regular-input" name="district"
+                                    component="select" className="driver-input" name="district"
                                     onChange={e => resetValue("district", e.target.value, "district_other", choices.OTHER)}>
                                     <Select list={district_code}/>
                                     <option value={choices.OTHER}>Other</option>
@@ -112,7 +112,7 @@ function DriverForm(props) {
                             {/*district_other*/}
                             {props.values.district === choices.OTHER && (
                                 <label className="error-holder">
-                                    <Field className="regular-input" type="text" name="district_other"/>
+                                    <Field className="driver-input" type="text" name="district_other"/>
                                     {props.touched.district_other && props.errors.district_other && (
                                         <p className="errormessage">{props.errors.district_other}</p>
                                     )}
@@ -120,7 +120,7 @@ function DriverForm(props) {
                             )}
                             {/*subcounty*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="subcounty"
+                                <Field component="select" className="driver-input" name="subcounty"
                                        onChange={e => resetValue("subcounty", e.target.value, "subcounty_other", choices.OTHER)}>
                                     <Select list={subcounty_code}/>
                                     <option value={choices.OTHER}>Other</option>
@@ -132,7 +132,7 @@ function DriverForm(props) {
                             {/*subcounty_other*/}
                             {props.values.subcounty === choices.OTHER && (
                                 <label className="error-holder">
-                                    <Field className="regular-input" type="text" name="subcounty_other"/>
+                                    <Field className="driver-input" type="text" name="subcounty_other"/>
                                     {props.touched.subcounty_other && props.errors.subcounty_other && (
                                         <p className="errormessage">{props.errors.subcounty_other}</p>
                                     )}
@@ -140,7 +140,7 @@ function DriverForm(props) {
                             )}
                             {/*stage*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="stage"
+                                <Field component="select" className="driver-input" name="stage"
                                        onChange={e => resetValue("stage", e.target.value, "parish_other", choices.OTHER)}>
                                     <Select list={stage_code}/>
                                     <option value={choices.OTHER}>Other</option>
@@ -152,7 +152,7 @@ function DriverForm(props) {
                             {/*parish_other*/}
                             {props.values.stage === choices.OTHER && (
                                 <label className="error-holder">
-                                    <Field className="regular-input" type="text" name="parish_other"/>
+                                    <Field className="driver-input" type="text" name="parish_other"/>
                                     {props.touched.parish_other && props.errors.parish_other && (
                                         <p className="errormessage">{props.errors.parish_other}</p>
                                     )}
@@ -160,14 +160,14 @@ function DriverForm(props) {
                             )}
                             {/*phone*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="phone"/>
+                                <Field className="driver-input" type="text" name="phone"/>
                                 {props.touched.phone && props.errors.phone && (
                                     <p className="errormessage  errormessage_positioning">{ERROR_REQUIRED}</p>
                                 )}
                             </label>
                             {/*carrier*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="carrier"
+                                <Field component="select" className="driver-input" name="carrier"
                                        onChange={e => props.setFieldValue("carrier", e.target.value)}>
                                     <Select list={carrier}/>
                                 </Field>
@@ -177,7 +177,7 @@ function DriverForm(props) {
                             </label>
                             {/*another_phone*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="another_phone"
+                                <Field component="select" className="driver-input" name="another_phone"
                                        onChange={(e) =>{
                                            props.setFieldValue("another_phone", parseInt(e.target.value));
                                            if(parseInt(e.target.value) === choices.NO){
@@ -194,7 +194,7 @@ function DriverForm(props) {
                             {/* carrier_2 */}
                             {props.values.another_phone === choices.YES && (
                                 <label className="error-holder">
-                                    <Field component="select" className="regular-input" name="carrier_2"
+                                    <Field component="select" className="driver-input" name="carrier_2"
                                            onChange={e => props.setFieldValue("carrier_2", e.target.value)}>
                                         <Select list={carrier}/>
                                     </Field>
@@ -206,12 +206,12 @@ function DriverForm(props) {
                             {/*phone_2*/}
                             {props.values.another_phone === choices.YES &&
                             <label>
-                                <Field className="regular-input" type="text" name="phone_2"/>
+                                <Field className="driver-input" type="text" name="phone_2"/>
                             </label>
                             }
                             {/*reliability*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="reliability"
+                                <Field component="select" className="driver-input" name="reliability"
                                        onChange={e => resetValue("reliability", e.target.value)}>
                                     <Select list={reliability_code}/>
                                 </Field>
@@ -221,21 +221,21 @@ function DriverForm(props) {
                             </label>
                             {/*latitude*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="latitude"/>
+                                <Field className="driver-input" type="text" name="latitude"/>
                                 {props.touched.latitude && props.errors.latitude && (
                                     <p className="errormessage  errormessage_positioning">{ERROR_REQUIRED}</p>
                                 )}
                             </label>
                             {/*longitude*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="longitude"/>
+                                <Field className="driver-input" type="text" name="longitude"/>
                                 {props.touched.longitude && props.errors.longitude && (
                                     <p className="errormessage  errormessage_positioning">{ERROR_REQUIRED}</p>
                                 )}
                             </label>
                             {/*own_boda*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="own_boda"
+                                <Field component="select" className="driver-input" name="own_boda"
                                        onChange={(e) => props.setFieldValue("own_boda", parseInt(e.target.value))}>
                                     <YesNoDontknowDeclin state={false}/>
                                 </Field>
@@ -245,7 +245,7 @@ function DriverForm(props) {
                             </label>
                             {/*boda_night*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="boda_night"
+                                <Field component="select" className="driver-input" name="boda_night"
                                        onChange={e => resetValue("boda_night", e.target.value)}>
                                     <SelectDriver list={boda_night}/>
                                 </Field>
@@ -255,14 +255,14 @@ function DriverForm(props) {
                             </label>
                             {/*transfers*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="number" name="transfers"/>
+                                <Field className="driver-input" type="number" name="transfers"/>
                                 {props.touched.transfers && props.errors.transfers && (
                                     <p className="errormessage">{props.errors.transfers}</p>
                                 )}
                             </label>
                             {/*married*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="married"
+                                <Field component="select" className="driver-input" name="married"
                                        onChange={(e) => props.setFieldValue("married", parseInt(e.target.value))}>
                                     <YesNoDontknowDeclin state={false}/>
                                 </Field>
@@ -272,7 +272,7 @@ function DriverForm(props) {
                             </label>
                             {/*children*/}
                             <label className="error-holder">
-                                <Field component="select" className="regular-input" name="children"
+                                <Field component="select" className="driver-input" name="children"
                                        onChange={(e) => props.setFieldValue("children", parseInt(e.target.value))}>
                                     <YesNoDontknowDeclin state={false}/>
                                 </Field>
@@ -283,32 +283,32 @@ function DriverForm(props) {
                             {/*number_kids*/}
                             {props.values.children === choices.YES &&
                             <label>
-                                <Field className="regular-input" type="number" name="number_kids"/>
+                                <Field className="driver-input" type="number" name="number_kids"/>
                             </label>
                             }
                             {/*kid_info*/}
                             {props.values.children === choices.YES &&
                             <label>
-                                <Field className="regular-input" type="text" name="kid_info"/>
+                                <Field className="driver-input" type="text" name="kid_info"/>
                             </label>
                             }
                             {/*motivation*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="motivation"/>
+                                <Field className="driver-input" type="text" name="motivation"/>
                                 {props.touched.motivation && props.errors.motivation && (
                                     <p className="errormessage">{props.errors.motivation}</p>
                                 )}
                             </label>
                             {/*story*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="story"/>
+                                <Field className="driver-input" type="text" name="story"/>
                                 {props.touched.story && props.errors.story && (
                                     <p className="errormessage">{props.errors.story}</p>
                                 )}
                             </label>
                             {/*dream*/}
                             <label className="error-holder">
-                                <Field className="regular-input" type="text" name="dream"/>
+                                <Field className="driver-input" type="text" name="dream"/>
                                 {props.touched.dream && props.errors.dream && (
                                     <p className="errormessage">{props.errors.dream}</p>
                                 )}
@@ -413,11 +413,17 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {addDriver, updateDriver})(FormikDriverForm);
 
 const DriverFormStyle = styled.div`
+        font-size: .8rem;
         width: 100%;
         justify-content: center;
         background: white;
         border: 1.5px solid #EEEEEF;
         margin: 0;
+
+        @media (max-width: 1350px)
+      .regular-input {
+          margin-bottom: 18px;
+      }
         
         .form-contents{
             display: flex;
@@ -465,10 +471,11 @@ const DriverFormStyle = styled.div`
         display: flex;
         align-items: center;
       }
-      
+
+
       .input{
         margin-left: 1%;
-        min-width: 20px;
+        min-width: 25px;
         margin-bottom: 10px;
       }
       .label-value{
