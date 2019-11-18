@@ -6,7 +6,7 @@ const Error = (props) => {
     return(
         <>
             {( typeof errMsg === 'string' && errMsg.length > 0) && 
-                <StyledError className= "regular">
+                <StyledError className= "regular settings">
                 <p className="error-holder" >{errMsg} </p>
                 </StyledError>
             }

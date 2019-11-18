@@ -38,4 +38,12 @@ export const SettingsForm = styled.div`
         justify-content: center;
         margin-bottom: 5%;
     }
+
+    .settings{
+        width: 100%
+        overflow: hidden;
+        display: flex; 
+        justify-content: center;
+        text-align: center;
+    }
 `;
