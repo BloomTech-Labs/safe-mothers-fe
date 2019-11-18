@@ -25,6 +25,11 @@ import Banner from "../../reusableParts/banner/Banner";
 
 const StyledMotherForm = styled.div`
     width: 100%;
+    font-size: .8rem;
+
+    @media(min-width: 1350px){
+        font-size: 1rem;
+    }
     li{
         padding-bottom:49px;
     }    

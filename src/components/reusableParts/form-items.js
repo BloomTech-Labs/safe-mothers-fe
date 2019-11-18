@@ -18,6 +18,27 @@ export const FormItems = styled.div`
     .regular-input{
         margin-left: 1%;
         min-width: 20px;
+        margin-bottom: 28px;
+        outline: none;
+        
+        width: 100%;
+        height: 45px;
+        border-radius: 2px;
+        border-width: 0px;
+        border: 1.5px solid ${props => props.theme.primary.darkGray};
+        padding-left: 12px;  
+         &:hover {
+            border: 1.5px solid ${props => props.theme.primary.gray};
+        }
+
+        @media(max-width: 1350px){
+            margin-bottom: 22px;
+        }
+    }
+
+    .driver-input{
+        margin-left: 1%;
+        min-width: 20px;
         margin-bottom: 20px;
         outline: none;
         
@@ -29,6 +50,10 @@ export const FormItems = styled.div`
         padding-left: 12px;  
          &:hover {
             border: 1.5px solid ${props => props.theme.primary.gray};
+        }
+
+        @media(max-width: 1350px){
+            margin-bottom: 20px;
         }
     }
     
