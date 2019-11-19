@@ -319,33 +319,37 @@ In order for the app to function correctly, the user must set up their own envir
 
 # 4️⃣ Installation Instructions
 
-**Installation**
+### Installation
 
-Step 1: Clone Repo
+**Step 1:** Clone Repo
 
-Step 2: Install node modules
+**Step 2:** Install node modules
 
+```
 npm install
+```
 
-Step 3: To start app on local host
+**Step 3:** To start app on local host
 
+```
 npm start
-  ** Runs the app in the development mode.
+```
+  _Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
 
-The page will reload if you make edits.
+_The page will reload if you make edits.
 You will also see any lint errors in the console.
 
-Step 4: configure for backend
+**Step 4:** configure for backend
 
- https://github.com/Lambda-School-Labs/safe-mothers-be
+ - https://github.com/Lambda-School-Labs/safe-mothers-be
  
  will be the base URL for the specific back-end server that the client will be using.
 
-**NOTE** - npm start is the same as running expo start
+**\*\*NOTE\*\*** - `npm start` is the same as running `expo start`
 
 
-## Other Scripts
+#### Other Scripts
 
 🚫replace these examples with your own
 
