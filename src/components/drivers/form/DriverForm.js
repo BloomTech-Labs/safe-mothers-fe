@@ -50,7 +50,7 @@ function DriverForm(props) {
                             person={props.values.driver_name} state={true} {...props} />
                     <div className="label-value inline">
                         <ul>
-                            <li>Name</li>
+                            <li>*Name</li>
                             <li>District</li>
                             {props.values.district === choices.OTHER && (
                                 <li>Specify District</li>
@@ -62,7 +62,7 @@ function DriverForm(props) {
                             <li>Stage</li>
                             {props.values.stage === choices.OTHER &&
                             <li>Specify Parish</li>}
-                            <li>Phone Number</li>
+                            <li>*Phone Number</li>
                             <li>Carrier</li>
                             <li>Owns another phone</li>
                             {props.values.another_phone === choices.YES &&
