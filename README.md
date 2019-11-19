@@ -338,7 +338,7 @@ You will also see any lint errors in the console.
 
 Step 4: configure for backend
 
- https://staging-be-labs17-safe.herokuapp.com/ 
+ https://github.com/Lambda-School-Labs/safe-mothers-be
  
  will be the base URL for the specific back-end server that the client will be using.
 
