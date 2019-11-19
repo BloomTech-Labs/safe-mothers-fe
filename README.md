@@ -298,7 +298,6 @@ In order for the app to function correctly, the user must set up their own envir
     * create .env file in each place as follow:
        *  REACT_APP_MIXPANEL_TOKEN= store MixPanel token here for analytics
         *  REACT_APP_NODE_ENV=production (required for mixpanel analytics)
-
         *.env (contains all the environment variables for production)
     
     `REACT_APP_API_URL`- will be the base URL for the specific back-end server that the client will be using.
