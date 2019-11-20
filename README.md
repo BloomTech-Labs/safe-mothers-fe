@@ -23,7 +23,7 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
 
 |                                                      [Dennis Mercado](https://github.com/denmercs)                                                        |                                                       [Jade E Lopez](https://github.com/jadeli1720)                                                         |                                                      [Jonathan Dorety](https://github.com/kyullog)                                                      |                                                       [Alexander Vargas](https://github.com/)                                                        |                                                                                                           |
 | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | --------------------------: 
-| [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs) | [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)  | [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | 
+| [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs) | [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)  | [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog) | [<img src="https://avatars2.githubusercontent.com/u/48666085?s=400&v=4" width = "200" />](https://github.com/YorAlexVargas) | 
 |                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)                               |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)                              |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                                                     |
 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/)               |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                
 
@@ -35,7 +35,7 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)[staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/).
+[staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/).
 [![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -57,9 +57,9 @@ Safe Mother, Safe Babies is a non-profit organization whose goal is to increase 
 
 ###  Key Features
 
--    Mother can register her information using a phone with SMS capabilities
--    feature two
--    feature three
+-    Mother CRUD functions
+-    Driver CRUD functions
+-    Administrative user CRUD functions
 
 
 
@@ -126,7 +126,7 @@ We chose these frameworks because:
 
 API documentation can be found [here](https://documenter.getpostman.com/view/6290768/SW7UcWoB?version=latest)
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -135,7 +135,7 @@ In order for the app to function correctly, the user must set up their own envir
     REACT_APP_NODE_ENV=production (required for Mixpanel analytics)
     ** Mixpanel needs the REACT_APP_NODE_ENV variable set to "production" for it to work. **
     
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
 ### Installation
 
@@ -165,25 +165,7 @@ You will also see any lint errors in the console.
  will be the base URL for the specific back-end server that the client will be using.
 
 **\*\*NOTE\*\*** - `npm start` is the same as running `expo start`
-
-
-#### Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
-
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+                          
 
 # Contributing
 
