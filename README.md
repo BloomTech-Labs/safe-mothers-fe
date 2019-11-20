@@ -295,10 +295,15 @@ Volunteering your time; it pays you and your whole community fantastic dividends
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-🚫These are just examples, replace them with the specifics for your app
-
-    *  REACT_APP_API_URL place the base URL of the back-end server
-
+    * create .env file in each place as follow:
+       *  REACT_APP_MIXPANEL_TOKEN= store MixPanel token here for analytics
+        *  REACT_APP_NODE_ENV=production (required for mixpanel analytics)
+        *.env (contains all the environment variables for production)
+    
+    `REACT_APP_API_URL`- will be the base URL for the specific back-end server that the client will be using.
+    `REACT_APP_MIXPANEL_TOKEN`- needs to be set if the person wants to use MixPanel analytics tools.
+    ** MixPanel needs the REACT_APP_NODE_ENV variable set to "production" for it to work.
+    
 # 5️⃣ Content Licenses
 
 🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
@@ -314,9 +319,37 @@ In order for the app to function correctly, the user must set up their own envir
 
 # 4️⃣ Installation Instructions
 
-🚫explain how to install the required dependencies to get this project up and running with yarn and NPM
+### Installation
 
-## Other Scripts
+**Step 1:** Clone Repo
+
+**Step 2:** Install node modules
+
+```
+npm install
+```
+
+**Step 3:** To start app on local host
+
+```
+npm start
+```
+  _Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+
+_The page will reload if you make edits.
+You will also see any lint errors in the console.
+
+**Step 4:** configure for backend
+
+ - https://github.com/Lambda-School-Labs/safe-mothers-be
+ 
+ will be the base URL for the specific back-end server that the client will be using.
+
+**\*\*NOTE\*\*** - `npm start` is the same as running `expo start`
+
+
+#### Other Scripts
 
 🚫replace these examples with your own
 
