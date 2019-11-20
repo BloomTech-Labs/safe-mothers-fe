@@ -12,6 +12,7 @@ export const interviewers = {
 export default function Interviewers(props) {
     return (
         <>
+            {/*default value of the filed is empty*/}
             <option value=''></option>
             <option value={interviewers.Mukalu_Mohamed}>Mukalu Mohamed</option>
             <option value={interviewers.Mikayla_Bryan}>Mikayla O’Bryan</option>
