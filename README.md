@@ -7,6 +7,8 @@ You can find the deployed project at:
 Staging:   [staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/)    
 Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herokuapp.com/)
 
+[View the project demo](https://www.youtube.com/watch?v=KM4jNYUOg7Y&t=8s)
+
 ## Contributors
 
 |                                                      [Aleksandra Foksman](https://github.com/AlexFox1777)                                                       |                                                       [Annique Nsabimana](https://github.com/AnniqueN)                                                        |                                                      [Blake Prouty](https://github.com/Prouty89)                                                       |                                                       [Chris Delfaus](https://github.com/ChrisDelf)                                                        |                                                      [Christian Ubani](https://github.com/chikechris)                                                       |
