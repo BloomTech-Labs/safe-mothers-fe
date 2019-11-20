@@ -126,7 +126,7 @@ We chose these frameworks because:
 
 API documentation can be found [here](https://documenter.getpostman.com/view/6290768/SW7UcWoB?version=latest)
 
-# 3️⃣ Environment Variables
+# Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
@@ -135,7 +135,7 @@ In order for the app to function correctly, the user must set up their own envir
     REACT_APP_NODE_ENV=production (required for Mixpanel analytics)
     ** Mixpanel needs the REACT_APP_NODE_ENV variable set to "production" for it to work. **
     
-# 4️⃣ Installation Instructions
+# Installation Instructions
 
 ### Installation
 
@@ -165,25 +165,7 @@ You will also see any lint errors in the console.
  will be the base URL for the specific back-end server that the client will be using.
 
 **\*\*NOTE\*\*** - `npm start` is the same as running `expo start`
-
-
-#### Other Scripts
-
-🚫replace these examples with your own
-
-    * typecheck - runs the TypeScript compiler
-    * build - creates a build of the application
-    * start - starts the production server after a build is created
-    * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
-
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
-
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
+                          
 
 # Contributing
 
