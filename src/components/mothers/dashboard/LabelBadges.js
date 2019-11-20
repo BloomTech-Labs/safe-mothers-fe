@@ -94,8 +94,8 @@ function LabelBadges(props) {
                     </BadgeLimit>
                 }
             </Modal>
-            <div className="add-icon-container"><SVGBtn className="add-icon" onClick={(e) => modal(e)} src={Add}
-                                                        bg="#5bdf72" bgOnHover="#44c25a"/></div>
+        {/*    <div className="add-icon-container"><SVGBtn className="add-icon" onClick={(e) => modal(e)} src={Add}
+                                                        bg="#5bdf72" bgOnHover="#44c25a"/></div>*/}
         </div>
     )
 }
