@@ -57,9 +57,9 @@ Safe Mother, Safe Babies is a non-profit organization whose goal is to increase 
 
 ###  Key Features
 
--    Mother can register her information using a phone with SMS capabilities
--    feature two
--    feature three
+-    Mother CRUD functions
+-    Driver CRUD functions
+-    Administrative user CRUD functions
 
 
 
@@ -289,17 +289,192 @@ We chose these frameworks because:
     ```
 
 
-## 3️⃣ Misc API here
+## Mothers
 
-🚫Replace text below with a description of the API
+Mother Creation
+* **Method:**
 
-When you do it your way you can go anywhere you choose. Let your heart take you to wherever you want to be. If I paint something, I don't want to have to explain what it is. A tree needs to be your friend if you're going to paint him. That's a son of a gun of a cloud. Even the worst thing we can do here is good.
+    `POST`
 
-## 3️⃣ Misc API here
+* **URL**
 
-🚫Replace text below with a description of the API
+  /mother-form
 
-Volunteering your time; it pays you and your whole community fantastic dividends. Maybe there's a happy little waterfall happening over here. You can spend all day playing with mountains. We don't have to be committed. We are just playing here. You have freedom here. The only guide is your heart. It's cold, but it's beautiful.
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: {mother object with data}`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error creating mother" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const addMother = (mothers, props) => dispatch => {
+    dispatch({type: ADD_MOTHERS_START});
+    axiosWithAuth()
+        .post('/mothers/auth/register', mothers)
+        .then(res => {
+            Mixpanel.track('Added Mother');
+            dispatch({type: ADD_MOTHERS_SUCCESS});
+            props.history.push(`/mothers`);
+        })
+        .catch(err => {
+            Mixpanel.track('Error Adding Mother');
+            dispatch({type: ADD_MOTHERS_FAILURE, payload: err.response})
+        });
+};
+    ```
+
+Return All Mothers
+* **Method:**
+
+    `GET`
+
+* **URL**
+
+  /mothers
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: [{mother objects with data}]`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error getting mothers" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const getMothers = () => dispatch => {
+    dispatch({type: GET_MOTHERS_START});
+    axiosWithAuth()
+        .get("/mothers/")
+        .then(res => {
+            dispatch({type: GET_MOTHERS_SUCCESS, payload: res.data})
+        })
+        .catch(error => dispatch({type: GET_MOTHERS_FAILURE, payload: error}))
+};
+    ```
+
+Return a Mother by :ID
+* **Method:**
+
+    `GET`
+
+* **URL**
+
+  /mothers/:id
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: :id{mother object with data}`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error getting mother" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const getMother = (id) => dispatch => {
+    dispatch({type: GET_MOTHER_START});
+    axiosWithAuth()
+        .get(`/mothers/${id}`)
+        .then(res => {
+            dispatch({type: GET_MOTHER_SUCCESS, payload: res.data[0]})
+        })
+        .catch(error => dispatch({type: GET_MOTHER_FAILURE, payload: error}))
+};
+    ```
+
+Update a Mother by :ID
+* **Method:**
+
+    `PUT`
+
+* **URL**
+
+  /mother-form/:id
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: :id{mother object with data}`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error updating mother" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const updateMother = (id, mother, props) => dispatch => {
+    dispatch({type: UPDATE_MOTHER_START});
+    axiosWithAuth()
+        .put(`/mothers/${id}`, mother)
+        .then(res => {
+            Mixpanel.track('Updated Mother', {id: 'id'});
+            dispatch({type: UPDATE_MOTHER_SUCCESS, payload: mother});
+            props.history.push(`/mothers/${id}`);
+        })
+        .catch(err => {
+            Mixpanel.track('Error Updating Mother', {id: id});
+            dispatch({type: UPDATE_MOTHER_FAILURE, payload: err.response})
+        });
+};
+    ```
+
+    Delete a Mother by :ID
+* **Method:**
+
+    `DELETE`
+
+* **URL**
+
+  /mothers/:id
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+
+  `message: : Deleted Mother`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br /> 
+    **Content:** `{ error : "Error Deleting Mother" }`
+
+* **Sample Call:**
+
+  ```javascript
+  export const deleteMother = (id, props) => dispatch => {
+    dispatch({type: DELETE_MOTHER_START});
+    axiosWithAuth()
+        .delete(`/mothers/${id}`)
+        .then(res => {
+            Mixpanel.track('Deleted Mother', {id: id});
+            dispatch({type: DELETE_MOTHER_SUCCESS, payload: id});
+            props.history.push('/mothers')
+        })
+        .catch(err => {
+            Mixpanel.track('Error Deleting Mother', {id: id});
+            dispatch({type: DELETE_MOTHER_FAILURE, payload: err.response})
+        })
+};
+    ```
 
 # 3️⃣ Environment Variables
 
