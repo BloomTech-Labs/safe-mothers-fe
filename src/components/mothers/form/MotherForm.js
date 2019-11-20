@@ -120,6 +120,8 @@ const StyledMotherForm = styled.div`
 function MotherForm(props) {
     const [amtSaved, setAmtSaved] = useState(false);
     const ERROR_REQUIRED = "Required";
+
+    //edit state. filter mother object to populate form`s fields
     useEffect(() => {
         const id = props.match.params.id;
         if (id) {
@@ -136,9 +138,13 @@ function MotherForm(props) {
         }
     }, []);
 
+    //function for cleaning fields representing other info when user don`t select 'other' option anymore
     const resetValue = (name, value, name2, value2) => {
+        //set value with 'name' of selected field
         props.setFieldValue(name, parseInt(value));
+        //value and value2 represents previous and current values of selected field
         if (value !== value2) {
+            //name2 - name of the field that needs to be cleaned
             props.setFieldValue(name2, '')
         }
     };
@@ -173,8 +179,10 @@ function MotherForm(props) {
                                     <div className="column">
                                         {/*interviewer*/}
                                         <label className="error-holder">
+                                            {/* use resetValue rather then setField when the field had 'OTHER' option */}
                                             <Field component="select" className="regular-input input" name="interviewer"
                                                    onChange={(e) => resetValue("interviewer", e.target.value, "interviewer_other", interviewers.Other)}>
+                                                {/*unique values of field could`t be generated in the loop*/}
                                                 <Interviewers/>
                                             </Field>
                                             <Tooltip tip="Who conducted this interview?"/>
@@ -184,6 +192,7 @@ function MotherForm(props) {
                                         </label>
 
                                         {/*interviewer_other*/}
+                                        {/* check if user choose 'OTHER' value in the interviewer field */}
                                         {props.values.interviewer === interviewers.Other &&
                                         <label className="error-holder">
                                             <Field className="regular-input" type="text" name="interviewer_other"/>
@@ -197,6 +206,7 @@ function MotherForm(props) {
                                         <label className="error-holder">
                                             <Field component="select" className="regular-input" name="current_pg"
                                                    onChange={(e) => props.setFieldValue("current_pg", parseInt(e.target.value))}>
+                                                {/* field with unique options values */}
                                                 <YesNoDontknowDeclin state={false}/>
                                             </Field>
                                             <Tooltip tip={notes.pregnancy}/>
@@ -1299,6 +1309,7 @@ const FormikMother = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
+        /* error strings currently are not used */
         interviewer: Yup.number().required("Please choose an option"),
         current_pg: Yup.number().required("Please choose yes or no"),
         due_now: Yup.number().required("Please choose an option"),
@@ -1320,6 +1331,7 @@ const FormikMother = withFormik({
         want_education: Yup.number().required("Please choose yes or no"),
     }),
     handleSubmit(values, {props}) {
+        /* filter defined object`s properties into a new array */
         let mother = {};
         for (let property  in values) {
             if (typeof values[property] === 'string' && values[property].length > 0) mother[property] = values[property];
@@ -1330,6 +1342,7 @@ const FormikMother = withFormik({
             const suplies = array_supplies.filter((item, index) => array_supplies.indexOf(item) === index).join(' ');
             mother.name_supplies = suplies;
         }
+        /* if there any id in the path perform edit action*/
         if (props.match.params.id) {
             props.updateMother(values.id, mother, props);
         } else {
