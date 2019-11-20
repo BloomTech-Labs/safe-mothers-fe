@@ -130,28 +130,11 @@ API documentation can be found [here](https://documenter.getpostman.com/view/629
 
 In order for the app to function correctly, the user must set up their own environment variables. There should be a .env file containing the following:
 
-    * create .env file in each place as follow:
-       *  REACT_APP_MIXPANEL_TOKEN= store MixPanel token here for analytics
-        *  REACT_APP_NODE_ENV=production (required for mixpanel analytics)
-        *.env (contains all the environment variables for production)
+    REACT_APP_API_URL- will be the base URL for the specific back-end server that the client will be using.
+    REACT_APP_MIXPANEL_TOKEN= store MixPanel token here for analytics (required for Mixpanel)
+    REACT_APP_NODE_ENV=production (required for Mixpanel analytics)
+    ** Mixpanel needs the REACT_APP_NODE_ENV variable set to "production" for it to work. **
     
-    `REACT_APP_API_URL`- will be the base URL for the specific back-end server that the client will be using.
-    `REACT_APP_MIXPANEL_TOKEN`- needs to be set if the person wants to use MixPanel analytics tools.
-    ** MixPanel needs the REACT_APP_NODE_ENV variable set to "production" for it to work.
-    
-# 5️⃣ Content Licenses
-
-🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
-
-| Image Filename | Source / Creator | License                                                                      |
-| -------------- | ---------------- | ---------------------------------------------------------------------------- |
-| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
-| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
-
-# 4️⃣ Testing
-
-🚫Document what you used for testing and why
-
 # 4️⃣ Installation Instructions
 
 ### Installation
@@ -192,6 +175,15 @@ You will also see any lint errors in the console.
     * build - creates a build of the application
     * start - starts the production server after a build is created
     * test - runs tests in **tests** directory \* eject - copy the configuration files and dependencies into the project so you have full control over them
+
+# 5️⃣ Content Licenses
+
+🚫For all content - images, icons, etc, use this table to document permission of use. Remove the two placeholders and add you content to this table
+
+| Image Filename | Source / Creator | License                                                                      |
+| -------------- | ---------------- | ---------------------------------------------------------------------------- |
+| doodles.png    | Nicole Bennett   | [Creative Commons](https://www.toptal.com/designers/subtlepatterns/doodles/) |
+| rings.svg      | Sam Herbert      | [MIT](https://github.com/SamHerbert/SVG-Loaders)                             |
 
 # Contributing
 
