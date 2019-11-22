@@ -1,35 +1,31 @@
-
 # Safe Mothers Safe Babies
 
-You can find the deployed project at:  
+You can find the deployed project at:
 
-
-Staging:   [staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/)    
-Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herokuapp.com/)
+Staging: [staging-fe-labs17-safe](https://staging-fe-labs17-safe.herokuapp.com/)  
+Production: [production-fe-labs17-safe](https://production-fe-labs17-safe.herokuapp.com/)
 
 [View the project demo](https://www.youtube.com/watch?v=KM4jNYUOg7Y&t=8s)
 
 ## Contributors
 
-|                                                      [Aleksandra Foksman](https://github.com/AlexFox1777)                                                       |                                                       [Annique Nsabimana](https://github.com/AnniqueN)                                                        |                                                      [Blake Prouty](https://github.com/Prouty89)                                                       |                                                       [Chris Delfaus](https://github.com/ChrisDelf)                                                        |                                                      [Christian Ubani](https://github.com/chikechris)                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777)  | [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN)  | [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89) | [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf) | [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)  |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AlexFox1777)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnniqueN)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Prouty89)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ChrisDelf)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/aleksandra-foksman-551490192/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |
-
-<br>
-<br>  
-
-
-|                                                      [Dennis Mercado](https://github.com/denmercs)                                                        |                                                       [Jade E Lopez](https://github.com/jadeli1720)                                                         |                                                      [Jonathan Dorety](https://github.com/kyullog)                                                      |                                                       [Alexander Vargas](https://github.com/)                                                        |                                                                                                           |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | --------------------------: 
-| [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs) | [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)  | [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog) | [<img src="https://avatars2.githubusercontent.com/u/48666085?s=400&v=4" width = "200" />](https://github.com/YorAlexVargas) | 
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)                               |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)                              |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                                                     |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/)               |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                
+|                                             [Aleksandra Foksman](https://github.com/AlexFox1777)                                              |                                    [Annique Nsabimana](https://github.com/AnniqueN)                                    |                                      [Blake Prouty](https://github.com/Prouty89)                                       |                                      [Chris Delfaus](https://github.com/ChrisDelf)                                      |                               [Christian Ubani](https://github.com/chikechris)                                |
+| :-------------------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|           [<img src="https://avatars2.githubusercontent.com/u/29143795?s=400&v=4" width = "200" />](https://github.com/AlexFox1777)           | [<img src="https://avatars2.githubusercontent.com/u/49927716?s=400&v=4" width = "200" />](https://github.com/AnniqueN) | [<img src="https://avatars0.githubusercontent.com/u/48926680?s=400&v=4" width = "200" />](https://github.com/Prouty89) | [<img src="https://avatars0.githubusercontent.com/u/51103329?s=400&v=4" width = "200" />](https://github.com/ChrisDelf) |         [<img src="https://i.imgur.com/UVoo1CI.png" width = "200" />](https://github.com/chikechris)          |
+|                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AlexFox1777)                            |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/AnniqueN)                  |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Prouty89)                  |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/ChrisDelf)                  |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/aleksandra-foksman-551490192/) |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)      |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)      |      [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)      | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 
 <br>
 <br>
-                                    
+
+|                                       [Dennis Mercado](https://github.com/denmercs)                                       |                                            [Jade E Lopez](https://github.com/jadeli1720)                                             |                                     [Jonathan Dorety](https://github.com/kyullog)                                     |                                           [Alexander Vargas](https://github.com/)                                           |     |
+| :-----------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | --: |
+|  [<img src="https://avatars2.githubusercontent.com/u/12239322?s=400&v=4" width = "200" />](https://github.com/denmercs)   |                     [<img src="https://i.imgur.com/Ymp8wko.png" width = "200" />](https://github.com/jadeli1720)                     | [<img src="https://avatars2.githubusercontent.com/u/36145101?s=400&v=4" width = "200" />](https://github.com/kyullog) | [<img src="https://avatars2.githubusercontent.com/u/48666085?s=400&v=4" width = "200" />](https://github.com/YorAlexVargas) |
+|                   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denmercs)                   |                       [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jadeli1720)                        |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kyullog)                  |                 [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                  |     |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/denmercs/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/jade-lopez-3a31baa2/) |     [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)     |        [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)        |
+
+<br>
+<br>
 
 ## Contributors
 
@@ -43,8 +39,7 @@ Production:  [production-fe-labs17-safe](https://production-fe-labs17-safe.herok
 
 [Product Canvas](https://www.notion.so/SAFE-Mothers-fa66eb370c2b4a20a10f3f3159542c74)
 
-[UX Design files](https://www.figma.com/file/gUEga1dX7l0CCPsthYSQr0/Labs17_Safe-Mothers%2C-Alexander-Vargas?node-id=192%3A14) 
-
+[UX Design files](https://www.figma.com/file/gUEga1dX7l0CCPsthYSQr0/Labs17_Safe-Mothers%2C-Alexander-Vargas?node-id=192%3A14)
 
 Safe Mother, Safe Babies is a non-profit organization whose goal is to increase health facility access to pregnant mothers residing in Ugandan Villages. The organization relies on data collection of Mothers and volunteer drivers whose information is stored on a database and accessed for risk evaluation and SMS communication purposes. The app consists of several parts:
 
@@ -53,13 +48,11 @@ Safe Mother, Safe Babies is a non-profit organization whose goal is to increase 
 - Give the user the ability to upload data
 - Interact and control the dispatch of drivers to mothers in need
 
-###  Key Features
+### Key Features
 
--    Mother CRUD functions
--    Driver CRUD functions
--    Administrative user CRUD functions
-
-
+- Mother CRUD functions
+- Driver CRUD functions
+- Administrative user CRUD functions
 
 ## Tech Stack
 
@@ -99,13 +92,13 @@ We chose these frameworks because:
 
 #### [Back end](https://github.com/Lambda-School-Labs/safe-mothers-be) built using:
 
-#    NodeJS + ExpressJS
+# NodeJS + ExpressJS
 
 - Allows for quick building of scalable network applications
 - REST API is predictable, and doesn't expose database architecture to FE
 - Clean and organized code using packages/middleware for validation, error handling, etc.
 
-## Libraries 
+## Libraries
 
 - axios
 - bcryptjs
@@ -117,7 +110,7 @@ We chose these frameworks because:
 - jsonwebtoken
 - knex
 - knex-cleaner
-- pg 
+- pg
 - sqlite3
 
 # APIs
@@ -132,7 +125,14 @@ In order for the app to function correctly, the user must set up their own envir
     REACT_APP_MIXPANEL_TOKEN= store MixPanel token here for analytics (required for Mixpanel)
     REACT_APP_NODE_ENV=production (required for Mixpanel analytics)
     ** Mixpanel needs the REACT_APP_NODE_ENV variable set to "production" for it to work. **
-    
+
+# Content Licenses
+
+| Image Filename | Source / Creator | License                                                                |
+| -------------- | ---------------- | ---------------------------------------------------------------------- |
+| Rain.png       | Hea Poh Lin      | [Creative Commons](https://thenounproject.com/search/?q=rain&i=611431) |
+| Sun.svg        | Tomáš Otrubčák   | [Creative Commons](https://thenounproject.com/search/?q=sun&i=674387)  |
+
 # Installation Instructions
 
 ### Installation
@@ -150,20 +150,20 @@ npm install
 ```
 npm start
 ```
-  _Runs the app in the development mode.
+
+\_Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
 
-_The page will reload if you make edits.
+\_The page will reload if you make edits.
 You will also see any lint errors in the console.
 
 **Step 4:** configure for backend
 
- - https://github.com/Lambda-School-Labs/safe-mothers-be
- 
- will be the base URL for the specific back-end server that the client will be using.
+- https://github.com/Lambda-School-Labs/safe-mothers-be
+
+will be the base URL for the specific back-end server that the client will be using.
 
 **\*\*NOTE\*\*** - `npm start` is the same as running `expo start`
-                          
 
 # Contributing
 
